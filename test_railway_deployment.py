@@ -31,6 +31,7 @@ async def test_svg_generation():
                 "type": "diagram_request",
                 "correlation_id": str(uuid.uuid4()),
                 "data": {
+                    "content": "Strategic planning pyramid with three levels",
                     "diagram_type": "pyramid_3_level",
                     "data_points": [
                         {"label": "Strategic Level", "value": 100},
@@ -50,6 +51,7 @@ async def test_svg_generation():
                 "type": "diagram_request",
                 "correlation_id": str(uuid.uuid4()),
                 "data": {
+                    "content": "Impact vs Effort Matrix Analysis",
                     "diagram_type": "matrix_2x2",
                     "data_points": [
                         {"label": "High Impact, High Effort", "value": 85},
@@ -72,6 +74,7 @@ async def test_svg_generation():
                 "type": "diagram_request",
                 "correlation_id": str(uuid.uuid4()),
                 "data": {
+                    "content": "Comparison of two data sets with overlap",
                     "diagram_type": "venn_2_circle",
                     "data_points": [
                         {"label": "Set A Only", "value": 30},
@@ -92,6 +95,7 @@ async def test_svg_generation():
                 "type": "diagram_request",
                 "correlation_id": str(uuid.uuid4()),
                 "data": {
+                    "content": "Central hub with four connected nodes",
                     "diagram_type": "hub_spoke_4",
                     "data_points": [
                         {"label": "Central Hub", "value": 100},
@@ -113,6 +117,7 @@ async def test_svg_generation():
                 "type": "diagram_request",
                 "correlation_id": str(uuid.uuid4()),
                 "data": {
+                    "content": "Sales funnel with three conversion stages",
                     "diagram_type": "funnel_3_stage",
                     "data_points": [
                         {"label": "Awareness", "value": 1000},
