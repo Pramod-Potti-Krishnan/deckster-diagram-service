@@ -99,9 +99,9 @@ class Settings(BaseSettings):
     
     # Security - Simple string that will be split
     cors_origins: str = Field(
-        default="http://localhost:3000,http://localhost:3001",
+        default="*",  # Allow all origins by default for WebSocket compatibility
         env="CORS_ORIGINS",
-        description="Comma-separated CORS origins"
+        description="Comma-separated CORS origins or '*' for all"
     )
     api_key: Optional[str] = Field(
         default=None,
@@ -178,6 +178,10 @@ class Settings(BaseSettings):
     def get_cors_origins_list(self) -> List[str]:
         """Parse CORS origins from comma-separated string"""
         if isinstance(self.cors_origins, str):
+            # Handle wildcard
+            if self.cors_origins.strip() == "*":
+                return ["*"]
+            # Handle comma-separated list
             return [origin.strip() for origin in self.cors_origins.split(',')]
         return self.cors_origins if isinstance(self.cors_origins, list) else []
     

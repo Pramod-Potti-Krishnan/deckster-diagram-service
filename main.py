@@ -171,21 +171,30 @@ async def metrics():
 @app.websocket("/ws")
 async def websocket_endpoint(
     websocket: WebSocket,
-    session_id: str,
-    user_id: str,
+    session_id: Optional[str] = None,
+    user_id: Optional[str] = None,
     api_key: Optional[str] = None
 ):
     """
     Main WebSocket endpoint for diagram generation
     
-    Query parameters:
-    - session_id: Session identifier
-    - user_id: User identifier  
+    Query parameters (all optional):
+    - session_id: Session identifier (auto-generated if not provided)
+    - user_id: User identifier (defaults to 'anonymous' if not provided)
     - api_key: Optional API key for authentication
     """
     
     # Accept connection first (before any validation)
     await websocket.accept()
+    
+    # Generate defaults for missing parameters
+    import uuid
+    if not session_id:
+        session_id = str(uuid.uuid4())
+        logger.debug(f"Generated session_id: {session_id}")
+    if not user_id:
+        user_id = "anonymous"
+        logger.debug(f"Using default user_id: {user_id}")
     
     # Validate API key if configured
     if settings.api_key and settings.api_key.strip() and api_key != settings.api_key:
