@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <!-- 3-Level Pyramid Template - 25% Larger (Proportionally Scaled) with Light Colors -->
+  
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- 
+    Pyramid geometry - 25% proportionally larger:
+    Original: 800x600, pyramid base 400px, height 305px
+    New: 1000x750, pyramid base 500px, height 381px (all × 1.25)
+    
+    - Apex: (500, 188) - was (400, 150)
+    - Base: from (250, 569) to (750, 569) - 500px wide (was 400px)
+    - Total height: 381px (was 305px)
+    - Heights (all × 1.25): 
+      - Level 1: 150px (was 120px)
+      - Level 2: 116px (was 92.5px)
+      - Level 3: 103px (was 82.5px)
+    - Level boundaries: y=338 (was 270), y=459 (was 367.5), y=569 (was 455)
+    - 6px gaps between levels (was 5px)
+    - Same slope ratio maintained: 250/381 = 0.656
+  -->
+  
+  <!-- Level 3 (Bottom) - from y=466 to y=569 (height: 103px) -->
+  <path id="level_3_fill" d="M 256 569 L 744 569 L 676 466 L 324 466 Z" 
+        fill="#94f0b6" stroke="#94f0b6" stroke-width="2"/>
+  <text id="level_3_text" x="500" y="538" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#000000">
+    Bottom
+  </text>
+  
+  <!-- Level 2 (Middle) - from y=344 to y=459 (height: 115px) -->
+  <path id="level_2_fill" d="M 330 459 L 670 459 L 594 344 L 406 344 Z" 
+        fill="#94f0b6" stroke="#94f0b6" stroke-width="2"/>
+  <text id="level_2_text" x="500" y="425" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#000000">
+    Middle
+  </text>
+  
+  <!-- Level 1 (Top) - triangle from apex to y=338 (height: 150px) -->
+  <path id="level_1_fill" d="M 410 338 L 590 338 L 500 188 Z" 
+        fill="#94f0b6" stroke="#94f0b6" stroke-width="2"/>
+  <!-- Text positioned towards bottom of the level for better wrapping space -->
+  <text id="level_1_text" x="500" y="306" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#000000">
+    Top
+  </text>
+  
+  <!-- Title -->
+  </svg>

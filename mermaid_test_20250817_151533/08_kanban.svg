@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <defs>
+        <script type="application/mermaid+json">{
+            "code": "kanban\n    backlog[Backlog]\n        backlogTask1[Implement user notifications system]\n        backlogTask2[Add export to PDF feature]\n        backlogTask3[Optimize database queries]\n    \n    todo[To Do]\n        todoTask1[Fix login page CSS issues]\n        todoTask2[Write unit tests for payment module]\n        todoTask3[Update API documentation]\n    \n    inProgress[In Progress]\n        inProgressTask1[Develop user dashboard (60% complete)]@{assigned: \"John\"}\n        inProgressTask2[Integrate third-party analytics (30% complete)]@{assigned: \"Sarah\"}\n        inProgressTask3[Refactor authentication service (80% complete)]@{assigned: \"Mike\"}\n    \n    testing[Testing]\n        testingTask1[Shopping cart functionality]@{assigned: \"QA team\"}\n        testingTask2[Email verification flow]@{assigned: \"Lisa\"}\n    \n    done[Done]\n        doneTask1[Setup CI/CD pipeline]\n        doneTask2[Migrate to new database server]\n        doneTask3[Implement two-factor authentication]\n        doneTask4[Fix critical security vulnerability]",
+            "theme": "default",
+            "themeVariables": {
+                "primaryColor": "#3B82F6",
+                "background": "#ffffff"
+            }
+        }</script>
+    </defs>
+    <rect width="800" height="600" fill="#ffffff"/>
+    <text x="400" y="300" text-anchor="middle" fill="#1F2937">
+        [Mermaid Diagram - Client Render]
+    </text>
+</svg>

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  diagram-microservice:
+    build: .
+    container_name: diagram-microservice-v2
+    ports:
+      - "8001:8001"
+    environment:
+      - WS_HOST=0.0.0.0
+      - WS_PORT=8001
+      - LOG_LEVEL=INFO
+      - CACHE_TYPE=memory
+      # Supabase configuration - replace with your values
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_SERVICE_KEY}
+      - DIAGRAM_BUCKET=diagrams
+      - STORAGE_PUBLIC=true
+      # Optional monitoring
+      - LOGFIRE_TOKEN=${LOGFIRE_TOKEN}
+    volumes:
+      # Mount templates directory for development
+      - ./templates:/app/templates:ro
+      # Mount .env file if needed
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    networks:
+      - diagram-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  diagram-network:
+    driver: bridge

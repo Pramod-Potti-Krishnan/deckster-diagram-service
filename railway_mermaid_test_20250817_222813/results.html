@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Mermaid Diagrams Test Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .summary {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .summary-item {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #3B82F6;
+        }
+        
+        .summary-item.success {
+            border-left-color: #10b981;
+        }
+        
+        .summary-item.failed {
+            border-left-color: #ef4444;
+        }
+        
+        .diagram-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-header {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .diagram-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .status-badge.success {
+            background: #10b981;
+        }
+        
+        .status-badge.failed {
+            background: #ef4444;
+        }
+        
+        .diagram-content {
+            padding: 30px;
+            background: #fafbfc;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            padding: 20px;
+            background: #fee;
+            border-radius: 6px;
+            border: 1px solid #fcc;
+        }
+        
+        .code-section {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+        
+        .code-section pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            padding: 15px 20px 0;
+            background: white;
+        }
+        
+        .tab {
+            padding: 8px 16px;
+            background: #f1f5f9;
+            border: none;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .tab.active {
+            background: #fafbfc;
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .metadata {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Railway Mermaid Diagrams Test Results</h1>
+    
+    <div class="summary">
+        <h2>Test Summary</h2>
+        <p><strong>Timestamp:</strong> 2025-08-17 22:28:13</p>
+        <p><strong>Deployment:</strong> Railway Production</p>
+        <p><strong>Total Tests:</strong> 7</p>
+        
+        <div class="summary-grid">
+
+            <div class="summary-item failed">
+                <strong>flowchart</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>erDiagram</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>journey</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>gantt</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>quadrantChart</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>timeline</strong><br>
+                ❌ Failed
+            </div>
+
+            <div class="summary-item failed">
+                <strong>kanban</strong><br>
+                ❌ Failed
+            </div>
+
+        </div>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Process Flow Diagram</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Entity Relationship Diagram</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>User Journey Map</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Gantt Chart Timeline</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Quadrant Chart Matrix</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Timeline Diagram</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-header">
+            <h2>Kanban Board</h2>
+            <span class="status-badge failed">Failed</span>
+        </div>
+
+        <div class="diagram-content">
+            <div class="error-message">
+                <strong>Error:</strong> Unexpected response type
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            }
+        });
+        
+        // Tab switching function
+        function showTab(diagramId, tabName) {
+            // Hide all tabs for this diagram
+            const tabs = document.querySelectorAll(`[id^="tab-${diagramId}-"]`);
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(`tab-${diagramId}-${tabName}`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Update tab buttons
+            const buttons = document.querySelectorAll(`.diagram-container:nth-child(${parseInt(diagramId) + 3}) .tab`);
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(tabName)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart Minimal Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status.error {
+            background: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Flowchart Minimal Test</h1>
+    
+    <!-- Test 1: Absolutely Minimal -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. Absolutely Minimal</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-minimal">
+flowchart TD
+    Start --> End
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-minimal">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 2: With Node Shapes -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. With Node Shapes</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-shapes">
+flowchart TD
+    Start([Start Process])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Valid Data?}
+    Database[(Database)]
+    SubProcess[[Subprocess]]
+    Result[/Output Result/]
+    End([End Process])
+    
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input
+    Result ==> End
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-shapes">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 3: With Comments (Single Line) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. With Single Line Comments</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-comments-single">
+flowchart TD
+    %% Different node shapes
+    Start([Start Process])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Valid Data?}
+    Database[(Database)]
+    SubProcess[[Subprocess]]
+    Result[/Output Result/]
+    End([End Process])
+    
+    %% Connections
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input
+    Result ==> End
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-comments-single">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 4: With Inline Comments -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>4. With Inline Comments</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-comments-inline">
+flowchart TD
+    Start([Start Process])           %% Stadium shape
+    Input[/Input Data/]              %% Parallelogram
+    Process[Process Data]            %% Rectangle
+    Decision{Valid Data?}            %% Rhombus
+    Database[(Database)]             %% Cylinder
+    SubProcess[[Subprocess]]         %% Subroutine
+    Result[/Output Result/]          %% Parallelogram
+    End([End Process])               %% Stadium shape
+    
+    Start --> Input                  %% Standard arrow
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database       %% Arrow with label
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input                %% Dotted arrow
+    Result ==> End                   %% Thick arrow
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-comments-inline">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 5: With Classes -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>5. With CSS Classes</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-classes">
+flowchart TD
+    Start([Start Process])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Valid Data?}
+    Database[(Database)]
+    SubProcess[[Subprocess]]
+    Result[/Output Result/]
+    End([End Process])
+    
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input
+    Result ==> End
+    
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-classes">Checking...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            securityLevel: 'loose'
+        });
+        
+        // Check each diagram for errors
+        setTimeout(() => {
+            const diagrams = [
+                'flowchart-minimal',
+                'flowchart-shapes',
+                'flowchart-comments-single',
+                'flowchart-comments-inline',
+                'flowchart-classes'
+            ];
+            
+            diagrams.forEach(id => {
+                const element = document.getElementById(id);
+                const statusElement = document.getElementById(`status-${id}`);
+                
+                if (element) {
+                    // Check if diagram rendered (will have SVG content)
+                    if (element.querySelector('svg')) {
+                        statusElement.textContent = '✅ Rendering successful';
+                        statusElement.className = 'status success';
+                    } else if (element.textContent.includes('Syntax error')) {
+                        statusElement.textContent = '❌ Syntax error detected';
+                        statusElement.className = 'status error';
+                        console.error(`Error in ${id}:`, element.textContent);
+                    } else {
+                        statusElement.textContent = '⚠️ Unknown status';
+                        statusElement.className = 'status';
+                    }
+                }
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

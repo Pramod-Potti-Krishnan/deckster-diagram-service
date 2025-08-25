@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart Test - Find Working Version</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status.error {
+            background: #ef4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Flowchart Syntax Test</h1>
+    
+    <!-- Test 1: Without any subgraph -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. No Subgraph (Basic)</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-no-subgraph">
+flowchart TD
+    Start([Start Process])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Valid Data?}
+    Database[(Database)]
+    SubProcess[[Subprocess]]
+    Result[/Output Result/]
+    End([End Process])
+    
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input
+    Result ==> End
+    
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-no-subgraph">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 2: Exact copy from test_playbook_final_v2.html -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. From Final V2 (What Failed)</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-finalv2">
+flowchart TD
+    %% This is a complete flowchart with all major features
+    %% Based on official Mermaid.js documentation
+    
+    %% Different node shapes
+    Start([Start Process])           %% Stadium shape (rounded edges)
+    Input[/Input Data/]              %% Parallelogram for input/output
+    Process[Process Data]            %% Rectangle for standard process
+    Decision{Valid Data?}            %% Rhombus for decisions
+    Database[(Database)]             %% Cylinder for database
+    SubProcess[[Subprocess]]         %% Subroutine shape
+    Result[/Output Result/]          %% Parallelogram for output
+    End([End Process])               %% Stadium shape
+    
+    %% Connections with different arrow types
+    Start --> Input                  %% Standard arrow
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database       %% Arrow with label
+    Decision -->|No| Error[Display Error]  %% Inline node definition
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input                %% Dotted arrow (retry path)
+    Result ==> End                   %% Thick arrow (important path)
+    
+    %% Subgraph for grouped operations
+    subgraph Validation
+        V1[Format Check] --> V2[Range Check]
+        V2 --> V3[Business Rules]
+    end
+    
+    Process --> Validation
+    Validation --> Decision
+    
+    %% Styling with CSS classes
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-finalv2">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 3: From test_playbook_examples_fixed.html that worked -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. From Examples Fixed (What Worked)</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-fixed-worked">
+flowchart TD
+    %% This is a complete flowchart with all major features
+    %% Based on official Mermaid.js documentation
+    
+    %% Different node shapes
+    Start([Start Process])           %% Stadium shape (rounded edges)
+    Input[/Input Data/]              %% Parallelogram for input/output
+    Process[Process Data]            %% Rectangle for standard process
+    Decision{Valid Data?}            %% Rhombus for decisions
+    Database[(Database)]             %% Cylinder for database
+    SubProcess[[Subprocess]]         %% Subroutine shape
+    Result[/Output Result/]          %% Parallelogram for output
+    End([End Process])               %% Stadium shape
+    
+    %% Connections with different arrow types
+    Start --> Input                  %% Standard arrow
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database       %% Arrow with label
+    Decision -->|No| Error[Display Error]  %% Inline node definition
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input                %% Dotted arrow (retry path)
+    Result ==> End                   %% Thick arrow (important path)
+    
+    %% Subgraph for grouped operations - FIXED SYNTAX
+    subgraph Validation["Data Validation Layer"]
+        V1[Format Check] --> V2[Range Check]
+        V2 --> V3[Business Rules]
+    end
+    
+    Process --> Validation
+    Validation --> Decision
+    
+    %% Styling with CSS classes
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-fixed-worked">Checking...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            securityLevel: 'loose'
+        });
+        
+        // Check each diagram for errors
+        setTimeout(() => {
+            const diagrams = [
+                'flowchart-no-subgraph',
+                'flowchart-finalv2',
+                'flowchart-fixed-worked'
+            ];
+            
+            diagrams.forEach(id => {
+                const element = document.getElementById(id);
+                const statusElement = document.getElementById(`status-${id}`);
+                
+                if (element) {
+                    // Check if diagram rendered (will have SVG content)
+                    if (element.querySelector('svg')) {
+                        statusElement.textContent = '✅ Rendering successful';
+                        statusElement.className = 'status success';
+                    } else if (element.textContent.includes('Syntax error')) {
+                        statusElement.textContent = '❌ Syntax error detected';
+                        statusElement.className = 'status error';
+                        console.error(`Error in ${id}:`, element.textContent);
+                    } else {
+                        statusElement.textContent = '⚠️ Unknown status';
+                        statusElement.className = 'status';
+                    }
+                }
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

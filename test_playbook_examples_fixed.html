@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Mermaid Playbook Examples Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .info-box {
+            background: #e0f2fe;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status.error {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-top: 10px;
+            white-space: pre;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .fix-note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Fixed Mermaid Playbook Examples</h1>
+    
+    <div class="info-box">
+        <strong>📝 Summary of Fixes:</strong>
+        <ul>
+            <li><strong>Flowchart:</strong> Changed subgraph syntax from <code>subgraph Validation [Data Validation Layer]</code> to <code>subgraph Validation["Data Validation Layer"]</code></li>
+            <li><strong>QuadrantChart:</strong> Testing different syntaxes for labels</li>
+            <li><strong>Kanban:</strong> Removed metadata syntax (not supported in Mermaid v11)</li>
+        </ul>
+    </div>
+    
+    <!-- Test 1: Fixed Flowchart -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. Flowchart - FIXED VERSION</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Fix Applied:</strong> Changed subgraph label syntax to use quotes properly
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-fixed">
+flowchart TD
+    %% This is a complete flowchart with all major features
+    %% Based on official Mermaid.js documentation
+    
+    %% Different node shapes
+    Start([Start Process])           %% Stadium shape (rounded edges)
+    Input[/Input Data/]              %% Parallelogram for input/output
+    Process[Process Data]            %% Rectangle for standard process
+    Decision{Valid Data?}            %% Rhombus for decisions
+    Database[(Database)]             %% Cylinder for database
+    SubProcess[[Subprocess]]         %% Subroutine shape
+    Result[/Output Result/]          %% Parallelogram for output
+    End([End Process])               %% Stadium shape
+    
+    %% Connections with different arrow types
+    Start --> Input                  %% Standard arrow
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database       %% Arrow with label
+    Decision -->|No| Error[Display Error]  %% Inline node definition
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input                %% Dotted arrow (retry path)
+    Result ==> End                   %% Thick arrow (important path)
+    
+    %% Subgraph for grouped operations - FIXED SYNTAX
+    subgraph Validation["Data Validation Layer"]
+        V1[Format Check] --> V2[Range Check]
+        V2 --> V3[Business Rules]
+    end
+    
+    Process --> Validation
+    Validation --> Decision
+    
+    %% Styling with CSS classes
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-fixed">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 2: QuadrantChart - Testing Fix -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. QuadrantChart - TESTING SIMPLIFIED VERSION</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Fix Applied:</strong> Simplified quadrant labels - removed parentheses
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="quadrant-fixed">
+quadrantChart
+    title Risk Assessment Matrix
+    x-axis Low Impact --> High Impact
+    y-axis Low Probability --> High Probability
+    
+    quadrant-1 Critical Risks
+    quadrant-2 Major Risks
+    quadrant-3 Minor Risks
+    quadrant-4 Moderate Risks
+    
+    Data Breach: [0.9, 0.8]
+    System Downtime: [0.85, 0.7]
+    Key Person Loss: [0.7, 0.6]
+    Budget Overrun: [0.75, 0.65]
+    Scope Creep: [0.6, 0.7]
+    
+    Natural Disaster: [0.95, 0.2]
+    Technology Obsolescence: [0.8, 0.3]
+    Vendor Failure: [0.7, 0.25]
+    
+    Minor Delays: [0.2, 0.8]
+    Documentation Issues: [0.15, 0.7]
+    Team Conflicts: [0.25, 0.75]
+    
+    Hardware Failure: [0.3, 0.3]
+    Office Issues: [0.1, 0.2]
+    Training Gaps: [0.35, 0.4]
+                </div>
+            </div>
+            <div class="status" id="status-quadrant-fixed">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 3: Timeline (Already Working) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. Timeline - CONFIRMED WORKING</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>No Fix Needed:</strong> This syntax is already correct
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="timeline-working">
+timeline
+    %% Timeline diagram based on official documentation
+    %% Shows chronological events with optional sections
+    
+    title Company Evolution Timeline
+    
+    section Foundation Era
+        2018 Q1 : Company founded by 3 co-founders
+                : Seed funding of $500K secured
+        
+        2018 Q3 : First prototype developed
+                : Alpha testing with 10 users
+        
+        2018 Q4 : Beta launch
+                : 100 early adopters onboarded
+    
+    section Growth Phase
+        2019 Q2 : Series A funding of $5M
+                : Team expanded to 25 people
+        
+        2019 Q4 : Reached 10,000 active users
+                : Launched mobile app
+        
+        2020 Q2 : COVID-19 remote work boom
+                : User base grew 300%
+        
+        2020 Q4 : First profitable quarter
+                : International expansion started
+    
+    section Scale Phase
+        2021 Q2 : Series B funding of $25M
+                : Opened European office
+        
+        2021 Q4 : 100,000 users milestone
+                : Enterprise plan launched
+        
+        2022 Q2 : Acquired competitor
+                : Integrated AI features
+        
+        2022 Q4 : Series C funding of $50M
+                : Valuation reached $500M
+    
+    section Maturity
+        2023 Q2 : 1 million users
+                : IPO preparation began
+        
+        2023 Q4 : Revenue exceeded $100M
+                : Global presence in 50 countries
+        
+        2024 Q1 : IPO announcement
+                : Public trading commenced
+        
+        2024 Q2 : Market cap reached $2B
+                : Strategic acquisitions
+                </div>
+            </div>
+            <div class="status" id="status-timeline-working">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 4: Kanban - Fixed Without Metadata -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>4. Kanban - FIXED VERSION (No Metadata)</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Fix Applied:</strong> Removed @{} metadata syntax as it's not supported. Using plain text descriptions.
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="kanban-fixed">
+kanban
+    Todo[Backlog]
+        research[Research user requirements - Alice - High Priority]
+        design[Create UI mockups - Bob - Medium Priority]
+        planning[Sprint planning meeting - Team - High Priority]
+        security[Security audit preparation - Charlie - Low Priority]
+    
+    InProgress[In Progress]
+        backend[Implement REST API - David - Critical]
+        frontend[Build React components - Eve - High Priority]
+        database[Optimize database queries - Frank - Medium Priority]
+    
+    Review[Code Review]
+        auth[Authentication module - Alice - Critical]
+        payments[Payment integration - Bob - High Priority]
+    
+    Testing[QA Testing]
+        integration[Integration tests - Grace - High Priority]
+        performance[Performance testing - Henry - Medium Priority]
+    
+    Done[Completed]
+        setup[Project setup - Team - Critical]
+        cicd[CI/CD pipeline - Ian - High Priority]
+        docs[API documentation - Jane - Medium Priority]
+                </div>
+            </div>
+            <div class="status" id="status-kanban-fixed">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 5: Entity Relationship (Already Working) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>5. Entity Relationship Diagram - FROM PLAYBOOK</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Testing:</strong> This should already work based on playbook
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="er-diagram">
+erDiagram
+    %% Complete ER diagram example from official documentation
+    %% Shows all relationship types and attribute definitions
+    
+    %% Entity definitions with attributes
+    CUSTOMER {
+        int customer_id PK
+        string first_name
+        string last_name
+        string email UK
+        date registration_date
+        boolean is_active
+    }
+    
+    ORDER {
+        int order_id PK
+        date order_date
+        decimal total_amount
+        string status
+        int customer_id FK
+    }
+    
+    PRODUCT {
+        int product_id PK
+        string product_name
+        decimal price
+        int stock_quantity
+        string category
+    }
+    
+    ORDER_ITEM {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+    
+    %% Relationships with cardinality
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : "appears in"
+                </div>
+            </div>
+            <div class="status" id="status-er-diagram">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 6: Journey (Already Working) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>6. User Journey - FROM PLAYBOOK</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Testing:</strong> This should already work based on playbook
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="journey">
+journey
+    %% User journey with satisfaction scores (0-5)
+    %% Based on official Mermaid.js documentation
+    
+    title Customer Shopping Experience
+    
+    section Discovery
+        Visit Website: 5: Customer
+        Browse Products: 4: Customer, Website
+        Read Reviews: 4: Customer
+        Compare Prices: 3: Customer
+    
+    section Purchase Decision
+        Add to Cart: 5: Customer
+        Apply Coupon: 5: Customer, System
+        Enter Shipping Info: 3: Customer
+        Select Payment Method: 3: Customer
+    
+    section Checkout
+        Process Payment: 2: Customer, Bank
+        Confirm Order: 4: Customer, System
+        Receive Confirmation: 5: Customer
+    
+    section Fulfillment
+        Track Order: 4: Customer
+        Receive Package: 5: Customer, Delivery
+        Product Review: 4: Customer
+                </div>
+            </div>
+            <div class="status" id="status-journey">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 7: Gantt (Already Working) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>7. Gantt Chart - FROM PLAYBOOK</h2>
+        </div>
+        <div class="test-content">
+            <div class="fix-note">
+                <strong>Testing:</strong> This should already work based on playbook
+            </div>
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="gantt">
+gantt
+    %% Gantt chart based on official documentation
+    %% Shows project timeline with dependencies
+    
+    title Software Development Project
+    dateFormat YYYY-MM-DD
+    
+    section Planning
+    Requirements Analysis    :done,    req1, 2024-01-01, 2024-01-07
+    System Design           :done,    des1, 2024-01-08, 2024-01-14
+    Technical Specification :done,    spec1, 2024-01-15, 2024-01-21
+    
+    section Development
+    Backend Development     :active,  dev1, 2024-01-22, 30d
+    Frontend Development    :active,  dev2, 2024-01-29, 25d
+    Database Setup         :done,    dev3, 2024-01-22, 2024-01-28
+    API Integration        :         dev4, after dev1, 10d
+    
+    section Testing
+    Unit Testing           :         test1, after dev2, 7d
+    Integration Testing    :         test2, after test1, 10d
+    User Acceptance Testing:         test3, after test2, 5d
+    
+    section Deployment
+    Production Setup       :         dep1, after test3, 3d
+    Go Live               :milestone, dep2, after dep1, 0d
+    Post-Launch Support   :         dep3, after dep2, 14d
+                </div>
+            </div>
+            <div class="status" id="status-gantt">Checking...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            securityLevel: 'loose'
+        });
+        
+        // Check each diagram for errors
+        setTimeout(() => {
+            const diagrams = [
+                'flowchart-fixed',
+                'quadrant-fixed',
+                'timeline-working',
+                'kanban-fixed',
+                'er-diagram',
+                'journey',
+                'gantt'
+            ];
+            
+            diagrams.forEach(id => {
+                const element = document.getElementById(id);
+                const statusElement = document.getElementById(`status-${id}`);
+                
+                if (element) {
+                    // Check if diagram rendered (will have SVG content)
+                    if (element.querySelector('svg')) {
+                        statusElement.textContent = '✅ Rendering successful';
+                        statusElement.className = 'status success';
+                    } else if (element.textContent.includes('Syntax error')) {
+                        statusElement.textContent = '❌ Syntax error detected';
+                        statusElement.className = 'status error';
+                    } else {
+                        statusElement.textContent = '⚠️ Unknown status';
+                        statusElement.className = 'status';
+                    }
+                }
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

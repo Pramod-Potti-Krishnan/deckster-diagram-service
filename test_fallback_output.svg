@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+    <defs>
+        <style>
+            .mermaid-placeholder {
+                font-family: Inter, system-ui, sans-serif;
+                fill: #1F2937;
+            }
+            .error-text {
+                fill: #EF4444;
+                font-size: 14px;
+            }
+        </style>
+        <script type="application/mermaid+json">{
+            "code": "flowchart TD\n    A[Start] --> B{Working?}\n    B -->|Yes| C[Success]\n    B -->|No| D[Use Fallback]",
+            "theme": "default",
+            "themeVariables": {
+                "primaryColor": "#3B82F6",
+                "primaryTextColor": "#1F2937",
+                "primaryBorderColor": "#60A5FA",
+                "lineColor": "#60A5FA",
+                "background": "#FFFFFF"
+            }
+        }</script>
+    </defs>
+    <rect width="800" height="600" fill="#FFFFFF"/>
+    <text x="400.0" y="300.0" text-anchor="middle" class="mermaid-placeholder">
+        Server-side rendering failed: [Errno 2] No such file or directory: 'mmdc'
+    </text>
+    <text x="400.0" y="330.0" text-anchor="middle" class="error-text">Server-side rendering failed: [Errno 2] No such file or directory: 'mmdc'</text>
+</svg>

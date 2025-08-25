@@ -1,0 +1,209 @@
+{
+  "timestamp": "2025-08-24T22:43:47.661945",
+  "total_tests": 25,
+  "successful": 25,
+  "failed": 0,
+  "success_rate": "100.0%",
+  "results": [
+    {
+      "name": "3-Level Pyramid",
+      "type": "pyramid_3_level",
+      "status": "success",
+      "size": 2611,
+      "labels_found": 3,
+      "labels_total": 3
+    },
+    {
+      "name": "4-Level Pyramid",
+      "type": "pyramid_4_level",
+      "status": "success",
+      "size": 3880,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "5-Level Pyramid",
+      "type": "pyramid_5_level",
+      "status": "success",
+      "size": 4698,
+      "labels_found": 5,
+      "labels_total": 5
+    },
+    {
+      "name": "3-Step Cycle",
+      "type": "cycle_3_step",
+      "status": "success",
+      "size": 3872,
+      "labels_found": 3,
+      "labels_total": 3
+    },
+    {
+      "name": "4-Step Cycle",
+      "type": "cycle_4_step",
+      "status": "success",
+      "size": 4586,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "5-Step Cycle",
+      "type": "cycle_5_step",
+      "status": "success",
+      "size": 5494,
+      "labels_found": 5,
+      "labels_total": 5
+    },
+    {
+      "name": "2-Circle Venn",
+      "type": "venn_2_circle",
+      "status": "success",
+      "size": 1630,
+      "labels_found": 2,
+      "labels_total": 2
+    },
+    {
+      "name": "3-Circle Venn",
+      "type": "venn_3_circle",
+      "status": "success",
+      "size": 2732,
+      "labels_found": 3,
+      "labels_total": 3
+    },
+    {
+      "name": "3-Stage Funnel",
+      "type": "funnel_3_stage",
+      "status": "success",
+      "size": 2703,
+      "labels_found": 3,
+      "labels_total": 3
+    },
+    {
+      "name": "4-Stage Funnel",
+      "type": "funnel_4_stage",
+      "status": "success",
+      "size": 3295,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "5-Stage Funnel",
+      "type": "funnel_5_stage",
+      "status": "success",
+      "size": 2639,
+      "labels_found": 5,
+      "labels_total": 5
+    },
+    {
+      "name": "2x2 Matrix",
+      "type": "matrix_2x2",
+      "status": "success",
+      "size": 2634,
+      "labels_found": 0,
+      "labels_total": 4
+    },
+    {
+      "name": "3x3 Matrix",
+      "type": "matrix_3x3",
+      "status": "success",
+      "size": 7426,
+      "labels_found": 0,
+      "labels_total": 9
+    },
+    {
+      "name": "SWOT Matrix",
+      "type": "swot_matrix",
+      "status": "success",
+      "size": 3747,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "Hub-Spoke 4",
+      "type": "hub_spoke_4",
+      "status": "success",
+      "size": 6487,
+      "labels_found": 1,
+      "labels_total": 5
+    },
+    {
+      "name": "Hub-Spoke 6",
+      "type": "hub_spoke_6",
+      "status": "success",
+      "size": 8311,
+      "labels_found": 7,
+      "labels_total": 7
+    },
+    {
+      "name": "3-Cell Honeycomb",
+      "type": "honeycomb_3",
+      "status": "success",
+      "size": 2241,
+      "labels_found": 2,
+      "labels_total": 3
+    },
+    {
+      "name": "5-Cell Honeycomb",
+      "type": "honeycomb_5",
+      "status": "success",
+      "size": 3236,
+      "labels_found": 4,
+      "labels_total": 5
+    },
+    {
+      "name": "7-Cell Honeycomb",
+      "type": "honeycomb_7",
+      "status": "success",
+      "size": 3910,
+      "labels_found": 6,
+      "labels_total": 7
+    },
+    {
+      "name": "3-Step Process",
+      "type": "process_flow_3",
+      "status": "success",
+      "size": 3890,
+      "labels_found": 3,
+      "labels_total": 3
+    },
+    {
+      "name": "5-Step Process",
+      "type": "process_flow_5",
+      "status": "success",
+      "size": 3472,
+      "labels_found": 0,
+      "labels_total": 5
+    },
+    {
+      "name": "Fishbone Diagram",
+      "type": "fishbone_4_bone",
+      "status": "success",
+      "size": 6862,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "Gears System",
+      "type": "gears_3",
+      "status": "success",
+      "size": 4735,
+      "labels_found": 1,
+      "labels_total": 3
+    },
+    {
+      "name": "Timeline",
+      "type": "timeline_horizontal",
+      "status": "success",
+      "size": 3917,
+      "labels_found": 4,
+      "labels_total": 4
+    },
+    {
+      "name": "Roadmap",
+      "type": "roadmap_quarterly_4",
+      "status": "success",
+      "size": 7264,
+      "labels_found": 0,
+      "labels_total": 4
+    }
+  ]
+}

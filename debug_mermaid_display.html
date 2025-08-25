@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Mermaid Display Issues</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+        }
+        
+        .debug-info {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        
+        .diagram-test {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-header {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            color: white;
+            padding: 15px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .mermaid-container {
+            background: #fafbfc;
+            padding: 30px;
+            border-radius: 6px;
+            min-height: 200px;
+            overflow-x: auto;
+        }
+        
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+        
+        .console-output {
+            background: #1e293b;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Mermaid Display Issues</h1>
+    
+    <div class="debug-info">
+        <h3>Debug Information:</h3>
+        <p>Open browser console (F12) to see detailed Mermaid parsing errors.</p>
+        <p>Each diagram below is tested individually to identify specific issues.</p>
+        <div id="console-log" class="console-output"></div>
+    </div>
+    
+    <!-- Test 1: Flowchart -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 1: Flowchart - User Authentication</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="flowchart">
+flowchart TD
+    StartLogin([Login])
+    InputCredentials[Enter Credentials]
+    Validate[Validate Credentials]
+    Decision{Credentials Valid?}
+    Dashboard[Display Dashboard]
+    ErrorMessage[Display Error Message]
+    RetryPrompt{Retry?}
+    EndProcess([End Process])
+    
+    StartLogin --> InputCredentials
+    InputCredentials --> Validate
+    Validate --> Decision
+    Decision -->|Yes| Dashboard
+    Decision -->|No| ErrorMessage
+    ErrorMessage --> RetryPrompt
+    RetryPrompt -->|Yes| InputCredentials
+    RetryPrompt -->|No| EndProcess
+    Dashboard --> EndProcess
+            </div>
+        </div>
+        <div id="flowchart-status"></div>
+    </div>
+    
+    <!-- Test 2: ER Diagram -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 2: ER Diagram - E-commerce Database</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="erdiagram">
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    CUSTOMER {
+        int id PK
+        string name
+        string email
+        datetime created
+    }
+    
+    PRODUCT ||--o{ ORDER_ITEM : contains
+    PRODUCT {
+        int id PK
+        string name
+        decimal price
+        int stock
+    }
+    
+    ORDER ||--|{ ORDER_ITEM : has
+    ORDER {
+        int id PK
+        int customer_id FK
+        datetime order_date
+        decimal total
+    }
+    
+    ORDER_ITEM {
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal price
+    }
+            </div>
+        </div>
+        <div id="erdiagram-status"></div>
+    </div>
+    
+    <!-- Test 3: Journey -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 3: User Journey - Customer Support</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="journey">
+journey
+    title Customer Support Journey
+    section Initial Contact
+      Contact Support: 3: Customer
+      Wait in Queue: 2: Customer
+    section Resolution
+      Talk to Agent: 4: Customer, Agent
+      Problem Resolved: 5: Customer, Agent
+    section Follow-up
+      Follow-up Survey: 4: Customer
+            </div>
+        </div>
+        <div id="journey-status"></div>
+    </div>
+    
+    <!-- Test 4: Gantt Chart (Fixed) -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 4: Gantt Chart - Product Launch (Fixed Syntax)</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="gantt">
+gantt
+    title Q1 2024 Product Launch
+    dateFormat YYYY-MM-DD
+    axisFormat %b
+    
+    section Planning
+    Market Research     :done, research, 2024-01-01, 30d
+    
+    section Design
+    Design Phase        :active, design, after research, 28d
+    Prototyping        :proto, after design, 14d
+    
+    section Development
+    Sprint 1           :crit, sprint1, after proto, 30d
+    Sprint 2           :crit, sprint2, after sprint1, 30d
+    
+    section QA
+    Testing            :testing, after sprint2, 30d
+    Bug Fixes          :fixes, after testing, 14d
+    
+    section Launch
+    Preparation        :prep, after fixes, 14d
+    Go Live            :milestone, launch, after prep, 0d
+            </div>
+        </div>
+        <div id="gantt-status"></div>
+    </div>
+    
+    <!-- Test 5: Quadrant Chart -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 5: Quadrant Chart - Feature Priority</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="quadrant">
+quadrantChart
+    title Feature Priority Matrix
+    x-axis Low Business Value --> High Business Value
+    y-axis Low Technical Complexity --> High Technical Complexity
+    
+    quadrant-1 Do First
+    quadrant-2 Schedule
+    quadrant-3 Delegate
+    quadrant-4 Eliminate
+    
+    AI Chat: [0.8, 0.8]
+    Dark Mode: [0.2, 0.2]
+    API v2: [0.8, 0.5]
+    Code Refactor: [0.5, 0.8]
+            </div>
+        </div>
+        <div id="quadrant-status"></div>
+    </div>
+    
+    <!-- Test 6: Timeline -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 6: Timeline - Startup Journey</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="timeline">
+timeline
+    title Startup Journey
+    
+    2019 : Idea Conception
+         : Initial Planning
+    
+    2020 : MVP Development
+         : First Prototype
+    
+    2021 : Seed Funding
+         : $500k Raised
+    
+    2022 : Product Launch
+         : First Customers
+    
+    2023 : Series A
+         : $5M Raised
+    
+    2024 : International Expansion
+         : Global Markets
+            </div>
+        </div>
+        <div id="timeline-status"></div>
+    </div>
+    
+    <!-- Test 7: Kanban -->
+    <div class="diagram-test">
+        <div class="diagram-header">
+            <h3>Test 7: Kanban Board - Sprint Board</h3>
+        </div>
+        <div class="mermaid-container">
+            <div class="mermaid" id="kanban">
+kanban
+    title Development Sprint Board
+    
+    Todo[Backlog]
+        userAuth[User Auth]
+        payment[Payment Integration]
+        analytics[Analytics]
+    
+    InProgress[In Progress]
+        apiDev[API Development]
+        uiRedesign[UI Redesign]
+    
+    Review[Code Review]
+        dbOptimization[Database Optimization]
+    
+    Testing[QA Testing]
+        mobileApp[Mobile App]
+    
+    Done[Done]
+        landingPage[Landing Page]
+        documentation[Documentation]
+            </div>
+        </div>
+        <div id="kanban-status"></div>
+    </div>
+    
+    <script>
+        // Debug logging
+        const logToPage = (message, type = 'info') => {
+            const consoleDiv = document.getElementById('console-log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#60a5fa';
+            consoleDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        };
+        
+        // Override console methods to capture output
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            logToPage(args.join(' '), 'info');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            logToPage('ERROR: ' + args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            logToPage('WARN: ' + args.join(' '), 'warn');
+        };
+        
+        // Initialize Mermaid with optimized settings
+        mermaid.initialize({
+            startOnLoad: false,  // Manual control
+            theme: 'default',
+            securityLevel: 'loose',
+            logLevel: 'debug',  // Enable debug logging
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            gantt: {
+                useMaxWidth: true,
+                numberSectionStyles: 4,
+                fontSize: 12,
+                topAxis: true,
+                gridLineStartPadding: 200,
+                leftPadding: 150,
+                sectionFontSize: 14
+            },
+            journey: {
+                useMaxWidth: true,
+                leftMargin: 100
+            },
+            er: {
+                useMaxWidth: true,
+                layoutDirection: 'TB'
+            },
+            quadrantChart: {
+                useMaxWidth: true
+            },
+            timeline: {
+                useMaxWidth: true
+            },
+            themeVariables: {
+                // Optimized theme from our guide
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#6b7280',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE',
+                
+                // Gantt specific
+                critBkgColor: '#ef4444',
+                doneTaskBkgColor: '#9ca3af',
+                activeTaskBkgColor: '#3B82F6',
+                taskBkgColor: '#f3f4f6',
+                
+                // Text colors
+                taskTextColor: '#1f2937',
+                taskTextDarkColor: '#ffffff',
+                doneTaskTextColor: '#1f2937',
+                activeTaskTextColor: '#ffffff',
+                critTaskTextColor: '#ffffff',
+                
+                // Grid
+                gridColor: '#9ca3af',
+                excludeBkgColor: '#fafafa',
+                
+                // General
+                textColor: '#1f2937',
+                titleColor: '#1f2937',
+                labelColor: '#1f2937'
+            },
+            // Error callback
+            parseError: function(err) {
+                console.error('Mermaid parse error:', err);
+            }
+        });
+        
+        // Test each diagram individually
+        const testDiagram = async (id) => {
+            const element = document.getElementById(id);
+            const statusDiv = document.getElementById(id + '-status');
+            
+            try {
+                console.log(`Testing ${id}...`);
+                await mermaid.run({
+                    querySelector: `#${id}`
+                });
+                
+                statusDiv.innerHTML = '<div class="success">✅ Rendered successfully</div>';
+                console.log(`${id} rendered successfully`);
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                console.error(`${id} failed:`, error);
+                
+                // Show the raw code for debugging
+                statusDiv.innerHTML += `<details><summary>View raw code</summary><pre>${element.textContent}</pre></details>`;
+            }
+        };
+        
+        // Run tests after page load
+        window.addEventListener('load', async () => {
+            console.log('Starting Mermaid diagram tests...');
+            console.log('Mermaid version:', mermaid.version);
+            
+            const diagrams = ['flowchart', 'erdiagram', 'journey', 'gantt', 'quadrant', 'timeline', 'kanban'];
+            
+            for (const diagram of diagrams) {
+                await testDiagram(diagram);
+                // Small delay between tests
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            console.log('All tests completed');
+        });
+    </script>
+</body>
+</html>

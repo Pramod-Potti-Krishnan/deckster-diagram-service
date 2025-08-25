@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Scheme Comparison</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+            margin: 0;
+        }
+        h1 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+        .comparison-grid {
+            display: grid;
+            gap: 40px;
+        }
+        .comparison-row {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .row-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .diagram-type {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            flex: 1;
+        }
+        .color-chip {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+        .diagrams {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .diagram-container {
+            text-align: center;
+        }
+        .scheme-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .diagram-wrapper {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        .diagram-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .monochromatic .scheme-label {
+            color: #2563eb;
+        }
+        .complementary .scheme-label {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Scheme Comparison</h1>
+    <p class="subtitle">Monochromatic (single color variations) vs Complementary (multiple colors)</p>
+    
+    <div class="comparison-grid">
+
+        <div class="comparison-row">
+            <div class="row-header">
+                <div class="diagram-type">Matrix 2X2</div>
+                <div class="color-chip" style="background: #2563eb;"></div>
+            </div>
+            <div class="diagrams">
+                <div class="diagram-container monochromatic">
+                    <div class="scheme-label">Monochromatic</div>
+                    <div class="diagram-wrapper">
+                        <img src="matrix_2x2_monochromatic.svg" alt="Monochromatic">
+                    </div>
+                </div>
+                <div class="diagram-container complementary">
+                    <div class="scheme-label">Complementary</div>
+                    <div class="diagram-wrapper">
+                        <img src="matrix_2x2_complementary.svg" alt="Complementary">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="row-header">
+                <div class="diagram-type">Pyramid 3 Level</div>
+                <div class="color-chip" style="background: #16a34a;"></div>
+            </div>
+            <div class="diagrams">
+                <div class="diagram-container monochromatic">
+                    <div class="scheme-label">Monochromatic</div>
+                    <div class="diagram-wrapper">
+                        <img src="pyramid_3_level_monochromatic.svg" alt="Monochromatic">
+                    </div>
+                </div>
+                <div class="diagram-container complementary">
+                    <div class="scheme-label">Complementary</div>
+                    <div class="diagram-wrapper">
+                        <img src="pyramid_3_level_complementary.svg" alt="Complementary">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-row">
+            <div class="row-header">
+                <div class="diagram-type">Venn 2 Circle</div>
+                <div class="color-chip" style="background: #7c3aed;"></div>
+            </div>
+            <div class="diagrams">
+                <div class="diagram-container monochromatic">
+                    <div class="scheme-label">Monochromatic</div>
+                    <div class="diagram-wrapper">
+                        <img src="venn_2_circle_monochromatic.svg" alt="Monochromatic">
+                    </div>
+                </div>
+                <div class="diagram-container complementary">
+                    <div class="scheme-label">Complementary</div>
+                    <div class="diagram-wrapper">
+                        <img src="venn_2_circle_complementary.svg" alt="Complementary">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

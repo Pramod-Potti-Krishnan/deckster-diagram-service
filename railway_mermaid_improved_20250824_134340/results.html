@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improved Mermaid Test Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .stat-label {
+            color: #718096;
+            margin-top: 5px;
+        }
+        
+        .diagram-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-header {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .status-badge.success {
+            background: #10b981;
+        }
+        
+        .status-badge.failed {
+            background: #ef4444;
+        }
+        
+        .diagram-content {
+            padding: 30px;
+            background: #fafbfc;
+            min-height: 300px;
+        }
+        
+        .mermaid-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            overflow-x: auto;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            padding: 20px;
+            background: #fee;
+            border-radius: 6px;
+            border: 1px solid #fcc;
+        }
+        
+        .timing-info {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Improved Mermaid Test Results</h1>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">7/7</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">7</div>
+                <div class="stat-label">✅ Passed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">❌ Failed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">9.15s</div>
+                <div class="stat-label">Avg Time</div>
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Simple Process Flow</strong> (flowchart)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-0">
+flowchart TD
+    %% Different node shapes
+    Start([Start])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Is Valid?}
+    Database[(Save to Database)]
+    Error[Show Error]
+    End([End])
+    
+    %% Connections
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error
+    Database ==> End
+    Error ==> End
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 10.79s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Database Schema</strong> (erDiagram)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-1">
+erDiagram
+    %% User entity definition
+    USER {
+        int id PK
+        string name
+        string email UK
+    }
+    
+    %% Order entity definition
+    ORDER {
+        int id PK
+        int user_id FK
+        decimal total
+    }
+    
+    %% Product entity definition
+    PRODUCT {
+        int id PK
+        string name
+        decimal price
+    }
+    
+    %% Junction table for many-to-many relationship between Order and Product
+    ORDER_ITEM {
+        int order_item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity %% Quantity of the product in this specific order item
+    }
+    
+    %% Relationships with cardinality
+    USER ||--o{ ORDER : places
+    %% One user can place zero or many orders
+    
+    ORDER ||--|{ ORDER_ITEM : contains
+    %% One order must contain one or many items (products)
+    
+    PRODUCT ||--o{ ORDER_ITEM : "is ordered in"
+    %% One product can be in zero or many order items
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 7.55s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>User Journey Map</strong> (journey)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-2">
+journey
+    %% User journey with satisfaction scores (0-5)
+    %% Based on official Mermaid documentation
+    
+    title Customer Online Purchase Journey
+    
+    section Shopping
+        Browse Products: 4: Customer, Marketing
+    
+    section Purchase Decision
+        Add to Cart: 5: Customer
+    
+    section Checkout Process
+        Proceed to Checkout: 3: Customer
+        Make Payment: 2: Customer, Payment Gateway
+        Receive Order Confirmation: 5: Customer, System
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 5.64s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Project Timeline (Simple)</strong> (gantt)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-3">
+gantt
+    %% Simple project timeline based on user request and example structure
+    %% Using an arbitrary "today" date of 2024-03-18 for calculations
+    
+    title Simple Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    excludes weekends 2024-12-25 2024-01-01 %% Example specific dates, kept for structure
+    
+    section Planning Phase (Week 1)
+    Project Kickoff           :done, kickoff, 2024-03-18, 1d
+    Requirements Gathering    :active, req, after kickoff, 4d %% Ends 2024-03-22 (Friday of Week 1)
+    
+    section Design Phase (Week 2-3)
+    System Design             :des, sysdes, after req, 9d %% Starts 2024-03-25, ends 2024-04-04 (Thursday of Week 3)
+    Design Review             :milestone, des_rev, after sysdes, 0d %% Milestone on 2024-04-05 (Friday of Week 3)
+    
+    section Development Phase (Week 4-6)
+    Backend Development       :crit, back, after des_rev, 10d %% Starts 2024-04-08, ends 2024-04-19 (Friday of Week 5)
+    Frontend Development      :crit, front, after des_rev, 12d %% Starts 2024-04-08, ends 2024-04-23 (Tuesday of Week 6)
+    Database Implementation   :db, db_imp, after back, 4d %% Starts 2024-04-22, ends 2024-04-25 (Thursday of Week 6)
+    Code Integration          :int, integration, after front db_imp, 0d %% Milestone on 2024-04-26 (Friday of Week 6)
+    
+    section Testing Phase (Week 7)
+    Unit Testing              :unit, unit_t, after integration, 2d %% Starts 2024-04-29
+    Integration Testing       :test, int_t, after unit_t, 2d %% Ends 2024-05-02 (Thursday of Week 7)
+    User Acceptance Testing   :crit, uat, after int_t, 1d %% Ends 2024-05-03 (Friday of Week 7)
+    
+    section Deployment Phase (Week 8)
+    Staging Deployment        :stage, stage_dep, after uat, 2d %% Starts 2024-05-06
+    Production Prep           :prep, prod_prep, after stage_dep, 1d %% Ends 2024-05-08 (Wednesday of Week 8)
+    Go Live                   :milestone, go_live, after prod_prep, 0d %% Milestone on 2024-05-09 (Thursday of Week 8)
+    Post-launch Support       :active, post_launch, after go_live, 2d %% Starts 2024-05-10 (Friday of Week 8), extends into next week
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 20.73s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Priority Matrix</strong> (quadrantChart)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-4">
+quadrantChart
+    %% Priority matrix based on user request
+    %% All coordinates must be between 0 and 1
+    
+    title Priority Matrix
+    x-axis Low Impact --> High Impact
+    y-axis Low Effort --> High Effort
+    
+    quadrant-1 Major Endeavors
+    quadrant-2 Re-evaluate / Defer
+    quadrant-3 Quick Wins
+    quadrant-4 High Value, Low Effort
+    
+    %% Plot points: [x-coordinate, y-coordinate]
+    %% x: 0 (low impact) to 1 (high impact)
+    %% y: 0 (low effort) to 1 (high effort)
+    
+    Feature A: [0.8, 0.2] %% High Impact, Low Effort (Quadrant 4)
+    Bug Fix: [0.2, 0.15] %% Low Impact, Low Effort (Quadrant 3)
+    Refactor: [0.75, 0.8] %% High Impact, High Effort (Quadrant 1)
+    Documentation: [0.1, 0.7] %% Low Impact, High Effort (Quadrant 2)
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 7.72s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Company Timeline</strong> (timeline)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-5">
+timeline
+    %% Timeline diagram based on official documentation
+    %% Shows chronological events with optional sections
+    
+    title Company Milestones Timeline
+    
+    section Inception
+        2020 : Company Founded
+                : Vision established
+    
+    section Product & Funding
+        2021 : First Product Launched
+                : Initial customer feedback received
+        
+        2022 : Series A Funding Secured
+                : Team growth accelerated
+    
+    section Growth & Expansion
+        2023 : Reached 100,000 Users
+                : Market penetration deepened
+        
+        2024 : International Expansion Initiated
+                : New markets explored
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 5.11s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+        <div class="diagram-card">
+            <div class="diagram-header">
+                <div>
+                    <strong>Kanban Board</strong> (kanban)
+                </div>
+                <span class="status-badge success">Success</span>
+            </div>
+            <div class="diagram-content">
+
+                <div class="mermaid-wrapper">
+                    <div class="mermaid" id="mermaid-6">
+kanban
+    %% Define the 'Backlog' column
+    Backlog[Backlog]
+        %% Card for Feature A
+        featureA[Feature A]
+        %% Card for Feature B
+        featureB[Feature B]
+    
+    %% Define the 'In Progress' column
+    InProgress[In Progress]
+        %% Card for Bug Fix
+        bugFix[Bug Fix]
+        %% Card for Feature C
+        featureC[Feature C]
+    
+    %% Define the 'Done' column
+    Done[Done]
+        %% Card for Feature D
+        featureD[Feature D]
+        %% Card for Feature E
+        featureE[Feature E]
+                    </div>
+                </div>
+                <div class="timing-info">
+                    Generated in 6.47s (Attempt 1)
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        // Initialize Mermaid with more permissive settings
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',  // Allow more flexibility
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            er: {
+                useMaxWidth: true
+            },
+            journey: {
+                useMaxWidth: true
+            },
+            gantt: {
+                useMaxWidth: true,
+                numberSectionStyles: 4,
+                fontSize: 12
+            }
+        });
+        
+        // Force re-render of Mermaid diagrams
+        setTimeout(() => {
+            mermaid.init();
+        }, 100);
+    </script>
+</body>
+</html>

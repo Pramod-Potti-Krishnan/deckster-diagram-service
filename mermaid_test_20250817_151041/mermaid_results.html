@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Diagram Comprehensive Test Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1F2937;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1F2937;
+            margin-top: 5px;
+        }
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 30px;
+        }
+        .diagram-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .diagram-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .diagram-type {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .diagram-content {
+            background: #f9fafb;
+            padding: 20px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+        .diagram-content svg {
+            max-width: 100%;
+            height: auto;
+        }
+        .metadata {
+            padding: 15px 20px;
+            background: #fafafa;
+            font-size: 13px;
+            color: #6B7280;
+            border-top: 1px solid #e5e7eb;
+        }
+        .error {
+            background: #FEE2E2;
+            color: #DC2626;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .success-badge {
+            color: #10B981;
+            font-weight: bold;
+        }
+        .failure-badge {
+            color: #DC2626;
+            font-weight: bold;
+        }
+        .llm-badge {
+            background: #3B82F6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            display: inline-block;
+        }
+        .method-badge {
+            background: #10B981;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span>🎨</span>
+            <span>Mermaid Diagram Comprehensive Test Results</span>
+        </h1>
+        
+        <div class="summary">
+            <div class="stat-card">
+                <div class="stat-label">Test Time</div>
+                <div class="stat-value">15:10:41</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Tests</div>
+                <div class="stat-value">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Successful</div>
+                <div class="stat-value success-badge">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Failed</div>
+                <div class="stat-value failure-badge">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">LLM Generated</div>
+                <div class="stat-value" style="color: #3B82F6">0</div>
+            </div>
+        </div>
+        
+        <div class="diagram-grid">
+
+        </div>
+    </div>
+</body>
+</html>

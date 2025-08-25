@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid v10.9.1 Comparison Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #ef4444;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .version-info {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+        
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        
+        .status.checking {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔬 Mermaid v10.9.1 Comparison Test</h1>
+    
+    <div class="version-info">
+        📌 Testing with Mermaid.js v10.9.1 (Same as current improved test)
+        <br>
+        Comparing behavior with v11 to identify version-specific issues
+    </div>
+    
+    <!-- Test 1: ER Diagram -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. Entity Relationship Diagram (erDiagram)</h2>
+            <span id="badge-er">Testing...</span>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="test-er">
+erDiagram
+    %% User entity definition
+    USER {
+        int id PK
+        string name
+        string email UK
+    }
+    
+    %% Order entity definition
+    ORDER {
+        int id PK
+        int user_id FK
+        decimal total
+    }
+    
+    %% Product entity definition
+    PRODUCT {
+        int id PK
+        string name
+        decimal price
+    }
+    
+    %% Order-Product relationship (Many-to-Many)
+    ORDER_PRODUCT {
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    
+    %% Relationships
+    USER ||--o{ ORDER : places
+    ORDER ||--o{ ORDER_PRODUCT : contains
+    PRODUCT ||--o{ ORDER_PRODUCT : "is in"
+                </div>
+            </div>
+            
+            <div class="status checking" id="status-er">
+                Checking render status...
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 2: Gantt Chart -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. Gantt Chart (gantt)</h2>
+            <span id="badge-gantt">Testing...</span>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="test-gantt">
+gantt
+    %% Simple project timeline based on user request and example structure
+    %% Using an arbitrary "today" date of 2024-03-18 for calculations
+    
+    title Simple Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    excludes weekends 2024-12-25 2024-01-01 %% Example specific dates, kept for structure
+    
+    section Planning Phase (Week 1)
+    Project Kickoff           :done, kickoff, 2024-03-18, 1d
+    Requirements Gathering    :active, req, after kickoff, 4d %% Ends 2024-03-22 (Friday of Week 1)
+    
+    section Design Phase (Week 2-3)
+    System Design             :des, sysdes, after req, 9d %% Starts 2024-03-25, ends 2024-04-04 (Thursday of Week 3)
+    Design Review             :milestone, des_rev, after sysdes, 0d %% Milestone on 2024-04-05 (Friday of Week 3)
+    
+    section Development Phase (Week 4-6)
+    Backend Development       :crit, back, after des_rev, 10d %% Starts 2024-04-08, ends 2024-04-19 (Friday of Week 5)
+    Frontend Development      :crit, front, after des_rev, 12d %% Starts 2024-04-08, ends 2024-04-23 (Tuesday of Week 6)
+    Database Implementation   :db, db_imp, after back, 4d %% Starts 2024-04-22, ends 2024-04-25 (Thursday of Week 6)
+    Integration              :int, after front db_imp, 3d %% After both frontend and db_imp complete
+    
+    section Testing Phase (Week 7)
+    Unit Testing             :test, unit_test, after int, 3d %% Starts after integration
+    Integration Testing      :test, int_test, after unit_test, 2d
+    UAT                      :uat, after int_test, 2d
+    
+    section Deployment (Week 8)
+    Staging Deployment       :stage, after uat, 2d
+    Production Release       :milestone, prod, after stage, 1d
+                </div>
+            </div>
+            
+            <div class="status checking" id="status-gantt">
+                Checking render status...
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 3: Kanban Board -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. Kanban Board (kanban)</h2>
+            <span id="badge-kanban">Testing...</span>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="test-kanban">
+kanban
+    %% Define the 'Backlog' column
+    Backlog[Backlog]
+        %% Card for Feature A
+        featureA[Feature A]
+        %% Card for Feature B
+        featureB[Feature B]
+    
+    %% Define the 'In Progress' column
+    InProgress[In Progress]
+        %% Card for Bug Fix
+        bugFix[Bug Fix]
+        %% Card for Feature C
+        featureC[Feature C]
+    
+    %% Define the 'Done' column
+    Done[Done]
+        %% Card for Feature D
+        featureD[Feature D]
+        %% Card for Feature E
+        featureE[Feature E]
+                </div>
+            </div>
+            
+            <div class="status checking" id="status-kanban">
+                Checking render status...
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Store original codes
+        const originalCodes = {
+            er: document.getElementById('test-er').textContent,
+            gantt: document.getElementById('test-gantt').textContent,
+            kanban: document.getElementById('test-kanban').textContent
+        };
+        
+        // Initialize Mermaid with same settings as improved test
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            er: {
+                useMaxWidth: true
+            },
+            journey: {
+                useMaxWidth: true
+            },
+            gantt: {
+                useMaxWidth: true,
+                numberSectionStyles: 4,
+                fontSize: 12
+            }
+        });
+        
+        // Force re-render
+        setTimeout(() => {
+            mermaid.init();
+        }, 100);
+        
+        // Check rendering status
+        setTimeout(() => {
+            const tests = [
+                { id: 'test-er', statusId: 'status-er', badgeId: 'badge-er', name: 'ER Diagram', originalKey: 'er' },
+                { id: 'test-gantt', statusId: 'status-gantt', badgeId: 'badge-gantt', name: 'Gantt Chart', originalKey: 'gantt' },
+                { id: 'test-kanban', statusId: 'status-kanban', badgeId: 'badge-kanban', name: 'Kanban Board', originalKey: 'kanban' }
+            ];
+            
+            let results = [];
+            
+            tests.forEach(test => {
+                const element = document.getElementById(test.id);
+                const statusElement = document.getElementById(test.statusId);
+                const badgeElement = document.getElementById(test.badgeId);
+                
+                if (element) {
+                    const svg = element.querySelector('svg');
+                    const hasError = element.textContent.includes('Syntax error') || 
+                                   element.textContent.includes('Parse error');
+                    const currentText = element.textContent.trim();
+                    const originalText = originalCodes[test.originalKey].trim();
+                    
+                    if (svg) {
+                        statusElement.textContent = '✅ Rendering successful with v10.9.1!';
+                        statusElement.className = 'status success';
+                        badgeElement.textContent = '✅ Working';
+                        badgeElement.style.color = '#10b981';
+                        results.push(`✅ ${test.name}: SUCCESS in v10.9.1`);
+                    } else if (hasError) {
+                        statusElement.textContent = `❌ Syntax error in v10.9.1: ${element.textContent}`;
+                        statusElement.className = 'status error';
+                        badgeElement.textContent = '❌ Failed';
+                        badgeElement.style.color = '#ef4444';
+                        results.push(`❌ ${test.name}: SYNTAX ERROR in v10.9.1`);
+                    } else if (currentText === originalText) {
+                        statusElement.textContent = '⚠️ Not rendered - v10.9.1 does not support this diagram type';
+                        statusElement.className = 'status error';
+                        badgeElement.textContent = '⚠️ Unsupported';
+                        badgeElement.style.color = '#f59e0b';
+                        results.push(`⚠️ ${test.name}: NOT SUPPORTED in v10.9.1`);
+                    } else {
+                        statusElement.textContent = '❓ Unknown status';
+                        statusElement.className = 'status checking';
+                        badgeElement.textContent = '❓ Unknown';
+                        results.push(`❓ ${test.name}: UNKNOWN`);
+                    }
+                }
+            });
+            
+            // Log summary
+            console.log('=== MERMAID v10.9.1 TEST RESULTS ===');
+            results.forEach(r => console.log(r));
+            console.log('====================================');
+            
+        }, 2000);
+    </script>
+</body>
+</html>

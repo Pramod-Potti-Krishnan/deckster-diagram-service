@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Diagram Generation Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 30px;
+        }
+        
+        .diagram-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .card-type {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .card-body {
+            padding: 30px;
+            background: #f9fafb;
+        }
+        
+        .mermaid-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        
+        .mermaid {
+            max-width: 100%;
+        }
+        
+        .code-section {
+            margin-top: 20px;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .code-label {
+            font-weight: 600;
+            color: #4B5563;
+        }
+        
+        .copy-btn {
+            background: #3B82F6;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background: #2563EB;
+        }
+        
+        .code-block {
+            background: #1F2937;
+            color: #E5E7EB;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .metadata {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #E5E7EB;
+            display: flex;
+            gap: 20px;
+            font-size: 0.85em;
+            color: #6B7280;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .meta-label {
+            font-weight: 600;
+        }
+        
+        .success-badge {
+            background: #10B981;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Mermaid Diagram Generation Demo</h1>
+            <p>Generated by Railway Diagram Service with Gemini 2.5 Flash</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">August 17, 2025 at 05:33 PM</p>
+        </div>
+        
+        <div class="results-grid">
+
+            <div class="diagram-card">
+                <div class="card-header">
+                    <div class="card-title">Login Flow</div>
+                    <span class="card-type">flowchart</span>
+                </div>
+                <div class="card-body">
+                    <div class="mermaid-container">
+                        <div class="mermaid">
+flowchart TD
+    UserEntry["User enters email and password"]
+    ValidateCredentials{"Validate credentials"}
+    GenerateJWT["Generate JWT token"]
+    StoreCookie["Store in cookie"]
+    RedirectDashboard["Redirect to dashboard"]
+    ShowError["Show error"]
+    ReturnToLogin["Return to login"]
+
+    UserEntry --> ValidateCredentials
+    ValidateCredentials -- If valid --> GenerateJWT
+    ValidateCredentials -- If invalid --> ShowError
+    GenerateJWT --> StoreCookie
+    StoreCookie --> RedirectDashboard
+    ShowError --> ReturnToLogin
+    ReturnToLogin --> UserEntry
+                        </div>
+                    </div>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <span class="code-label">Mermaid Code</span>
+                            <button class="copy-btn" onclick="copyCode(this, 'code-1')">Copy</button>
+                        </div>
+                        <pre class="code-block" id="code-1">flowchart TD
+    UserEntry["User enters email and password"]
+    ValidateCredentials{"Validate credentials"}
+    GenerateJWT["Generate JWT token"]
+    StoreCookie["Store in cookie"]
+    RedirectDashboard["Redirect to dashboard"]
+    ShowError["Show error"]
+    ReturnToLogin["Return to login"]
+
+    UserEntry --&gt; ValidateCredentials
+    ValidateCredentials -- If valid --&gt; GenerateJWT
+    ValidateCredentials -- If invalid --&gt; ShowError
+    GenerateJWT --&gt; StoreCookie
+    StoreCookie --&gt; RedirectDashboard
+    ShowError --&gt; ReturnToLogin
+    ReturnToLogin --&gt; UserEntry</pre>
+                    </div>
+                    
+                    <div class="metadata">
+                        <div class="meta-item">
+                            <span class="meta-label">Method:</span>
+                            <span>mermaid</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Model:</span>
+                            <span>N/A</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="success-badge">✓ Generated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diagram-card">
+                <div class="card-header">
+                    <div class="card-title">Customer Journey</div>
+                    <span class="card-type">user_journey</span>
+                </div>
+                <div class="card-body">
+                    <div class="mermaid-container">
+                        <div class="mermaid">
+journey
+    title My User Journey
+    section Discovery
+      Customer discovers product on social media: 4: Customer
+      Visits website: 3: Customer
+    section Evaluation
+      Compares prices: 2: Customer
+      Reads reviews: 4: Customer
+    section Purchase
+      Adds to cart: 3: Customer
+      Applies discount code: 5: Customer
+      Completes purchase: 5: Customer
+    section Post-Purchase
+      Receives product: 5: Customer
+                        </div>
+                    </div>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <span class="code-label">Mermaid Code</span>
+                            <button class="copy-btn" onclick="copyCode(this, 'code-3')">Copy</button>
+                        </div>
+                        <pre class="code-block" id="code-3">journey
+    title My User Journey
+    section Discovery
+      Customer discovers product on social media: 4: Customer
+      Visits website: 3: Customer
+    section Evaluation
+      Compares prices: 2: Customer
+      Reads reviews: 4: Customer
+    section Purchase
+      Adds to cart: 3: Customer
+      Applies discount code: 5: Customer
+      Completes purchase: 5: Customer
+    section Post-Purchase
+      Receives product: 5: Customer</pre>
+                    </div>
+                    
+                    <div class="metadata">
+                        <div class="meta-item">
+                            <span class="meta-label">Method:</span>
+                            <span>mermaid</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Model:</span>
+                            <span>N/A</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="success-badge">✓ Generated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diagram-card">
+                <div class="card-header">
+                    <div class="card-title">Risk Matrix</div>
+                    <span class="card-type">quadrant</span>
+                </div>
+                <div class="card-body">
+                    <div class="mermaid-container">
+                        <div class="mermaid">
+quadrantChart
+    title Risk Assessment Matrix
+    x-axis Low Impact --> High Impact
+    y-axis Low Probability --> High Probability
+    quadrant-1 High Impact High Probability
+    quadrant-2 Low Impact High Probability
+    quadrant-3 Low Impact Low Probability
+    quadrant-4 High Impact Low Probability
+    Data breach: [0.85, 0.85]
+    Server downtime: [0.75, 0.75]
+    Natural disaster: [0.8, 0.2]
+    Total system failure: [0.9, 0.1]
+    Minor bugs: [0.2, 0.8]
+    Slow response times: [0.3, 0.7]
+    Printer issues: [0.15, 0.15]
+    Coffee shortage: [0.25, 0.25]
+                        </div>
+                    </div>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <span class="code-label">Mermaid Code</span>
+                            <button class="copy-btn" onclick="copyCode(this, 'code-4')">Copy</button>
+                        </div>
+                        <pre class="code-block" id="code-4">quadrantChart
+    title Risk Assessment Matrix
+    x-axis Low Impact --&gt; High Impact
+    y-axis Low Probability --&gt; High Probability
+    quadrant-1 High Impact High Probability
+    quadrant-2 Low Impact High Probability
+    quadrant-3 Low Impact Low Probability
+    quadrant-4 High Impact Low Probability
+    Data breach: [0.85, 0.85]
+    Server downtime: [0.75, 0.75]
+    Natural disaster: [0.8, 0.2]
+    Total system failure: [0.9, 0.1]
+    Minor bugs: [0.2, 0.8]
+    Slow response times: [0.3, 0.7]
+    Printer issues: [0.15, 0.15]
+    Coffee shortage: [0.25, 0.25]</pre>
+                    </div>
+                    
+                    <div class="metadata">
+                        <div class="meta-item">
+                            <span class="meta-label">Method:</span>
+                            <span>mermaid</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Model:</span>
+                            <span>N/A</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="success-badge">✓ Generated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Total Tests</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Successful</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">75%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+            <p>✨ Powered by Gemini 2.5 Flash LLM</p>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563eb',
+                lineColor: '#6b7280',
+                secondaryColor: '#f3f4f6',
+                background: '#ffffff',
+                mainBkg: '#3B82F6',
+                secondBkg: '#f3f4f6'
+            }
+        });
+        
+        // Copy code function
+        function copyCode(button, codeId) {
+            const codeElement = document.getElementById(codeId);
+            const text = codeElement.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✓ Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

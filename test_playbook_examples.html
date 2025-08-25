@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Playbook Examples Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #3B82F6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .mermaid-diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .status.error {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-top: 10px;
+            white-space: pre;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔬 Testing Mermaid Playbook Examples</h1>
+    <p>Testing each example from mermaid_playbook_v3.py with Mermaid v11</p>
+    
+    <!-- Test 1: Flowchart (Original) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. Flowchart - Original from Playbook</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-original">
+flowchart TD
+    %% This is a complete flowchart with all major features
+    %% Based on official Mermaid.js documentation
+    
+    %% Different node shapes
+    Start([Start Process])           %% Stadium shape (rounded edges)
+    Input[/Input Data/]              %% Parallelogram for input/output
+    Process[Process Data]            %% Rectangle for standard process
+    Decision{Valid Data?}            %% Rhombus for decisions
+    Database[(Database)]             %% Cylinder for database
+    SubProcess[[Subprocess]]         %% Subroutine shape
+    Result[/Output Result/]          %% Parallelogram for output
+    End([End Process])               %% Stadium shape
+    
+    %% Connections with different arrow types
+    Start --> Input                  %% Standard arrow
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database       %% Arrow with label
+    Decision -->|No| Error[Display Error]  %% Inline node definition
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input                %% Dotted arrow (retry path)
+    Result ==> End                   %% Thick arrow (important path)
+    
+    %% Subgraph for grouped operations
+    subgraph Validation [Data Validation Layer]
+        V1[Format Check] --> V2[Range Check]
+        V2 --> V3[Business Rules]
+    end
+    
+    Process --> Validation
+    Validation --> Decision
+    
+    %% Styling with CSS classes
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-original">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 2: Flowchart (Fixed Subgraph) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. Flowchart - Fixed Subgraph Syntax</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="flowchart-fixed">
+flowchart TD
+    %% Fixed subgraph syntax
+    Start([Start Process])
+    Input[/Input Data/]
+    Process[Process Data]
+    Decision{Valid Data?}
+    Database[(Database)]
+    SubProcess[[Subprocess]]
+    Result[/Output Result/]
+    End([End Process])
+    
+    Start --> Input
+    Input --> Process
+    Process --> Decision
+    Decision -->|Yes| Database
+    Decision -->|No| Error[Display Error]
+    Database --> SubProcess
+    SubProcess --> Result
+    Error -.-> Input
+    Result ==> End
+    
+    %% Fixed subgraph syntax
+    subgraph Validation["Data Validation Layer"]
+        V1[Format Check] --> V2[Range Check]
+        V2 --> V3[Business Rules]
+    end
+    
+    Process --> Validation
+    Validation --> Decision
+    
+    classDef errorStyle fill:#ff6b6b,stroke:#c92a2a,stroke-width:2px
+    classDef successStyle fill:#51cf66,stroke:#37b24d,stroke-width:2px
+    class Error errorStyle
+    class Result,End successStyle
+                </div>
+            </div>
+            <div class="status" id="status-flowchart-fixed">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 3: QuadrantChart -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. QuadrantChart - Original from Playbook</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="quadrant-original">
+quadrantChart
+    %% Quadrant chart based on official documentation
+    %% All coordinates must be between 0 and 1
+    
+    title Risk Assessment Matrix
+    x-axis Low Impact --> High Impact
+    y-axis Low Probability --> High Probability
+    
+    quadrant-1 Critical Risks (Mitigate Immediately)
+    quadrant-2 Major Risks (Develop Contingency Plans)
+    quadrant-3 Minor Risks (Accept or Monitor)
+    quadrant-4 Moderate Risks (Preventive Measures)
+    
+    %% Plot points: [x-coordinate, y-coordinate]
+    %% x: 0 (low impact) to 1 (high impact)
+    %% y: 0 (low probability) to 1 (high probability)
+    
+    Data Breach: [0.9, 0.8]
+    System Downtime: [0.85, 0.7]
+    Key Person Loss: [0.7, 0.6]
+    Budget Overrun: [0.75, 0.65]
+    Scope Creep: [0.6, 0.7]
+    
+    Natural Disaster: [0.95, 0.2]
+    Technology Obsolescence: [0.8, 0.3]
+    Vendor Failure: [0.7, 0.25]
+    
+    Minor Delays: [0.2, 0.8]
+    Documentation Issues: [0.15, 0.7]
+    Team Conflicts: [0.25, 0.75]
+    
+    Hardware Failure: [0.3, 0.3]
+    Office Issues: [0.1, 0.2]
+    Training Gaps: [0.35, 0.4]
+                </div>
+            </div>
+            <div class="status" id="status-quadrant-original">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 4: Timeline -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>4. Timeline - Original from Playbook</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="timeline-original">
+timeline
+    %% Timeline diagram based on official documentation
+    %% Shows chronological events with optional sections
+    
+    title Company Evolution Timeline
+    
+    section Foundation Era
+        2018 Q1 : Company founded by 3 co-founders
+                : Seed funding of $500K secured
+        
+        2018 Q3 : First prototype developed
+                : Alpha testing with 10 users
+        
+        2018 Q4 : Beta launch
+                : 100 early adopters onboarded
+    
+    section Growth Phase
+        2019 Q2 : Series A funding of $5M
+                : Team expanded to 25 people
+        
+        2019 Q4 : Reached 10,000 active users
+                : Launched mobile app
+        
+        2020 Q2 : COVID-19 remote work boom
+                : User base grew 300%
+                </div>
+            </div>
+            <div class="status" id="status-timeline-original">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 5: Kanban (Original - Wrong) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>5. Kanban - Original from Playbook (Expected to Fail)</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="kanban-original">
+kanban
+    %% Kanban board based on official documentation
+    %% Shows columns, cards, and metadata
+    
+    Todo[Backlog]
+        research[Research user requirements]@{ assigned: "Alice", priority: "High", ticket: "TASK-101" }
+        design[Create UI mockups]@{ assigned: "Bob", priority: "Medium", ticket: "TASK-102" }
+    
+    InProgress[In Progress]
+        backend[Implement REST API]@{ assigned: "David", priority: "Critical", ticket: "TASK-095" }
+    
+    Done[Completed]
+        setup[Project setup]@{ assigned: "Team", priority: "Critical", ticket: "TASK-001" }
+                </div>
+            </div>
+            <div class="status" id="status-kanban-original">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 6: Kanban (Fixed with proper indentation) -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>6. Kanban - Fixed with Proper Indentation</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="kanban-fixed">
+kanban
+    Todo[Backlog]
+        research[Research user requirements]
+        design[Create UI mockups]
+        planning[Sprint planning meeting]
+    InProgress[In Progress]
+        backend[Implement REST API]
+        frontend[Build React components]
+    Review[Code Review]
+        auth[Authentication module]
+    Testing[QA Testing]
+        integration[Integration tests]
+    Done[Completed]
+        setup[Project setup]
+        cicd[CI/CD pipeline]
+                </div>
+            </div>
+            <div class="status" id="status-kanban-fixed">Checking...</div>
+        </div>
+    </div>
+    
+    <!-- Test 7: Kanban with Metadata -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>7. Kanban - With Metadata (Testing Format)</h2>
+        </div>
+        <div class="test-content">
+            <div class="mermaid-diagram">
+                <div class="mermaid" id="kanban-metadata">
+kanban
+    Todo[Backlog]
+        task1[Research requirements @{assigned: "Alice", priority: "High"}]
+        task2[Create mockups @{assigned: "Bob", priority: "Medium"}]
+    InProgress[In Progress]
+        task3[Build API @{assigned: "David", priority: "Critical"}]
+    Done[Completed]
+        task4[Project setup @{assigned: "Team", priority: "Critical"}]
+                </div>
+            </div>
+            <div class="status" id="status-kanban-metadata">Checking...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#2563EB',
+                lineColor: '#94A3B8',
+                secondaryColor: '#60A5FA',
+                tertiaryColor: '#DBEAFE'
+            },
+            // Enable error handling
+            securityLevel: 'loose'
+        });
+        
+        // Check each diagram for errors
+        setTimeout(() => {
+            const diagrams = [
+                'flowchart-original',
+                'flowchart-fixed',
+                'quadrant-original',
+                'timeline-original',
+                'kanban-original',
+                'kanban-fixed',
+                'kanban-metadata'
+            ];
+            
+            diagrams.forEach(id => {
+                const element = document.getElementById(id);
+                const statusElement = document.getElementById(`status-${id}`);
+                
+                if (element) {
+                    // Check if diagram rendered (will have SVG content)
+                    if (element.querySelector('svg')) {
+                        statusElement.textContent = '✅ Rendering successful';
+                        statusElement.className = 'status success';
+                    } else if (element.textContent.includes('Syntax error')) {
+                        statusElement.textContent = '❌ Syntax error detected';
+                        statusElement.className = 'status error';
+                    } else {
+                        statusElement.textContent = '⚠️ Unknown status';
+                        statusElement.className = 'status';
+                    }
+                }
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <defs>
+        <script type="application/mermaid+json">{
+            "code": "flowchart TD\n    A[User enters credentials] --> B{System validates format}\n    B -- No --> C[Show error and return to step 1]\n    C --> A\n    B -- Yes --> D[Query database for user credentials]\n    D -- User not found --> E[Show \"Invalid credentials\" error]\n    D -- User found --> F{Verify password hash}\n    F -- Incorrect password --> G[Increment failed attempts and check lockout]\n    G -- Locked out --> H[Show lockout message]\n    G -- Not locked out --> E\n    F -- Correct password --> I[Generate JWT token]\n    I --> J[Set session cookie and redirect to dashboard]\n    J --> K[Log authentication event]",
+            "theme": "default",
+            "themeVariables": {
+                "primaryColor": "#3B82F6",
+                "background": "#ffffff"
+            }
+        }</script>
+    </defs>
+    <rect width="800" height="600" fill="#ffffff"/>
+    <text x="400" y="300" text-anchor="middle" fill="#1F2937">
+        [Mermaid Diagram - Client Render]
+    </text>
+</svg>

@@ -1,0 +1,163 @@
+version: '3.8'
+
+services:
+  # Main microservice for testing
+  diagram-microservice-test:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: diagram-microservice-v2-test
+    ports:
+      - "8001:8001"
+    environment:
+      - WS_HOST=0.0.0.0
+      - WS_PORT=8001
+      - LOG_LEVEL=DEBUG
+      - CACHE_TYPE=redis
+      - REDIS_URL=redis://redis-test:6379
+      # Test Supabase configuration
+      - SUPABASE_URL=${SUPABASE_TEST_URL:-https://test.supabase.co}
+      - SUPABASE_ANON_KEY=${SUPABASE_TEST_ANON_KEY:-test_key}
+      - SUPABASE_SERVICE_KEY=${SUPABASE_TEST_SERVICE_KEY:-test_service_key}
+      - DIAGRAM_BUCKET=test-diagrams
+      - STORAGE_PUBLIC=true
+      # Gemini configuration for testing
+      - GOOGLE_API_KEY=${GOOGLE_TEST_API_KEY}
+      - GEMINI_MODEL=gemini-2.0-flash-lite
+      - ENABLE_SEMANTIC_ROUTING=true
+      # Performance settings
+      - MAX_WORKERS=4
+      - TOKEN_LIMIT=4000
+      - REQUEST_TIMEOUT=30
+      - MAX_CONNECTIONS=100
+      # Monitoring
+      - ENABLE_METRICS=true
+      - LOGFIRE_TOKEN=${LOGFIRE_TEST_TOKEN}
+    volumes:
+      - ./templates:/app/templates:ro
+      - ./.env.test:/app/.env:ro
+      - ./tests:/app/tests:ro
+    depends_on:
+      - redis-test
+      - postgres-test
+    restart: unless-stopped
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8001/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Redis for caching
+  redis-test:
+    image: redis:7-alpine
+    container_name: redis-test
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-test-data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # PostgreSQL for local Supabase simulation
+  postgres-test:
+    image: postgres:15-alpine
+    container_name: postgres-test
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=testpassword
+      - POSTGRES_DB=diagram_test_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-test-data:/var/lib/postgresql/data
+      - ./storage/migrations:/docker-entrypoint-initdb.d:ro
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Adminer for database management (optional)
+  adminer-test:
+    image: adminer:latest
+    container_name: adminer-test
+    ports:
+      - "8082:8080"
+    networks:
+      - test-network
+    depends_on:
+      - postgres-test
+    environment:
+      - ADMINER_DEFAULT_SERVER=postgres-test
+
+  # Integration test runner
+  test-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: test-runner
+    environment:
+      - PYTHONPATH=/app
+      - TEST_ENV=docker
+      - WS_TEST_URL=ws://diagram-microservice-test:8001/ws
+      - SUPABASE_TEST_URL=http://postgres-test:5432
+      - REDIS_TEST_URL=redis://redis-test:6379
+    volumes:
+      - ./tests:/app/tests:ro
+      - ./test-results:/app/test-results
+    depends_on:
+      diagram-microservice-test:
+        condition: service_healthy
+      redis-test:
+        condition: service_healthy
+      postgres-test:
+        condition: service_healthy
+    networks:
+      - test-network
+    command: >
+      sh -c "
+        echo 'Waiting for services to be ready...' &&
+        sleep 10 &&
+        echo 'Running integration tests...' &&
+        pytest tests/integration -v --junit-xml=/app/test-results/integration-results.xml &&
+        echo 'Running system tests...' &&
+        pytest tests/system -v --junit-xml=/app/test-results/system-results.xml &&
+        echo 'Running performance tests...' &&
+        pytest tests/performance -v --junit-xml=/app/test-results/performance-results.xml
+      "
+
+  # Load testing with Locust
+  locust-test:
+    image: locustio/locust:latest
+    container_name: locust-test
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./tests/performance:/mnt/locust
+    command: -f /mnt/locust/locustfile.py --host=http://diagram-microservice-test:8001
+    networks:
+      - test-network
+    depends_on:
+      - diagram-microservice-test
+
+networks:
+  test-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+
+volumes:
+  redis-test-data:
+  postgres-test-data:

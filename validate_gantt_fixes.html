@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt Chart Validation - Proposed Fixes</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        
+        h1 {
+            color: #1a202c;
+            border-bottom: 3px solid #10b981;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .validation-info {
+            background: #d1fae5;
+            border: 2px solid #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .test-container {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .test-header h2 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        
+        .test-content {
+            padding: 30px;
+            background: #fafbfc;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .diagram-box h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .original {
+            border-left: 4px solid #ef4444;
+        }
+        
+        .fixed {
+            border-left: 4px solid #10b981;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            white-space: pre;
+        }
+        
+        .changes-list {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .changes-list h4 {
+            margin-top: 0;
+            color: #92400e;
+        }
+        
+        .changes-list ul {
+            margin: 10px 0;
+        }
+        
+        .changes-list li {
+            margin: 5px 0;
+        }
+        
+        .error-highlight {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .success-highlight {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Gantt Chart Fixes - Visual Validation</h1>
+    
+    <div class="validation-info">
+        <strong>Please validate these corrections before we update the playbook:</strong>
+        <ol>
+            <li>Check that all Gantt charts render properly</li>
+            <li>Verify the timeline looks correct</li>
+            <li>Confirm dependencies are displayed properly</li>
+            <li>Ensure milestones appear as diamonds</li>
+        </ol>
+    </div>
+    
+    <!-- Test 1: Playbook Example Fix -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>1. Main Playbook Example - Software Development Project</h2>
+        </div>
+        <div class="test-content">
+            <div class="comparison-grid">
+                <!-- Original with Errors -->
+                <div class="diagram-box original">
+                    <h3>❌ Original (Has Errors)</h3>
+                    <div class="mermaid">
+gantt
+    title Software Development Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    excludes weekends 2024-12-25 2024-01-01
+    
+    section Planning Phase
+    Project kickoff           :done, kick, 2024-01-01, 1d
+    Requirements gathering     :active, req, after kick, 10d
+    Technical design          :des, after req, 14d
+    Design review             :milestone, dr, after des, 0d
+    
+    section Development Phase
+    Setup development env     :done, setup, 2024-01-15, 3d
+    Backend API development   :crit, back, after setup, 21d
+    Frontend development      :crit, front, after setup, 25d
+    Database implementation   :db, after back, 7d
+    Integration               :int, after front db, 10d
+    
+    section Testing Phase
+    Unit testing              :unit, after int, 7d
+    Integration testing       :test, after unit, 10d
+    User acceptance testing   :crit, uat, after test, 14d
+    Bug fixes                 :bug, after uat, 7d
+    
+    section Deployment
+    Staging deployment        :stage, after bug, 5d
+    Production prep           :prep, after stage, 3d
+    Go live                   :milestone, live, after prep, 1d
+    Post-launch support       :support, after live, 14d
+                    </div>
+                    <details>
+                        <summary>View Code</summary>
+                        <div class="code-block">
+                            <pre>Line 260: Technical design          :des, after req, 14d  ❌ Invalid tag
+Line 268: Integration               :int, after front db, 10d  ❌ Wrong syntax
+Line 279: Go live                   :milestone, live, after prep, 1d  ❌ Should be 0d</pre>
+                        </div>
+                    </details>
+                </div>
+                
+                <!-- Fixed Version -->
+                <div class="diagram-box fixed">
+                    <h3>✅ Fixed Version</h3>
+                    <div class="mermaid">
+gantt
+    title Software Development Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    excludes weekends 2024-12-25 2024-01-01
+    
+    section Planning Phase
+    Project kickoff           :done, kick, 2024-01-01, 1d
+    Requirements gathering     :active, req, after kick, 10d
+    Technical design          :after req, 14d
+    Design review             :milestone, dr, after des, 0d
+    
+    section Development Phase
+    Setup development env     :done, setup, 2024-01-15, 3d
+    Backend API development   :crit, back, after setup, 21d
+    Frontend development      :crit, front, after setup, 25d
+    Database implementation   :after back, 7d
+    Integration               :after front, db, 10d
+    
+    section Testing Phase
+    Unit testing              :after int, 7d
+    Integration testing       :after unit, 10d
+    User acceptance testing   :crit, uat, after test, 14d
+    Bug fixes                 :after uat, 7d
+    
+    section Deployment
+    Staging deployment        :after bug, 5d
+    Production prep           :after stage, 3d
+    Go live                   :milestone, live, after prep, 0d
+    Post-launch support       :after live, 14d
+                    </div>
+                    <details>
+                        <summary>View Code</summary>
+                        <div class="code-block">
+                            <pre>Line 260: Technical design          :after req, 14d  ✅ Removed invalid tag
+Line 268: Integration               :after front, db, 10d  ✅ Fixed dependency syntax
+Line 279: Go live                   :milestone, live, after prep, 0d  ✅ Fixed milestone duration</pre>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            
+            <div class="changes-list">
+                <h4>📝 Changes Made:</h4>
+                <ul>
+                    <li>Removed invalid status tags (<span class="error-highlight">des</span>, <span class="error-highlight">db</span>, <span class="error-highlight">int</span>, <span class="error-highlight">unit</span>, <span class="error-highlight">test</span>, <span class="error-highlight">bug</span>, <span class="error-highlight">stage</span>, <span class="error-highlight">prep</span>, <span class="error-highlight">support</span>)</li>
+                    <li>Fixed multiple dependency syntax: <span class="error-highlight">after front db</span> → <span class="success-highlight">after front, db</span></li>
+                    <li>Fixed milestone duration: <span class="error-highlight">:milestone, live, after prep, 1d</span> → <span class="success-highlight">:milestone, live, after prep, 0d</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 2: Multiple Dependencies Example -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>2. Multiple Dependencies Test</h2>
+        </div>
+        <div class="test-content">
+            <div class="comparison-grid">
+                <div class="diagram-box original">
+                    <h3>❌ Wrong Syntax</h3>
+                    <div class="mermaid">
+gantt
+    title Multiple Dependencies - Wrong
+    dateFormat YYYY-MM-DD
+    
+    section Tasks
+    Task A :a, 2024-01-01, 5d
+    Task B :b, 2024-01-01, 5d
+    Task C :c, 2024-01-01, 5d
+    Combined :after a b c, 5d
+                    </div>
+                </div>
+                
+                <div class="diagram-box fixed">
+                    <h3>✅ Correct Syntax</h3>
+                    <div class="mermaid">
+gantt
+    title Multiple Dependencies - Correct
+    dateFormat YYYY-MM-DD
+    
+    section Tasks
+    Task A :a, 2024-01-01, 5d
+    Task B :b, 2024-01-01, 5d
+    Task C :c, 2024-01-01, 5d
+    Combined :after a, b, c, 5d
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 3: Valid Status Tags Only -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>3. Valid Status Tags Example</h2>
+        </div>
+        <div class="test-content">
+            <div class="diagram-box fixed">
+                <h3>✅ Using Only Valid Tags</h3>
+                <div class="mermaid">
+gantt
+    title Project with Valid Status Tags
+    dateFormat YYYY-MM-DD
+    axisFormat %m/%d
+    
+    section Phase 1
+    Completed Task        :done, task1, 2024-01-01, 7d
+    Active Task          :active, task2, after task1, 7d
+    Critical Task        :crit, task3, after task2, 7d
+    Normal Task          :task4, after task3, 7d
+    Milestone            :milestone, m1, after task4, 0d
+                </div>
+            </div>
+            
+            <div class="changes-list">
+                <h4>✅ Valid Gantt Status Tags:</h4>
+                <ul>
+                    <li><span class="success-highlight">done</span> - Completed tasks (gray)</li>
+                    <li><span class="success-highlight">active</span> - Currently in progress (blue)</li>
+                    <li><span class="success-highlight">crit</span> - Critical path (red)</li>
+                    <li><span class="success-highlight">milestone</span> - Zero-duration milestones (diamond)</li>
+                    <li><em>No tag</em> - Future tasks (light blue)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Test 4: Simplified Example for Prompts -->
+    <div class="test-container">
+        <div class="test-header">
+            <h2>4. Simplified Example (Good for LLM Learning)</h2>
+        </div>
+        <div class="test-content">
+            <div class="diagram-box fixed">
+                <h3>✅ Clean, Simple Example</h3>
+                <div class="mermaid">
+gantt
+    title Simple Project Timeline
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+    
+    section Planning
+    Requirements    :done, req, 2024-01-01, 7d
+    Design         :active, des, after req, 10d
+    Review         :milestone, review, after des, 0d
+    
+    section Development
+    Backend        :crit, back, after review, 14d
+    Frontend       :crit, front, after review, 14d
+    Integration    :int, after back, front, 7d
+    
+    section Deployment
+    Testing        :test, after int, 7d
+    Release        :milestone, release, after test, 0d
+                </div>
+            </div>
+            
+            <div class="changes-list">
+                <h4>💡 Key Features of This Example:</h4>
+                <ul>
+                    <li>Uses all valid status tags appropriately</li>
+                    <li>Shows correct multiple dependency syntax (Integration depends on both Backend and Frontend)</li>
+                    <li>Milestones have 0d duration</li>
+                    <li>Clean, easy to understand structure</li>
+                    <li>No unnecessary complexity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Mermaid with optimal settings
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            gantt: {
+                useMaxWidth: true,
+                numberSectionStyles: 4,
+                fontSize: 11,
+                gridLineStartPadding: 200,
+                sectionFontSize: 14,
+                taskFontSize: 12
+            }
+        });
+        
+        // Log any errors
+        window.addEventListener('error', (e) => {
+            console.error('Mermaid error:', e);
+        });
+    </script>
+</body>
+</html>
