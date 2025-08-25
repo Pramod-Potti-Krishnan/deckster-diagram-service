@@ -99,16 +99,35 @@ class UnifiedPlaybook:
             GenerationStrategy with routing decision
         """
         
+        # Check if method is forced in request
+        if request.method:
+            method_map = {
+                'svg_template': GenerationMethod.SVG_TEMPLATE,
+                'mermaid': GenerationMethod.MERMAID,
+                'python_chart': GenerationMethod.PYTHON_CHART
+            }
+            forced_method = method_map.get(request.method)
+            if forced_method:
+                logger.info(f"Using forced method from request: {forced_method}")
+                return GenerationStrategy(
+                    method=forced_method,
+                    confidence=1.0,
+                    reasoning=f"Method explicitly requested: {request.method}",
+                    fallback_chain=[],
+                    estimated_time_ms=1000,
+                    quality_estimate="high"
+                )
+        
         # Check if model is available
         if not self.enabled or not self.model:
-            logger.warning("Router not available - returning error strategy")
+            logger.warning("Router not available - using SVG template as default")
             return GenerationStrategy(
-                method=GenerationMethod.MERMAID,  # Default suggestion
-                confidence=0.0,
-                reasoning="[Error] Semantic routing not available - API not configured",
+                method=GenerationMethod.SVG_TEMPLATE,  # Default to SVG template
+                confidence=0.5,
+                reasoning="[Default] Semantic routing not available - using SVG template",
                 fallback_chain=[],
-                estimated_time_ms=0,
-                quality_estimate="unknown"
+                estimated_time_ms=500,
+                quality_estimate="medium"
             )
         
         try:

@@ -88,6 +88,7 @@ class SVGAgent(BaseAgent):
         )
         
         # Apply theme
+        print(f"DEBUG: useSmartTheming = {request.theme.useSmartTheming}")
         if request.theme.useSmartTheming:
             # Use intelligent color theming based on selected scheme
             if request.theme.colorScheme == ColorScheme.MONOCHROMATIC:
@@ -109,6 +110,11 @@ class SVGAgent(BaseAgent):
             svg_content = self._remove_borders(svg_content)
             svg_content = self._remove_titles(svg_content)
             svg_content = self._apply_smart_text_colors(svg_content)
+            
+            # Apply element-specific colors as the FINAL step to ensure uniqueness
+            print(f"DEBUG: About to apply final element colors for {request.diagram_type}")
+            svg_content = self._apply_final_element_colors(svg_content, theme, request.diagram_type)
+            print(f"DEBUG: Finished applying final element colors")
         else:
             # Use basic theme replacement
             svg_content = self.apply_theme(svg_content, request.theme.dict())
@@ -349,6 +355,86 @@ class SVGAgent(BaseAgent):
             return text_tag
         
         svg_content = re.sub(text_pattern, replace_text_color, svg_content)
+        
+        return svg_content
+    
+    def _apply_final_element_colors(self, svg_content: str, theme, diagram_type: str) -> str:
+        """Apply element-specific colors as the final step to ensure uniqueness"""
+        import re
+        
+        logger.info(f"Applying final element colors for {diagram_type}")
+        
+        # Matrix-specific coloring to ensure all quadrants have distinct colors
+        if diagram_type == "matrix_2x2" and 'id="q1_fill"' in svg_content:
+            logger.info("Applying matrix-specific colors")
+            # Use distinct colors from the theme palette
+            if hasattr(theme, 'palette'):
+                colors = [
+                    theme.palette['primary'][1],   # Q1 - Light primary
+                    theme.palette['primary'][2],   # Q2 - Medium primary  
+                    theme.palette['neutral'][0],   # Q3 - Light neutral
+                    theme.palette['primary'][4],   # Q4 - Darker primary
+                ]
+                
+                logger.info(f"Matrix colors to apply: {colors}")
+                
+                for i, color in enumerate(colors, 1):
+                    logger.info(f"Applying color {color} to Q{i}")
+                    # Replace both fill and stroke for consistency
+                    svg_content = re.sub(
+                        rf'(id="q{i}_fill"[^>]*)(fill=")[^"]*(")',
+                        rf'\1\2{color}\3',
+                        svg_content,
+                        flags=re.DOTALL
+                    )
+                    svg_content = re.sub(
+                        rf'(id="q{i}_fill"[^>]*)(stroke=")[^"]*(")',
+                        rf'\1\2{color}\3',
+                        svg_content,
+                        flags=re.DOTALL
+                    )
+        
+        # Hub & Spoke specific coloring to ensure hub is distinct from all nodes
+        elif diagram_type.startswith("hub_spoke") and 'id="hub_fill"' in svg_content:
+            if hasattr(theme, 'palette'):
+                # Hub gets the darkest/most prominent color
+                hub_color = theme.palette['primary'][4]
+                
+                # Replace hub color
+                svg_content = re.sub(
+                    r'(id="hub_fill"[^>]*)(fill=")[^"]*(")',
+                    rf'\1\2{hub_color}\3',
+                    svg_content,
+                    flags=re.DOTALL
+                )
+                svg_content = re.sub(
+                    r'(id="hub_fill"[^>]*)(stroke=")[^"]*(")',
+                    rf'\1\2{hub_color}\3',
+                    svg_content,
+                    flags=re.DOTALL
+                )
+                
+                # Distribute node colors avoiding the hub color
+                node_colors = [
+                    theme.palette['primary'][1],  # Light
+                    theme.palette['primary'][2],  # Medium light
+                    theme.palette['primary'][3],  # Medium
+                    theme.palette['primary'][5] if len(theme.palette['primary']) > 5 else theme.palette['primary'][0],  # Dark or fallback
+                ]
+                
+                for i, color in enumerate(node_colors, 1):
+                    svg_content = re.sub(
+                        rf'(id="spoke_{i}_fill"[^>]*)(fill=")[^"]*(")',
+                        rf'\1\2{color}\3',
+                        svg_content,
+                        flags=re.DOTALL
+                    )
+                    svg_content = re.sub(
+                        rf'(id="spoke_{i}_fill"[^>]*)(stroke=")[^"]*(")',
+                        rf'\1\2{color}\3',
+                        svg_content,
+                        flags=re.DOTALL
+                    )
         
         return svg_content
     

@@ -138,14 +138,23 @@ class MonochromaticTheme:
         else:
             base_color = self.primary
         
-        for i in range(7):
-            # Lightness from 80 to 20 (avoid >80 to prevent near-white)
-            target_lightness = 80 - (i * 60 / 6)
+        # Use better distributed lightness values for more variety
+        lightness_values = [88, 72, 58, 44, 30, 18, 10]
+        for i, target_lightness in enumerate(lightness_values):
             # Adjust from current lightness
             r, g, b = hex_to_rgb(base_color)
             h, s, l = rgb_to_hsl(r, g, b)
-            # Maintain saturation, just change lightness
-            r, g, b = hsl_to_rgb(h, max(30, s), target_lightness)
+            
+            # Vary saturation slightly based on lightness for better visual distinction
+            adjusted_s = s
+            if target_lightness > 70:
+                adjusted_s = max(25, s - 15)  # Lighter shades less saturated
+            elif target_lightness < 25:
+                adjusted_s = min(90, s + 10)  # Darker shades more saturated
+            else:
+                adjusted_s = max(30, s)  # Middle shades maintain saturation
+            
+            r, g, b = hsl_to_rgb(h, adjusted_s, target_lightness)
             shade = rgb_to_hex(r, g, b)
             palette['primary'].append(shade)
         
@@ -283,13 +292,125 @@ class MonochromaticTheme:
         return color_map
     
     def apply_to_svg(self, svg_content: str) -> str:
-        """Apply monochromatic theme to SVG content"""
+        """Apply monochromatic theme to SVG content with unique color enforcement"""
+        import re
+        
+        # Apply general color theme
         result = svg_content
+        
+        # Sort by length to avoid partial replacements
         sorted_colors = sorted(self.color_map.keys(), key=len, reverse=True)
         
-        for old_color, new_color in [(c, self.color_map[c]) for c in sorted_colors]:
-            result = result.replace(old_color, new_color)
-            result = result.replace(old_color.upper(), new_color.upper())
+        # Apply general theme replacements
+        for old_color in sorted_colors:
+            if old_color in result:
+                new_color = self.color_map[old_color]
+                result = result.replace(old_color, new_color)
+                result = result.replace(old_color.upper(), new_color.upper())
+        
+        # Note: Element-specific colors are now applied in SVGAgent._apply_final_element_colors()
+        # to ensure they are applied after all other processing
+        
+        return result
+    
+    def _apply_element_specific_colors(self, svg_content: str) -> str:
+        """Apply specific colors based on element IDs for better distribution"""
+        import re
+        
+        result = svg_content
+        
+        # Matrix quadrant-specific coloring
+        if 'id="q1_fill"' in svg_content and 'id="q4_fill"' in svg_content:
+            # Q1 (top-right) - Lightest shade
+            color_q1 = self.palette["primary"][1]
+            result = re.sub(
+                r'(id="q1_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{color_q1}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="q1_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{color_q1}\2',
+                result
+            )
+            
+            # Q2 (top-left) - Medium light
+            color_q2 = self.palette["primary"][2]
+            result = re.sub(
+                r'(id="q2_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{color_q2}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="q2_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{color_q2}\2',
+                result
+            )
+            
+            # Q3 (bottom-left) - Very light neutral for contrast
+            color_q3 = self.palette["neutral"][0]
+            result = re.sub(
+                r'(id="q3_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{color_q3}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="q3_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{color_q3}\2',
+                result
+            )
+            
+            # Q4 (bottom-right) - Darker shade for diagonal contrast with Q1
+            color_q4 = self.palette["primary"][4]
+            result = re.sub(
+                r'(id="q4_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{color_q4}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="q4_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{color_q4}\2',
+                result
+            )
+        
+        # Hub & Spoke specific coloring
+        if 'id="hub_fill"' in svg_content:
+            # Hub gets the primary base color (darker/prominent)
+            hub_color = self.palette["primary"][4]
+            result = re.sub(
+                r'(id="hub_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{hub_color}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="hub_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{hub_color}\2',
+                result
+            )
+            
+            # Distribute spoke colors evenly, avoiding the hub color
+            spoke_colors = [
+                self.palette['primary'][1],  # Light
+                self.palette['primary'][2],  # Medium light  
+                self.palette['primary'][3],  # Medium
+                self.palette['primary'][5],  # Dark (skip 4 which is hub)
+            ]
+            
+            for i in range(1, 7):  # Support up to 6 spokes
+                spoke_id = f'spoke_{i}_fill'
+                if f'id="{spoke_id}"' in svg_content:
+                    color_idx = (i - 1) % len(spoke_colors)
+                    spoke_color = spoke_colors[color_idx]
+                    result = re.sub(
+                        rf'(id="{spoke_id}"[^>]*fill=")[^"]*(")',
+                        rf'\1{spoke_color}\2',
+                        result
+                    )
+                    result = re.sub(
+                        rf'(id="{spoke_id}"[^>]*stroke=")[^"]*(")',
+                        rf'\1{spoke_color}\2',
+                        result
+                    )
         
         return result
     
@@ -542,16 +663,94 @@ class SmartColorTheme:
         return color_map
     
     def apply_to_svg(self, svg_content: str) -> str:
-        """Apply theme colors to SVG content"""
+        """Apply theme colors to SVG content with unique color enforcement"""
+        import re
+        
+        # Apply general color theme
         result = svg_content
         
         # Sort by length to avoid partial replacements
         sorted_colors = sorted(self.color_map.keys(), key=len, reverse=True)
         
-        for old_color, new_color in [(c, self.color_map[c]) for c in sorted_colors]:
-            # Replace both lowercase and uppercase versions
-            result = result.replace(old_color, new_color)
-            result = result.replace(old_color.upper(), new_color.upper())
+        # Apply general theme replacements
+        for old_color in sorted_colors:
+            if old_color in result:
+                new_color = self.color_map[old_color]
+                result = result.replace(old_color, new_color)
+                result = result.replace(old_color.upper(), new_color.upper())
+        
+        # Note: Element-specific colors are now applied in SVGAgent._apply_final_element_colors()
+        # to ensure they are applied after all other processing
+        
+        return result
+    
+    def _apply_element_specific_colors(self, svg_content: str) -> str:
+        """Apply specific colors based on element IDs for better distribution"""
+        import re
+        
+        result = svg_content
+        
+        # Matrix quadrant-specific coloring
+        if 'id="q1_fill"' in svg_content and 'id="q4_fill"' in svg_content:
+            # Use different palette colors for each quadrant
+            colors = [
+                self.palette["primary"][1],
+                self.palette["secondary"][1],
+                self.palette["accent"][0],
+                self.palette["primary"][3]
+            ]
+            
+            for i, color in enumerate(colors, 1):
+                quad_id = f'q{i}_fill'
+                result = re.sub(
+                    rf'(id="{quad_id}"[^>]*fill=")[^"]*(")',
+                    rf'\1{color}\2',
+                    result
+                )
+                result = re.sub(
+                    rf'(id="{quad_id}"[^>]*stroke=")[^"]*(")',
+                    rf'\1{color}\2',
+                    result
+                )
+        
+        # Hub & Spoke specific coloring
+        if 'id="hub_fill"' in svg_content:
+            # Hub gets primary color
+            hub_color = self.palette["primary"][2]
+            result = re.sub(
+                r'(id="hub_fill"[^>]*fill=")[^"]*(")',
+                rf'\1{hub_color}\2',
+                result
+            )
+            result = re.sub(
+                r'(id="hub_fill"[^>]*stroke=")[^"]*(")',
+                rf'\1{hub_color}\2',
+                result
+            )
+            
+            # Distribute spoke colors across different palettes
+            spoke_colors = [
+                self.palette['secondary'][1],
+                self.palette['accent'][0],
+                self.palette['secondary'][2],
+                self.palette['primary'][3],
+            ]
+            
+            for i in range(1, 7):
+                spoke_id = f'spoke_{i}_fill'
+                if f'id="{spoke_id}"' in svg_content:
+                    color_idx = (i - 1) % len(spoke_colors)
+                    spoke_color = spoke_colors[color_idx]
+                    result = re.sub(
+                        rf'(id="{spoke_id}"[^>]*fill=")[^"]*(")',
+                        rf'\1{spoke_color}\2',
+                        result
+                    )
+                    result = re.sub(
+                        rf'(id="{spoke_id}"[^>]*stroke=")[^"]*(")',
+                        rf'\1{spoke_color}\2',
+                        result
+                    )
         
         return result
     

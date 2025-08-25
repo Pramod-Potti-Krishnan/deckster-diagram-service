@@ -148,6 +148,10 @@ class DiagramRequest(BaseModel):
         default_factory=datetime.utcnow,
         description="Request timestamp"
     )
+    method: Optional[str] = Field(
+        default=None,
+        description="Force a specific generation method (svg_template, mermaid, python_chart)"
+    )
     
     @validator('diagram_type')
     def validate_diagram_type(cls, v):
