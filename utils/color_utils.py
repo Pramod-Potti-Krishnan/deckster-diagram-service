@@ -179,11 +179,10 @@ class MonochromaticTheme:
         return palette
     
     def _create_color_map(self) -> Dict[str, str]:
-        """Map template colors to monochromatic shades"""
-        # This creates a subtle, cohesive look using only primary color variations
+        """Map template colors to monochromatic shades with better distribution"""
         color_map = {}
         
-        # All template colors (simplified for brevity - same list as before)
+        # All template colors
         template_colors = [
             '#ffffff', '#fafafa', '#f8f8f8', '#f5f5f5', '#f0f0f0',
             '#e5e5e5', '#e0e0e0', '#dbeafe', '#d1fae5', '#dcfce7',
@@ -200,51 +199,86 @@ class MonochromaticTheme:
             '#1f2937'
         ]
         
+        # Group colors by lightness for better distribution
+        color_groups = {'very_light': [], 'light': [], 'medium': [], 'dark': [], 'very_dark': []}
+        
         for color in template_colors:
             r, g, b = hex_to_rgb(color)
             h, s, l = rgb_to_hsl(r, g, b)
             
-            # Map based on lightness levels with more variation
-            if l > 95:
-                color_map[color] = '#ffffff'
-            elif l > 85:
-                # Very light colors - use lightest shade or secondary
-                if s < 20:  # Grays
-                    color_map[color] = self.palette['neutral'][0]
-                else:
-                    color_map[color] = self.palette['primary'][0]  # Lightest
-            elif l > 70:
-                # Light colors - alternate between primary and secondary
-                if s < 20:
-                    color_map[color] = self.palette['neutral'][1]
-                elif hex_to_rgb(color)[0] > hex_to_rgb(color)[1]:  # More red
-                    color_map[color] = self.palette['secondary'][0]
-                else:
-                    color_map[color] = self.palette['primary'][1]
-            elif l > 55:
-                # Medium-light
-                if s < 20:
-                    color_map[color] = self.palette['neutral'][2]
-                else:
-                    color_map[color] = self.palette['primary'][2]
-            elif l > 40:
-                # Medium
-                if s < 20:
-                    color_map[color] = self.palette['neutral'][3]
-                else:
-                    color_map[color] = self.palette['primary'][3]
+            if l > 85:
+                color_groups['very_light'].append(color)
+            elif l > 65:
+                color_groups['light'].append(color)
+            elif l > 45:
+                color_groups['medium'].append(color)
             elif l > 25:
-                # Medium-dark
-                if s < 20:
-                    color_map[color] = self.palette['neutral'][4]
+                color_groups['dark'].append(color)
+            else:
+                color_groups['very_dark'].append(color)
+        
+        # Distribute colors across the palette more evenly
+        group_indices = {
+            'very_light': 0,
+            'light': 0,
+            'medium': 0,
+            'dark': 0,
+            'very_dark': 0
+        }
+        
+        # Map very light colors
+        for i, color in enumerate(color_groups['very_light']):
+            if color == '#ffffff':
+                color_map[color] = '#ffffff'
+            else:
+                # Cycle through lightest shades
+                idx = i % 2
+                if idx == 0:
+                    color_map[color] = self.palette['primary'][0]
                 else:
-                    color_map[color] = self.palette['primary'][4]
-            elif l > 15:
-                # Dark
+                    color_map[color] = self.palette['secondary'][0]
+        
+        # Map light colors
+        for i, color in enumerate(color_groups['light']):
+            # Cycle through light shades
+            idx = i % 3
+            if idx == 0:
+                color_map[color] = self.palette['primary'][1]
+            elif idx == 1:
+                color_map[color] = self.palette['secondary'][1]
+            else:
+                color_map[color] = self.palette['neutral'][1]
+        
+        # Map medium colors
+        for i, color in enumerate(color_groups['medium']):
+            # Cycle through medium shades
+            idx = i % 3
+            if idx == 0:
+                color_map[color] = self.palette['primary'][2]
+            elif idx == 1:
+                color_map[color] = self.palette['primary'][3]
+            else:
+                color_map[color] = self.palette['secondary'][2]
+        
+        # Map dark colors
+        for i, color in enumerate(color_groups['dark']):
+            # Cycle through dark shades
+            idx = i % 3
+            if idx == 0:
+                color_map[color] = self.palette['primary'][4]
+            elif idx == 1:
                 color_map[color] = self.palette['primary'][5]
             else:
-                # Very dark
-                color_map[color] = self.palette['primary'][6]  # Darkest
+                color_map[color] = self.palette['neutral'][3]
+        
+        # Map very dark colors
+        for i, color in enumerate(color_groups['very_dark']):
+            # Use darkest shades
+            idx = i % 2
+            if idx == 0:
+                color_map[color] = self.palette['primary'][6]
+            else:
+                color_map[color] = self.palette['neutral'][4]
         
         return color_map
     
@@ -362,7 +396,7 @@ class SmartColorTheme:
         return palette
     
     def _create_color_map(self) -> Dict[str, str]:
-        """Map all 61 template colors to theme colors"""
+        """Map all template colors to theme colors with better distribution"""
         
         # All unique colors found in templates
         template_colors = [
@@ -383,75 +417,127 @@ class SmartColorTheme:
         
         color_map = {}
         
-        # Create a cycle of colors to ensure variety
-        color_cycle = []
+        # Build extensive color pool for better variety
+        all_colors = []
         if self.color_scheme == "complementary":
-            # Use all three color palettes in rotation
-            color_cycle = [
-                self.palette['primary'][1],
-                self.palette['secondary'][1],
-                self.palette['accent'][0],
-                self.palette['primary'][2],
-                self.palette['secondary'][2],
-                self.palette['accent'][1],
-            ]
+            # Use all palette colors for maximum variety
+            all_colors.extend(self.palette['primary'])
+            all_colors.extend(self.palette['secondary'])
+            all_colors.extend(self.palette['accent'])
+            # Remove duplicates while preserving order
+            seen = set()
+            all_colors = [c for c in all_colors if not (c in seen or seen.add(c))]
+        else:
+            # For monochromatic, use primary shades
+            all_colors = list(self.palette['primary'])
         
-        cycle_index = 0
+        # Group template colors by characteristics
+        color_groups = {
+            'white': [],
+            'very_light_gray': [],
+            'light_gray': [],
+            'medium_gray': [],
+            'dark_gray': [],
+            'very_dark': [],
+            'light_color': [],
+            'medium_color': [],
+            'dark_color': [],
+            'vibrant_color': []
+        }
         
         for color in template_colors:
-            # Categorize by lightness and hue
             r, g, b = hex_to_rgb(color)
             h, s, l = rgb_to_hsl(r, g, b)
             
-            # White and very light colors
-            if l > 95:
-                color_map[color] = '#ffffff'
-            
-            # Light backgrounds
-            elif l > 90:
-                color_map[color] = self.palette['neutral'][0]
-            
-            # Light colored backgrounds - use color cycling for variety
-            elif l > 80 and s > 20:
-                if self.color_scheme == "complementary":
-                    # Cycle through light versions of all palettes
-                    color_map[color] = color_cycle[cycle_index % len(color_cycle)]
-                    cycle_index += 1
-                else:
-                    # Monochromatic - use primary
-                    color_map[color] = self.palette['primary'][0]
-            
-            # Medium grays
-            elif l > 60 and s < 20:
-                color_map[color] = self.palette['neutral'][2]
-            
-            # Colored elements - ensure variety
-            elif s > 30:
-                if self.color_scheme == "complementary":
-                    # For complementary, distribute colors more evenly
-                    # to avoid duplicates
-                    if cycle_index % 3 == 0:
-                        idx = 2 if l > 50 else 3
-                        color_map[color] = self.palette['primary'][min(idx, len(self.palette['primary'])-1)]
-                    elif cycle_index % 3 == 1:
-                        idx = 2 if l > 50 else 3
-                        color_map[color] = self.palette['secondary'][min(idx, len(self.palette['secondary'])-1)]
-                    else:
-                        idx = 1 if l > 50 else 2
-                        color_map[color] = self.palette['accent'][min(idx, len(self.palette['accent'])-1)]
-                    cycle_index += 1
-                else:
-                    # Monochromatic - use primary shades
-                    idx = 2 if l > 50 else 3
-                    color_map[color] = self.palette['primary'][idx]
-            
-            # Dark grays and blacks
-            elif l < 30:
-                color_map[color] = self.palette['neutral'][5] if len(self.palette['neutral']) > 5 else self.palette['neutral'][-1]
-            elif l < 40:
-                color_map[color] = self.palette['neutral'][4] if len(self.palette['neutral']) > 4 else self.palette['neutral'][-1]
+            if color == '#ffffff':
+                color_groups['white'].append(color)
+            elif l > 95 and s < 10:
+                color_groups['very_light_gray'].append(color)
+            elif l > 85 and s < 20:
+                color_groups['light_gray'].append(color)
+            elif l > 60 and s < 25:
+                color_groups['medium_gray'].append(color)
+            elif l > 30 and s < 25:
+                color_groups['dark_gray'].append(color)
+            elif l < 20:
+                color_groups['very_dark'].append(color)
+            elif s > 50 and l > 70:
+                color_groups['light_color'].append(color)
+            elif s > 50 and l > 40:
+                color_groups['medium_color'].append(color)
+            elif s > 40 and l <= 40:
+                color_groups['dark_color'].append(color)
             else:
-                color_map[color] = self.palette['neutral'][3] if len(self.palette['neutral']) > 3 else self.palette['neutral'][-1]
+                color_groups['vibrant_color'].append(color)
+        
+        # Map colors with variety
+        color_indices = {}
+        
+        # White stays white
+        for color in color_groups['white']:
+            color_map[color] = '#ffffff'
+        
+        # Very light grays - use lightest neutrals
+        for i, color in enumerate(color_groups['very_light_gray']):
+            color_map[color] = self.palette['neutral'][min(i, len(self.palette['neutral'])-1)]
+        
+        # Light grays
+        for i, color in enumerate(color_groups['light_gray']):
+            color_map[color] = self.palette['neutral'][min(1 + i % 2, len(self.palette['neutral'])-1)]
+        
+        # Medium grays
+        for i, color in enumerate(color_groups['medium_gray']):
+            color_map[color] = self.palette['neutral'][min(2 + i % 2, len(self.palette['neutral'])-1)]
+        
+        # Dark grays
+        for i, color in enumerate(color_groups['dark_gray']):
+            color_map[color] = self.palette['neutral'][min(4 + i % 2, len(self.palette['neutral'])-1)]
+        
+        # Very dark colors
+        for i, color in enumerate(color_groups['very_dark']):
+            if i < len(all_colors):
+                # Use darkest shades from color palette
+                color_map[color] = all_colors[-(i+1) % len(all_colors)]
+            else:
+                color_map[color] = self.palette['neutral'][-1]
+        
+        # Light colors - distribute across light shades
+        for i, color in enumerate(color_groups['light_color']):
+            if self.color_scheme == "complementary":
+                # Cycle through different palettes
+                idx = i % len(all_colors)
+                color_map[color] = all_colors[min(idx, len(all_colors)-1)]
+            else:
+                idx = i % len(self.palette['primary'])
+                color_map[color] = self.palette['primary'][idx]
+        
+        # Medium colors - use middle shades
+        for i, color in enumerate(color_groups['medium_color']):
+            if self.color_scheme == "complementary":
+                # Ensure variety by cycling through available colors
+                idx = (i + 2) % len(all_colors)
+                color_map[color] = all_colors[idx]
+            else:
+                idx = min(2 + (i % 2), len(self.palette['primary'])-1)
+                color_map[color] = self.palette['primary'][idx]
+        
+        # Dark colors - use darker shades
+        for i, color in enumerate(color_groups['dark_color']):
+            if self.color_scheme == "complementary":
+                idx = (i + 4) % len(all_colors)
+                color_map[color] = all_colors[idx]
+            else:
+                idx = min(3 + (i % 2), len(self.palette['primary'])-1)
+                color_map[color] = self.palette['primary'][idx]
+        
+        # Vibrant colors - distribute remaining
+        for i, color in enumerate(color_groups['vibrant_color']):
+            if self.color_scheme == "complementary":
+                idx = (i * 3) % len(all_colors)
+                color_map[color] = all_colors[idx]
+            else:
+                idx = (i + 1) % len(self.palette['primary'])
+                color_map[color] = self.palette['primary'][idx]
         
         return color_map
     
