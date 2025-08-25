@@ -123,27 +123,53 @@ class MonochromaticTheme:
         palette = {}
         
         # Generate 7 shades from very light to very dark
+        # BUT ensure minimum saturation and avoid near-white colors
         palette['primary'] = []
+        
+        # First ensure the base color has sufficient saturation
+        r, g, b = hex_to_rgb(self.primary)
+        h, s, l = rgb_to_hsl(r, g, b)
+        
+        # Ensure minimum saturation of 30%
+        if s < 30:
+            s = 30
+            r, g, b = hsl_to_rgb(h, s, l)
+            base_color = rgb_to_hex(r, g, b)
+        else:
+            base_color = self.primary
+        
         for i in range(7):
-            # Lightness from +40 to -40
-            lightness_adjust = 40 - (i * 80 / 6)
-            shade = adjust_lightness(self.primary, lightness_adjust)
+            # Lightness from 80 to 20 (avoid >80 to prevent near-white)
+            target_lightness = 80 - (i * 60 / 6)
+            # Adjust from current lightness
+            r, g, b = hex_to_rgb(base_color)
+            h, s, l = rgb_to_hsl(r, g, b)
+            # Maintain saturation, just change lightness
+            r, g, b = hsl_to_rgb(h, max(30, s), target_lightness)
+            shade = rgb_to_hex(r, g, b)
             palette['primary'].append(shade)
         
         # Also generate slightly desaturated versions for variety (labeled as secondary)
         palette['secondary'] = []
         for i in range(5):
-            lightness_adjust = 30 - (i * 60 / 4)
-            desaturated = adjust_saturation(self.primary, -30)
-            shade = adjust_lightness(desaturated, lightness_adjust)
+            target_lightness = 70 - (i * 40 / 4)
+            # Use base color but reduce saturation slightly
+            r, g, b = hex_to_rgb(base_color)
+            h, s, l = rgb_to_hsl(r, g, b)
+            # Reduce saturation but keep minimum of 20%
+            r, g, b = hsl_to_rgb(h, max(20, s - 20), target_lightness)
+            shade = rgb_to_hex(r, g, b)
             palette['secondary'].append(shade)
         
         # Even more desaturated for accents
         palette['accent'] = []
         for i in range(3):
-            lightness_adjust = 20 - (i * 40 / 2)
-            desaturated = adjust_saturation(self.primary, -50)
-            shade = adjust_lightness(desaturated, lightness_adjust)
+            target_lightness = 60 - (i * 30 / 2)
+            r, g, b = hex_to_rgb(base_color)
+            h, s, l = rgb_to_hsl(r, g, b)
+            # Further reduce saturation but keep minimum of 15%
+            r, g, b = hsl_to_rgb(h, max(15, s - 30), target_lightness)
+            shade = rgb_to_hex(r, g, b)
             palette['accent'].append(shade)
         
         # Neutral grays for text and borders
@@ -178,22 +204,46 @@ class MonochromaticTheme:
             r, g, b = hex_to_rgb(color)
             h, s, l = rgb_to_hsl(r, g, b)
             
-            # Map based on lightness levels
+            # Map based on lightness levels with more variation
             if l > 95:
                 color_map[color] = '#ffffff'
             elif l > 85:
-                color_map[color] = self.palette['primary'][0]  # Lightest
+                # Very light colors - use lightest shade or secondary
+                if s < 20:  # Grays
+                    color_map[color] = self.palette['neutral'][0]
+                else:
+                    color_map[color] = self.palette['primary'][0]  # Lightest
             elif l > 70:
-                color_map[color] = self.palette['primary'][1]
+                # Light colors - alternate between primary and secondary
+                if s < 20:
+                    color_map[color] = self.palette['neutral'][1]
+                elif hex_to_rgb(color)[0] > hex_to_rgb(color)[1]:  # More red
+                    color_map[color] = self.palette['secondary'][0]
+                else:
+                    color_map[color] = self.palette['primary'][1]
             elif l > 55:
-                color_map[color] = self.palette['primary'][2]
+                # Medium-light
+                if s < 20:
+                    color_map[color] = self.palette['neutral'][2]
+                else:
+                    color_map[color] = self.palette['primary'][2]
             elif l > 40:
-                color_map[color] = self.palette['primary'][3]  # Medium
+                # Medium
+                if s < 20:
+                    color_map[color] = self.palette['neutral'][3]
+                else:
+                    color_map[color] = self.palette['primary'][3]
             elif l > 25:
-                color_map[color] = self.palette['primary'][4]
+                # Medium-dark
+                if s < 20:
+                    color_map[color] = self.palette['neutral'][4]
+                else:
+                    color_map[color] = self.palette['primary'][4]
             elif l > 15:
+                # Dark
                 color_map[color] = self.palette['primary'][5]
             else:
+                # Very dark
                 color_map[color] = self.palette['primary'][6]  # Darkest
         
         return color_map
@@ -217,7 +267,7 @@ class MonochromaticTheme:
             "accent": None,  # No accent in monochromatic
             "colorScheme": "monochromatic",
             "primaryShades": self.palette['primary'],
-            "mutedShades": self.palette['muted'],
+            "secondaryShades": self.palette['secondary'],
             "neutralShades": self.palette['neutral'],
             "colorMap": self.color_map
         }
@@ -333,6 +383,21 @@ class SmartColorTheme:
         
         color_map = {}
         
+        # Create a cycle of colors to ensure variety
+        color_cycle = []
+        if self.color_scheme == "complementary":
+            # Use all three color palettes in rotation
+            color_cycle = [
+                self.palette['primary'][1],
+                self.palette['secondary'][1],
+                self.palette['accent'][0],
+                self.palette['primary'][2],
+                self.palette['secondary'][2],
+                self.palette['accent'][1],
+            ]
+        
+        cycle_index = 0
+        
         for color in template_colors:
             # Categorize by lightness and hue
             r, g, b = hex_to_rgb(color)
@@ -346,43 +411,47 @@ class SmartColorTheme:
             elif l > 90:
                 color_map[color] = self.palette['neutral'][0]
             
-            # Light colored backgrounds
+            # Light colored backgrounds - use color cycling for variety
             elif l > 80 and s > 20:
-                # Use light version of primary/secondary based on hue
-                if 200 <= h <= 260:  # Blue range
-                    color_map[color] = self.palette['primary'][0]
-                elif 80 <= h <= 160:  # Green range
-                    color_map[color] = self.palette['secondary'][0]
+                if self.color_scheme == "complementary":
+                    # Cycle through light versions of all palettes
+                    color_map[color] = color_cycle[cycle_index % len(color_cycle)]
+                    cycle_index += 1
                 else:
-                    color_map[color] = self.palette['accent'][0]
+                    # Monochromatic - use primary
+                    color_map[color] = self.palette['primary'][0]
             
             # Medium grays
             elif l > 60 and s < 20:
                 color_map[color] = self.palette['neutral'][2]
             
-            # Colored elements
+            # Colored elements - ensure variety
             elif s > 30:
-                # Determine which palette to use based on hue
-                if 200 <= h <= 260:  # Blue range
+                if self.color_scheme == "complementary":
+                    # For complementary, distribute colors more evenly
+                    # to avoid duplicates
+                    if cycle_index % 3 == 0:
+                        idx = 2 if l > 50 else 3
+                        color_map[color] = self.palette['primary'][min(idx, len(self.palette['primary'])-1)]
+                    elif cycle_index % 3 == 1:
+                        idx = 2 if l > 50 else 3
+                        color_map[color] = self.palette['secondary'][min(idx, len(self.palette['secondary'])-1)]
+                    else:
+                        idx = 1 if l > 50 else 2
+                        color_map[color] = self.palette['accent'][min(idx, len(self.palette['accent'])-1)]
+                    cycle_index += 1
+                else:
+                    # Monochromatic - use primary shades
                     idx = 2 if l > 50 else 3
                     color_map[color] = self.palette['primary'][idx]
-                elif 80 <= h <= 160:  # Green range
-                    idx = 2 if l > 50 else 3
-                    color_map[color] = self.palette['secondary'][idx]
-                elif 0 <= h <= 40 or h >= 340:  # Red range
-                    color_map[color] = self.palette['error'][1]
-                elif 40 <= h <= 80:  # Yellow/Orange range
-                    color_map[color] = self.palette['warning'][1]
-                else:
-                    color_map[color] = self.palette['accent'][1]
             
             # Dark grays and blacks
             elif l < 30:
-                color_map[color] = self.palette['neutral'][5]
+                color_map[color] = self.palette['neutral'][5] if len(self.palette['neutral']) > 5 else self.palette['neutral'][-1]
             elif l < 40:
-                color_map[color] = self.palette['neutral'][4]
+                color_map[color] = self.palette['neutral'][4] if len(self.palette['neutral']) > 4 else self.palette['neutral'][-1]
             else:
-                color_map[color] = self.palette['neutral'][3]
+                color_map[color] = self.palette['neutral'][3] if len(self.palette['neutral']) > 3 else self.palette['neutral'][-1]
         
         return color_map
     
@@ -470,3 +539,61 @@ def extract_colors_from_svg(svg_content: str) -> List[str]:
         colors.add(rgb_to_hex(int(r), int(g), int(b)))
     
     return list(colors)
+
+
+def validate_color_contrast(color1: str, color2: str, min_ratio: float = 1.5) -> bool:
+    """
+    Validate that two colors have sufficient contrast
+    
+    Args:
+        color1: First color in hex format
+        color2: Second color in hex format
+        min_ratio: Minimum contrast ratio required (default 1.5)
+    
+    Returns:
+        True if contrast is sufficient, False otherwise
+    """
+    lum1 = calculate_luminance(color1)
+    lum2 = calculate_luminance(color2)
+    
+    # Calculate contrast ratio
+    lighter = max(lum1, lum2)
+    darker = min(lum1, lum2)
+    
+    # Avoid division by zero
+    if darker == 0:
+        darker = 0.001
+    
+    ratio = (lighter + 0.05) / (darker + 0.05)
+    return ratio >= min_ratio
+
+
+def ensure_color_visibility(color: str, background: str = "#ffffff") -> str:
+    """
+    Ensure a color is visible against a background
+    
+    Args:
+        color: Color to validate/adjust
+        background: Background color (default white)
+    
+    Returns:
+        Adjusted color if needed, or original if already visible
+    """
+    if not validate_color_contrast(color, background, 1.3):
+        # Color is too similar to background, adjust it
+        r, g, b = hex_to_rgb(color)
+        h, s, l = rgb_to_hsl(r, g, b)
+        
+        # If color is too light, darken it
+        if l > 85:
+            l = 60
+            s = max(30, s)  # Ensure some saturation
+        # If color is too dark for dark background
+        elif l < 15 and calculate_luminance(background) < 0.5:
+            l = 40
+            s = max(30, s)
+        
+        r, g, b = hsl_to_rgb(h, s, l)
+        return rgb_to_hex(r, g, b)
+    
+    return color
