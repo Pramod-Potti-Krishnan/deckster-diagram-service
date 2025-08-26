@@ -109,12 +109,14 @@ class SVGAgent(BaseAgent):
             svg_content = self._remove_gradients(svg_content, theme)
             svg_content = self._remove_borders(svg_content)
             svg_content = self._remove_titles(svg_content)
-            svg_content = self._apply_smart_text_colors(svg_content)
             
-            # Apply element-specific colors as the FINAL step to ensure uniqueness
+            # Apply element-specific colors BEFORE text colors to ensure correct contrast
             print(f"DEBUG: About to apply final element colors for {request.diagram_type}")
             svg_content = self._apply_final_element_colors(svg_content, theme, request.diagram_type)
             print(f"DEBUG: Finished applying final element colors")
+            
+            # Apply smart text colors AFTER final background colors for proper contrast
+            svg_content = self._apply_smart_text_colors(svg_content)
         else:
             # Use basic theme replacement
             svg_content = self.apply_theme(svg_content, request.theme.dict())
@@ -338,10 +340,38 @@ class SVGAgent(BaseAgent):
                 for elem_id, color in element_colors.items():
                     # Check if this text might be inside this element
                     # (This is a heuristic - proper XML parsing would be better)
-                    if elem_id.replace('_fill', '_text') in text_tag or \
-                       elem_id.replace('_fill', '') in text_tag:
-                        bg_color = color
-                        break
+                    
+                    # Extract text element ID if present
+                    text_id_match = re.search(r'id="([^"]+)"', text_tag)
+                    if text_id_match:
+                        text_id = text_id_match.group(1)
+                        
+                        # Check various matching patterns
+                        # 1. Direct match: q1_fill -> q1_text
+                        if elem_id.replace('_fill', '_text') == text_id:
+                            bg_color = color
+                            break
+                        # 2. Quadrant pattern: q1_fill -> quadrant_1
+                        if elem_id.startswith('q') and '_fill' in elem_id:
+                            quad_num = elem_id[1:].replace('_fill', '')
+                            if f'quadrant_{quad_num}' == text_id:
+                                bg_color = color
+                                break
+                        # 3. Spoke pattern: spoke_1_fill -> spoke_1_text
+                        if elem_id.startswith('spoke_') and elem_id.endswith('_fill'):
+                            if elem_id.replace('_fill', '_text') == text_id:
+                                bg_color = color
+                                break
+                        # 4. Hub pattern: hub_fill -> hub_text
+                        if elem_id == 'hub_fill' and text_id == 'hub_text':
+                            bg_color = color
+                            break
+                        # 5. Generic pattern: remove _fill suffix
+                        if elem_id.endswith('_fill'):
+                            base_id = elem_id[:-5]  # Remove '_fill'
+                            if base_id in text_id or text_id.startswith(base_id):
+                                bg_color = color
+                                break
             
             # Get contrast color
             text_color = get_contrast_color(bg_color)
