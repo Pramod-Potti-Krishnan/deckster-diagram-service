@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <!-- 5-Level Pyramid Template - Consistent Angles with Gaps -->
+  <defs>
+    <!-- Gradients for each level -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- 
+    Pyramid geometry for 5 levels with consistent slopes:
+    - Apex: (500, 188)
+    - Base: from (250, 569) to (750, 569) - 500px wide
+    - Total height: 381px
+    - Slope ratio: 250/381 = 0.656
+    - 6px gaps between levels
+    
+    Level heights (excluding gaps):
+    - Level 1: 78px (y=188 to y=266) - increased by 10%
+    - Level 2: 69px (y=272 to y=341)
+    - Level 3: 70px (y=347 to y=417)
+    - Level 4: 70px (y=423 to y=493)
+    - Level 5: 70px (y=499 to y=569)
+  -->
+  
+  <!-- Level 5 (Bottom) - from y=499 to y=569 (height: 70px) -->
+  <path id="level_5_fill" d="M 250 569 L 750 569 L 704 499 L 296 499 Z" 
+        fill="#10b981" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_5_text" x="500" y="540" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Peak
+  </text>
+  
+  <!-- Level 4 - from y=423 to y=493 (height: 70px) -->
+  <path id="level_4_fill" d="M 300 493 L 700 493 L 654 423 L 346 423 Z" 
+        fill="#b91046" stroke="#b91046" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_4_text" x="500" y="462" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Layer 4
+  </text>
+  
+  <!-- Level 3 - from y=347 to y=417 (height: 70px) -->
+  <path id="level_3_fill" d="M 350 417 L 650 417 L 604 347 L 396 347 Z" 
+        fill="#8110b9" stroke="#8110b9" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_3_text" x="500" y="385" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Layer 3
+  </text>
+  
+  <!-- Level 2 - from y=272 to y=341 (height: 69px) -->
+  <path id="level_2_fill" d="M 400 341 L 600 341 L 555 272 L 445 272 Z" 
+        fill="#29ecab" stroke="#29ecab" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_2_text" x="500" y="310" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#000000">
+    Layer 2
+  </text>
+  
+  <!-- Level 1 (Top) - triangle from apex to y=266 (height: 78px) - 10% larger -->
+  <path id="level_1_fill" d="M 449 266 L 551 266 L 500 188 Z" 
+        fill="#10b981" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_1_text" x="500" y="238" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Base
+  </text>
+  
+  <!-- Title -->
+  <text x="500" y="125" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    5-Level Structure
+  </text>
+</svg>

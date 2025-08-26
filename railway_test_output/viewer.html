@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Deployment Test Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .test-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .test-card h3 {
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        .svg-container {
+            background: #f7f7f7;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .status.success {
+            background: #10b981;
+            color: white;
+        }
+        .status.error {
+            background: #ef4444;
+            color: white;
+        }
+        .meta {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .timestamp {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Railway Deployment Test Results</h1>
+        <div class="test-grid">
+
+            <div class="test-card">
+                <h3>Pyramid 3-Level <span class="status success">SUCCESS</span></h3>
+                <div class="svg-container">
+                    <object data="pyramid_3-level.svg" type="image/svg+xml" width="100%" height="300">
+                        SVG Preview
+                    </object>
+                </div>
+                <div class="meta">
+                    Duration: 1.54s | 
+                    Size: 2,158 bytes |
+                    Labels: ✓
+                </div>
+            </div>
+            
+            <div class="test-card">
+                <h3>Matrix 2x2 with Complementary Colors <span class="status success">SUCCESS</span></h3>
+                <div class="svg-container">
+                    <object data="matrix_2x2_with_complementary_colors.svg" type="image/svg+xml" width="100%" height="300">
+                        SVG Preview
+                    </object>
+                </div>
+                <div class="meta">
+                    Duration: 1.38s | 
+                    Size: 2,511 bytes |
+                    Labels: ✓
+                </div>
+            </div>
+            
+            <div class="test-card">
+                <h3>Venn 2-Circle Diagram (with params) <span class="status success">SUCCESS</span></h3>
+                <div class="svg-container">
+                    <object data="venn_2-circle_diagram_(with_params).svg" type="image/svg+xml" width="100%" height="300">
+                        SVG Preview
+                    </object>
+                </div>
+                <div class="meta">
+                    Duration: 1.29s | 
+                    Size: 1,472 bytes |
+                    Labels: ✓
+                </div>
+            </div>
+            
+            <div class="test-card">
+                <h3>Hub Spoke 4 (with params) <span class="status success">SUCCESS</span></h3>
+                <div class="svg-container">
+                    <object data="hub_spoke_4_(with_params).svg" type="image/svg+xml" width="100%" height="300">
+                        SVG Preview
+                    </object>
+                </div>
+                <div class="meta">
+                    Duration: 1.38s | 
+                    Size: 4,905 bytes |
+                    Labels: ✓
+                </div>
+            </div>
+            
+        </div>
+        <div class="timestamp">
+            Generated: 2025-08-25 11:10:01
+        </div>
+    </div>
+</body>
+</html>

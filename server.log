@@ -1,0 +1,47 @@
+INFO:     Will watch for changes in these directories: ['/private/tmp/deckster-diagram-service']
+INFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+INFO:     Started reloader process [52154] using WatchFiles
+INFO:     Started server process [52157]
+INFO:     Waiting for application startup.
+2025-08-25 17:13:00 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:13:00 - main - INFO - ============================================================
+2025-08-25 17:13:00 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:13:00 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:13:00 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:13:00 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:13:00 - main - INFO - ============================================================
+2025-08-25 17:13:00 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:13:00 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:13:00 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:13:00 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:13:00 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:13:00 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:13:00 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:13:00 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:13:00 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:13:00 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:13:00 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:13:00 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:13:00 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:13:00 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:13:00 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:13:00 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:13:00 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:13:00 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:13:00 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:13:00 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:13:00 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:15:49 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:15:49 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:15:49 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:15:49 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:15:49 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:15:49 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:15:49 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:15:49 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [52157]
+INFO:     Stopping reloader process [52154]

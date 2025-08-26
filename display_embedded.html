@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway SVG Test Results - Embedded</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .diagram-card {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .diagram-title {
+            font-weight: bold;
+            color: #4b5563;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .svg-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+        .metadata {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 12px;
+        }
+        .success-badge {
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .color-info {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Railway Deployment Test Results</h1>
+        <p class="subtitle">SVG Template Generation with Color Distribution</p>
+        
+        <div class="metadata">
+            <h2>Test Summary</h2>
+            <p><strong>Total Tests:</strong> 5</p>
+            <p><strong>Successful:</strong> <span style="color: #10b981;">5 ✅</span></p>
+            <p><strong>Generated:</strong> <span id="timestamp"></span></p>
+            <div class="color-info">
+                ⚠️ <strong>Known Issue:</strong> Matrix Q1 & Q4 showing duplicate colors (#81e3c3). Hub & Node 1 both using #f59e0a. Working on element-specific color mapping fix.
+            </div>
+            <div class="success-badge">All Tests Passed!</div>
+        </div>
+
+        <div class="grid">
+            <div class="diagram-card">
+                <div class="diagram-title">🔺 Pyramid (5 Level) - Monochromatic<br><small>Color: #3b82f6</small></div>
+                <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <!-- 5-Level Pyramid Template - Consistent Angles with Gaps -->
+  <defs>
+    <!-- Gradients for each level -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- 
+    Pyramid geometry for 5 levels with consistent slopes:
+    - Apex: (500, 188)
+    - Base: from (250, 569) to (750, 569) - 500px wide
+    - Total height: 381px
+    - Slope ratio: 250/381 = 0.656
+    - 6px gaps between levels
+    
+    Level heights (excluding gaps):
+    - Level 1: 78px (y=188 to y=266) - increased by 10%
+    - Level 2: 69px (y=272 to y=341)
+    - Level 3: 70px (y=347 to y=417)
+    - Level 4: 70px (y=423 to y=493)
+    - Level 5: 70px (y=499 to y=569)
+  -->
+  
+  <!-- Level 5 (Bottom) - from y=499 to y=569 (height: 70px) -->
+  <path id="level_5_fill" d="M 250 569 L 750 569 L 704 499 L 296 499 Z" 
+        fill="#3b82f6" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_5_text" x="500" y="540" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Foundation
+  </text>
+  
+  <!-- Level 4 - from y=423 to y=493 (height: 70px) -->
+  <path id="level_4_fill" d="M 300 493 L 700 493 L 654 423 L 346 423 Z" 
+        fill="#2469da" stroke="#2469da" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_4_text" x="500" y="462" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Implementation
+  </text>
+  
+  <!-- Level 3 - from y=347 to y=417 (height: 70px) -->
+  <path id="level_3_fill" d="M 350 417 L 650 417 L 604 347 L 396 347 Z" 
+        fill="#2c61b8" stroke="#2c61b8" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_3_text" x="500" y="385" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Planning
+  </text>
+  
+  <!-- Level 2 - from y=272 to y=341 (height: 69px) -->
+  <path id="level_2_fill" d="M 400 341 L 600 341 L 555 272 L 445 272 Z" 
+        fill="#6ca1f8" stroke="#6ca1f8" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_2_text" x="500" y="310" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Strategy
+  </text>
+  
+  <!-- Level 1 (Top) - triangle from apex to y=266 (height: 78px) - 10% larger -->
+  <path id="level_1_fill" d="M 449 266 L 551 266 L 500 188 Z" 
+        fill="#3b82f6" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_1_text" x="500" y="238" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    5-level pyramid with monochromatic theme
+  </text>
+  
+  <!-- Title -->
+  <text x="500" y="125" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    5-Level Structure
+  </text>
+</svg>                </div>
+            </div>
+            <div class="diagram-card">
+                <div class="diagram-title">🔺 Pyramid (5 Level) - Complementary<br><small>Color: #8b5cf6</small></div>
+                <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <!-- 5-Level Pyramid Template - Consistent Angles with Gaps -->
+  <defs>
+    <!-- Gradients for each level -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- 
+    Pyramid geometry for 5 levels with consistent slopes:
+    - Apex: (500, 188)
+    - Base: from (250, 569) to (750, 569) - 500px wide
+    - Total height: 381px
+    - Slope ratio: 250/381 = 0.656
+    - 6px gaps between levels
+    
+    Level heights (excluding gaps):
+    - Level 1: 78px (y=188 to y=266) - increased by 10%
+    - Level 2: 69px (y=272 to y=341)
+    - Level 3: 70px (y=347 to y=417)
+    - Level 4: 70px (y=423 to y=493)
+    - Level 5: 70px (y=499 to y=569)
+  -->
+  
+  <!-- Level 5 (Bottom) - from y=499 to y=569 (height: 70px) -->
+  <path id="level_5_fill" d="M 250 569 L 750 569 L 704 499 L 296 499 Z" 
+        fill="#8b5bf6" stroke="#8b5bf6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_5_text" x="500" y="540" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Foundation
+  </text>
+  
+  <!-- Level 4 - from y=423 to y=493 (height: 70px) -->
+  <path id="level_4_fill" d="M 300 493 L 700 493 L 654 423 L 346 423 Z" 
+        fill="#c6f65a" stroke="#c6f65a" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_4_text" x="500" y="462" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#000000">
+    Implementation
+  </text>
+  
+  <!-- Level 3 - from y=347 to y=417 (height: 70px) -->
+  <path id="level_3_fill" d="M 350 417 L 650 417 L 604 347 L 396 347 Z" 
+        fill="#f68b5a" stroke="#f68b5a" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_3_text" x="500" y="385" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Planning
+  </text>
+  
+  <!-- Level 2 - from y=272 to y=341 (height: 69px) -->
+  <path id="level_2_fill" d="M 400 341 L 600 341 L 555 272 L 445 272 Z" 
+        fill="#bea4fa" stroke="#bea4fa" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_2_text" x="500" y="310" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Strategy
+  </text>
+  
+  <!-- Level 1 (Top) - triangle from apex to y=266 (height: 78px) - 10% larger -->
+  <path id="level_1_fill" d="M 449 266 L 551 266 L 500 188 Z" 
+        fill="#8b5bf6" stroke="#8b5bf6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_1_text" x="500" y="238" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    5-level pyramid with complementary colors
+  </text>
+  
+  <!-- Title -->
+  <text x="500" y="125" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    5-Level Structure
+  </text>
+</svg>                </div>
+            </div>
+            <div class="diagram-card">
+                <div class="diagram-title">⬜ Matrix 2x2 - Monochromatic<br><small>Color: #10b981 - Q1 & Q4 duplicate issue</small></div>
+                <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 2x2 Matrix Template -->
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Grid Lines -->
+  <line x1="150" y1="300" x2="650" y2="300" stroke="#81e3c3" stroke-width="2"/>
+  <line x1="400" y1="150" x2="400" y2="450" stroke="#81e3c3" stroke-width="2"/>
+  
+  <!-- Axis Arrows -->
+  <path d="M 150 300 L 650 300 L 640 295 M 650 300 L 640 305" 
+        stroke="#43eeb5" stroke-width="2" fill="none"/>
+  <path d="M 400 450 L 400 150 L 395 160 M 400 150 L 405 160" 
+        stroke="#43eeb5" stroke-width="2" fill="none"/>
+  
+  <!-- Quadrant 1 (Top Right) -->
+  <rect id="q1_fill" x="410" y="160" width="230" height="130" 
+        fill="#81e3c3" stroke="#81e3c3" stroke-width="1" rx="8"/>
+  <text id="quadrant_1" x="525" y="225" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#000000">
+    Priority matrix with monochromatic theme
+  </text>
+  
+  <!-- Quadrant 2 (Top Left) -->
+  <rect id="q2_fill" x="160" y="160" width="230" height="130" 
+        fill="#a1f6da" stroke="#a1f6da" stroke-width="1" rx="8"/>
+  <text id="quadrant_2" x="275" y="225" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#000000">
+    Low / High
+  </text>
+  
+  <!-- Quadrant 3 (Bottom Left) -->
+  <rect id="q3_fill" x="160" y="310" width="230" height="130" 
+        fill="#fee2e2" stroke="#fee2e2" stroke-width="1" rx="8"/>
+  <text id="quadrant_3" x="275" y="375" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#000000">
+    Low / Low
+  </text>
+  
+  <!-- Quadrant 4 (Bottom Right) -->
+  <rect id="q4_fill" x="410" y="310" width="230" height="130" 
+        fill="#81e3c3" stroke="#81e3c3" stroke-width="1" rx="8"/>
+  <text id="quadrant_4" x="525" y="375" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#000000">
+    High / Low
+  </text>
+  
+  <!-- Axis Labels -->
+  <text id="x_label" x="400" y="490" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000000">
+    X Axis Label
+  </text>
+  <text id="y_label" x="100" y="300" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000000"
+        transform="rotate(-90 100 300)">
+    Y Axis Label
+  </text>
+  
+  <!-- Title -->
+  </svg>                </div>
+            </div>
+            <div class="diagram-card">
+                <div class="diagram-title">🎯 Hub & Spoke (4 Nodes) - Complementary<br><small>Color: #f59e0b - Hub & Node1 duplicate issue</small></div>
+                <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Enhanced Hub & Spoke Template with 4 Nodes -->
+  <defs>
+    <!-- Gradients for richer visual appearance -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Enhanced shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.2"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glow effect for hub -->
+    <filter id="hub_glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Smaller arrow markers (40% of original size) -->
+    <marker id="arrow" markerWidth="4" markerHeight="4" refX="3.2" refY="1.2" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,2.4 L3.6,1.2 z" fill="#686664"/>
+    </marker>
+  </defs>
+  
+  <!-- Background - plain white -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  
+  <!-- 
+    Updated positioning:
+    - Entire diagram moved down by 40px
+    - Hub center now at (400, 340)
+    - All nodes shifted down accordingly
+  -->
+  
+  <!-- Corrected Spokes with adjusted positions -->
+  
+  <!-- Spoke to Node 1 (Top) - at (400, 144) -->
+  <line x1="400" y1="267" x2="400" y2="205" 
+        stroke="#686664" stroke-width="2.5" stroke-dasharray="6,4" 
+        stroke-linecap="round" opacity="0.7" marker-end="url(#arrow)"/>
+  
+  <!-- Spoke to Node 2 (Right) - at (576, 340) -->
+  <line x1="473" y1="340" x2="515" y2="340" 
+        stroke="#686664" stroke-width="2.5" stroke-dasharray="6,4" 
+        stroke-linecap="round" opacity="0.7" marker-end="url(#arrow)"/>
+  
+  <!-- Spoke to Node 3 (Bottom) - at (400, 536) -->
+  <line x1="400" y1="413" x2="400" y2="475" 
+        stroke="#686664" stroke-width="2.5" stroke-dasharray="6,4" 
+        stroke-linecap="round" opacity="0.7" marker-end="url(#arrow)"/>
+  
+  <!-- Spoke to Node 4 (Left) - at (224, 340) -->
+  <line x1="327" y1="340" x2="285" y2="340" 
+        stroke="#686664" stroke-width="2.5" stroke-dasharray="6,4" 
+        stroke-linecap="round" opacity="0.7" marker-end="url(#arrow)"/>
+  
+  <!-- Node 1 (Top) -->
+  <circle id="spoke_1_fill" cx="400" cy="144" r="61" 
+          fill="#f59e0a" stroke="#f59e0a" stroke-width="2" filter="url(#shadow)"/>
+  <text id="spoke_1_text" x="400" y="144" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffffff">
+    <tspan x="400" dy="-6">Node 1</tspan>
+    <tspan x="400" dy="16">Line 2</tspan>
+  </text>
+  
+  <!-- Node 2 (Right) -->
+  <circle id="spoke_2_fill" cx="576" cy="340" r="61" 
+          fill="#0a61f4" stroke="#0a61f4" stroke-width="2" filter="url(#shadow)"/>
+  <text id="spoke_2_text" x="576" y="340" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#ffffff">
+    <tspan x="576" dy="-6">Node 2</tspan>
+    <tspan x="576" dy="16">Line 2</tspan>
+  </text>
+  
+  <!-- Node 3 (Bottom) -->
+  <circle id="spoke_3_fill" cx="400" cy="536" r="61" 
+          fill="#0af49c" stroke="#0af49c" stroke-width="2" filter="url(#shadow)"/>
+  <text id="spoke_3_text" x="400" y="536" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">
+    <tspan x="400" dy="-6">Node 3</tspan>
+    <tspan x="400" dy="16">Line 2</tspan>
+  </text>
+  
+  <!-- Node 4 (Left) -->
+  <circle id="spoke_4_fill" cx="224" cy="340" r="61" 
+          fill="#f8bb54" stroke="#f8bb54" stroke-width="2" filter="url(#shadow)"/>
+  <text id="spoke_4_text" x="224" y="340" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#000000">
+    <tspan x="224" dy="-6">Node 4</tspan>
+    <tspan x="224" dy="16">Line 2</tspan>
+  </text>
+  
+  <!-- Hub and spoke network Hub (moved down) -->
+  <circle cx="400" cy="340" r="79" fill="#ffffff" opacity="0.2" filter="url(#hub_glow)"/>
+  <circle id="hub_fill" cx="400" cy="340" r="73" 
+          fill="#f59e0a" stroke="#f59e0a" stroke-width="3" filter="url(#shadow)"/>
+  <text id="hub_text" x="400" y="340" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14.4" font-weight="700" fill="#ffffff">
+    <tspan x="400" dy="-7">Hub and spoke network</tspan>
+    <tspan x="400" dy="18">Hub</tspan>
+  </text>
+  
+  <!-- Title with subtle styling -->
+  <text x="400" y="65" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    Hub and spoke networkized Network Architecture
+  </text>
+</svg>                </div>
+            </div>
+            <div class="diagram-card">
+                <div class="diagram-title">⭕ Venn Diagram (2 Circle) - Complementary<br><small>Color: #06b6d4</small></div>
+                <div class="svg-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 2-Circle Venn Diagram Template -->
+  <defs>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Left Circle -->
+  <circle id="left_circle_fill" cx="320" cy="300" r="150" 
+          fill="#037689" fill-opacity="0.3" stroke="#037689" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- Right Circle -->
+  <circle id="right_circle_fill" cx="480" cy="300" r="150" 
+          fill="#01363f" fill-opacity="0.3" stroke="#01363f" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- Text for left circle (exclusive area) -->
+  <text id="left_circle_text" x="250" y="300" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#ffffff">
+    Venn diagram
+  </text>
+  
+  <!-- Text for overlap area -->
+  <text id="overlap_text" x="400" y="300" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#000000">
+    A ∩ B
+  </text>
+  
+  <!-- Text for right circle (exclusive area) -->
+  <text id="right_circle_text" x="550" y="300" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#ffffff">
+    Set B
+  </text>
+  
+  <!-- Title -->
+  </svg>                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

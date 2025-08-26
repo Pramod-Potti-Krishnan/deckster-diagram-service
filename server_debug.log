@@ -1,0 +1,814 @@
+INFO:     Will watch for changes in these directories: ['/private/tmp/deckster-diagram-service']
+INFO:     Uvicorn running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+INFO:     Started reloader process [53879] using WatchFiles
+INFO:     Started server process [53883]
+INFO:     Waiting for application startup.
+2025-08-25 17:23:21 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:23:21 - main - INFO - ============================================================
+2025-08-25 17:23:21 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:23:21 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:23:21 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:23:21 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:23:21 - main - INFO - ============================================================
+2025-08-25 17:23:21 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:23:21 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:23:21 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:23:21 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:23:21 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:23:21 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:23:21 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:23:21 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:23:21 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:23:21 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:23:21 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:23:21 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:23:21 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:23:21 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:23:21 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:23:21 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:23:21 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:23:21 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:23:21 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:23:21 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:23:21 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'agents/svg_agent.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:23:48 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:23:48 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:23:48 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:23:48 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:23:48 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:23:48 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:23:48 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:23:48 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [53883]
+INFO:     Started server process [54042]
+INFO:     Waiting for application startup.
+2025-08-25 17:23:48 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:23:48 - main - INFO - ============================================================
+2025-08-25 17:23:48 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:23:48 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:23:48 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:23:48 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:23:48 - main - INFO - ============================================================
+2025-08-25 17:23:48 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:23:48 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:23:48 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:23:48 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:23:48 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:23:48 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:23:48 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:23:48 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:23:48 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:23:48 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:23:48 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:23:48 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:23:48 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:23:48 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:23:48 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:23:48 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:23:48 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:23:48 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:23:48 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:23:48 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:23:48 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'test_color_debug.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:27:17 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:27:17 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:27:17 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:27:17 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:27:17 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:27:17 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:27:17 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:27:17 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [54042]
+INFO:     Started server process [54456]
+INFO:     Waiting for application startup.
+2025-08-25 17:27:18 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:27:18 - main - INFO - ============================================================
+2025-08-25 17:27:18 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:27:18 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:27:18 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:27:18 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:27:18 - main - INFO - ============================================================
+2025-08-25 17:27:18 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:27:18 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:27:18 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:27:18 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:27:18 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:27:18 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:27:18 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:27:18 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:27:18 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:27:18 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:27:18 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:27:18 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:27:18 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:27:18 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:27:18 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:27:18 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:27:18 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:27:18 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:27:18 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:27:18 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:27:18 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51770 - "WebSocket /ws" [accepted]
+2025-08-25 17:27:24 - api.websocket_handler - INFO - Connection established: 4793d03a-7211-4621-aa29-7cc8821ead9a
+INFO:     connection open
+2025-08-25 17:27:24 - storage.session_manager - INFO - Created new diagram session: 4793d03a-7211-4621-aa29-7cc8821ead9a
+2025-08-25 17:27:24 - core.unified_playbook - WARNING - Router not available - returning error strategy
+2025-08-25 17:27:24 - core.conductor - INFO - Selected strategy: GenerationMethod.MERMAID (confidence: 0.00)
+2025-08-25 17:27:24 - core.conductor - INFO - Agent GenerationMethod.MERMAID does not support matrix_2x2
+2025-08-25 17:27:24 - core.conductor - ERROR - Generation failed: All generation methods failed
+Traceback (most recent call last):
+  File "/private/tmp/deckster-diagram-service/core/conductor.py", line 197, in generate
+    raise ValueError("All generation methods failed")
+ValueError: All generation methods failed
+2025-08-25 17:27:24 - api.websocket_handler - ERROR - Generation error: All generation methods failed
+Traceback (most recent call last):
+  File "/private/tmp/deckster-diagram-service/api/websocket_handler.py", line 240, in _generate_diagram
+    result = await self.conductor.generate(diagram_request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/deckster-diagram-service/core/conductor.py", line 197, in generate
+    raise ValueError("All generation methods failed")
+ValueError: All generation methods failed
+2025-08-25 17:29:22 - api.websocket_handler - INFO - Connection closed: 4793d03a-7211-4621-aa29-7cc8821ead9a
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'models/request_models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:30:14 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:30:14 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:30:14 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:30:14 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:30:14 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:30:14 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:30:14 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:30:14 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [54456]
+INFO:     Started server process [55566]
+INFO:     Waiting for application startup.
+2025-08-25 17:30:15 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:30:15 - main - INFO - ============================================================
+2025-08-25 17:30:15 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:30:15 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:30:15 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:30:15 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:30:15 - main - INFO - ============================================================
+2025-08-25 17:30:15 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:30:15 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:30:15 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:30:15 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:30:15 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:30:15 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:30:15 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:30:15 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:30:15 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:30:15 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:30:15 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:30:15 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:30:15 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:30:15 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:30:15 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:30:15 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:30:15 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:30:15 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:30:15 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:30:15 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:30:15 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'core/unified_playbook.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:30:34 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:30:34 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:30:34 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:30:34 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:30:34 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:30:34 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:30:34 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:30:34 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55566]
+INFO:     Started server process [55616]
+INFO:     Waiting for application startup.
+2025-08-25 17:30:34 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:30:34 - main - INFO - ============================================================
+2025-08-25 17:30:34 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:30:34 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:30:34 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:30:34 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:30:34 - main - INFO - ============================================================
+2025-08-25 17:30:34 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:30:34 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:30:34 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:30:34 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:30:34 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:30:34 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:30:34 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:30:34 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:30:34 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:30:34 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:30:34 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:30:34 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:30:34 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:30:34 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:30:34 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:30:34 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:30:34 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:30:34 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:30:34 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:30:34 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:30:34 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51935 - "WebSocket /ws" [accepted]
+2025-08-25 17:30:45 - api.websocket_handler - INFO - Connection established: 0c020b80-3664-4092-9072-6078cb1aa73c
+INFO:     connection open
+2025-08-25 17:30:45 - storage.session_manager - INFO - Created new diagram session: 0c020b80-3664-4092-9072-6078cb1aa73c
+2025-08-25 17:30:45 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:30:45 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for matrix_2x2
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying final element colors for matrix_2x2
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying matrix-specific colors
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Matrix colors to apply: ['#86e8c8', '#39edb2', '#b0b0b0', '#0c8c62']
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying color #86e8c8 to Q1
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying color #39edb2 to Q2
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying color #b0b0b0 to Q3
+2025-08-25 17:30:45 - agents.svg_agent - INFO - Applying color #0c8c62 to Q4
+DEBUG: Finished applying final element colors
+2025-08-25 17:30:45 - core.conductor - INFO - Saved diagram 30c2bfe1-dbd8-486c-af4c-328a8c77c0db to storage: 
+2025-08-25 17:30:45 - api.websocket_handler - INFO - Connection closed: 0c020b80-3664-4092-9072-6078cb1aa73c
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'test_all_colors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 17:31:21 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 17:31:21 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 17:31:21 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 17:31:21 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 17:31:21 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 17:31:21 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 17:31:21 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 17:31:21 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55616]
+INFO:     Started server process [55758]
+INFO:     Waiting for application startup.
+2025-08-25 17:31:21 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 17:31:21 - main - INFO - ============================================================
+2025-08-25 17:31:21 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 17:31:21 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 17:31:21 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 17:31:21 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 17:31:21 - main - INFO - ============================================================
+2025-08-25 17:31:21 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 17:31:21 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 17:31:21 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 17:31:21 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 17:31:21 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 17:31:21 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 17:31:21 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 17:31:21 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 17:31:21 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 17:31:21 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 17:31:21 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 17:31:21 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 17:31:21 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 17:31:21 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:21 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 17:31:21 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 17:31:21 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 17:31:21 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 17:31:21 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 17:31:21 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 17:31:21 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:51984 - "WebSocket /ws" [accepted]
+2025-08-25 17:31:31 - api.websocket_handler - INFO - Connection established: 9d9f9ea0-c3ba-46bf-b3a9-be507b18a2ca
+INFO:     connection open
+2025-08-25 17:31:31 - storage.session_manager - INFO - Created new diagram session: 9d9f9ea0-c3ba-46bf-b3a9-be507b18a2ca
+2025-08-25 17:31:31 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:31 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for matrix_2x2
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying final element colors for matrix_2x2
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying matrix-specific colors
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Matrix colors to apply: ['#86e8c8', '#39edb2', '#b0b0b0', '#0c8c62']
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying color #86e8c8 to Q1
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying color #39edb2 to Q2
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying color #b0b0b0 to Q3
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying color #0c8c62 to Q4
+DEBUG: Finished applying final element colors
+2025-08-25 17:31:31 - core.conductor - INFO - Saved diagram f4867ca9-aee5-490c-b844-8cb2a08844f2 to storage: 
+2025-08-25 17:31:31 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:31 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for pyramid_5_level
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying final element colors for pyramid_5_level
+DEBUG: Finished applying final element colors
+2025-08-25 17:31:31 - core.conductor - INFO - Saved diagram 350a4e93-526d-4902-b2ad-252fcfa080f3 to storage: 
+2025-08-25 17:31:31 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:31 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for hub_spoke_4
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying final element colors for hub_spoke_4
+DEBUG: Finished applying final element colors
+2025-08-25 17:31:31 - core.conductor - INFO - Saved diagram 82241767-bedc-46e2-8ffa-65b56edfeb64 to storage: 
+2025-08-25 17:31:31 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:31 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for venn_2_circle
+2025-08-25 17:31:31 - agents.svg_agent - INFO - Applying final element colors for venn_2_circle
+DEBUG: Finished applying final element colors
+2025-08-25 17:31:31 - core.conductor - INFO - Saved diagram 6c58727a-bff7-4280-a0b1-cba45e23cab8 to storage: 
+2025-08-25 17:31:31 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 17:31:31 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+2025-08-25 17:31:31 - core.conductor - INFO - Agent GenerationMethod.SVG_TEMPLATE does not support honeycomb
+2025-08-25 17:31:31 - core.conductor - ERROR - Generation failed: All generation methods failed
+Traceback (most recent call last):
+  File "/private/tmp/deckster-diagram-service/core/conductor.py", line 197, in generate
+    raise ValueError("All generation methods failed")
+ValueError: All generation methods failed
+2025-08-25 17:31:31 - api.websocket_handler - ERROR - Generation error: All generation methods failed
+Traceback (most recent call last):
+  File "/private/tmp/deckster-diagram-service/api/websocket_handler.py", line 240, in _generate_diagram
+    result = await self.conductor.generate(diagram_request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/deckster-diagram-service/core/conductor.py", line 197, in generate
+    raise ValueError("All generation methods failed")
+ValueError: All generation methods failed
+2025-08-25 17:31:31 - api.websocket_handler - INFO - Connection closed: 9d9f9ea0-c3ba-46bf-b3a9-be507b18a2ca
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'agents/svg_agent.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 20:09:39 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 20:09:39 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 20:09:39 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 20:09:39 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 20:09:39 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 20:09:39 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 20:09:39 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 20:09:39 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [55758]
+INFO:     Started server process [58691]
+INFO:     Waiting for application startup.
+2025-08-25 20:09:40 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 20:09:40 - main - INFO - ============================================================
+2025-08-25 20:09:40 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 20:09:40 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 20:09:40 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 20:09:40 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 20:09:40 - main - INFO - ============================================================
+2025-08-25 20:09:40 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 20:09:40 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 20:09:40 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 20:09:40 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 20:09:40 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 20:09:40 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 20:09:40 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 20:09:40 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 20:09:40 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 20:09:40 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 20:09:40 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 20:09:40 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 20:09:40 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 20:09:40 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:09:40 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 20:09:40 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 20:09:40 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 20:09:40 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 20:09:40 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 20:09:40 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 20:09:40 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'test_text_contrast.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 20:10:35 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 20:10:35 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 20:10:35 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 20:10:35 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 20:10:35 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 20:10:35 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 20:10:35 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 20:10:35 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [58691]
+INFO:     Started server process [58824]
+INFO:     Waiting for application startup.
+2025-08-25 20:10:36 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 20:10:36 - main - INFO - ============================================================
+2025-08-25 20:10:36 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 20:10:36 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 20:10:36 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 20:10:36 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 20:10:36 - main - INFO - ============================================================
+2025-08-25 20:10:36 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 20:10:36 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 20:10:36 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 20:10:36 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 20:10:36 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 20:10:36 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 20:10:36 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 20:10:36 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 20:10:36 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 20:10:36 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 20:10:36 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 20:10:36 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 20:10:36 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 20:10:36 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:10:36 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 20:10:36 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 20:10:36 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 20:10:36 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 20:10:36 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 20:10:36 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 20:10:36 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53240 - "WebSocket /ws" [accepted]
+2025-08-25 20:10:47 - api.websocket_handler - INFO - Connection established: bed941cc-37a3-473a-a1fc-5502fa9e8fff
+INFO:     connection open
+2025-08-25 20:10:47 - storage.session_manager - INFO - Created new diagram session: bed941cc-37a3-473a-a1fc-5502fa9e8fff
+2025-08-25 20:10:47 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:10:47 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for matrix_2x2
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying final element colors for matrix_2x2
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying matrix-specific colors
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Matrix colors to apply: ['#86e8c8', '#39edb2', '#b0b0b0', '#0c8c62']
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying color #86e8c8 to Q1
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying color #39edb2 to Q2
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying color #b0b0b0 to Q3
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying color #0c8c62 to Q4
+DEBUG: Finished applying final element colors
+2025-08-25 20:10:47 - core.conductor - INFO - Saved diagram 17c4a1f1-3dcd-4652-8704-0aa9ad873e3a to storage: 
+2025-08-25 20:10:47 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:10:47 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for hub_spoke_4
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying final element colors for hub_spoke_4
+DEBUG: Finished applying final element colors
+2025-08-25 20:10:47 - core.conductor - INFO - Saved diagram f6a608c8-1eb3-4789-bdad-76685358a918 to storage: 
+2025-08-25 20:10:47 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:10:47 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for pyramid_5_level
+2025-08-25 20:10:47 - agents.svg_agent - INFO - Applying final element colors for pyramid_5_level
+DEBUG: Finished applying final element colors
+2025-08-25 20:10:47 - core.conductor - INFO - Saved diagram 5fc78038-8ee2-4953-932f-c69751dd5cf9 to storage: 
+2025-08-25 20:10:47 - api.websocket_handler - INFO - Connection closed: bed941cc-37a3-473a-a1fc-5502fa9e8fff
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'agents/svg_agent.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-25 20:11:56 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-25 20:11:56 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-25 20:11:56 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-25 20:11:56 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-25 20:11:56 - storage.session_manager - INFO - Session manager stopped
+2025-08-25 20:11:56 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-25 20:11:56 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-25 20:11:56 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [58824]
+INFO:     Started server process [59139]
+INFO:     Waiting for application startup.
+2025-08-25 20:11:57 - main - INFO - Starting Diagram Microservice v2...
+2025-08-25 20:11:57 - main - INFO - ============================================================
+2025-08-25 20:11:57 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-25 20:11:57 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-25 20:11:57 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-25 20:11:57 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-25 20:11:57 - main - INFO - ============================================================
+2025-08-25 20:11:57 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-25 20:11:57 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-25 20:11:57 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-25 20:11:57 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-25 20:11:57 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-25 20:11:57 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-25 20:11:57 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-25 20:11:57 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-25 20:11:57 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-25 20:11:57 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-25 20:11:57 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-25 20:11:57 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-25 20:11:57 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-25 20:11:57 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:11:57 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-25 20:11:57 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-25 20:11:57 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-25 20:11:57 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-25 20:11:57 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-25 20:11:57 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-25 20:11:57 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53338 - "WebSocket /ws" [accepted]
+2025-08-25 20:12:09 - api.websocket_handler - INFO - Connection established: 96d8879a-bd44-414d-a981-5d6ac2430812
+INFO:     connection open
+2025-08-25 20:12:09 - storage.session_manager - INFO - Created new diagram session: 96d8879a-bd44-414d-a981-5d6ac2430812
+2025-08-25 20:12:09 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:12:09 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for matrix_2x2
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying final element colors for matrix_2x2
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying matrix-specific colors
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Matrix colors to apply: ['#86e8c8', '#39edb2', '#b0b0b0', '#0c8c62']
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying color #86e8c8 to Q1
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying color #39edb2 to Q2
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying color #b0b0b0 to Q3
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying color #0c8c62 to Q4
+DEBUG: Finished applying final element colors
+2025-08-25 20:12:09 - core.conductor - INFO - Saved diagram e31c0773-a50b-4f4b-89dd-05cc3896b085 to storage: 
+2025-08-25 20:12:09 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:12:09 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for hub_spoke_4
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying final element colors for hub_spoke_4
+DEBUG: Finished applying final element colors
+2025-08-25 20:12:09 - core.conductor - INFO - Saved diagram cbe420c2-514f-4851-8b45-c106c24b978b to storage: 
+2025-08-25 20:12:09 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-25 20:12:09 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for pyramid_5_level
+2025-08-25 20:12:09 - agents.svg_agent - INFO - Applying final element colors for pyramid_5_level
+DEBUG: Finished applying final element colors
+2025-08-25 20:12:09 - core.conductor - INFO - Saved diagram cede6e48-66a0-4803-a879-7452f931271b to storage: 
+2025-08-25 20:12:09 - api.websocket_handler - INFO - Connection closed: 96d8879a-bd44-414d-a981-5d6ac2430812
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'test_railway_final.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-26 13:02:09 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-26 13:02:09 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-26 13:02:09 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-26 13:02:09 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-26 13:02:09 - storage.session_manager - INFO - Session manager stopped
+2025-08-26 13:02:09 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-26 13:02:09 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-26 13:02:09 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [59139]
+INFO:     Started server process [73562]
+INFO:     Waiting for application startup.
+2025-08-26 13:02:10 - main - INFO - Starting Diagram Microservice v2...
+2025-08-26 13:02:10 - main - INFO - ============================================================
+2025-08-26 13:02:10 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-26 13:02:10 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-26 13:02:10 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-26 13:02:10 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-26 13:02:10 - main - INFO - ============================================================
+2025-08-26 13:02:10 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-26 13:02:10 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-26 13:02:10 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-26 13:02:10 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-26 13:02:10 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-26 13:02:10 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-26 13:02:10 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-26 13:02:10 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-26 13:02:10 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-26 13:02:10 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-26 13:02:10 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-26 13:02:10 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-26 13:02:10 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-26 13:02:10 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:02:10 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-26 13:02:10 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-26 13:02:10 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-26 13:02:10 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-26 13:02:10 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-26 13:02:10 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-26 13:02:10 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'utils/color_utils.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-26 13:09:55 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-26 13:09:55 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-26 13:09:55 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-26 13:09:55 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-26 13:09:55 - storage.session_manager - INFO - Session manager stopped
+2025-08-26 13:09:55 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-26 13:09:55 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-26 13:09:55 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [73562]
+INFO:     Started server process [74429]
+INFO:     Waiting for application startup.
+2025-08-26 13:09:56 - main - INFO - Starting Diagram Microservice v2...
+2025-08-26 13:09:56 - main - INFO - ============================================================
+2025-08-26 13:09:56 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-26 13:09:56 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-26 13:09:56 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-26 13:09:56 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-26 13:09:56 - main - INFO - ============================================================
+2025-08-26 13:09:56 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-26 13:09:56 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-26 13:09:56 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-26 13:09:56 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-26 13:09:56 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-26 13:09:56 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-26 13:09:56 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-26 13:09:56 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-26 13:09:56 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-26 13:09:56 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-26 13:09:56 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-26 13:09:56 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-26 13:09:56 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-26 13:09:56 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:09:56 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-26 13:09:56 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-26 13:09:56 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-26 13:09:56 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-26 13:09:56 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-26 13:09:56 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-26 13:09:56 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'agents/svg_agent.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-26 13:12:33 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-26 13:12:33 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-26 13:12:33 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-26 13:12:33 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-26 13:12:33 - storage.session_manager - INFO - Session manager stopped
+2025-08-26 13:12:33 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-26 13:12:33 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-26 13:12:33 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [74429]
+INFO:     Started server process [74737]
+INFO:     Waiting for application startup.
+2025-08-26 13:12:34 - main - INFO - Starting Diagram Microservice v2...
+2025-08-26 13:12:34 - main - INFO - ============================================================
+2025-08-26 13:12:34 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-26 13:12:34 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-26 13:12:34 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-26 13:12:34 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-26 13:12:34 - main - INFO - ============================================================
+2025-08-26 13:12:34 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-26 13:12:34 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-26 13:12:34 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-26 13:12:34 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-26 13:12:34 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-26 13:12:34 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-26 13:12:34 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-26 13:12:34 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-26 13:12:34 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-26 13:12:34 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-26 13:12:34 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-26 13:12:34 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-26 13:12:34 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-26 13:12:34 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:12:34 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-26 13:12:34 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-26 13:12:34 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-26 13:12:34 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-26 13:12:34 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-26 13:12:34 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-26 13:12:34 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'test_spatial_colors.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-26 13:13:36 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-26 13:13:36 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-26 13:13:36 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-26 13:13:36 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-26 13:13:36 - storage.session_manager - INFO - Session manager stopped
+2025-08-26 13:13:36 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-26 13:13:36 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-26 13:13:36 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [74737]
+INFO:     Started server process [74862]
+INFO:     Waiting for application startup.
+2025-08-26 13:13:37 - main - INFO - Starting Diagram Microservice v2...
+2025-08-26 13:13:37 - main - INFO - ============================================================
+2025-08-26 13:13:37 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-26 13:13:37 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-26 13:13:37 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-26 13:13:37 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-26 13:13:37 - main - INFO - ============================================================
+2025-08-26 13:13:37 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-26 13:13:37 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-26 13:13:37 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-26 13:13:37 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-26 13:13:37 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-26 13:13:37 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-26 13:13:37 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-26 13:13:37 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-26 13:13:37 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-26 13:13:37 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-26 13:13:37 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-26 13:13:37 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-26 13:13:37 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-26 13:13:37 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:13:37 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-26 13:13:37 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-26 13:13:37 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-26 13:13:37 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-26 13:13:37 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-26 13:13:37 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-26 13:13:37 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59576 - "WebSocket /ws" [accepted]
+2025-08-26 13:13:43 - api.websocket_handler - INFO - Connection established: 201ececb-b1c1-4776-9156-dfce70d90ca8
+INFO:     connection open
+2025-08-26 13:13:43 - storage.session_manager - INFO - Created new diagram session: 201ececb-b1c1-4776-9156-dfce70d90ca8
+2025-08-26 13:13:43 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:13:43 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for matrix_2x2
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying spatial color assignment for matrix_2x2
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying 2D gradient for matrix
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Matrix gradient colors: ['#0ea472', '#89f4d1', '#9ce1ca', '#288969']
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying #0ea472 to Q1
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying #89f4d1 to Q2
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying #9ce1ca to Q3
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying #288969 to Q4
+DEBUG: Finished applying final element colors
+2025-08-26 13:13:43 - core.conductor - INFO - Saved diagram a7990fe1-8eaf-42cf-9ebd-81f39c01f4f0 to storage: 
+2025-08-26 13:13:43 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:13:43 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for hub_spoke_4
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying spatial color assignment for hub_spoke_4
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying radial colors for hub & spoke
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Radial colors: {'hub': '#613f05', 'spoke_1': '#f49d0a', 'spoke_2': '#40f156', 'spoke_3': '#73a2f1', 'spoke_4': '#e11dc8'}
+DEBUG: Finished applying final element colors
+2025-08-26 13:13:43 - core.conductor - INFO - Saved diagram 28876ddf-d073-49ef-8277-1c3f77214398 to storage: 
+2025-08-26 13:13:43 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:13:43 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for pyramid_5_level
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying spatial color assignment for pyramid_5_level
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying vertical gradient for pyramid
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Pyramid gradient colors: ['#053179', '#0d4eb8', '#236ee8', '#6799ea', '#a7c3f0']
+DEBUG: Finished applying final element colors
+2025-08-26 13:13:43 - core.conductor - INFO - Saved diagram 9f54dee0-e4a8-422d-acab-687487b491dc to storage: 
+2025-08-26 13:13:43 - core.unified_playbook - INFO - Using forced method from request: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:13:43 - core.conductor - INFO - Selected strategy: GenerationMethod.SVG_TEMPLATE (confidence: 1.00)
+DEBUG: useSmartTheming = True
+DEBUG: About to apply final element colors for venn_2_circle
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying spatial color assignment for venn_2_circle
+2025-08-26 13:13:43 - agents.svg_agent - INFO - Applying Venn diagram colors with proper intersection
+DEBUG: Finished applying final element colors
+2025-08-26 13:13:43 - core.conductor - INFO - Saved diagram 8f4b0768-83bd-4330-a014-9b09397d82eb to storage: 
+2025-08-26 13:13:43 - api.websocket_handler - INFO - Connection closed: 201ececb-b1c1-4776-9156-dfce70d90ca8
+INFO:     connection closed
+WARNING:  WatchFiles detected changes in 'utils/color_utils.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2025-08-26 13:15:00 - main - INFO - Shutting down Diagram Microservice v2...
+2025-08-26 13:15:00 - api.websocket_handler - INFO - Shutting down WebSocket handler...
+2025-08-26 13:15:00 - core.conductor - INFO - Shutting down Diagram Conductor...
+2025-08-26 13:15:00 - storage.cache_manager - INFO - Cache manager stopped
+2025-08-26 13:15:00 - storage.session_manager - INFO - Session manager stopped
+2025-08-26 13:15:00 - core.conductor - INFO - Diagram Conductor shut down
+2025-08-26 13:15:00 - api.websocket_handler - INFO - WebSocket handler shut down
+2025-08-26 13:15:00 - main - INFO - Microservice shut down successfully
+INFO:     Application shutdown complete.
+INFO:     Finished server process [74862]
+INFO:     Started server process [75021]
+INFO:     Waiting for application startup.
+2025-08-26 13:15:01 - main - INFO - Starting Diagram Microservice v2...
+2025-08-26 13:15:01 - main - INFO - ============================================================
+2025-08-26 13:15:01 - main - INFO - ENVIRONMENT VARIABLE STATUS:
+2025-08-26 13:15:01 - main - INFO - ❌ SUPABASE_URL not configured - storage features disabled
+2025-08-26 13:15:01 - main - INFO - ❌ SUPABASE_ANON_KEY not configured - storage features disabled
+2025-08-26 13:15:01 - main - INFO - ⚠️ GOOGLE_API_KEY not configured - semantic routing disabled
+2025-08-26 13:15:01 - main - INFO - ============================================================
+2025-08-26 13:15:01 - main - WARNING - Some features are disabled. Add environment variables in Railway dashboard.
+2025-08-26 13:15:01 - api.websocket_handler - INFO - Initializing WebSocket handler...
+2025-08-26 13:15:01 - core.unified_playbook - INFO - Found 25 SVG templates
+2025-08-26 13:15:01 - core.unified_playbook - WARNING - No Google API key - UnifiedPlaybook disabled
+2025-08-26 13:15:01 - agents.mermaid_agent - WARNING - No Google API key - MermaidAgent disabled
+2025-08-26 13:15:01 - storage.supabase_client - WARNING - Supabase not configured. Storage features will be disabled. Please set SUPABASE_URL environment variable in Railway dashboard.
+2025-08-26 13:15:01 - storage.supabase_client - INFO - DiagramStorage running without Supabase - using in-memory fallback only
+2025-08-26 13:15:01 - storage.diagram_operations - INFO - DiagramOperations running without database - metadata will not be persisted
+2025-08-26 13:15:01 - core.conductor - INFO - Initializing Diagram Conductor...
+2025-08-26 13:15:01 - core.unified_playbook - INFO - UnifiedPlaybook initialized
+2025-08-26 13:15:01 - core.unified_playbook - INFO -   Router enabled: False
+2025-08-26 13:15:01 - core.unified_playbook - INFO -   Templates found: 25
+2025-08-26 13:15:01 - agents.svg_agent - INFO - SVG Agent initialized with 25 templates
+2025-08-26 13:15:01 - core.conductor - INFO - Initialized agent: GenerationMethod.SVG_TEMPLATE
+2025-08-26 13:15:01 - core.conductor - INFO - Initialized agent: GenerationMethod.MERMAID
+2025-08-26 13:15:01 - core.conductor - INFO - Initialized agent: GenerationMethod.PYTHON_CHART
+2025-08-26 13:15:01 - storage.cache_manager - INFO - Cache manager started with background cleanup
+2025-08-26 13:15:01 - storage.session_manager - INFO - Session manager started with background cleanup
+2025-08-26 13:15:01 - core.conductor - INFO - Diagram Conductor initialized
+2025-08-26 13:15:01 - api.websocket_handler - INFO - WebSocket handler initialized
+2025-08-26 13:15:01 - main - INFO - Microservice started successfully (with available features)
+INFO:     Application startup complete.

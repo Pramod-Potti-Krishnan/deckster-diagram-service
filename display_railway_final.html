@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway Color Test - Final</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .diagram-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .diagram-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .diagram-info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .svg-container {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .color-analysis {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        .issue {
+            color: #e11d48;
+            font-weight: 600;
+        }
+        .success {
+            color: #10b981;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Railway Deployment - Color Uniqueness Test</h1>
+    
+    <div class="grid">
+        <!-- Matrix 2x2 -->
+        <div class="diagram-card">
+            <div class="diagram-title">Matrix 2x2</div>
+            <div class="diagram-info">Monochromatic #10b981</div>
+            <div class="svg-container">
+                <img src="railway_test_final/matrix_2x2_mono.svg" width="100%" />
+            </div>
+            <div class="color-analysis">
+                <div class="issue">⚠️ Issue: Q1 and Q4 both have #81e3c3</div>
+                <div>Q1: #81e3c3</div>
+                <div>Q2: #a1f6da</div>
+                <div>Q3: #fee2e2</div>
+                <div>Q4: #81e3c3 (duplicate)</div>
+            </div>
+        </div>
+
+        <!-- Hub & Spoke 4 -->
+        <div class="diagram-card">
+            <div class="diagram-title">Hub & Spoke 4</div>
+            <div class="diagram-info">Complementary #f59e0b</div>
+            <div class="svg-container">
+                <img src="railway_test_final/hub_spoke_4.svg" width="100%" />
+            </div>
+            <div class="color-analysis">
+                <div class="issue">⚠️ Issue: Hub and North both have #f59e0a</div>
+                <div>Hub: #f59e0a</div>
+                <div>North: #f59e0a (duplicate)</div>
+                <div>East: #0a61f4</div>
+                <div>South: #0af49c</div>
+                <div>West: #f8bb54</div>
+            </div>
+        </div>
+
+        <!-- Pyramid 5 Level -->
+        <div class="diagram-card">
+            <div class="diagram-title">Pyramid 5 Level</div>
+            <div class="diagram-info">Monochromatic #3b82f6</div>
+            <div class="svg-container">
+                <img src="railway_test_final/pyramid_5_mono.svg" width="100%" />
+            </div>
+            <div class="color-analysis">
+                <div class="success">✅ Colors appear unique</div>
+                <div>Each level has distinct shading</div>
+            </div>
+        </div>
+
+        <!-- Pyramid 5 Complementary -->
+        <div class="diagram-card">
+            <div class="diagram-title">Pyramid 5 Level</div>
+            <div class="diagram-info">Complementary #8b5cf6</div>
+            <div class="svg-container">
+                <img src="railway_test_final/pyramid_5_comp.svg" width="100%" />
+            </div>
+            <div class="color-analysis">
+                <div class="success">✅ Colors appear unique</div>
+                <div>Complementary scheme working</div>
+            </div>
+        </div>
+
+        <!-- Venn 2 Circle -->
+        <div class="diagram-card">
+            <div class="diagram-title">Venn 2 Circle</div>
+            <div class="diagram-info">Complementary #06b6d4</div>
+            <div class="svg-container">
+                <img src="railway_test_final/venn_2_circle.svg" width="100%" />
+            </div>
+            <div class="color-analysis">
+                <div class="success">✅ Colors appear unique</div>
+                <div>Circles have distinct colors</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background: white; border-radius: 12px;">
+        <h2 style="color: #333;">Summary</h2>
+        <p><span class="issue">Issue Identified:</span> The _apply_final_element_colors method is not being applied on Railway deployment.</p>
+        <ul>
+            <li>Matrix 2x2: Q1 and Q4 have the same color (#81e3c3)</li>
+            <li>Hub & Spoke: Hub and North node have the same color (#f59e0a)</li>
+            <li>Other diagrams appear to work correctly</li>
+        </ul>
+        <p><strong>Root Cause:</strong> The element-specific color application is not executing in the Railway environment, even though it works locally.</p>
+    </div>
+</body>
+</html>

@@ -882,3 +882,133 @@ def ensure_color_visibility(color: str, background: str = "#ffffff") -> str:
         return rgb_to_hex(r, g, b)
     
     return color
+
+
+def interpolate_color(color1: str, color2: str, factor: float) -> str:
+    """
+    Interpolate between two colors
+    
+    Args:
+        color1: Start color (hex)
+        color2: End color (hex)
+        factor: Interpolation factor (0.0 = color1, 1.0 = color2)
+    
+    Returns:
+        Interpolated color (hex)
+    """
+    r1, g1, b1 = hex_to_rgb(color1)
+    r2, g2, b2 = hex_to_rgb(color2)
+    
+    # Linear interpolation in RGB space
+    r = int(r1 + (r2 - r1) * factor)
+    g = int(g1 + (g2 - g1) * factor)
+    b = int(b1 + (b2 - b1) * factor)
+    
+    return rgb_to_hex(r, g, b)
+
+
+def generate_2d_gradient(primary_color: str, width: int = 2, height: int = 2) -> List[List[str]]:
+    """
+    Generate a 2D color gradient for grid layouts
+    
+    Args:
+        primary_color: Base color
+        width: Grid width 
+        height: Grid height
+    
+    Returns:
+        2D list of hex colors
+    """
+    r, g, b = hex_to_rgb(primary_color)
+    h, s, l = rgb_to_hsl(r, g, b)
+    
+    grid = []
+    for y in range(height):
+        row = []
+        for x in range(width):
+            # X-axis: vary lightness (left to right: light to dark)
+            x_factor = x / max(1, width - 1)
+            target_lightness = 75 - (x_factor * 40)  # 75% to 35%
+            
+            # Y-axis: vary saturation (top to bottom: vivid to muted)
+            y_factor = y / max(1, height - 1)
+            target_saturation = s - (y_factor * 30)  # Full saturation to 30% less
+            target_saturation = max(20, target_saturation)
+            
+            r_new, g_new, b_new = hsl_to_rgb(h, target_saturation, target_lightness)
+            row.append(rgb_to_hex(r_new, g_new, b_new))
+        grid.append(row)
+    
+    return grid
+
+
+def generate_radial_colors(center_color: str, num_spokes: int = 4) -> Dict[str, str]:
+    """
+    Generate colors for hub & spoke with radial/circular progression
+    
+    Args:
+        center_color: Hub color
+        num_spokes: Number of spoke nodes
+    
+    Returns:
+        Dictionary with 'hub' and 'spoke_N' colors
+    """
+    r, g, b = hex_to_rgb(center_color)
+    h, s, l = rgb_to_hsl(r, g, b)
+    
+    colors = {}
+    
+    # Hub: darker, more saturated version
+    hub_lightness = max(15, l - 30)
+    hub_saturation = min(90, s + 20)
+    r_hub, g_hub, b_hub = hsl_to_rgb(h, hub_saturation, hub_lightness)
+    colors['hub'] = rgb_to_hex(r_hub, g_hub, b_hub)
+    
+    # Spokes: create variations of the primary color
+    # Keep hue close to primary, vary lightness and saturation
+    for i in range(num_spokes):
+        # Small hue variation (±30 degrees max instead of full rotation)
+        hue_shift = (i - num_spokes/2) * (60 / num_spokes)  # ±30 degrees spread
+        spoke_hue = (h + hue_shift) % 360
+        
+        # Vary lightness systematically
+        lightness_range = [65, 50, 55, 70]  # Different lightness values
+        spoke_lightness = lightness_range[i % len(lightness_range)]
+        
+        # Vary saturation slightly
+        saturation_range = [s, s-10, s+10, s-5]
+        spoke_saturation = max(30, min(90, saturation_range[i % len(saturation_range)]))
+        
+        r_spoke, g_spoke, b_spoke = hsl_to_rgb(spoke_hue, spoke_saturation, spoke_lightness)
+        colors[f'spoke_{i+1}'] = rgb_to_hex(r_spoke, g_spoke, b_spoke)
+    
+    return colors
+
+
+def blend_colors(color1: str, color2: str, opacity1: float = 0.5, opacity2: float = 0.5) -> str:
+    """
+    Blend two colors with opacity (for Venn intersection)
+    
+    Args:
+        color1: First color (hex)
+        color2: Second color (hex)
+        opacity1: Opacity of first color
+        opacity2: Opacity of second color
+    
+    Returns:
+        Blended color (hex)
+    """
+    r1, g1, b1 = hex_to_rgb(color1)
+    r2, g2, b2 = hex_to_rgb(color2)
+    
+    # Simulate alpha blending
+    r = int((r1 * opacity1 + r2 * opacity2) / (opacity1 + opacity2))
+    g = int((g1 * opacity1 + g2 * opacity2) / (opacity1 + opacity2))
+    b = int((b1 * opacity1 + b2 * opacity2) / (opacity1 + opacity2))
+    
+    # Make it darker for intersection
+    r = int(r * 0.7)
+    g = int(g * 0.7)
+    b = int(b * 0.7)
+    
+    return rgb_to_hex(r, g, b)

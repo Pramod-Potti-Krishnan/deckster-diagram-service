@@ -389,70 +389,86 @@ class SVGAgent(BaseAgent):
         return svg_content
     
     def _apply_final_element_colors(self, svg_content: str, theme, diagram_type: str) -> str:
-        """Apply element-specific colors as the final step to ensure uniqueness"""
+        """Apply element-specific colors using spatial relationships"""
         import re
+        from utils.color_utils import (
+            generate_2d_gradient, generate_radial_colors, 
+            blend_colors, interpolate_color, hex_to_rgb, rgb_to_hsl, hsl_to_rgb, rgb_to_hex
+        )
         
-        logger.info(f"Applying final element colors for {diagram_type}")
+        logger.info(f"Applying spatial color assignment for {diagram_type}")
         
-        # Matrix-specific coloring to ensure all quadrants have distinct colors
+        # Get primary color from theme
+        primary_color = theme.primary if hasattr(theme, 'primary') else "#10b981"
+        
+        # Matrix 2x2: Use 2D gradient for logical color transitions
         if diagram_type == "matrix_2x2" and 'id="q1_fill"' in svg_content:
-            logger.info("Applying matrix-specific colors")
-            # Use distinct colors from the theme palette
-            if hasattr(theme, 'palette'):
-                colors = [
-                    theme.palette['primary'][1],   # Q1 - Light primary
-                    theme.palette['primary'][2],   # Q2 - Medium primary  
-                    theme.palette['neutral'][0],   # Q3 - Light neutral
-                    theme.palette['primary'][4],   # Q4 - Darker primary
-                ]
-                
-                logger.info(f"Matrix colors to apply: {colors}")
-                
-                for i, color in enumerate(colors, 1):
-                    logger.info(f"Applying color {color} to Q{i}")
-                    # Replace both fill and stroke for consistency
-                    svg_content = re.sub(
-                        rf'(id="q{i}_fill"[^>]*)(fill=")[^"]*(")',
-                        rf'\1\2{color}\3',
-                        svg_content,
-                        flags=re.DOTALL
-                    )
-                    svg_content = re.sub(
-                        rf'(id="q{i}_fill"[^>]*)(stroke=")[^"]*(")',
-                        rf'\1\2{color}\3',
-                        svg_content,
-                        flags=re.DOTALL
-                    )
+            logger.info("Applying 2D gradient for matrix")
+            
+            # Generate 2x2 gradient
+            gradient = generate_2d_gradient(primary_color, 2, 2)
+            
+            # Map to quadrants (top-left, top-right, bottom-left, bottom-right)
+            colors = [
+                gradient[0][1],  # Q1 (top-right): vivid dark
+                gradient[0][0],  # Q2 (top-left): vivid light
+                gradient[1][0],  # Q3 (bottom-left): muted light
+                gradient[1][1],  # Q4 (bottom-right): muted dark
+            ]
+            
+            logger.info(f"Matrix gradient colors: {colors}")
+            
+            for i, color in enumerate(colors, 1):
+                logger.info(f"Applying {color} to Q{i}")
+                # Replace both fill and stroke
+                svg_content = re.sub(
+                    rf'(id="q{i}_fill"[^>]*)(fill=")[^"]*(")',
+                    rf'\1\2{color}\3',
+                    svg_content,
+                    flags=re.DOTALL
+                )
+                svg_content = re.sub(
+                    rf'(id="q{i}_fill"[^>]*)(stroke=")[^"]*(")',
+                    rf'\1\2{color}\3',
+                    svg_content,
+                    flags=re.DOTALL
+                )
         
-        # Hub & Spoke specific coloring to ensure hub is distinct from all nodes
+        # Hub & Spoke: Use radial/circular color progression
         elif diagram_type.startswith("hub_spoke") and 'id="hub_fill"' in svg_content:
-            if hasattr(theme, 'palette'):
-                # Hub gets the darkest/most prominent color
-                hub_color = theme.palette['primary'][4]
-                
-                # Replace hub color
+            logger.info("Applying radial colors for hub & spoke")
+            
+            # Extract number of spokes from diagram_type (e.g., hub_spoke_4)
+            num_spokes = 4  # default
+            if '_' in diagram_type:
+                try:
+                    num_spokes = int(diagram_type.split('_')[-1])
+                except:
+                    pass
+            
+            # Generate radial colors
+            radial_colors = generate_radial_colors(primary_color, num_spokes)
+            logger.info(f"Radial colors: {radial_colors}")
+            
+            # Apply hub color
+            if 'hub' in radial_colors:
                 svg_content = re.sub(
                     r'(id="hub_fill"[^>]*)(fill=")[^"]*(")',
-                    rf'\1\2{hub_color}\3',
+                    rf'\1\2{radial_colors["hub"]}\3',
                     svg_content,
                     flags=re.DOTALL
                 )
                 svg_content = re.sub(
                     r'(id="hub_fill"[^>]*)(stroke=")[^"]*(")',
-                    rf'\1\2{hub_color}\3',
+                    rf'\1\2{radial_colors["hub"]}\3',
                     svg_content,
                     flags=re.DOTALL
                 )
-                
-                # Distribute node colors avoiding the hub color
-                node_colors = [
-                    theme.palette['primary'][1],  # Light
-                    theme.palette['primary'][2],  # Medium light
-                    theme.palette['primary'][3],  # Medium
-                    theme.palette['primary'][5] if len(theme.palette['primary']) > 5 else theme.palette['primary'][0],  # Dark or fallback
-                ]
-                
-                for i, color in enumerate(node_colors, 1):
+            
+            # Apply spoke colors
+            for i in range(1, num_spokes + 1):
+                if f'spoke_{i}' in radial_colors:
+                    color = radial_colors[f'spoke_{i}']
                     svg_content = re.sub(
                         rf'(id="spoke_{i}_fill"[^>]*)(fill=")[^"]*(")',
                         rf'\1\2{color}\3',
@@ -462,6 +478,75 @@ class SVGAgent(BaseAgent):
                     svg_content = re.sub(
                         rf'(id="spoke_{i}_fill"[^>]*)(stroke=")[^"]*(")',
                         rf'\1\2{color}\3',
+                        svg_content,
+                        flags=re.DOTALL
+                    )
+        
+        # Pyramid: Use vertical gradient (dark to light from bottom to top)
+        elif "pyramid" in diagram_type and 'id="level_' in svg_content:
+            logger.info("Applying vertical gradient for pyramid")
+            
+            # Extract number of levels
+            num_levels = 5  # default
+            if '_' in diagram_type:
+                for part in diagram_type.split('_'):
+                    if part.isdigit():
+                        num_levels = int(part)
+                        break
+            
+            # Generate gradient colors from dark (bottom) to light (top)
+            colors = []
+            for i in range(num_levels):
+                factor = i / max(1, num_levels - 1)
+                # Generate gradient manually
+                lightness_factor = 0.25 + (factor * 0.55)  # 25% to 80% lightness
+                r, g, b = hex_to_rgb(primary_color)
+                h, s, l = rgb_to_hsl(r, g, b)
+                new_l = lightness_factor * 100
+                # Adjust saturation for better visual distinction
+                new_s = s - (factor * 20)  # Slightly reduce saturation toward top
+                new_s = max(30, new_s)
+                r, g, b = hsl_to_rgb(h, new_s, new_l)
+                colors.append(rgb_to_hex(r, g, b))
+            
+            logger.info(f"Pyramid gradient colors: {colors}")
+            
+            # Apply colors to levels
+            for i, color in enumerate(colors, 1):
+                svg_content = re.sub(
+                    rf'(id="level_{i}"[^>]*)(fill=")[^"]*(")',
+                    rf'\1\2{color}\3',
+                    svg_content,
+                    flags=re.DOTALL
+                )
+        
+        # Venn Diagram: Fix intersection text contrast
+        elif "venn" in diagram_type:
+            logger.info("Applying Venn diagram colors with proper intersection")
+            
+            # Find circle colors first
+            circle1_match = re.search(r'id="circle_1"[^>]*fill="([^"]*)"', svg_content)
+            circle2_match = re.search(r'id="circle_2"[^>]*fill="([^"]*)"', svg_content)
+            
+            if circle1_match and circle2_match:
+                color1 = circle1_match.group(1)
+                color2 = circle2_match.group(1)
+                
+                # Generate darker intersection color
+                intersection_color = blend_colors(color1, color2)
+                logger.info(f"Blending {color1} and {color2} to get {intersection_color}")
+                
+                # Apply to intersection/overlap elements
+                intersection_patterns = [
+                    r'(id="intersection[^"]*"[^>]*)(fill=")[^"]*(")',
+                    r'(id="overlap[^"]*"[^>]*)(fill=")[^"]*(")',
+                    r'(class="intersection[^"]*"[^>]*)(fill=")[^"]*(")',
+                ]
+                
+                for pattern in intersection_patterns:
+                    svg_content = re.sub(
+                        pattern,
+                        rf'\1\2{intersection_color}\3',
                         svg_content,
                         flags=re.DOTALL
                     )
