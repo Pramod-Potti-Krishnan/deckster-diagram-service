@@ -76,9 +76,9 @@ class WebSocketMessage(BaseModel):
     payload: Dict[str, Any] = Field(
         description="Message payload"
     )
-    correlation_id: Optional[str] = Field(
+    request_id: Optional[str] = Field(
         default=None,
-        description="ID to correlate request/response"
+        description="Request ID for matching responses to requests"
     )
     metadata: Optional[Dict[str, Any]] = Field(
         default=None,

@@ -182,7 +182,15 @@ class WebSocketHandler:
         """Handle diagram generation request"""
         
         self.total_requests += 1
-        request_id = message_data.get("correlation_id", str(uuid.uuid4()))
+        # Support both 'request_id' (preferred) and 'correlation_id' (backward compat)
+        request_id = message_data.get("request_id")
+        if not request_id:
+            # For backward compatibility, check correlation_id
+            request_id = message_data.get("correlation_id")
+        if not request_id:
+            # Only generate if client didn't provide one (with warning)
+            request_id = str(uuid.uuid4())
+            logger.warning(f"No request_id provided by client for session {session_id}, generated: {request_id}")
         
         # Cancel any existing request for this session
         if session_id in self.active_requests:
@@ -337,7 +345,7 @@ class WebSocketHandler:
             session_id=session_id,
             type="status_update",
             payload=status_update.dict(),
-            correlation_id=request_id
+            request_id=request_id
         )
         
         await self.connection_manager.send_message(session_id, message)
@@ -366,7 +374,7 @@ class WebSocketHandler:
             session_id=session_id,
             type="diagram_response",
             payload=response.dict(),
-            correlation_id=request_id
+            request_id=request_id
         )
         
         await self.connection_manager.send_message(session_id, message)
@@ -391,7 +399,7 @@ class WebSocketHandler:
             session_id=session_id,
             type="error_response",
             payload=error_response.dict(),
-            correlation_id=request_id
+            request_id=request_id
         )
         
         await self.connection_manager.send_message(session_id, message)
