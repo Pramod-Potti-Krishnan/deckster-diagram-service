@@ -5,7 +5,6 @@ Settings Configuration using Pydantic
 from typing import Optional, List
 from pydantic_settings import BaseSettings
 from pydantic import Field
-from functools import lru_cache
 import os
 
 
@@ -212,9 +211,8 @@ class Settings(BaseSettings):
     }
 
 
-@lru_cache()
 def get_settings() -> Settings:
-    """Get cached settings instance"""
+    """Get settings instance (no caching to ensure fresh env vars)"""
     # Explicitly load from .env file and environment
     from dotenv import load_dotenv
     load_dotenv()

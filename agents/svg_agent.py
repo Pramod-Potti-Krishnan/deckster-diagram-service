@@ -26,6 +26,14 @@ class SVGAgent(BaseAgent):
     Uses pre-built SVG templates with text and color replacements.
     """
     
+    # Template name mapping for variations
+    TEMPLATE_NAME_MAPPING = {
+        "timeline": "timeline_horizontal",
+        "timeline_vertical": "timeline_vertical",
+        "timeline_horizontal": "timeline_horizontal",
+        # Add other mappings as needed
+    }
+    
     def __init__(self, settings):
         super().__init__(settings)
         self.templates_dir = os.path.join(
@@ -63,7 +71,9 @@ class SVGAgent(BaseAgent):
     
     async def supports(self, diagram_type: str) -> bool:
         """Check if diagram type is supported"""
-        return diagram_type in self.template_cache
+        # Check with mapping first
+        actual_template = self.TEMPLATE_NAME_MAPPING.get(diagram_type, diagram_type)
+        return actual_template in self.template_cache
     
     async def generate(self, request: DiagramRequest) -> Dict[str, Any]:
         """Generate diagram using SVG template"""
@@ -71,10 +81,13 @@ class SVGAgent(BaseAgent):
         # Validate request
         self.validate_request(request)
         
+        # Map diagram type to actual template name
+        actual_template = self.TEMPLATE_NAME_MAPPING.get(request.diagram_type, request.diagram_type)
+        
         # Get template
-        template = self.template_cache.get(request.diagram_type)
+        template = self.template_cache.get(actual_template)
         if not template:
-            raise ValueError(f"No template found for {request.diagram_type}")
+            raise ValueError(f"No template found for {request.diagram_type} (mapped to {actual_template})")
         
         # Extract data points
         data_points = self.extract_data_points(request)
@@ -84,7 +97,7 @@ class SVGAgent(BaseAgent):
             template,
             data_points,
             request.theme.dict(),
-            request.diagram_type  # Pass template type for specific replacements
+            actual_template  # Pass actual template name for specific replacements
         )
         
         # Apply theme
@@ -111,8 +124,8 @@ class SVGAgent(BaseAgent):
             svg_content = self._remove_titles(svg_content)
             
             # Apply element-specific colors BEFORE text colors to ensure correct contrast
-            print(f"DEBUG: About to apply final element colors for {request.diagram_type}")
-            svg_content = self._apply_final_element_colors(svg_content, theme, request.diagram_type)
+            print(f"DEBUG: About to apply final element colors for {actual_template}")
+            svg_content = self._apply_final_element_colors(svg_content, theme, actual_template)
             print(f"DEBUG: Finished applying final element colors")
             
             # Apply smart text colors AFTER final background colors for proper contrast
@@ -142,7 +155,8 @@ class SVGAgent(BaseAgent):
             # Metadata (works for both formats)
             "metadata": {
                 "generation_method": "svg_template",
-                "template_used": request.diagram_type,
+                "template_used": actual_template,
+                "original_type": request.diagram_type,
                 "elements_modified": len(data_points),
                 "cache_hit": False,
                 "server_rendered": True

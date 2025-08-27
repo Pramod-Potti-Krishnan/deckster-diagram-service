@@ -66,11 +66,18 @@ class MermaidAgent(BaseAgent):
         # Initialize Gemini if API key is available
         if settings.google_api_key:
             try:
-                # Configure Gemini
-                genai.configure(api_key=settings.google_api_key)
-                self.model = genai.GenerativeModel('gemini-2.5-flash')
-                self.enabled = True
-                logger.info("✅ MermaidAgent initialized with gemini-2.5-flash")
+                # Use centralized Gemini configuration
+                from config import configure_gemini
+                
+                # Log the API key being used (for debugging)
+                logger.info(f"Configuring MermaidAgent with API key: {settings.google_api_key[:20]}...")
+                
+                if configure_gemini(settings.google_api_key):
+                    self.model = genai.GenerativeModel('gemini-2.5-flash')
+                    self.enabled = True
+                    logger.info("✅ MermaidAgent initialized with gemini-2.5-flash")
+                else:
+                    raise ValueError("Failed to configure Gemini API")
             except Exception as e:
                 logger.error(f"Failed to initialize Gemini: {e}")
                 self.model = None
@@ -95,6 +102,9 @@ class MermaidAgent(BaseAgent):
         Returns:
             Dict with either success data or error information
         """
+        
+        logger.info(f"MermaidAgent.generate called for {request.diagram_type}")
+        logger.info(f"  enabled={self.enabled}, model={self.model is not None}")
         
         # Validate request
         self.validate_request(request)
@@ -121,15 +131,22 @@ class MermaidAgent(BaseAgent):
             
             logger.info(f"🚀 Generating {request.diagram_type} with Gemini")
             
-            # Generate with Gemini
-            response = await asyncio.to_thread(
-                self.model.generate_content,
-                prompt + "\n\nReturn a JSON object with: mermaid_code, confidence (0-1), entities_extracted (list), relationships_count (int), diagram_type_confirmed"
+            # Use optimized Gemini service
+            from utils.gemini_service import optimized_generate
+            
+            # Generate with caching for similar requests
+            cache_key = f"{request.diagram_type}_{hash(request.content[:100] if request.content else '')}"
+            response_text = await optimized_generate(
+                prompt + "\n\nReturn a JSON object with: mermaid_code, confidence (0-1), entities_extracted (list), relationships_count (int), diagram_type_confirmed",
+                model_type='flash',
+                cache_key=cache_key
             )
+            
+            if not response_text:
+                raise ValueError("Gemini generation failed")
             
             # Parse the response
             import json
-            response_text = response.text
             # Try to extract JSON from response
             if '```json' in response_text:
                 response_text = response_text.split('```json')[1].split('```')[0]

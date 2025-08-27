@@ -61,11 +61,18 @@ class UnifiedPlaybook:
         # Initialize Gemini router if API key is available
         if settings.google_api_key:
             try:
-                # Configure Gemini
-                genai.configure(api_key=settings.google_api_key)
-                self.model = genai.GenerativeModel('gemini-2.0-flash-lite')
-                self.enabled = True
-                logger.info("✅ UnifiedPlaybook initialized with gemini-2.0-flash-lite")
+                # Use centralized Gemini configuration
+                from config import configure_gemini
+                
+                # Log the API key being used (for debugging)
+                logger.info(f"UnifiedPlaybook configuring Gemini with API key: {settings.google_api_key[:20] if settings.google_api_key else 'None'}...")
+                
+                if configure_gemini(settings.google_api_key):
+                    self.model = genai.GenerativeModel('gemini-2.0-flash-lite')
+                    self.enabled = True
+                    logger.info("✅ UnifiedPlaybook initialized with gemini-2.0-flash-lite")
+                else:
+                    raise ValueError("Failed to configure Gemini API")
             except Exception as e:
                 logger.error(f"Failed to initialize Gemini router: {e}")
                 self.model = None
@@ -100,7 +107,7 @@ class UnifiedPlaybook:
         """
         
         # Check if method is forced in request
-        if request.method:
+        if hasattr(request, 'method') and request.method:
             method_map = {
                 'svg_template': GenerationMethod.SVG_TEMPLATE,
                 'mermaid': GenerationMethod.MERMAID,
@@ -136,16 +143,23 @@ class UnifiedPlaybook:
             
             logger.info(f"🔄 Routing {request.diagram_type} with Gemini")
             
-            # Generate routing decision
+            # Use optimized Gemini service
+            from utils.gemini_service import optimized_generate
+            
+            # Generate routing decision with caching
+            cache_key = f"route_{request.diagram_type}_{len(request.content) if request.content else 0}"
             prompt = routing_context + "\n\nReturn a JSON object with: primary_method (svg_template, mermaid, or python_chart), confidence (0-1), reasoning (string), content_analysis (dict)"
-            response = await asyncio.to_thread(
-                self.model.generate_content,
-                prompt
+            response_text = await optimized_generate(
+                prompt,
+                model_type='flash-lite',  # Use lighter model for routing
+                cache_key=cache_key
             )
+            
+            if not response_text:
+                raise ValueError("Routing generation failed")
             
             # Parse response
             import json
-            response_text = response.text
             if '```json' in response_text:
                 response_text = response_text.split('```json')[1].split('```')[0]
             elif '{' in response_text:

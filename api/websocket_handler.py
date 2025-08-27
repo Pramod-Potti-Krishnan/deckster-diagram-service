@@ -217,6 +217,9 @@ class WebSocketHandler:
             
             # Parse request
             payload = message_data.get("data", message_data.get("payload", {}))
+            logger.info(f"Payload received: {list(payload.keys())}")
+            if 'method' in payload:
+                logger.info(f"Method field found: {payload['method']}")
             diagram_request = DiagramRequest(
                 **payload,
                 session_id=session_id,
