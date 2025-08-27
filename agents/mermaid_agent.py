@@ -7,7 +7,7 @@ No fallbacks - fails cleanly when LLM generation doesn't work.
 
 import os
 import json
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Union
 from pydantic import BaseModel, Field
 import asyncio
 import google.generativeai as genai
@@ -41,7 +41,7 @@ class MermaidOutput(BaseModel):
     confidence: float = Field(description="Confidence score 0-1", ge=0, le=1)
     entities_extracted: List[str] = Field(description="Key entities found in content")
     relationships_count: int = Field(description="Number of relationships mapped")
-    diagram_type_confirmed: str = Field(description="Confirmed diagram type")
+    diagram_type_confirmed: Union[str, bool] = Field(description="Confirmed diagram type or True if confirmed", default="flowchart")
 
 
 class MermaidAgent(BaseAgent):
@@ -60,7 +60,9 @@ class MermaidAgent(BaseAgent):
             "journey_map", "mind_map", "architecture",
             "network", "concept_map", "state_diagram",
             "class_diagram", "entity_relationship", "user_journey",
-            "timeline", "kanban", "quadrant"
+            "timeline", "kanban", "quadrant",
+            # Also support actual Mermaid syntax names
+            "erDiagram", "journey", "quadrantChart"
         ]
         
         # Initialize Gemini if API key is available

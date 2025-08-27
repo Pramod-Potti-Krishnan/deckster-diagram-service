@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 3-Step Cycle Template - Circular Path with Overlaid Boxes -->
+  <defs>
+    <!-- Gradients for each step -->
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Small arrow marker for entry points -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#747474"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f4f4f4"/>
+  
+  <!-- Main circular path -->
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#c1c1c1" stroke-width="2.5" stroke-dasharray="none"/>
+  
+  <!-- Arrows with tail starting on circle, tangential direction, clockwise -->
+  <!-- Arrow between Step 3 and Agile development (60° from top - upper left) -->
+  <!-- Moved 5px down, rotated 15° counter-clockwise total -->
+  <path d="M 275,215 L 295,195" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Agile development and Step 2 (60° from top - upper right) -->
+  <!-- Moved 5px down, same angle -->
+  <path d="M 525,215 L 535,233" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 2 and Step 3 (at bottom of circle) -->
+  <!-- Circle point at (400,450), tangent pointing left -->
+  <path d="M 400,450 L 380,450" fill="none" stroke="#747474" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Agile development - Top (overlaid on circle) -->
+  <rect id="step_1_fill" x="330" y="120" width="140" height="60" rx="8" 
+        fill="#8b5bf6" stroke="#8b5bf6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_1_text" x="400" y="155" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Agile development
+  </text>
+  
+  <!-- Step 2 - Bottom Right at 120° (overlaid on circle) -->
+  <rect id="step_2_fill" x="435" y="360" width="140" height="60" rx="8" 
+        fill="#a68bfa" stroke="#a68bfa" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_2_text" x="505" y="395" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Step 2
+  </text>
+  
+  <!-- Step 3 - Bottom Left at 240° (overlaid on circle) -->
+  <rect id="step_3_fill" x="225" y="360" width="140" height="60" rx="8" 
+        fill="#f68b5a" stroke="#f68b5a" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_3_text" x="295" y="395" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Step 3
+  </text>
+  
+  <!-- Main Title -->
+  </svg>

@@ -4,7 +4,7 @@ WebSocket Communication Models
 
 from typing import Dict, Any, Optional, Literal, Union
 from enum import Enum
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from datetime import datetime
 import uuid
 
@@ -48,7 +48,8 @@ class ConnectionParams(BaseModel):
         description="Client version for compatibility"
     )
     
-    @validator('session_id', 'user_id')
+    @field_validator('session_id', 'user_id')
+    @classmethod
     def validate_ids(cls, v):
         """Validate ID format"""
         if not v or len(v) < 3:
@@ -57,47 +58,80 @@ class ConnectionParams(BaseModel):
 
 
 class WebSocketMessage(BaseModel):
-    """Base WebSocket message envelope"""
+    """Base WebSocket message envelope following Generic Protocol v1.0.0"""
     
     message_id: str = Field(
-        default_factory=lambda: str(uuid.uuid4()),
+        default_factory=lambda: f"msg_{uuid.uuid4()}",
         description="Unique message identifier"
     )
-    session_id: str = Field(
-        description="Session identifier"
+    correlation_id: Optional[str] = Field(
+        default=None,
+        description="Links requests to responses and status updates (preserved throughout flow)"
     )
-    type: str = Field(
-        description="Message type"
+    session_id: str = Field(
+        description="WebSocket session identifier"
     )
     timestamp: datetime = Field(
         default_factory=datetime.utcnow,
         description="Message timestamp"
     )
-    payload: Dict[str, Any] = Field(
-        description="Message payload"
+    type: str = Field(
+        description="Message type: request, response, status, error, control"
     )
-    request_id: Optional[str] = Field(
+    subtype: Optional[str] = Field(
         default=None,
-        description="Request ID for matching responses to requests"
+        description="Service-specific message subtype"
+    )
+    payload: Dict[str, Any] = Field(
+        default_factory=dict,
+        description="Service-specific message payload"
     )
     metadata: Optional[Dict[str, Any]] = Field(
         default=None,
         description="Additional metadata"
     )
     
-    @validator('type')
+    # Deprecated field for backward compatibility
+    request_id: Optional[str] = Field(
+        default=None,
+        description="DEPRECATED: Use correlation_id instead"
+    )
+    
+    @field_validator('type')
+    @classmethod
     def validate_type(cls, v):
-        """Validate message type"""
-        valid_types = [
+        """Validate message type according to Generic Protocol"""
+        # High-level message types from generic protocol
+        generic_types = ['request', 'response', 'status', 'error', 'control']
+        
+        # Legacy types for backward compatibility
+        legacy_types = [
             "diagram_request", "diagram_response",
             "status_update", "error_response",
             "user_input", "cancel_request",
             "connection_init", "connection_ack", "connection_close",
             "ping", "pong"
         ]
-        if v not in valid_types:
+        
+        if v not in generic_types and v not in legacy_types:
             raise ValueError(f"Invalid message type: {v}")
         return v
+    
+    @model_validator(mode='before')
+    @classmethod
+    def handle_correlation_id(cls, values):
+        """Handle correlation_id and backward compatibility with request_id"""
+        if isinstance(values, dict):
+            # Sync correlation_id and request_id
+            correlation_id = values.get('correlation_id')
+            request_id = values.get('request_id')
+            
+            if not correlation_id and request_id:
+                values['correlation_id'] = request_id
+            elif correlation_id and not request_id:
+                values['request_id'] = correlation_id
+        
+        return values
     
     def to_json(self) -> Dict[str, Any]:
         """Convert to JSON-serializable dict"""
@@ -106,6 +140,16 @@ class WebSocketMessage(BaseModel):
         json_str = self.json()
         return json.loads(json_str)
     
+    def ensure_correlation_id(self) -> str:
+        """Ensure correlation_id exists (for responses and status updates)"""
+        if not self.correlation_id and not self.request_id:
+            # Generate one if neither exists
+            self.correlation_id = f"corr_{uuid.uuid4()}"
+        elif not self.correlation_id:
+            # Use request_id as correlation_id for backward compatibility
+            self.correlation_id = self.request_id
+        return self.correlation_id
+    
     class Config:
         json_encoders = {
             datetime: lambda v: v.isoformat()
@@ -113,16 +157,20 @@ class WebSocketMessage(BaseModel):
 
 
 class DiagramRequestMessage(WebSocketMessage):
-    """Diagram request message"""
+    """Diagram request message following Generic Protocol"""
     
-    type: Literal["diagram_request"] = "diagram_request"
+    type: Literal["request"] = "request"
+    subtype: Literal["diagram_request"] = "diagram_request"
     
     def __init__(self, **data):
         if 'type' not in data:
-            data['type'] = "diagram_request"
+            data['type'] = "request"
+        if 'subtype' not in data:
+            data['subtype'] = "diagram_request"
         super().__init__(**data)
     
-    @validator('payload')
+    @field_validator('payload')
+    @classmethod
     def validate_payload(cls, v):
         """Ensure payload contains required fields"""
         required = ['content', 'diagram_type']
@@ -133,16 +181,20 @@ class DiagramRequestMessage(WebSocketMessage):
 
 
 class DiagramResponseMessage(WebSocketMessage):
-    """Diagram response message"""
+    """Diagram response message following Generic Protocol"""
     
-    type: Literal["diagram_response"] = "diagram_response"
+    type: Literal["response"] = "response"
+    subtype: Literal["diagram_response"] = "diagram_response"
     
     def __init__(self, **data):
         if 'type' not in data:
-            data['type'] = "diagram_response"
+            data['type'] = "response"
+        if 'subtype' not in data:
+            data['subtype'] = "diagram_response"
         super().__init__(**data)
     
-    @validator('payload')
+    @field_validator('payload')
+    @classmethod
     def validate_payload(cls, v):
         """Ensure payload contains required fields"""
         required = ['diagram_type', 'content', 'metadata']
@@ -153,16 +205,20 @@ class DiagramResponseMessage(WebSocketMessage):
 
 
 class StatusUpdateMessage(WebSocketMessage):
-    """Status update message"""
+    """Status update message following Generic Protocol"""
     
-    type: Literal["status_update"] = "status_update"
+    type: Literal["status"] = "status"
+    subtype: Literal["progress_update"] = "progress_update"
     
     def __init__(self, **data):
         if 'type' not in data:
-            data['type'] = "status_update"
+            data['type'] = "status"
+        if 'subtype' not in data:
+            data['subtype'] = "progress_update"
         super().__init__(**data)
     
-    @validator('payload')
+    @field_validator('payload')
+    @classmethod
     def validate_payload(cls, v):
         """Ensure payload contains required fields"""
         required = ['status', 'message']
@@ -173,16 +229,20 @@ class StatusUpdateMessage(WebSocketMessage):
 
 
 class ErrorResponseMessage(WebSocketMessage):
-    """Error response message"""
+    """Error response message following Generic Protocol"""
     
-    type: Literal["error_response"] = "error_response"
+    type: Literal["error"] = "error"
+    subtype: Literal["generation_error"] = "generation_error"
     
     def __init__(self, **data):
         if 'type' not in data:
-            data['type'] = "error_response"
+            data['type'] = "error"
+        if 'subtype' not in data:
+            data['subtype'] = "generation_error"
         super().__init__(**data)
     
-    @validator('payload')
+    @field_validator('payload')
+    @classmethod
     def validate_payload(cls, v):
         """Ensure payload contains required fields"""
         required = ['error_code', 'error_message']

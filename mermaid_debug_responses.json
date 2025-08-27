@@ -1,0 +1,101 @@
+[
+  {
+    "message_id": "msg_e29ab2ba-92bd-4651-8d44-faf773d653ad",
+    "correlation_id": null,
+    "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+    "timestamp": "2025-08-27T15:23:35.586706",
+    "type": "control",
+    "subtype": "connection_ack",
+    "payload": {
+      "status": "connected",
+      "version": "1.0.0",
+      "capabilities": [
+        "svg_template",
+        "mermaid",
+        "python_chart",
+        "correlation_id"
+      ],
+      "protocol": "generic_v1"
+    },
+    "metadata": null,
+    "request_id": null
+  },
+  {
+    "message_id": "msg_29b26bc2-e07b-43c0-a611-a425ea6a45f1",
+    "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+    "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+    "timestamp": "2025-08-27T15:23:35.587527",
+    "type": "status",
+    "subtype": "progress_update",
+    "payload": {
+      "status": "thinking",
+      "message": "Analyzing request...",
+      "progress": null,
+      "estimated_time_remaining": null,
+      "current_step": null,
+      "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+      "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "timestamp": "2025-08-27T15:23:35.587504"
+    },
+    "metadata": null,
+    "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31"
+  },
+  {
+    "message_id": "msg_56728c91-584d-42d7-813a-843b709fa31c",
+    "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+    "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+    "timestamp": "2025-08-27T15:23:35.587670",
+    "type": "status",
+    "subtype": "progress_update",
+    "payload": {
+      "status": "generating",
+      "message": "Creating your diagram...",
+      "progress": 25,
+      "estimated_time_remaining": null,
+      "current_step": null,
+      "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+      "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "timestamp": "2025-08-27T15:23:35.587655"
+    },
+    "metadata": null,
+    "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31"
+  },
+  {
+    "message_id": "msg_1f2f5a65-53b3-44d2-b1fc-fb0644008f21",
+    "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+    "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+    "timestamp": "2025-08-27T15:23:40.988871",
+    "type": "response",
+    "subtype": "diagram_response",
+    "payload": {
+      "diagram_type": "flowchart",
+      "diagram_id": "051a908f-9b9f-427c-8a96-0946177b51c0",
+      "url": "",
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"flowchart TD\\n    start((Start))\\n    input[Enter Username & Password]\\n    validate{Validate Credentials?}\\n    dashboard[Redirect to Dashboard]\\n    error[Show Error Message]\\n    end((End))\\n\\n    start --> input\\n    input --> validate\\n    validate -->|Valid| dashboard\\n    validate -->|Invalid| error\\n    dashboard --> end\\n    error --> end\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#3B82F6\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+      "content_type": "svg",
+      "content_delivery": "inline",
+      "metadata": {
+        "generation_time_ms": 5398,
+        "tokens_used": null,
+        "cache_hit": false,
+        "generation_method": "mermaid",
+        "fallback_used": false,
+        "original_method": null,
+        "dimensions": null,
+        "quality_score": 0.95,
+        "llm_used": true,
+        "llm_attempted": true,
+        "llm_failure_reason": null,
+        "mermaid_code": "flowchart TD\n    start((Start))\n    input[Enter Username & Password]\n    validate{Validate Credentials?}\n    dashboard[Redirect to Dashboard]\n    error[Show Error Message]\n    end((End))\n\n    start --> input\n    input --> validate\n    validate -->|Valid| dashboard\n    validate -->|Invalid| error\n    dashboard --> end\n    error --> end"
+      },
+      "session_id": "e0c2ef54-b7c2-4c5b-9590-25c9329061ff",
+      "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "correlation_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31",
+      "timestamp": "2025-08-27T15:23:40.988802"
+    },
+    "metadata": null,
+    "request_id": "req_802f90d3-7cf2-4802-a78b-c03071b61e31"
+  }
+]

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <!-- 4-Level Pyramid Template - Consistent Angles with Gaps -->
+  <defs>
+    <!-- Gradients for each level -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#ffffff"/>
+  
+  <!-- 
+    Pyramid geometry for 4 levels with consistent slopes:
+    - Apex: (500, 188)
+    - Base: from (250, 569) to (750, 569) - 500px wide
+    - Total height: 381px
+    - Slope ratio: 250/381 = 0.656
+    - 6px gaps between levels
+    
+    Level heights (excluding gaps):
+    - Level 1: 90px (y=188 to y=278)
+    - Level 2: 90px (y=284 to y=374)
+    - Level 3: 92px (y=380 to y=472)
+    - Level 4: 91px (y=478 to y=569)
+  -->
+  
+  <!-- Level 4 (Bottom) - from y=478 to y=569 (height: 91px) -->
+  <path id="level_4_fill" d="M 250 569 L 750 569 L 690 478 L 310 478 Z" 
+        fill="#10b981" stroke="#10b981" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_4_text" x="500" y="535" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#ffffff">
+    Foundation
+  </text>
+  
+  <!-- Level 3 - from y=380 to y=472 (height: 92px) -->
+  <path id="level_3_fill" d="M 314 472 L 686 472 L 626 380 L 374 380 Z" 
+        fill="#33d399" stroke="#33d399" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_3_text" x="500" y="435" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#ffffff">
+    Development
+  </text>
+  
+  <!-- Level 2 - from y=284 to y=374 (height: 90px) -->
+  <path id="level_2_fill" d="M 378 374 L 622 374 L 563 284 L 437 284 Z" 
+        fill="#8110b9" stroke="#8110b9" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_2_text" x="500" y="340" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#ffffff">
+    Strategy
+  </text>
+  
+  <!-- Level 1 (Top) - triangle from apex to y=278 (height: 90px) -->
+  <path id="level_1_fill" d="M 441 278 L 559 278 L 500 188 Z" 
+        fill="#29ecab" stroke="#29ecab" stroke-width="2" filter="url(#shadow)"/>
+  <text id="level_1_text" x="500" y="250" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#000000">
+    Business hierarchy
+  </text>
+  
+  <!-- Title -->
+  <text x="500" y="125" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    4-Level Structure
+  </text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 4-Stage Funnel Template -->
+  <defs>
+    <!-- Gradients for each stage -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Marketing funnel (Top - Widest) -->
+  <path id="stage_1_fill" d="M 150 150 L 650 150 L 575 240 L 225 240 Z" 
+        fill="#581b87" stroke="#581b87" stroke-width="2" filter="url(#shadow)"/>
+  <text id="stage_1_text" x="400" y="195" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Awareness
+  </text>
+  
+  <!-- Stage 2 -->
+  <path id="stage_2_fill" d="M 225 240 L 575 240 L 500 330 L 300 330 Z" 
+        fill="#9333e9" stroke="#9333e9" stroke-width="2" filter="url(#shadow)"/>
+  <text id="stage_2_text" x="400" y="285" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Interest
+  </text>
+  
+  <!-- Stage 3 -->
+  <path id="stage_3_fill" d="M 300 330 L 500 330 L 450 420 L 350 420 Z" 
+        fill="#87571a" stroke="#87571a" stroke-width="2" filter="url(#shadow)"/>
+  <text id="stage_3_text" x="400" y="375" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Decision
+  </text>
+  
+  <!-- Stage 4 (Bottom - Narrowest) -->
+  <path id="stage_4_fill" d="M 350 420 L 450 420 L 425 490 L 375 490 Z" 
+        fill="#8129c6" stroke="#8129c6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="stage_4_text" x="400" y="455" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="17" font-weight="500" fill="#ffffff">
+    Action
+  </text>
+  
+  <!-- Title -->
+  <text x="400" y="105" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    4-Stage Conversion Process
+  </text>
+</svg>

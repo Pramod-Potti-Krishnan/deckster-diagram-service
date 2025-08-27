@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Test Results - All Diagram Types</title>
+    
+    <!-- Import Mermaid v11 -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+        window.mermaid = mermaid;
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        
+        .summary-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .summary-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .summary-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #374151;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .diagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .diagram-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .diagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+        
+        .diagram-header {
+            padding: 15px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .diagram-header h3 {
+            font-size: 1.1rem;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+        
+        .diagram-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .status-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-failed {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .diagram-body {
+            padding: 20px;
+            background: #f9fafb;
+            min-height: 300px;
+            max-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+        
+        .diagram-body iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+        
+        .diagram-body svg {
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+        }
+        
+        .diagram-meta {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+        
+        .section-header {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .section-header h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .stat-icon.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .stat-icon.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .stat-icon.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            color: #991b1b;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+        }
+        
+        .mermaid {
+            max-width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Comprehensive Test Results</h1>
+        <p>WebSocket Microservice v2 - All Diagram Types with Visual Output</p>
+        
+        <div class="summary-grid">
+            <div class="summary-card">
+                <div class="number">32</div>
+                <div class="label">Total Tests</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">26</div>
+                <div class="label">Passed</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">6</div>
+                <div class="label">Failed</div>
+            </div>
+            <div class="summary-card">
+                <div class="number">81.2%</div>
+                <div class="label">Success Rate</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('pyramids')">Pyramids (3)</button>
+            <button class="tab-button" onclick="showTab('cycles')">Cycles (3)</button>
+            <button class="tab-button" onclick="showTab('venn')">Venn (2)</button>
+            <button class="tab-button" onclick="showTab('honeycomb')">Honeycomb (3)</button>
+            <button class="tab-button" onclick="showTab('matrix')">Matrix (3)</button>
+            <button class="tab-button" onclick="showTab('hubspoke')">Hub & Spoke (2)</button>
+            <button class="tab-button" onclick="showTab('funnel')">Funnels (3)</button>
+            <button class="tab-button" onclick="showTab('process')">Process (2)</button>
+            <button class="tab-button" onclick="showTab('other')">Other (4)</button>
+            <button class="tab-button" onclick="showTab('mermaid')">Mermaid (7)</button>
+        </div>
+        
+        <!-- Pyramids Tab -->
+        <div id="pyramids" class="tab-content active">
+            <div class="section-header">
+                <h2>📊 Pyramid Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Pyramid 3 Level</h3>
+                        <span class="diagram-status status-success">✓ Success (1.58s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/pyramid_3_level.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Strategic Planning: Vision → Objectives → Operations
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Pyramid 4 Level</h3>
+                        <span class="diagram-status status-success">✓ Success (1.28s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/pyramid_4_level.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Business Hierarchy: CEO → VPs → Managers → Staff
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Pyramid 5 Level</h3>
+                        <span class="diagram-status status-success">✓ Success (1.37s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/pyramid_5_level.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Maslow's Hierarchy of Needs
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cycles Tab -->
+        <div id="cycles" class="tab-content">
+            <div class="section-header">
+                <h2>🔄 Cycle Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Cycle 3 Step</h3>
+                        <span class="diagram-status status-success">✓ Success (1.24s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/cycle_3_step.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Agile: Plan → Build → Review
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Cycle 4 Step</h3>
+                        <span class="diagram-status status-success">✓ Success (1.23s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/cycle_4_step.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        PDCA: Plan → Do → Check → Act
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Cycle 5 Step</h3>
+                        <span class="diagram-status status-success">✓ Success (1.23s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/cycle_5_step.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Design Thinking Process
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Venn Tab -->
+        <div id="venn" class="tab-content">
+            <div class="section-header">
+                <h2>⭕ Venn Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Venn 2 Circle</h3>
+                        <span class="diagram-status status-success">✓ Success (1.38s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/venn_2_circle.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Skills Overlap: Technical vs Soft Skills
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Venn 3 Circle</h3>
+                        <span class="diagram-status status-success">✓ Success (1.10s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/venn_3_circle.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Product Success: Desirable, Feasible, Viable
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Honeycomb Tab -->
+        <div id="honeycomb" class="tab-content">
+            <div class="section-header">
+                <h2>🔶 Honeycomb Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Honeycomb 3</h3>
+                        <span class="diagram-status status-success">✓ Success (1.40s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/honeycomb_3.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Core Values: Innovation, Quality, Collaboration
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Honeycomb 5</h3>
+                        <span class="diagram-status status-success">✓ Success (1.33s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/honeycomb_5.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Service Pillars
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Honeycomb 7</h3>
+                        <span class="diagram-status status-success">✓ Success (1.24s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/honeycomb_7.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Team Competencies
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Matrix Tab -->
+        <div id="matrix" class="tab-content">
+            <div class="section-header">
+                <h2>⬜ Matrix Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Matrix 2x2</h3>
+                        <span class="diagram-status status-success">✓ Success (1.32s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/matrix_2x2.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Priority Matrix: Impact vs Effort
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Matrix 3x3</h3>
+                        <span class="diagram-status status-success">✓ Success (1.41s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/matrix_3x3.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Risk Assessment Grid
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>SWOT Matrix</h3>
+                        <span class="diagram-status status-success">✓ Success (1.67s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/swot_matrix.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        SWOT Analysis
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hub & Spoke Tab -->
+        <div id="hubspoke" class="tab-content">
+            <div class="section-header">
+                <h2>☢️ Hub & Spoke Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Hub & Spoke 4</h3>
+                        <span class="diagram-status status-success">✓ Success (1.33s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/hub_spoke_4.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Central Platform Architecture
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Hub & Spoke 6</h3>
+                        <span class="diagram-status status-success">✓ Success (1.19s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/hub_spoke_6.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Business Ecosystem
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Funnel Tab -->
+        <div id="funnel" class="tab-content">
+            <div class="section-header">
+                <h2>🔽 Funnel Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Funnel 3 Stage</h3>
+                        <span class="diagram-status status-success">✓ Success (1.37s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/funnel_3_stage.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Sales Funnel: Awareness → Consideration → Purchase
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Funnel 4 Stage</h3>
+                        <span class="diagram-status status-success">✓ Success (1.23s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/funnel_4_stage.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Marketing Funnel
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Funnel 5 Stage</h3>
+                        <span class="diagram-status status-success">✓ Success (1.33s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/funnel_5_stage.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        User Journey
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Process Tab -->
+        <div id="process" class="tab-content">
+            <div class="section-header">
+                <h2>➡️ Process Flow Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Process Flow 3</h3>
+                        <span class="diagram-status status-success">✓ Success (1.16s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/process_flow_3.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Simple Workflow: Input → Process → Output
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Process Flow 5</h3>
+                        <span class="diagram-status status-success">✓ Success (1.39s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/process_flow_5.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Development Pipeline
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Other Tab -->
+        <div id="other" class="tab-content">
+            <div class="section-header">
+                <h2>📐 Other Diagrams</h2>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Fishbone 4 Bone</h3>
+                        <span class="diagram-status status-success">✓ Success (1.23s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/fishbone_4_bone.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Problem Analysis: Root Causes
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Gears 3</h3>
+                        <span class="diagram-status status-success">✓ Success (1.46s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/gears_3.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        System Integration
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Roadmap Quarterly 4</h3>
+                        <span class="diagram-status status-success">✓ Success (1.40s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/roadmap_quarterly_4.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        2024 Quarterly Roadmap
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Timeline Horizontal</h3>
+                        <span class="diagram-status status-success">✓ Success (1.26s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <iframe src="test_results_comprehensive/svg_templates/timeline_horizontal.svg"></iframe>
+                    </div>
+                    <div class="diagram-meta">
+                        Project Timeline
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mermaid Tab -->
+        <div id="mermaid" class="tab-content">
+            <div class="section-header">
+                <h2>📈 Mermaid Diagrams</h2>
+                <p style="margin-top: 10px; color: #6b7280;">
+                    1 out of 7 Mermaid diagram types passed. Most failed due to timeout issues.
+                </p>
+            </div>
+            
+            <div class="diagram-grid">
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Timeline</h3>
+                        <span class="diagram-status status-success">✓ Success (1.07s)</span>
+                    </div>
+                    <div class="diagram-body">
+                        <div class="mermaid">
+timeline
+    title Company Milestones
+    
+    2020 : Company founded
+    2021 : First product launch
+    2022 : Series A funding
+    2023 : International expansion
+    2024 : IPO preparation
+                        </div>
+                    </div>
+                    <div class="diagram-meta">
+                        Mermaid Timeline - Rendered with v11
+                    </div>
+                </div>
+                
+                <div class="diagram-card">
+                    <div class="diagram-header">
+                        <h3>Failed Tests</h3>
+                        <span class="diagram-status status-failed">✗ 6 Failed</span>
+                    </div>
+                    <div class="diagram-body" style="text-align: left;">
+                        <div class="error-message">
+                            <strong>Failed Mermaid Types:</strong>
+                            <ul style="margin-top: 10px; margin-left: 20px;">
+                                <li>❌ flowchart - Timeout</li>
+                                <li>❌ erDiagram - Timeout</li>
+                                <li>❌ journey - Timeout</li>
+                                <li>❌ gantt - Timeout</li>
+                                <li>❌ quadrantChart - Timeout</li>
+                                <li>❌ kanban - Timeout</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="diagram-meta">
+                        Requires debugging of Mermaid generation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

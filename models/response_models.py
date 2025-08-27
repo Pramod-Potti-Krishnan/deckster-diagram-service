@@ -3,7 +3,7 @@ Response Models for Diagram Generation
 """
 
 from typing import Dict, Any, Optional, Literal, Union
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 from datetime import datetime
 from enum import Enum
 
@@ -93,12 +93,30 @@ class DiagramResponse(BaseModel):
     )
     request_id: Optional[str] = Field(
         default=None,
-        description="Original request ID"
+        description="DEPRECATED: Use correlation_id instead"
+    )
+    correlation_id: Optional[str] = Field(
+        default=None,
+        description="Correlation ID preserved from request for matching"
     )
     timestamp: datetime = Field(
         default_factory=datetime.utcnow,
         description="Response timestamp"
     )
+    
+    @validator('correlation_id', always=True)
+    def ensure_correlation_id(cls, v, values):
+        """Ensure correlation_id exists (backward compatibility with request_id)"""
+        if not v and 'request_id' in values and values['request_id']:
+            return values['request_id']
+        return v
+    
+    @validator('request_id', always=True)
+    def sync_request_id(cls, v, values):
+        """Sync request_id with correlation_id for backward compatibility"""
+        if not v and 'correlation_id' in values and values['correlation_id']:
+            return values['correlation_id']
+        return v
     
     class Config:
         json_encoders = {
@@ -135,12 +153,30 @@ class StatusUpdate(BaseModel):
     )
     request_id: Optional[str] = Field(
         default=None,
-        description="Request ID for correlation"
+        description="DEPRECATED: Use correlation_id instead"
+    )
+    correlation_id: Optional[str] = Field(
+        default=None,
+        description="Correlation ID preserved from request"
     )
     timestamp: datetime = Field(
         default_factory=datetime.utcnow,
         description="Update timestamp"
     )
+    
+    @validator('correlation_id', always=True)
+    def ensure_correlation_id(cls, v, values):
+        """Ensure correlation_id exists (backward compatibility with request_id)"""
+        if not v and 'request_id' in values and values['request_id']:
+            return values['request_id']
+        return v
+    
+    @validator('request_id', always=True)
+    def sync_request_id(cls, v, values):
+        """Sync request_id with correlation_id for backward compatibility"""
+        if not v and 'correlation_id' in values and values['correlation_id']:
+            return values['correlation_id']
+        return v
     
     class Config:
         json_encoders = {
@@ -175,12 +211,30 @@ class ErrorResponse(BaseModel):
     )
     request_id: Optional[str] = Field(
         default=None,
-        description="Request ID that caused the error"
+        description="DEPRECATED: Use correlation_id instead"
+    )
+    correlation_id: Optional[str] = Field(
+        default=None,
+        description="Correlation ID preserved from request"
     )
     timestamp: datetime = Field(
         default_factory=datetime.utcnow,
         description="Error timestamp"
     )
+    
+    @validator('correlation_id', always=True)
+    def ensure_correlation_id(cls, v, values):
+        """Ensure correlation_id exists (backward compatibility with request_id)"""
+        if not v and 'request_id' in values and values['request_id']:
+            return values['request_id']
+        return v
+    
+    @validator('request_id', always=True)
+    def sync_request_id(cls, v, values):
+        """Sync request_id with correlation_id for backward compatibility"""
+        if not v and 'correlation_id' in values and values['correlation_id']:
+            return values['correlation_id']
+        return v
     
     class Config:
         json_encoders = {
@@ -262,7 +316,8 @@ class DiagramResponseV2(BaseModel):
     
     # Tracking
     session_id: Optional[str] = Field(default=None, description="Session ID")
-    request_id: Optional[str] = Field(default=None, description="Request ID")
+    request_id: Optional[str] = Field(default=None, description="DEPRECATED: Use correlation_id instead")
+    correlation_id: Optional[str] = Field(default=None, description="Correlation ID preserved from request")
     timestamp: datetime = Field(default_factory=datetime.utcnow, description="Response timestamp")
     
     # Backward compatibility fields (deprecated)

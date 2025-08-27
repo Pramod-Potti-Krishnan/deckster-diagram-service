@@ -1,0 +1,108 @@
+[
+  {
+    "test_name": "pyramid_3_level",
+    "type": "svg_template",
+    "request_id": "req_3e55abbe-793a-4022-928c-8c5a299b731a",
+    "status_updates": [
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "response": {
+      "message_id": "msg_70babc5c-fd95-4bf2-b3d5-599aa10b4b85",
+      "correlation_id": "req_3e55abbe-793a-4022-928c-8c5a299b731a",
+      "session_id": "211168f4-b6fd-4808-b5b3-894d0dbdf65a",
+      "timestamp": "2025-08-27T14:02:47.233444",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "pyramid_3_level",
+        "diagram_id": "e1bab367-bd81-45d9-9358-85f4039df1aa",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 3-Level Pyramid Template - 25% Larger (Proportionally Scaled) with Light Colors -->\n  \n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Pyramid geometry - 25% proportionally larger:\n    Original: 800x600, pyramid base 400px, height 305px\n    New: 1000x750, pyramid base 500px, height 381px (all \u00d7 1.25)\n    \n    - Apex: (500, 188) - was (400, 150)\n    - Base: from (250, 569) to (750, 569) - 500px wide (was 400px)\n    - Total height: 381px (was 305px)\n    - Heights (all \u00d7 1.25): \n      - Level 1: 150px (was 120px)\n      - Level 2: 116px (was 92.5px)\n      - Level 3: 103px (was 82.5px)\n    - Level boundaries: y=338 (was 270), y=459 (was 367.5), y=569 (was 455)\n    - 6px gaps between levels (was 5px)\n    - Same slope ratio maintained: 250/381 = 0.656\n  -->\n  \n  <!-- Level 3 (Bottom) - from y=466 to y=569 (height: 103px) -->\n  <path id=\"level_3_fill\" d=\"M 256 569 L 744 569 L 676 466 L 324 466 Z\" \n        fill=\"#cddffc\" stroke=\"#cddffc\" stroke-width=\"2\"/>\n  <text id=\"level_3_text\" x=\"500\" y=\"538\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#000000\">\n    Foundation Level\n  </text>\n  \n  <!-- Level 2 (Middle) - from y=344 to y=459 (height: 115px) -->\n  <path id=\"level_2_fill\" d=\"M 330 459 L 670 459 L 594 344 L 406 344 Z\" \n        fill=\"#84b0f9\" stroke=\"#84b0f9\" stroke-width=\"2\"/>\n  <text id=\"level_2_text\" x=\"500\" y=\"425\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Core Level\n  </text>\n  \n  <!-- Level 1 (Top) - triangle from apex to y=338 (height: 150px) -->\n  <path id=\"level_1_fill\" d=\"M 410 338 L 590 338 L 500 188 Z\" \n        fill=\"#f63980\" stroke=\"#f63980\" stroke-width=\"2\"/>\n  <!-- Text positioned towards bottom of the level for better wrapping space -->\n  <text id=\"level_1_text\" x=\"500\" y=\"306\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Strategic Planning Pyramid - Level 1\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1545,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "211168f4-b6fd-4808-b5b3-894d0dbdf65a",
+        "request_id": "req_3e55abbe-793a-4022-928c-8c5a299b731a",
+        "correlation_id": "req_3e55abbe-793a-4022-928c-8c5a299b731a",
+        "timestamp": "2025-08-27T14:02:47.233415"
+      },
+      "metadata": null,
+      "request_id": "req_3e55abbe-793a-4022-928c-8c5a299b731a"
+    }
+  },
+  {
+    "test_name": "flowchart",
+    "type": "mermaid",
+    "request_id": "req_43e37a61-0961-47a0-a190-416fd66ce69a",
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "response": {
+      "message_id": "msg_5c9d0919-89b9-4705-b1bc-0febe5f1db58",
+      "correlation_id": "req_43e37a61-0961-47a0-a190-416fd66ce69a",
+      "session_id": "211168f4-b6fd-4808-b5b3-894d0dbdf65a",
+      "timestamp": "2025-08-27T14:02:54.624481",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "flowchart",
+        "diagram_id": "79009ed9-21e5-46fc-9632-f041f5337c8f",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"flowchart TD\\n    A[User enters credentials]\\n    B{System validates}\\n    C[Create session]\\n    D[Redirect to dashboard]\\n    E[Show error]\\n    F[Increment failed attempts counter]\\n    G{Failed attempts < 3?}\\n    H[Lock account for 15 minutes]\\n    I(((Login Success)))\\n    J(((Account Locked)))\\n\\n    A --> B\\n    B -- \\\"Valid\\\" --> C\\n    C --> D\\n    D --> I\\n    B -- \\\"Invalid\\\" --> E\\n    E --> F\\n    F --> G\\n    G -- \\\"Yes\\\" --> A\\n    G -- \\\"No\\\" --> H\\n    H --> J\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\n                \"primaryColor\": \"#10B981\",\n                \"background\": \"#FFFFFF\"\n            }\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 7386,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 0.9,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "flowchart TD\n    A[User enters credentials]\n    B{System validates}\n    C[Create session]\n    D[Redirect to dashboard]\n    E[Show error]\n    F[Increment failed attempts counter]\n    G{Failed attempts < 3?}\n    H[Lock account for 15 minutes]\n    I(((Login Success)))\n    J(((Account Locked)))\n\n    A --> B\n    B -- \"Valid\" --> C\n    C --> D\n    D --> I\n    B -- \"Invalid\" --> E\n    E --> F\n    F --> G\n    G -- \"Yes\" --> A\n    G -- \"No\" --> H\n    H --> J"
+        },
+        "session_id": "211168f4-b6fd-4808-b5b3-894d0dbdf65a",
+        "request_id": "req_43e37a61-0961-47a0-a190-416fd66ce69a",
+        "correlation_id": "req_43e37a61-0961-47a0-a190-416fd66ce69a",
+        "timestamp": "2025-08-27T14:02:54.624428"
+      },
+      "metadata": null,
+      "request_id": "req_43e37a61-0961-47a0-a190-416fd66ce69a"
+    }
+  }
+]

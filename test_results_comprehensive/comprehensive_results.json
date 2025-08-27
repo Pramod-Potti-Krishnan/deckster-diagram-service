@@ -1,0 +1,1822 @@
+[
+  {
+    "name": "pyramid_3_level",
+    "category": "svg_templates",
+    "request_id": "req_201959a6-370c-4ee6-b0d5-f0bbac1e8fec",
+    "elapsed_time": 1.5754470825195312,
+    "status_updates": [
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_19440729-cad2-430a-83c6-3e7f72b53964",
+      "correlation_id": "req_201959a6-370c-4ee6-b0d5-f0bbac1e8fec",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:09.171486",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "pyramid_3_level",
+        "diagram_id": "dbddfc5d-e895-4707-bbb0-85d0bd010247",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 3-Level Pyramid Template - 25% Larger (Proportionally Scaled) with Light Colors -->\n  \n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Pyramid geometry - 25% proportionally larger:\n    Original: 800x600, pyramid base 400px, height 305px\n    New: 1000x750, pyramid base 500px, height 381px (all \u00d7 1.25)\n    \n    - Apex: (500, 188) - was (400, 150)\n    - Base: from (250, 569) to (750, 569) - 500px wide (was 400px)\n    - Total height: 381px (was 305px)\n    - Heights (all \u00d7 1.25): \n      - Level 1: 150px (was 120px)\n      - Level 2: 116px (was 92.5px)\n      - Level 3: 103px (was 82.5px)\n    - Level boundaries: y=338 (was 270), y=459 (was 367.5), y=569 (was 455)\n    - 6px gaps between levels (was 5px)\n    - Same slope ratio maintained: 250/381 = 0.656\n  -->\n  \n  <!-- Level 3 (Bottom) - from y=466 to y=569 (height: 103px) -->\n  <path id=\"level_3_fill\" d=\"M 256 569 L 744 569 L 676 466 L 324 466 Z\" \n        fill=\"#cddffc\" stroke=\"#cddffc\" stroke-width=\"2\"/>\n  <text id=\"level_3_text\" x=\"500\" y=\"538\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#000000\">\n    Foundation Level\n  </text>\n  \n  <!-- Level 2 (Middle) - from y=344 to y=459 (height: 115px) -->\n  <path id=\"level_2_fill\" d=\"M 330 459 L 670 459 L 594 344 L 406 344 Z\" \n        fill=\"#84b0f9\" stroke=\"#84b0f9\" stroke-width=\"2\"/>\n  <text id=\"level_2_text\" x=\"500\" y=\"425\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Core Level\n  </text>\n  \n  <!-- Level 1 (Top) - triangle from apex to y=338 (height: 150px) -->\n  <path id=\"level_1_fill\" d=\"M 410 338 L 590 338 L 500 188 Z\" \n        fill=\"#f63980\" stroke=\"#f63980\" stroke-width=\"2\"/>\n  <!-- Text positioned towards bottom of the level for better wrapping space -->\n  <text id=\"level_1_text\" x=\"500\" y=\"306\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Three-tier strategy\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1573,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_201959a6-370c-4ee6-b0d5-f0bbac1e8fec",
+        "correlation_id": "req_201959a6-370c-4ee6-b0d5-f0bbac1e8fec",
+        "timestamp": "2025-08-27T15:28:09.171465"
+      },
+      "metadata": null,
+      "request_id": "req_201959a6-370c-4ee6-b0d5-f0bbac1e8fec"
+    }
+  },
+  {
+    "name": "pyramid_4_level",
+    "category": "svg_templates",
+    "request_id": "req_f0845d8c-d8e2-4c39-bf78-7b2c636bb8ec",
+    "elapsed_time": 1.1524171829223633,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_d2ab5240-aa8a-4bbc-a39a-bf4546c593dd",
+      "correlation_id": "req_f0845d8c-d8e2-4c39-bf78-7b2c636bb8ec",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:10.323552",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "pyramid_4_level",
+        "diagram_id": "d0ba7a19-28bc-4a95-8206-9346270b25a3",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 4-Level Pyramid Template - Consistent Angles with Gaps -->\n  <defs>\n    <!-- Gradients for each level -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Pyramid geometry for 4 levels with consistent slopes:\n    - Apex: (500, 188)\n    - Base: from (250, 569) to (750, 569) - 500px wide\n    - Total height: 381px\n    - Slope ratio: 250/381 = 0.656\n    - 6px gaps between levels\n    \n    Level heights (excluding gaps):\n    - Level 1: 90px (y=188 to y=278)\n    - Level 2: 90px (y=284 to y=374)\n    - Level 3: 92px (y=380 to y=472)\n    - Level 4: 91px (y=478 to y=569)\n  -->\n  \n  <!-- Level 4 (Bottom) - from y=478 to y=569 (height: 91px) -->\n  <path id=\"level_4_fill\" d=\"M 250 569 L 750 569 L 690 478 L 310 478 Z\" \n        fill=\"#10b981\" stroke=\"#10b981\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_4_text\" x=\"500\" y=\"535\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Foundation\n  </text>\n  \n  <!-- Level 3 - from y=380 to y=472 (height: 92px) -->\n  <path id=\"level_3_fill\" d=\"M 314 472 L 686 472 L 626 380 L 374 380 Z\" \n        fill=\"#33d399\" stroke=\"#33d399\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_3_text\" x=\"500\" y=\"435\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Development\n  </text>\n  \n  <!-- Level 2 - from y=284 to y=374 (height: 90px) -->\n  <path id=\"level_2_fill\" d=\"M 378 374 L 622 374 L 563 284 L 437 284 Z\" \n        fill=\"#8110b9\" stroke=\"#8110b9\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_2_text\" x=\"500\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Strategy\n  </text>\n  \n  <!-- Level 1 (Top) - triangle from apex to y=278 (height: 90px) -->\n  <path id=\"level_1_fill\" d=\"M 441 278 L 559 278 L 500 188 Z\" \n        fill=\"#29ecab\" stroke=\"#29ecab\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_1_text\" x=\"500\" y=\"250\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#000000\">\n    Business hierarchy\n  </text>\n  \n  <!-- Title -->\n  <text x=\"500\" y=\"125\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    4-Level Structure\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1148,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_f0845d8c-d8e2-4c39-bf78-7b2c636bb8ec",
+        "correlation_id": "req_f0845d8c-d8e2-4c39-bf78-7b2c636bb8ec",
+        "timestamp": "2025-08-27T15:28:10.323462"
+      },
+      "metadata": null,
+      "request_id": "req_f0845d8c-d8e2-4c39-bf78-7b2c636bb8ec"
+    }
+  },
+  {
+    "name": "pyramid_5_level",
+    "category": "svg_templates",
+    "request_id": "req_57e824d1-f50d-4225-a594-9cef7d3a8403",
+    "elapsed_time": 1.347560167312622,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_ed36c759-6032-45c5-a144-a2dcc5f50e66",
+      "correlation_id": "req_57e824d1-f50d-4225-a594-9cef7d3a8403",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:11.672633",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "pyramid_5_level",
+        "diagram_id": "48f93229-281b-46c9-a61c-b84109eee2a0",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 5-Level Pyramid Template - Consistent Angles with Gaps -->\n  <defs>\n    <!-- Gradients for each level -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Pyramid geometry for 5 levels with consistent slopes:\n    - Apex: (500, 188)\n    - Base: from (250, 569) to (750, 569) - 500px wide\n    - Total height: 381px\n    - Slope ratio: 250/381 = 0.656\n    - 6px gaps between levels\n    \n    Level heights (excluding gaps):\n    - Level 1: 78px (y=188 to y=266) - increased by 10%\n    - Level 2: 69px (y=272 to y=341)\n    - Level 3: 70px (y=347 to y=417)\n    - Level 4: 70px (y=423 to y=493)\n    - Level 5: 70px (y=499 to y=569)\n  -->\n  \n  <!-- Level 5 (Bottom) - from y=499 to y=569 (height: 70px) -->\n  <path id=\"level_5_fill\" d=\"M 250 569 L 750 569 L 704 499 L 296 499 Z\" \n        fill=\"#f59e0a\" stroke=\"#f59e0a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_5_text\" x=\"500\" y=\"540\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Foundation\n  </text>\n  \n  <!-- Level 4 - from y=423 to y=493 (height: 70px) -->\n  <path id=\"level_4_fill\" d=\"M 300 493 L 700 493 L 654 423 L 346 423 Z\" \n        fill=\"#fcd34d\" stroke=\"#fcd34d\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_4_text\" x=\"500\" y=\"462\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#000000\">\n    Implementation\n  </text>\n  \n  <!-- Level 3 - from y=347 to y=417 (height: 70px) -->\n  <path id=\"level_3_fill\" d=\"M 350 417 L 650 417 L 604 347 L 396 347 Z\" \n        fill=\"#0af49c\" stroke=\"#0af49c\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_3_text\" x=\"500\" y=\"385\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#000000\">\n    Planning\n  </text>\n  \n  <!-- Level 2 - from y=272 to y=341 (height: 69px) -->\n  <path id=\"level_2_fill\" d=\"M 400 341 L 600 341 L 555 272 L 445 272 Z\" \n        fill=\"#f8bb54\" stroke=\"#f8bb54\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_2_text\" x=\"500\" y=\"310\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#000000\">\n    Strategy\n  </text>\n  \n  <!-- Level 1 (Top) - triangle from apex to y=266 (height: 78px) - 10% larger -->\n  <path id=\"level_1_fill\" d=\"M 449 266 L 551 266 L 500 188 Z\" \n        fill=\"#f59e0a\" stroke=\"#f59e0a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"level_1_text\" x=\"500\" y=\"238\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Maslow's needs\n  </text>\n  \n  <!-- Title -->\n  <text x=\"500\" y=\"125\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    5-Level Structure\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1344,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_57e824d1-f50d-4225-a594-9cef7d3a8403",
+        "correlation_id": "req_57e824d1-f50d-4225-a594-9cef7d3a8403",
+        "timestamp": "2025-08-27T15:28:11.672613"
+      },
+      "metadata": null,
+      "request_id": "req_57e824d1-f50d-4225-a594-9cef7d3a8403"
+    }
+  },
+  {
+    "name": "cycle_3_step",
+    "category": "svg_templates",
+    "request_id": "req_58181043-ec40-4be3-ae86-8541ea3f3dad",
+    "elapsed_time": 1.4556710720062256,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_3c00b85a-b55a-493d-b16d-d8db75cc6326",
+      "correlation_id": "req_58181043-ec40-4be3-ae86-8541ea3f3dad",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:13.128012",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "cycle_3_step",
+        "diagram_id": "3efc48c7-86d0-4655-ad98-609c1b0a4cfb",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <marker id=\"arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n      <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#747474\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#f4f4f4\"/>\n  \n  <!-- Main circular path -->\n  <circle cx=\"400\" cy=\"300\" r=\"150\" fill=\"none\" stroke=\"#c1c1c1\" stroke-width=\"2.5\" stroke-dasharray=\"none\"/>\n  \n  <!-- Arrows with tail starting on circle, tangential direction, clockwise -->\n  <!-- Arrow between Step 3 and Agile development (60\u00b0 from top - upper left) -->\n  <!-- Moved 5px down, rotated 15\u00b0 counter-clockwise total -->\n  <path d=\"M 275,215 L 295,195\" fill=\"none\" stroke=\"#747474\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Agile development and Step 2 (60\u00b0 from top - upper right) -->\n  <!-- Moved 5px down, same angle -->\n  <path d=\"M 525,215 L 535,233\" fill=\"none\" stroke=\"#747474\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 2 and Step 3 (at bottom of circle) -->\n  <!-- Circle point at (400,450), tangent pointing left -->\n  <path d=\"M 400,450 L 380,450\" fill=\"none\" stroke=\"#747474\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Agile development - Top (overlaid on circle) -->\n  <rect id=\"step_1_fill\" x=\"330\" y=\"120\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#8b5bf6\" stroke=\"#8b5bf6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_1_text\" x=\"400\" y=\"155\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Agile development\n  </text>\n  \n  <!-- Step 2 - Bottom Right at 120\u00b0 (overlaid on circle) -->\n  <rect id=\"step_2_fill\" x=\"435\" y=\"360\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#a68bfa\" stroke=\"#a68bfa\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_2_text\" x=\"505\" y=\"395\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Step 2\n  </text>\n  \n  <!-- Step 3 - Bottom Left at 240\u00b0 (overlaid on circle) -->\n  <rect id=\"step_3_fill\" x=\"225\" y=\"360\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#f68b5a\" stroke=\"#f68b5a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_3_text\" x=\"295\" y=\"395\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Step 3\n  </text>\n  \n  <!-- Main Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1451,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_58181043-ec40-4be3-ae86-8541ea3f3dad",
+        "correlation_id": "req_58181043-ec40-4be3-ae86-8541ea3f3dad",
+        "timestamp": "2025-08-27T15:28:13.127933"
+      },
+      "metadata": null,
+      "request_id": "req_58181043-ec40-4be3-ae86-8541ea3f3dad"
+    }
+  },
+  {
+    "name": "cycle_4_step",
+    "category": "svg_templates",
+    "request_id": "req_a6faa731-f5d7-449b-8efc-95ade0e30b62",
+    "elapsed_time": 1.0731379985809326,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_a1485c0b-b87e-4b7c-9e8a-c244b81e1930",
+      "correlation_id": "req_a6faa731-f5d7-449b-8efc-95ade0e30b62",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:14.201827",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "cycle_4_step",
+        "diagram_id": "719ae726-3e10-454f-b084-145924f69b29",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 4-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <marker id=\"arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n      <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#676767\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#e6e6e6\"/>\n  \n  <!-- Main circular path -->\n  <circle cx=\"400\" cy=\"300\" r=\"150\" fill=\"none\" stroke=\"#b3b3b3\" stroke-width=\"2.5\" stroke-dasharray=\"none\"/>\n  \n  <!-- Arrows at center of arcs, tangential to circle, clockwise direction -->\n  <!-- Arrow between Step 4 and PDCA cycle (45\u00b0 - top-left) - rotated 25\u00b0 CCW total, moved 5px down -->\n  <path d=\"M 290,195 L 314,177\" fill=\"none\" stroke=\"#676767\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between PDCA cycle and Step 2 (45\u00b0 - top-right) - rotated 10\u00b0 CW total -->\n  <path d=\"M 490,180 L 510,195\" fill=\"none\" stroke=\"#676767\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 2 and Step 3 (45\u00b0 - bottom-right) - rotated 30\u00b0 CCW total, moved 5px up -->\n  <path d=\"M 510,405 L 485,423\" fill=\"none\" stroke=\"#676767\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 3 and Step 4 (45\u00b0 - bottom-left) - rotated 15\u00b0 CW total -->\n  <path d=\"M 310,420 L 290,403\" fill=\"none\" stroke=\"#676767\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- PDCA cycle - Top (overlaid on circle) -->\n  <rect id=\"step_1_fill\" x=\"330\" y=\"120\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#ec4898\" stroke=\"#ec4898\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_1_text\" x=\"400\" y=\"155\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Plan\n  </text>\n  \n  <!-- Step 2 - Right (overlaid on circle) -->\n  <rect id=\"step_2_fill\" x=\"480\" y=\"270\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#f9a8d3\" stroke=\"#f9a8d3\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_2_text\" x=\"550\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    Execute\n  </text>\n  \n  <!-- Step 3 - Bottom (overlaid on circle) -->\n  <rect id=\"step_3_fill\" x=\"330\" y=\"420\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#98ec48\" stroke=\"#98ec48\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_3_text\" x=\"400\" y=\"455\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    Review\n  </text>\n  \n  <!-- Step 4 - Left (overlaid on circle) -->\n  <rect id=\"step_4_fill\" x=\"180\" y=\"270\" width=\"140\" height=\"60\" rx=\"8\" \n        fill=\"#f38dbf\" stroke=\"#f38dbf\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_4_text\" x=\"250\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Improve\n  </text>\n  \n  <!-- Main Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1067,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_a6faa731-f5d7-449b-8efc-95ade0e30b62",
+        "correlation_id": "req_a6faa731-f5d7-449b-8efc-95ade0e30b62",
+        "timestamp": "2025-08-27T15:28:14.201752"
+      },
+      "metadata": null,
+      "request_id": "req_a6faa731-f5d7-449b-8efc-95ade0e30b62"
+    }
+  },
+  {
+    "name": "cycle_5_step",
+    "category": "svg_templates",
+    "request_id": "req_faad7244-ccfa-41a4-b3ac-bd7d5c8eeae9",
+    "elapsed_time": 1.2383148670196533,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_ccffc5b1-f7dc-44f2-a00b-2ed5e14098f4",
+      "correlation_id": "req_faad7244-ccfa-41a4-b3ac-bd7d5c8eeae9",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:15.441030",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "cycle_5_step",
+        "diagram_id": "2da809d1-ba58-45f2-b44b-d5c39578a20a",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <marker id=\"arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\">\n      <path d=\"M0,0 L0,8 L8,4 z\" fill=\"#333333\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#b2b2b2\"/>\n  \n  <!-- Main circular path -->\n  <circle cx=\"400\" cy=\"300\" r=\"150\" fill=\"none\" stroke=\"#7f7f7f\" stroke-width=\"2.5\" stroke-dasharray=\"none\"/>\n  \n  <!-- Arrows at center of arcs (36\u00b0 between boxes), tangential to circle, clockwise -->\n  <!-- Arrow between Step 5 and Step 1 (36\u00b0 from top) - moved 7px down -->\n  <path d=\"M 305,182 L 325,172\" fill=\"none\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 1 and Step 2 (108\u00b0 from top) -->\n  <path d=\"M 505,195 L 520,210\" fill=\"none\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 2 and Step 3 (180\u00b0 from top - right side) - moved 5px right -->\n  <path d=\"M 550,315 L 545,335\" fill=\"none\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 3 and Step 4 (252\u00b0 from top - bottom) - moved 15px down total, tail reduced to 2/3 -->\n  <path d=\"M 420,450 L 393,450\" fill=\"none\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Arrow between Step 4 and Step 5 (324\u00b0 from top - left side) - moved 5px left -->\n  <path d=\"M 255,335 L 250,315\" fill=\"none\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Step 1 - Top (overlaid on circle) - Design thinking -->\n  <rect id=\"step_1_fill\" x=\"340\" y=\"120\" width=\"120\" height=\"50\" rx=\"8\" \n        fill=\"#13b8a6\" stroke=\"#13b8a6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_1_text\" x=\"400\" y=\"150\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Design thinking\n  </text>\n  \n  <!-- Step 2 - Right-Upper (72\u00b0 from top) - Measure -->\n  <rect id=\"step_2_fill\" x=\"480\" y=\"220\" width=\"120\" height=\"50\" rx=\"8\" \n        fill=\"#5dead4\" stroke=\"#5dead4\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_2_text\" x=\"540\" y=\"250\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    Measure\n  </text>\n  \n  <!-- Step 3 - Bottom-Right (144\u00b0 from top) - Analyze -->\n  <rect id=\"step_3_fill\" x=\"430\" y=\"365\" width=\"120\" height=\"50\" rx=\"8\" \n        fill=\"#a512b8\" stroke=\"#a512b8\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_3_text\" x=\"490\" y=\"395\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Analyze\n  </text>\n  \n  <!-- Step 4 - Bottom-Left (216\u00b0 from top) - Improve -->\n  <rect id=\"step_4_fill\" x=\"250\" y=\"365\" width=\"120\" height=\"50\" rx=\"8\" \n        fill=\"#30e8d4\" stroke=\"#30e8d4\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_4_text\" x=\"310\" y=\"395\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    Improve\n  </text>\n  \n  <!-- Step 5 - Left-Upper (288\u00b0 from top) - Control -->\n  <rect id=\"step_5_fill\" x=\"200\" y=\"220\" width=\"120\" height=\"50\" rx=\"8\" \n        fill=\"#13b8a6\" stroke=\"#13b8a6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_5_text\" x=\"260\" y=\"250\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Control\n  </text>\n  \n  <!-- Main Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1233,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_faad7244-ccfa-41a4-b3ac-bd7d5c8eeae9",
+        "correlation_id": "req_faad7244-ccfa-41a4-b3ac-bd7d5c8eeae9",
+        "timestamp": "2025-08-27T15:28:15.440950"
+      },
+      "metadata": null,
+      "request_id": "req_faad7244-ccfa-41a4-b3ac-bd7d5c8eeae9"
+    }
+  },
+  {
+    "name": "venn_2_circle",
+    "category": "svg_templates",
+    "request_id": "req_6e27b93d-b589-4ed0-8884-f17464808d74",
+    "elapsed_time": 1.561410903930664,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_d2baff4d-fe84-4901-9d84-a76decb82ae9",
+      "correlation_id": "req_6e27b93d-b589-4ed0-8884-f17464808d74",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:17.003530",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "venn_2_circle",
+        "diagram_id": "5154f8ae-6c16-48c1-9d5b-11d13f179fd4",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 2-Circle Venn Diagram Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Left Circle -->\n  <circle id=\"left_circle_fill\" cx=\"320\" cy=\"300\" r=\"150\" \n          fill=\"#0971a0\" fill-opacity=\"0.3\" stroke=\"#0971a0\" stroke-width=\"3\" filter=\"url(#shadow)\"/>\n  \n  <!-- Right Circle -->\n  <circle id=\"right_circle_fill\" cx=\"480\" cy=\"300\" r=\"150\" \n          fill=\"#053e58\" fill-opacity=\"0.3\" stroke=\"#053e58\" stroke-width=\"3\" filter=\"url(#shadow)\"/>\n  \n  <!-- Text for left circle (exclusive area) -->\n  <text id=\"left_circle_text\" x=\"250\" y=\"300\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Skills overlap\n  </text>\n  \n  <!-- Text for overlap area -->\n  <text id=\"overlap_text\" x=\"400\" y=\"300\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    A \u2229 B\n  </text>\n  \n  <!-- Text for right circle (exclusive area) -->\n  <text id=\"right_circle_text\" x=\"550\" y=\"300\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Set B\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1556,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_6e27b93d-b589-4ed0-8884-f17464808d74",
+        "correlation_id": "req_6e27b93d-b589-4ed0-8884-f17464808d74",
+        "timestamp": "2025-08-27T15:28:17.003464"
+      },
+      "metadata": null,
+      "request_id": "req_6e27b93d-b589-4ed0-8884-f17464808d74"
+    }
+  },
+  {
+    "name": "venn_3_circle",
+    "category": "svg_templates",
+    "request_id": "req_6466b838-06ac-4cd0-9a01-1c79838fbf05",
+    "elapsed_time": 1.2872309684753418,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_571f3af3-d5a3-46a1-b475-681d138c2aa4",
+      "correlation_id": "req_6466b838-06ac-4cd0-9a01-1c79838fbf05",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:18.291685",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "venn_3_circle",
+        "diagram_id": "f31e50ae-8537-430f-ad70-e2fc70974834",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Circle Venn Diagram Template -->\n  <defs>\n    <!-- Semi-transparent fills for overlapping circles -->\n    \n    \n    \n    \n    \n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Three overlapping circles forming Venn diagram -->\n  <!-- Circle 1 (Top-Left) - Blue -->\n  <circle id=\"circle_1_fill\" cx=\"340\" cy=\"280\" r=\"120\" \n          fill=\"#dc2525\" stroke=\"#dc2525\" stroke-width=\"2\"/>\n  \n  <!-- Circle 2 (Top-Right) - Red -->\n  <circle id=\"circle_2_fill\" cx=\"460\" cy=\"280\" r=\"120\" \n          fill=\"#f87070\" stroke=\"#f87070\" stroke-width=\"2\"/>\n  \n  <!-- Circle 3 (Bottom) - Green - moved 40px down -->\n  <circle id=\"circle_3_fill\" cx=\"400\" cy=\"400\" r=\"120\" \n          fill=\"#24dc24\" stroke=\"#24dc24\" stroke-width=\"2\"/>\n  \n  <!-- Text labels for each circle -->\n  <text id=\"circle_1_text\" x=\"290\" y=\"230\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Product success\n  </text>\n  \n  <text id=\"circle_2_text\" x=\"510\" y=\"230\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Set B\n  </text>\n  \n  <text id=\"circle_3_text\" x=\"400\" y=\"480\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    Set C\n  </text>\n  \n  <!-- Center intersection label -->\n  <text id=\"intersection_text\" x=\"400\" y=\"320\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    A\u2229B\u2229C\n  </text>\n  \n  <!-- Title -->\n  <text x=\"400\" y=\"125\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    3-Set Relationship\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1281,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_6466b838-06ac-4cd0-9a01-1c79838fbf05",
+        "correlation_id": "req_6466b838-06ac-4cd0-9a01-1c79838fbf05",
+        "timestamp": "2025-08-27T15:28:18.291614"
+      },
+      "metadata": null,
+      "request_id": "req_6466b838-06ac-4cd0-9a01-1c79838fbf05"
+    }
+  },
+  {
+    "name": "honeycomb_3",
+    "category": "svg_templates",
+    "request_id": "req_6350d4d1-11f9-4cbd-b196-e5cd1ee35e58",
+    "elapsed_time": 1.4297759532928467,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_f78980c6-1de8-4044-987e-8e154cbd4022",
+      "correlation_id": "req_6350d4d1-11f9-4cbd-b196-e5cd1ee35e58",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:19.722219",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "honeycomb_3",
+        "diagram_id": "acc80759-a5eb-46f4-b428-1327dd84f83c",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Cell Honeycomb Template in C-Shape -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Honeycomb geometry in C-shape:\n    - Radius R = 57.5 (matching honeycomb_7)\n    - Gap = 4px between hexagons\n    - Center at (400, 300)\n    - Pointy-top orientation (vertex at top)\n    - C-shape: Cell 2 at northwest, Core values at center-left, Cell 3 at southwest\n  -->\n  \n  <!-- Hexagon 1 (Core values - Center/Middle of C) -->\n  <path id=\"hex_1_fill\" d=\"M 400.000 242.500 L 449.796 271.250 L 449.796 328.750 L 400.000 357.500 L 350.204 328.750 L 350.204 271.250 Z\" \n        fill=\"#024b35\" stroke=\"#024b35\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_1_text\" x=\"400\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Core values\n  </text>\n  \n  <!-- Hexagon 2 (Northwest - Top of C) -->\n  <path id=\"hex_2_fill\" d=\"M 348.204 152.786 L 398.000 181.536 L 398.000 239.036 L 348.204 267.786 L 298.407 239.036 L 298.407 181.536 Z\" \n        fill=\"#000101\" stroke=\"#000101\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_2_text\" x=\"348.204\" y=\"215.286\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 2\n  </text>\n  \n  <!-- Hexagon 3 (Southwest - Bottom of C) -->\n  <path id=\"hex_3_fill\" d=\"M 348.204 332.214 L 398.000 360.964 L 398.000 418.464 L 348.204 447.214 L 298.407 418.464 L 298.407 360.964 Z\" \n        fill=\"#8b5cf6\" stroke=\"#8b5cf6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_3_text\" x=\"348.204\" y=\"394.714\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 3\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1424,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_6350d4d1-11f9-4cbd-b196-e5cd1ee35e58",
+        "correlation_id": "req_6350d4d1-11f9-4cbd-b196-e5cd1ee35e58",
+        "timestamp": "2025-08-27T15:28:19.722112"
+      },
+      "metadata": null,
+      "request_id": "req_6350d4d1-11f9-4cbd-b196-e5cd1ee35e58"
+    }
+  },
+  {
+    "name": "honeycomb_5",
+    "category": "svg_templates",
+    "request_id": "req_e9dd9402-b0bc-4578-84e7-383332137720",
+    "elapsed_time": 1.1972591876983643,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_06e76efe-46ff-4a85-a954-8169827bb70f",
+      "correlation_id": "req_e9dd9402-b0bc-4578-84e7-383332137720",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:20.921201",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "honeycomb_5",
+        "diagram_id": "80863979-d2cf-45bf-ad2b-2ccff03ac897",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Cell Honeycomb Template with Edge-Sharing Layout -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Honeycomb geometry with edge-sharing:\n    - Radius R = 57.5 (matching honeycomb_7)\n    - Gap = 4px between hexagons\n    - Center at (400, 300)\n    - Pointy-top orientation (vertex at top)\n    - Layout: \n      - Cell 2 (top) shares edges with Service pillars and Cell 5\n      - Cell 4 (bottom) shares edges with Service pillars and Cell 3\n      - Creating a connected 5-hexagon cluster\n  -->\n  \n  <!-- Hexagon 1 (Service pillars/Center) -->\n  <path id=\"hex_1_fill\" d=\"M 400.000 242.500 L 449.796 271.250 L 449.796 328.750 L 400.000 357.500 L 350.204 328.750 L 350.204 271.250 Z\" \n        fill=\"#5512c8\" stroke=\"#5512c8\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_1_text\" x=\"400\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Service pillars\n  </text>\n  \n  <!-- Hexagon 2 (Northwest) - shares edge with Service pillars and Cell 5 -->\n  <path id=\"hex_2_fill\" d=\"M 348.204 152.786 L 398.000 181.536 L 398.000 239.036 L 348.204 267.786 L 298.407 239.036 L 298.407 181.536 Z\" \n        fill=\"#370b82\" stroke=\"#370b82\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_2_text\" x=\"348.204\" y=\"215.286\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 2\n  </text>\n  \n  <!-- Hexagon 3 (East/Right) -->\n  <path id=\"hex_3_fill\" d=\"M 503.593 242.500 L 553.389 271.250 L 553.389 328.750 L 503.593 357.500 L 453.796 328.750 L 453.796 271.250 Z\" \n        fill=\"#8b5cf6\" stroke=\"#8b5cf6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_3_text\" x=\"503.593\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 3\n  </text>\n  \n  <!-- Hexagon 4 (Southeast) - shares edge with Service pillars and Cell 3 -->\n  <path id=\"hex_4_fill\" d=\"M 451.796 332.214 L 501.593 360.964 L 501.593 418.464 L 451.796 447.214 L 402.000 418.464 L 402.000 360.964 Z\" \n        fill=\"#a68bfa\" stroke=\"#a68bfa\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_4_text\" x=\"451.796\" y=\"394.714\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 4\n  </text>\n  \n  <!-- Hexagon 5 (West/Left) -->\n  <path id=\"hex_5_fill\" d=\"M 296.407 242.500 L 346.204 271.250 L 346.204 328.750 L 296.407 357.500 L 246.611 328.750 L 246.611 271.250 Z\" \n        fill=\"#aa80f3\" stroke=\"#aa80f3\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_5_text\" x=\"296.407\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 5\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1193,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_e9dd9402-b0bc-4578-84e7-383332137720",
+        "correlation_id": "req_e9dd9402-b0bc-4578-84e7-383332137720",
+        "timestamp": "2025-08-27T15:28:20.921160"
+      },
+      "metadata": null,
+      "request_id": "req_e9dd9402-b0bc-4578-84e7-383332137720"
+    }
+  },
+  {
+    "name": "honeycomb_7",
+    "category": "svg_templates",
+    "request_id": "req_4a31396e-0f44-4f41-be92-47a1cb517e97",
+    "elapsed_time": 1.2176077365875244,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_05b546d4-87fa-4d36-ae1f-046803324f32",
+      "correlation_id": "req_4a31396e-0f44-4f41-be92-47a1cb517e97",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:22.138792",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "honeycomb_7",
+        "diagram_id": "6569c271-b0d7-41d1-a63e-dcff588ce2aa",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 7-Cell Honeycomb Template with 15% Larger Hexagons and Gaps -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Honeycomb geometry:\n    - Radius R = 57.5 (15% larger than original 50)\n    - Gap = 4px between hexagons\n    - Center at (400, 300)\n    - Pointy-top orientation (vertex at top)\n    - 6 surrounding hexagons with uniform gaps\n  -->\n  \n  <!-- Hexagon 1 (Center) -->\n  <path id=\"hex_1_fill\" d=\"M 400.000 242.500 L 449.796 271.250 L 449.796 328.750 L 400.000 357.500 L 350.204 328.750 L 350.204 271.250 Z\" \n        fill=\"#a13c08\" stroke=\"#a13c08\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_1_text\" x=\"400\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Team competencies\n  </text>\n  \n  <!-- Hexagon 2 (East) -->\n  <path id=\"hex_2_fill\" d=\"M 503.593 242.500 L 553.389 271.250 L 553.389 328.750 L 503.593 357.500 L 453.796 328.750 L 453.796 271.250 Z\" \n        fill=\"#582104\" stroke=\"#582104\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_2_text\" x=\"503.593\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 2\n  </text>\n  \n  <!-- Hexagon 3 (Northeast) -->\n  <path id=\"hex_3_fill\" d=\"M 451.796 152.786 L 501.593 181.536 L 501.593 239.036 L 451.796 267.786 L 402.000 239.036 L 402.000 181.536 Z\" \n        fill=\"#8b5cf6\" stroke=\"#8b5cf6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_3_text\" x=\"451.796\" y=\"215.286\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 3\n  </text>\n  \n  <!-- Hexagon 4 (Northwest) -->\n  <path id=\"hex_4_fill\" d=\"M 348.204 152.786 L 398.000 181.536 L 398.000 239.036 L 348.204 267.786 L 298.407 239.036 L 298.407 181.536 Z\" \n        fill=\"#fb923b\" stroke=\"#fb923b\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_4_text\" x=\"348.204\" y=\"215.286\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 4\n  </text>\n  \n  <!-- Hexagon 5 (West) -->\n  <path id=\"hex_5_fill\" d=\"M 296.407 242.500 L 346.204 271.250 L 346.204 328.750 L 296.407 357.500 L 246.611 328.750 L 246.611 271.250 Z\" \n        fill=\"#f5864c\" stroke=\"#f5864c\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_5_text\" x=\"296.407\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 5\n  </text>\n  \n  <!-- Hexagon 6 (Southwest) -->\n  <path id=\"hex_6_fill\" d=\"M 348.204 332.214 L 398.000 360.964 L 398.000 418.464 L 348.204 447.214 L 298.407 418.464 L 298.407 360.964 Z\" \n        fill=\"#ec4899\" stroke=\"#ec4899\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_6_text\" x=\"348.204\" y=\"394.714\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 6\n  </text>\n  \n  <!-- Hexagon 7 (Southeast) -->\n  <path id=\"hex_7_fill\" d=\"M 451.796 332.214 L 501.593 360.964 L 501.593 418.464 L 451.796 447.214 L 402.000 418.464 L 402.000 360.964 Z\" \n        fill=\"#fcbb86\" stroke=\"#fcbb86\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"hex_7_text\" x=\"451.796\" y=\"394.714\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#000000\">\n    Cell 7\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1212,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_4a31396e-0f44-4f41-be92-47a1cb517e97",
+        "correlation_id": "req_4a31396e-0f44-4f41-be92-47a1cb517e97",
+        "timestamp": "2025-08-27T15:28:22.138702"
+      },
+      "metadata": null,
+      "request_id": "req_4a31396e-0f44-4f41-be92-47a1cb517e97"
+    }
+  },
+  {
+    "name": "matrix_2x2",
+    "category": "svg_templates",
+    "request_id": "req_50758413-387a-4304-82d2-3db9503a4eb2",
+    "elapsed_time": 1.2726359367370605,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_d04580bd-cbb8-4354-9970-a4ab8f4af685",
+      "correlation_id": "req_50758413-387a-4304-82d2-3db9503a4eb2",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:23.412497",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "matrix_2x2",
+        "diagram_id": "37cd0678-29fb-4c39-bf83-7ebd68fdbb6a",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 2x2 Matrix Template -->\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Grid Lines -->\n  <line x1=\"150\" y1=\"300\" x2=\"650\" y2=\"300\" stroke=\"#69e1f3\" stroke-width=\"2\"/>\n  <line x1=\"400\" y1=\"150\" x2=\"400\" y2=\"450\" stroke=\"#69e1f3\" stroke-width=\"2\"/>\n  \n  <!-- Axis Arrows -->\n  <path d=\"M 150 300 L 650 300 L 640 295 M 650 300 L 640 305\" \n        stroke=\"#414344\" stroke-width=\"2\" fill=\"none\"/>\n  <path d=\"M 400 450 L 400 150 L 395 160 M 400 150 L 405 160\" \n        stroke=\"#414344\" stroke-width=\"2\" fill=\"none\"/>\n  \n  <!-- Quadrant 1 (Top Right) -->\n  <rect id=\"q1_fill\" x=\"410\" y=\"160\" width=\"230\" height=\"130\" \n        fill=\"#078baa\" stroke=\"#078baa\" stroke-width=\"1\" rx=\"8\"/>\n  <text id=\"quadrant_1\" x=\"525\" y=\"225\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Priority matrix\n  </text>\n  \n  <!-- Quadrant 2 (Top Left) -->\n  <rect id=\"q2_fill\" x=\"160\" y=\"160\" width=\"230\" height=\"130\" \n        fill=\"#84e2f9\" stroke=\"#84e2f9\" stroke-width=\"1\" rx=\"8\"/>\n  <text id=\"quadrant_2\" x=\"275\" y=\"225\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#000000\">\n    Low / High\n  </text>\n  \n  <!-- Quadrant 3 (Bottom Left) -->\n  <rect id=\"q3_fill\" x=\"160\" y=\"310\" width=\"230\" height=\"130\" \n        fill=\"#98d7e6\" stroke=\"#98d7e6\" stroke-width=\"1\" rx=\"8\"/>\n  <text id=\"quadrant_3\" x=\"275\" y=\"375\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#000000\">\n    Low / Low\n  </text>\n  \n  <!-- Quadrant 4 (Bottom Right) -->\n  <rect id=\"q4_fill\" x=\"410\" y=\"310\" width=\"230\" height=\"130\" \n        fill=\"#227a90\" stroke=\"#227a90\" stroke-width=\"1\" rx=\"8\"/>\n  <text id=\"quadrant_4\" x=\"525\" y=\"375\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    High / Low\n  </text>\n  \n  <!-- Axis Labels -->\n  <text id=\"x_label\" x=\"400\" y=\"490\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    X Axis Label\n  </text>\n  <text id=\"y_label\" x=\"100\" y=\"300\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\"\n        transform=\"rotate(-90 100 300)\">\n    Y Axis Label\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1267,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_50758413-387a-4304-82d2-3db9503a4eb2",
+        "correlation_id": "req_50758413-387a-4304-82d2-3db9503a4eb2",
+        "timestamp": "2025-08-27T15:28:23.412422"
+      },
+      "metadata": null,
+      "request_id": "req_50758413-387a-4304-82d2-3db9503a4eb2"
+    }
+  },
+  {
+    "name": "matrix_3x3",
+    "category": "svg_templates",
+    "request_id": "req_21da14d7-2a1d-497b-8656-7a8dacedc344",
+    "elapsed_time": 1.4282543659210205,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_7fe50e64-c28f-4749-b752-a8aa0a37a8e8",
+      "correlation_id": "req_21da14d7-2a1d-497b-8656-7a8dacedc344",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:24.841620",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "matrix_3x3",
+        "diagram_id": "3d3c6bfd-7f2b-4ee7-9c7e-18a524de7817",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3x3 Matrix Template -->\n  <defs>\n    <!-- Gradients for cells -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"1\" stdDeviation=\"2\" flood-opacity=\"0.1\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#b6b6b6\"/>\n  \n  <!-- Matrix Grid 3x3 -->\n  <!-- Row 1 -->\n  <rect id=\"cell_1_1_fill\" x=\"200\" y=\"150\" width=\"120\" height=\"100\" \n        fill=\"#b91b1b\" stroke=\"#b91b1b\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_1_1_text\" x=\"260\" y=\"205\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Risk assessment grid with nine zones\n  </text>\n  \n  <rect id=\"cell_1_2_fill\" x=\"320\" y=\"150\" width=\"120\" height=\"100\" \n        fill=\"#ee4444\" stroke=\"#ee4444\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_1_2_text\" x=\"380\" y=\"205\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 2\n  </text>\n  \n  <rect id=\"cell_1_3_fill\" x=\"440\" y=\"150\" width=\"120\" height=\"100\" \n        fill=\"#1ab91a\" stroke=\"#1ab91a\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_1_3_text\" x=\"500\" y=\"205\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 3\n  </text>\n  \n  <!-- Row 2 -->\n  <rect id=\"cell_2_1_fill\" x=\"200\" y=\"250\" width=\"120\" height=\"100\" \n        fill=\"#e23f3f\" stroke=\"#e23f3f\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_2_1_text\" x=\"260\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 4\n  </text>\n  \n  <rect id=\"cell_2_2_fill\" x=\"320\" y=\"250\" width=\"120\" height=\"100\" \n        fill=\"#b91b1b\" stroke=\"#b91b1b\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_2_2_text\" x=\"380\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 5\n  </text>\n  \n  <rect id=\"cell_2_3_fill\" x=\"440\" y=\"250\" width=\"120\" height=\"100\" \n        fill=\"#ee4444\" stroke=\"#ee4444\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_2_3_text\" x=\"500\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 6\n  </text>\n  \n  <!-- Row 3 -->\n  <rect id=\"cell_3_1_fill\" x=\"200\" y=\"350\" width=\"120\" height=\"100\" \n        fill=\"#1ab91a\" stroke=\"#1ab91a\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_3_1_text\" x=\"260\" y=\"405\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 7\n  </text>\n  \n  <rect id=\"cell_3_2_fill\" x=\"320\" y=\"350\" width=\"120\" height=\"100\" \n        fill=\"#e23f3f\" stroke=\"#e23f3f\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_3_2_text\" x=\"380\" y=\"405\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 8\n  </text>\n  \n  <rect id=\"cell_3_3_fill\" x=\"440\" y=\"350\" width=\"120\" height=\"100\" \n        fill=\"#b91b1b\" stroke=\"#b91b1b\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"cell_3_3_text\" x=\"500\" y=\"405\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Cell 9\n  </text>\n  \n  <!-- Axis Labels -->\n  <text x=\"130\" y=\"205\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    High\n  </text>\n  <text x=\"130\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    Medium\n  </text>\n  <text x=\"130\" y=\"405\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    Low\n  </text>\n  \n  <text x=\"260\" y=\"130\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    Low\n  </text>\n  <text x=\"380\" y=\"130\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    Medium\n  </text>\n  <text x=\"500\" y=\"130\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\">\n    High\n  </text>\n  \n  <!-- Axis Titles -->\n  <text x=\"70\" y=\"300\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\"\n        transform=\"rotate(-90 70 300)\">\n    Impact\n  </text>\n  <text x=\"380\" y=\"500\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    Effort\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1423,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_21da14d7-2a1d-497b-8656-7a8dacedc344",
+        "correlation_id": "req_21da14d7-2a1d-497b-8656-7a8dacedc344",
+        "timestamp": "2025-08-27T15:28:24.841543"
+      },
+      "metadata": null,
+      "request_id": "req_21da14d7-2a1d-497b-8656-7a8dacedc344"
+    }
+  },
+  {
+    "name": "swot_matrix",
+    "category": "svg_templates",
+    "request_id": "req_50ef3621-8d33-491a-a9d4-3219a2d94e19",
+    "elapsed_time": 1.266089916229248,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_ea8d50ef-6985-4b15-8049-123cb06b06ba",
+      "correlation_id": "req_50ef3621-8d33-491a-a9d4-3219a2d94e19",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:26.109372",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "swot_matrix",
+        "diagram_id": "d78bdc9e-9c3e-4e8d-93f6-9233f85a95fc",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- SWOT Matrix Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Grid lines -->\n  <line x1=\"400\" y1=\"150\" x2=\"400\" y2=\"500\" stroke=\"#0feeb0\" stroke-width=\"2\"/>\n  <line x1=\"150\" y1=\"325\" x2=\"650\" y2=\"325\" stroke=\"#0feeb0\" stroke-width=\"2\"/>\n  \n  <!-- SWOT Analysis (Top Left) -->\n  <rect id=\"strengths_fill\" x=\"160\" y=\"160\" width=\"230\" height=\"155\" \n        fill=\"#065f46\" stroke=\"#065f46\" stroke-width=\"2\" rx=\"8\" filter=\"url(#shadow)\"/>\n  <text id=\"strengths_label\" x=\"275\" y=\"185\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    STRENGTHS\n  </text>\n  <text id=\"strengths_text\" x=\"275\" y=\"240\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#ffffff\">\n    Internal Advantages\n  </text>\n  \n  <!-- Weaknesses (Top Right) -->\n  <rect id=\"weaknesses_fill\" x=\"410\" y=\"160\" width=\"230\" height=\"155\" \n        fill=\"#fee2e2\" stroke=\"#fee2e2\" stroke-width=\"2\" rx=\"8\" filter=\"url(#shadow)\"/>\n  <text id=\"weaknesses_label\" x=\"525\" y=\"185\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    WEAKNESSES\n  </text>\n  <text id=\"weaknesses_text\" x=\"525\" y=\"240\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    Internal Limitations\n  </text>\n  \n  <!-- Opportunities (Bottom Left) -->\n  <rect id=\"opportunities_fill\" x=\"160\" y=\"335\" width=\"230\" height=\"155\" \n        fill=\"#0feeb0\" stroke=\"#0feeb0\" stroke-width=\"2\" rx=\"8\" filter=\"url(#shadow)\"/>\n  <text id=\"opportunities_label\" x=\"275\" y=\"360\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n    OPPORTUNITIES\n  </text>\n  <text id=\"opportunities_text\" x=\"275\" y=\"415\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    External Possibilities\n  </text>\n  \n  <!-- Threats (Bottom Right) -->\n  <rect id=\"threats_fill\" x=\"410\" y=\"335\" width=\"230\" height=\"155\" \n        fill=\"#44065f\" stroke=\"#44065f\" stroke-width=\"2\" rx=\"8\" filter=\"url(#shadow)\"/>\n  <text id=\"threats_label\" x=\"525\" y=\"360\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    THREATS\n  </text>\n  <text id=\"threats_text\" x=\"525\" y=\"415\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#ffffff\">\n    External Risks\n  </text>\n  \n  <!-- Axis Labels -->\n  <text x=\"100\" y=\"240\" text-anchor=\"middle\" transform=\"rotate(-90 100 240)\"\n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    INTERNAL\n  </text>\n  <text x=\"100\" y=\"415\" text-anchor=\"middle\" transform=\"rotate(-90 100 415)\"\n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    EXTERNAL\n  </text>\n  <text x=\"275\" y=\"130\" text-anchor=\"middle\"\n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    HELPFUL\n  </text>\n  <text x=\"525\" y=\"130\" text-anchor=\"middle\"\n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    HARMFUL\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1263,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_50ef3621-8d33-491a-a9d4-3219a2d94e19",
+        "correlation_id": "req_50ef3621-8d33-491a-a9d4-3219a2d94e19",
+        "timestamp": "2025-08-27T15:28:26.109353"
+      },
+      "metadata": null,
+      "request_id": "req_50ef3621-8d33-491a-a9d4-3219a2d94e19"
+    }
+  },
+  {
+    "name": "hub_spoke_4",
+    "category": "svg_templates",
+    "request_id": "req_3c13b018-de46-4585-a879-099d7829a1ff",
+    "elapsed_time": 1.7056248188018799,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_d563f9e4-3a2c-4241-9042-ff41910a0f65",
+      "correlation_id": "req_3c13b018-de46-4585-a879-099d7829a1ff",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:27.814520",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "hub_spoke_4",
+        "diagram_id": "cf4f0f04-8378-47c2-b326-a6e2259a0607",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Enhanced Hub & Spoke Template with 4 Nodes -->\n  <defs>\n    <!-- Gradients for richer visual appearance -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Enhanced shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2\"/>\n      <feOffset dx=\"0\" dy=\"3\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#000000\" flood-opacity=\"0.2\"/>\n      <feComposite in2=\"offsetblur\" operator=\"in\"/>\n      <feMerge>\n        <feMergeNode/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Glow effect for hub -->\n    <filter id=\"hub_glow\">\n      <feGaussianBlur stdDeviation=\"4\" result=\"coloredBlur\"/>\n      <feMerge>\n        <feMergeNode in=\"coloredBlur\"/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Smaller arrow markers (40% of original size) -->\n    <marker id=\"arrow\" markerWidth=\"4\" markerHeight=\"4\" refX=\"3.2\" refY=\"1.2\" orient=\"auto\" markerUnits=\"strokeWidth\">\n      <path d=\"M0,0 L0,2.4 L3.6,1.2 z\" fill=\"#4c4c4c\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background - plain white -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  \n  <!-- \n    Updated positioning:\n    - Entire diagram moved down by 40px\n    - Hub center now at (400, 340)\n    - All nodes shifted down accordingly\n  -->\n  \n  <!-- Corrected Spokes with adjusted positions -->\n  \n  <!-- Spoke to Node 1 (Top) - at (400, 144) -->\n  <line x1=\"400\" y1=\"267\" x2=\"400\" y2=\"205\" \n        stroke=\"#4c4c4c\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 2 (Right) - at (576, 340) -->\n  <line x1=\"473\" y1=\"340\" x2=\"515\" y2=\"340\" \n        stroke=\"#4c4c4c\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 3 (Bottom) - at (400, 536) -->\n  <line x1=\"400\" y1=\"413\" x2=\"400\" y2=\"475\" \n        stroke=\"#4c4c4c\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 4 (Left) - at (224, 340) -->\n  <line x1=\"327\" y1=\"340\" x2=\"285\" y2=\"340\" \n        stroke=\"#4c4c4c\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Node 1 (Top) -->\n  <circle id=\"spoke_1_fill\" cx=\"400\" cy=\"144\" r=\"61\" \n          fill=\"#66c3e4\" stroke=\"#66c3e4\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_1_text\" x=\"400\" y=\"144\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-6\">Node 1</tspan>\n    <tspan x=\"400\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 2 (Right) -->\n  <circle id=\"spoke_2_fill\" cx=\"576\" cy=\"340\" r=\"61\" \n          fill=\"#327dcc\" stroke=\"#327dcc\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_2_text\" x=\"576\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"576\" dy=\"-6\">Node 2</tspan>\n    <tspan x=\"576\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 3 (Bottom) -->\n  <circle id=\"spoke_3_fill\" cx=\"400\" cy=\"536\" r=\"61\" \n          fill=\"#2f5be8\" stroke=\"#2f5be8\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_3_text\" x=\"400\" y=\"536\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-6\">Node 3</tspan>\n    <tspan x=\"400\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 4 (Left) -->\n  <circle id=\"spoke_4_fill\" cx=\"224\" cy=\"340\" r=\"61\" \n          fill=\"#8180e4\" stroke=\"#8180e4\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_4_text\" x=\"224\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"224\" dy=\"-6\">Node 4</tspan>\n    <tspan x=\"224\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Central platform Hub (moved down) -->\n  <circle cx=\"400\" cy=\"340\" r=\"79\" fill=\"#ffffff\" opacity=\"0.2\" filter=\"url(#hub_glow)\"/>\n  <circle id=\"hub_fill\" cx=\"400\" cy=\"340\" r=\"73\" \n          fill=\"#031348\" stroke=\"#031348\" stroke-width=\"3\" filter=\"url(#shadow)\"/>\n  <text id=\"hub_text\" x=\"400\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14.4\" font-weight=\"700\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-7\">Central platform</tspan>\n    <tspan x=\"400\" dy=\"18\">Hub</tspan>\n  </text>\n  \n  <!-- Title with subtle styling -->\n  <text x=\"400\" y=\"65\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    Central platformized Network Architecture\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1701,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_3c13b018-de46-4585-a879-099d7829a1ff",
+        "correlation_id": "req_3c13b018-de46-4585-a879-099d7829a1ff",
+        "timestamp": "2025-08-27T15:28:27.814455"
+      },
+      "metadata": null,
+      "request_id": "req_3c13b018-de46-4585-a879-099d7829a1ff"
+    }
+  },
+  {
+    "name": "hub_spoke_6",
+    "category": "svg_templates",
+    "request_id": "req_1eec4029-c4e3-4e7a-892d-00c1cd5d11dc",
+    "elapsed_time": 1.4001641273498535,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_d09d96cf-1ea1-415b-bcf3-8c41856df30a",
+      "correlation_id": "req_1eec4029-c4e3-4e7a-892d-00c1cd5d11dc",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:29.216253",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "hub_spoke_6",
+        "diagram_id": "6d1e219b-0ce9-4f26-a7c9-1559967c36f8",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Enhanced Hub & Spoke Template with 6 Nodes -->\n  <defs>\n    <!-- Gradients for richer visual appearance -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Enhanced shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2\"/>\n      <feOffset dx=\"0\" dy=\"3\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#000000\" flood-opacity=\"0.2\"/>\n      <feComposite in2=\"offsetblur\" operator=\"in\"/>\n      <feMerge>\n        <feMergeNode/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Glow effect for hub -->\n    <filter id=\"hub_glow\">\n      <feGaussianBlur stdDeviation=\"4\" result=\"coloredBlur\"/>\n      <feMerge>\n        <feMergeNode in=\"coloredBlur\"/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Smaller arrow markers (40% of original size) -->\n    <marker id=\"arrow\" markerWidth=\"4\" markerHeight=\"4\" refX=\"3.2\" refY=\"1.2\" orient=\"auto\" markerUnits=\"strokeWidth\">\n      <path d=\"M0,0 L0,2.4 L3.6,1.2 z\" fill=\"#2d2d2d\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background - plain white -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  \n  <!-- \n    Updated positioning:\n    - Entire diagram moved down by 40px\n    - Hub center now at (400, 340)\n    - All nodes shifted down accordingly\n  -->\n  \n  <!-- Corrected Spokes with adjusted positions -->\n  \n  <!-- Spoke to Node 1 (Top) - at (400, 160) -->\n  <line x1=\"400\" y1=\"267\" x2=\"400\" y2=\"217\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 2 (Top Right) - at (544, 244) -->\n  <line x1=\"449\" y1=\"296\" x2=\"492\" y2=\"272\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 3 (Bottom Right) - at (544, 436) -->\n  <line x1=\"449\" y1=\"384\" x2=\"492\" y2=\"408\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 4 (Bottom) - at (400, 520) -->\n  <line x1=\"400\" y1=\"413\" x2=\"400\" y2=\"463\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 5 (Bottom Left) - at (256, 436) -->\n  <line x1=\"351\" y1=\"384\" x2=\"308\" y2=\"408\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Spoke to Node 6 (Top Left) - at (256, 244) -->\n  <line x1=\"351\" y1=\"296\" x2=\"308\" y2=\"272\" \n        stroke=\"#2d2d2d\" stroke-width=\"2.5\" stroke-dasharray=\"6,4\" \n        stroke-linecap=\"round\" opacity=\"0.7\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Node 1 (Top) -->\n  <circle id=\"spoke_1_fill\" cx=\"400\" cy=\"160\" r=\"57\" \n          fill=\"#e86383\" stroke=\"#e86383\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_1_text\" x=\"400\" y=\"160\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-6\">Node 1</tspan>\n    <tspan x=\"400\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 2 (Top Right) -->\n  <circle id=\"spoke_2_fill\" cx=\"544\" cy=\"244\" r=\"57\" \n          fill=\"#d12d3a\" stroke=\"#d12d3a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_2_text\" x=\"544\" y=\"244\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"544\" dy=\"-6\">Node 2</tspan>\n    <tspan x=\"544\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 3 (Bottom Right) -->\n  <circle id=\"spoke_3_fill\" cx=\"544\" cy=\"436\" r=\"57\" \n          fill=\"#ed3c2b\" stroke=\"#ed3c2b\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_3_text\" x=\"544\" y=\"436\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"544\" dy=\"-6\">Node 3</tspan>\n    <tspan x=\"544\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 4 (Bottom) -->\n  <circle id=\"spoke_4_fill\" cx=\"400\" cy=\"520\" r=\"57\" \n          fill=\"#e7987d\" stroke=\"#e7987d\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_4_text\" x=\"400\" y=\"520\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-6\">Node 4</tspan>\n    <tspan x=\"400\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 5 (Bottom Left) -->\n  <circle id=\"spoke_5_fill\" cx=\"256\" cy=\"436\" r=\"57\" \n          fill=\"#e89b63\" stroke=\"#e89b63\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_5_text\" x=\"256\" y=\"436\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"256\" dy=\"-6\">Node 5</tspan>\n    <tspan x=\"256\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Node 6 (Top Left) -->\n  <circle id=\"spoke_6_fill\" cx=\"256\" cy=\"244\" r=\"57\" \n          fill=\"#d18e2d\" stroke=\"#d18e2d\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"spoke_6_text\" x=\"256\" y=\"244\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#ffffff\">\n    <tspan x=\"256\" dy=\"-6\">Node 6</tspan>\n    <tspan x=\"256\" dy=\"16\">Line 2</tspan>\n  </text>\n  \n  <!-- Business ecosystem Hub (moved down) -->\n  <circle cx=\"400\" cy=\"340\" r=\"79\" fill=\"#ffffff\" opacity=\"0.2\" filter=\"url(#hub_glow)\"/>\n  <circle id=\"hub_fill\" cx=\"400\" cy=\"340\" r=\"73\" \n          fill=\"#481503\" stroke=\"#481503\" stroke-width=\"3\" filter=\"url(#shadow)\"/>\n  <text id=\"hub_text\" x=\"400\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14.4\" font-weight=\"700\" fill=\"#ffffff\">\n    <tspan x=\"400\" dy=\"-7\">Business ecosystem</tspan>\n    <tspan x=\"400\" dy=\"18\">Hub</tspan>\n  </text>\n  \n  <!-- Title with subtle styling -->\n  <text x=\"400\" y=\"65\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    Business ecosystemized Network Architecture\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1396,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_1eec4029-c4e3-4e7a-892d-00c1cd5d11dc",
+        "correlation_id": "req_1eec4029-c4e3-4e7a-892d-00c1cd5d11dc",
+        "timestamp": "2025-08-27T15:28:29.216232"
+      },
+      "metadata": null,
+      "request_id": "req_1eec4029-c4e3-4e7a-892d-00c1cd5d11dc"
+    }
+  },
+  {
+    "name": "funnel_3_stage",
+    "category": "svg_templates",
+    "request_id": "req_8cb744a1-86c5-4155-85fd-e244a96332f8",
+    "elapsed_time": 1.3682799339294434,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_5f924165-c512-4aad-8562-09528d366cac",
+      "correlation_id": "req_8cb744a1-86c5-4155-85fd-e244a96332f8",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:30.584474",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "funnel_3_stage",
+        "diagram_id": "a1a135d5-28e2-42bf-acc6-e576c383f757",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Stage Funnel Template -->\n  <defs>\n    <!-- Gradients for each stage -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Sales funnel (Top - Widest) -->\n  <path id=\"stage_1_fill\" d=\"M 150 150 L 650 150 L 550 270 L 250 270 Z\" \n        fill=\"#156434\" stroke=\"#156434\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_1_text\" x=\"400\" y=\"210\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Awareness\n  </text>\n  \n  <!-- Stage 2 (Middle) -->\n  <path id=\"stage_2_fill\" d=\"M 250 270 L 550 270 L 450 390 L 350 390 Z\" \n        fill=\"#21c55e\" stroke=\"#21c55e\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_2_text\" x=\"400\" y=\"330\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Consideration\n  </text>\n  \n  <!-- Stage 3 (Bottom - Narrowest) -->\n  <path id=\"stage_3_fill\" d=\"M 350 390 L 450 390 L 425 490 L 375 490 Z\" \n        fill=\"#331464\" stroke=\"#331464\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_3_text\" x=\"400\" y=\"440\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"18\" font-weight=\"500\" fill=\"#ffffff\">\n    Conversion\n  </text>\n  \n  <!-- Title -->\n  <text x=\"400\" y=\"105\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    3-Stage Conversion Process\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1358,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_8cb744a1-86c5-4155-85fd-e244a96332f8",
+        "correlation_id": "req_8cb744a1-86c5-4155-85fd-e244a96332f8",
+        "timestamp": "2025-08-27T15:28:30.584403"
+      },
+      "metadata": null,
+      "request_id": "req_8cb744a1-86c5-4155-85fd-e244a96332f8"
+    }
+  },
+  {
+    "name": "funnel_4_stage",
+    "category": "svg_templates",
+    "request_id": "req_140fb3f4-d27a-416c-b285-c49e879b92da",
+    "elapsed_time": 1.2188949584960938,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_7cc6aea9-1b60-4f18-afc3-edd06e0b2dec",
+      "correlation_id": "req_140fb3f4-d27a-416c-b285-c49e879b92da",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:31.804625",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "funnel_4_stage",
+        "diagram_id": "a1dc6d86-22f2-46e0-aeae-022db840150e",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 4-Stage Funnel Template -->\n  <defs>\n    <!-- Gradients for each stage -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Marketing funnel (Top - Widest) -->\n  <path id=\"stage_1_fill\" d=\"M 150 150 L 650 150 L 575 240 L 225 240 Z\" \n        fill=\"#581b87\" stroke=\"#581b87\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_1_text\" x=\"400\" y=\"195\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Awareness\n  </text>\n  \n  <!-- Stage 2 -->\n  <path id=\"stage_2_fill\" d=\"M 225 240 L 575 240 L 500 330 L 300 330 Z\" \n        fill=\"#9333e9\" stroke=\"#9333e9\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_2_text\" x=\"400\" y=\"285\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Interest\n  </text>\n  \n  <!-- Stage 3 -->\n  <path id=\"stage_3_fill\" d=\"M 300 330 L 500 330 L 450 420 L 350 420 Z\" \n        fill=\"#87571a\" stroke=\"#87571a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_3_text\" x=\"400\" y=\"375\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Decision\n  </text>\n  \n  <!-- Stage 4 (Bottom - Narrowest) -->\n  <path id=\"stage_4_fill\" d=\"M 350 420 L 450 420 L 425 490 L 375 490 Z\" \n        fill=\"#8129c6\" stroke=\"#8129c6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_4_text\" x=\"400\" y=\"455\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"17\" font-weight=\"500\" fill=\"#ffffff\">\n    Action\n  </text>\n  \n  <!-- Title -->\n  <text x=\"400\" y=\"105\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    4-Stage Conversion Process\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1215,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_140fb3f4-d27a-416c-b285-c49e879b92da",
+        "correlation_id": "req_140fb3f4-d27a-416c-b285-c49e879b92da",
+        "timestamp": "2025-08-27T15:28:31.804594"
+      },
+      "metadata": null,
+      "request_id": "req_140fb3f4-d27a-416c-b285-c49e879b92da"
+    }
+  },
+  {
+    "name": "funnel_5_stage",
+    "category": "svg_templates",
+    "request_id": "req_94209d77-460c-449a-9a59-6572ee06b94c",
+    "elapsed_time": 1.4342238903045654,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_793d46c0-3ae0-43d5-a86d-b497636efae3",
+      "correlation_id": "req_94209d77-460c-449a-9a59-6572ee06b94c",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:33.238641",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "funnel_5_stage",
+        "diagram_id": "d7c3b32e-12b5-4f2a-a1e1-844caeeefcce",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Stage Funnel Template -->\n  <defs>\n    \n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- User journey (Top - Widest) -->\n  <path id=\"stage_1_fill\" d=\"M 150 150 L 650 150 L 600 220 L 200 220 Z\" \n        fill=\"#570f0f\" stroke=\"#570f0f\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_1_text\" x=\"400\" y=\"185\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Awareness\n  </text>\n  \n  <!-- Stage 2 -->\n  <path id=\"stage_2_fill\" d=\"M 200 220 L 600 220 L 550 290 L 250 290 Z\" \n        fill=\"#991a1a\" stroke=\"#991a1a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_2_text\" x=\"400\" y=\"255\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Interest\n  </text>\n  \n  <!-- Stage 3 (Middle) -->\n  <path id=\"stage_3_fill\" d=\"M 250 290 L 550 290 L 500 360 L 300 360 Z\" \n        fill=\"#f1a9a9\" stroke=\"#f1a9a9\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_3_text\" x=\"400\" y=\"325\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Consideration\n  </text>\n  \n  <!-- Stage 4 -->\n  <path id=\"stage_4_fill\" d=\"M 300 360 L 500 360 L 450 430 L 350 430 Z\" \n        fill=\"#570f0f\" stroke=\"#570f0f\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_4_text\" x=\"400\" y=\"395\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Intent\n  </text>\n  \n  <!-- Stage 5 (Bottom - Narrowest) -->\n  <path id=\"stage_5_fill\" d=\"M 350 430 L 450 430 L 425 500 L 375 500 Z\" \n        fill=\"#e46868\" stroke=\"#e46868\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"stage_5_text\" x=\"400\" y=\"465\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"500\" fill=\"#ffffff\">\n    Purchase\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1429,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_94209d77-460c-449a-9a59-6572ee06b94c",
+        "correlation_id": "req_94209d77-460c-449a-9a59-6572ee06b94c",
+        "timestamp": "2025-08-27T15:28:33.238570"
+      },
+      "metadata": null,
+      "request_id": "req_94209d77-460c-449a-9a59-6572ee06b94c"
+    }
+  },
+  {
+    "name": "process_flow_3",
+    "category": "svg_templates",
+    "request_id": "req_540e8c07-dd3f-4381-a9e9-3b40dabf4cb2",
+    "elapsed_time": 1.537893295288086,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_a4b9e0ac-0fe7-4a62-90ab-3991a6fcb538",
+      "correlation_id": "req_540e8c07-dd3f-4381-a9e9-3b40dabf4cb2",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:34.777455",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "process_flow_3",
+        "diagram_id": "b67370a0-67dc-46ea-848c-b97752c3595b",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Step Process Flow Template -->\n  <defs>\n    <!-- Gradients for boxes -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2\"/>\n      <feOffset dx=\"0\" dy=\"2\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#000000\" flood-opacity=\"0.15\"/>\n      <feComposite in2=\"offsetblur\" operator=\"in\"/>\n      <feMerge>\n        <feMergeNode/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Arrow marker -->\n    <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\" markerUnits=\"strokeWidth\">\n      <path d=\"M0,0 L0,6 L9,3 z\" fill=\"#232323\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#898989\"/>\n  \n  <!-- Process Step 1 -->\n  <rect id=\"step_1_fill\" x=\"100\" y=\"250\" width=\"150\" height=\"100\" rx=\"8\" \n        fill=\"#0c4a6e\" stroke=\"#0c4a6e\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_1_text\" x=\"175\" y=\"295\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Simple workflow\n  </text>\n  <text x=\"175\" y=\"315\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#000000\">\n    Step 1\n  </text>\n  \n  <!-- Arrow 1 to 2 -->\n  <line id=\"arrow_1\" x1=\"250\" y1=\"300\" x2=\"325\" y2=\"300\" \n        stroke=\"#232323\" stroke-width=\"2.5\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process Step 2 -->\n  <rect id=\"step_2_fill\" x=\"325\" y=\"250\" width=\"150\" height=\"100\" rx=\"8\" \n        fill=\"#0ea4e8\" stroke=\"#0ea4e8\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_2_text\" x=\"400\" y=\"295\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Process\n  </text>\n  <text x=\"400\" y=\"315\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#000000\">\n    Step 2\n  </text>\n  \n  <!-- Arrow 2 to 3 -->\n  <line id=\"arrow_2\" x1=\"475\" y1=\"300\" x2=\"550\" y2=\"300\" \n        stroke=\"#232323\" stroke-width=\"2.5\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process Step 3 -->\n  <rect id=\"step_3_fill\" x=\"550\" y=\"250\" width=\"150\" height=\"100\" rx=\"8\" \n        fill=\"#6e0c48\" stroke=\"#6e0c48\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"step_3_text\" x=\"625\" y=\"295\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#ffffff\">\n    Output\n  </text>\n  <text x=\"625\" y=\"315\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"400\" fill=\"#000000\">\n    Step 3\n  </text>\n  \n  <!-- Title -->\n  <text x=\"400\" y=\"175\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    3-Step Sequential Process\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1533,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_540e8c07-dd3f-4381-a9e9-3b40dabf4cb2",
+        "correlation_id": "req_540e8c07-dd3f-4381-a9e9-3b40dabf4cb2",
+        "timestamp": "2025-08-27T15:28:34.777383"
+      },
+      "metadata": null,
+      "request_id": "req_540e8c07-dd3f-4381-a9e9-3b40dabf4cb2"
+    }
+  },
+  {
+    "name": "process_flow_5",
+    "category": "svg_templates",
+    "request_id": "req_4e8a8362-cf79-40b6-897f-c1c30522810f",
+    "elapsed_time": 1.3320629596710205,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_e354d40a-a72d-4a8a-96bb-540e7f5ec61b",
+      "correlation_id": "req_4e8a8362-cf79-40b6-897f-c1c30522810f",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:36.110271",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "process_flow_5",
+        "diagram_id": "c60fccf6-ea8e-4baf-8741-468bd7aabeb5",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Step Process Flow Template -->\n  <defs>\n    <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"7\" refX=\"9\" refY=\"3.5\" orient=\"auto\">\n      <polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#333333\"/>\n    </marker>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Process 1 -->\n  <rect id=\"process_1_fill\" x=\"80\" y=\"270\" width=\"120\" height=\"60\" rx=\"8\" \n        fill=\"#420c21\" stroke=\"#420c21\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"process_1_text\" x=\"140\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Development pipeline\n  </text>\n  \n  <!-- Arrow 1 to 2 -->\n  <line x1=\"210\" y1=\"300\" x2=\"230\" y2=\"300\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process 2 -->\n  <rect id=\"process_2_fill\" x=\"240\" y=\"270\" width=\"120\" height=\"60\" rx=\"8\" \n        fill=\"#010000\" stroke=\"#010000\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"process_2_text\" x=\"300\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Process\n  </text>\n  \n  <!-- Arrow 2 to 3 -->\n  <line x1=\"370\" y1=\"300\" x2=\"390\" y2=\"300\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process 3 -->\n  <rect id=\"process_3_fill\" x=\"400\" y=\"270\" width=\"120\" height=\"60\" rx=\"8\" \n        fill=\"#8b5cf6\" stroke=\"#8b5cf6\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"process_3_text\" x=\"460\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Transform\n  </text>\n  \n  <!-- Arrow 3 to 4 -->\n  <line x1=\"530\" y1=\"300\" x2=\"550\" y2=\"300\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process 4 -->\n  <rect id=\"process_4_fill\" x=\"560\" y=\"270\" width=\"120\" height=\"60\" rx=\"8\" \n        fill=\"#ec4898\" stroke=\"#ec4898\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"process_4_text\" x=\"620\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Validate\n  </text>\n  \n  <!-- Arrow 4 to 5 -->\n  <line x1=\"690\" y1=\"300\" x2=\"710\" y2=\"300\" stroke=\"#333333\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Process 5 (Output - Diamond shape for decision/end) -->\n  <path id=\"process_5_fill\" d=\"M 720 300 L 770 270 L 820 300 L 770 330 Z\" \n        fill=\"#c32364\" stroke=\"#c32364\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"process_5_text\" x=\"770\" y=\"305\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Output\n  </text>\n  \n  <!-- Optional feedback loop -->\n  <path d=\"M 770 340 Q 770 380, 460 380 Q 140 380, 140 340\" \n        stroke=\"#df548c\" stroke-width=\"2\" stroke-dasharray=\"5,5\" fill=\"none\" marker-end=\"url(#arrow)\"/>\n  <text x=\"460\" y=\"400\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-style=\"italic\" fill=\"#000000\">\n    Feedback Loop\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1326,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_4e8a8362-cf79-40b6-897f-c1c30522810f",
+        "correlation_id": "req_4e8a8362-cf79-40b6-897f-c1c30522810f",
+        "timestamp": "2025-08-27T15:28:36.110183"
+      },
+      "metadata": null,
+      "request_id": "req_4e8a8362-cf79-40b6-897f-c1c30522810f"
+    }
+  },
+  {
+    "name": "fishbone_4_bone",
+    "category": "svg_templates",
+    "request_id": "req_2793f83d-a137-4635-afd4-5f760eaaa79a",
+    "elapsed_time": 1.3345611095428467,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_cacb2fc7-6748-4674-841b-1656bf65471c",
+      "correlation_id": "req_2793f83d-a137-4635-afd4-5f760eaaa79a",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:37.446398",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "fishbone_4_bone",
+        "diagram_id": "41e91e31-4fa6-4c70-985e-b5e997d5e3fe",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 4-Bone Fishbone (Ishikawa) Diagram Template -->\n  <defs>\n    <!-- Gradients for categories -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Arrow marker for main spine -->\n    <marker id=\"arrow\" markerWidth=\"12\" markerHeight=\"12\" refX=\"11\" refY=\"6\" orient=\"auto\">\n      <path d=\"M0,0 L0,12 L12,6 z\" fill=\"#000000\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#7c7c7c\"/>\n  \n  <!-- Main Spine (Backbone) -->\n  <line x1=\"150\" y1=\"300\" x2=\"580\" y2=\"300\" \n        stroke=\"#000000\" stroke-width=\"3\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- Effect/Problem Box -->\n  <rect x=\"590\" y=\"265\" width=\"120\" height=\"70\" rx=\"8\" \n        fill=\"#49134e\" stroke=\"#49134e\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"effect_text\" x=\"650\" y=\"295\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\">\n    Problem\n  </text>\n  <text x=\"650\" y=\"315\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"400\" fill=\"#000000\">\n    Effect\n  </text>\n  \n  <!-- Bone 1 (Top-Left) - Category 1 -->\n  <line id=\"bone_1_line\" x1=\"250\" y1=\"180\" x2=\"250\" y2=\"300\" \n        stroke=\"url(#bone1_gradient)\" stroke-width=\"2.5\"/>\n  <rect id=\"bone_1_fill\" x=\"190\" y=\"140\" width=\"120\" height=\"40\" rx=\"6\" \n        fill=\"#134e4a\" stroke=\"#134e4a\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"bone_1_text\" x=\"250\" y=\"165\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    People\n  </text>\n  <!-- Sub-causes -->\n  <line x1=\"200\" y1=\"210\" x2=\"250\" y2=\"210\" stroke=\"#74f0e2\" stroke-width=\"1.5\"/>\n  <text id=\"bone_1_cause_1\" x=\"195\" y=\"205\" text-anchor=\"end\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Training\n  </text>\n  <line x1=\"200\" y1=\"240\" x2=\"250\" y2=\"240\" stroke=\"#74f0e2\" stroke-width=\"1.5\"/>\n  <text id=\"bone_1_cause_2\" x=\"195\" y=\"235\" text-anchor=\"end\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Skills\n  </text>\n  \n  <!-- Bone 2 (Top-Right) - Category 2 -->\n  <line id=\"bone_2_line\" x1=\"380\" y1=\"180\" x2=\"380\" y2=\"300\" \n        stroke=\"url(#bone2_gradient)\" stroke-width=\"2.5\"/>\n  <rect id=\"bone_2_fill\" x=\"320\" y=\"140\" width=\"120\" height=\"40\" rx=\"6\" \n        fill=\"#13b8a6\" stroke=\"#13b8a6\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"bone_2_text\" x=\"380\" y=\"165\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Process\n  </text>\n  <!-- Sub-causes -->\n  <line x1=\"430\" y1=\"210\" x2=\"380\" y2=\"210\" stroke=\"#c4b5fd\" stroke-width=\"1.5\"/>\n  <text id=\"bone_2_cause_1\" x=\"435\" y=\"205\" text-anchor=\"start\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Workflow\n  </text>\n  <line x1=\"430\" y1=\"240\" x2=\"380\" y2=\"240\" stroke=\"#c4b5fd\" stroke-width=\"1.5\"/>\n  <text id=\"bone_2_cause_2\" x=\"435\" y=\"235\" text-anchor=\"start\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Standards\n  </text>\n  \n  <!-- Bone 3 (Bottom-Left) - Category 3 -->\n  <line id=\"bone_3_line\" x1=\"250\" y1=\"420\" x2=\"250\" y2=\"300\" \n        stroke=\"url(#bone3_gradient)\" stroke-width=\"2.5\"/>\n  <rect id=\"bone_3_fill\" x=\"190\" y=\"420\" width=\"120\" height=\"40\" rx=\"6\" \n        fill=\"#49134e\" stroke=\"#49134e\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"bone_3_text\" x=\"250\" y=\"445\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Materials\n  </text>\n  <!-- Sub-causes -->\n  <line x1=\"200\" y1=\"390\" x2=\"250\" y2=\"390\" stroke=\"#0c7367\" stroke-width=\"1.5\"/>\n  <text id=\"bone_3_cause_1\" x=\"195\" y=\"385\" text-anchor=\"end\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Quality\n  </text>\n  <line x1=\"200\" y1=\"360\" x2=\"250\" y2=\"360\" stroke=\"#0c7367\" stroke-width=\"1.5\"/>\n  <text id=\"bone_3_cause_2\" x=\"195\" y=\"355\" text-anchor=\"end\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Supply\n  </text>\n  \n  <!-- Bone 4 (Bottom-Right) - Category 4 -->\n  <line id=\"bone_4_line\" x1=\"380\" y1=\"420\" x2=\"380\" y2=\"300\" \n        stroke=\"url(#bone4_gradient)\" stroke-width=\"2.5\"/>\n  <rect id=\"bone_4_fill\" x=\"320\" y=\"420\" width=\"120\" height=\"40\" rx=\"6\" \n        fill=\"#218b84\" stroke=\"#218b84\" stroke-width=\"1.5\" filter=\"url(#shadow)\"/>\n  <text id=\"bone_4_text\" x=\"380\" y=\"445\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#ffffff\">\n    Equipment\n  </text>\n  <!-- Sub-causes -->\n  <line x1=\"430\" y1=\"390\" x2=\"380\" y2=\"390\" stroke=\"#000000\" stroke-width=\"1.5\"/>\n  <text id=\"bone_4_cause_1\" x=\"435\" y=\"385\" text-anchor=\"start\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Maintenance\n  </text>\n  <line x1=\"430\" y1=\"360\" x2=\"380\" y2=\"360\" stroke=\"#000000\" stroke-width=\"1.5\"/>\n  <text id=\"bone_4_cause_2\" x=\"435\" y=\"355\" text-anchor=\"start\" \n        font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"400\" fill=\"#ffffff\">\n    Calibration\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1331,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_2793f83d-a137-4635-afd4-5f760eaaa79a",
+        "correlation_id": "req_2793f83d-a137-4635-afd4-5f760eaaa79a",
+        "timestamp": "2025-08-27T15:28:37.446365"
+      },
+      "metadata": null,
+      "request_id": "req_2793f83d-a137-4635-afd4-5f760eaaa79a"
+    }
+  },
+  {
+    "name": "gears_3",
+    "category": "svg_templates",
+    "request_id": "req_572b351c-4210-4e30-b8df-a4178b941378",
+    "elapsed_time": 1.6317050457000732,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_e09afcb1-f49f-4866-8b1c-e5eaa5a68207",
+      "correlation_id": "req_572b351c-4210-4e30-b8df-a4178b941378",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:39.077971",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "gears_3",
+        "diagram_id": "afeaeed2-863b-42f1-baba-ed429170c55d",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3 Interlocking Gears Template -->\n  <defs>\n    <!-- Gradients for gears -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"3\"/>\n      <feOffset dx=\"0\" dy=\"3\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#000000\" flood-opacity=\"0.2\"/>\n      <feComposite in2=\"offsetblur\" operator=\"in\"/>\n      <feMerge>\n        <feMergeNode/>\n        <feMergeNode in=\"SourceGraphic\"/>\n      </feMerge>\n    </filter>\n    \n    <!-- Gear teeth pattern -->\n    <g id=\"gear_teeth\">\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(30)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(60)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(90)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(120)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(150)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(180)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(210)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(240)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(270)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(300)\"/>\n      <rect x=\"-8\" y=\"-25\" width=\"16\" height=\"12\" rx=\"2\" transform=\"rotate(330)\"/>\n    </g>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#8d8d8d\"/>\n  \n  <!-- Gear 1 (Top-Left) - Large -->\n  <g id=\"gear_1\" transform=\"translate(300, 250)\">\n    <circle r=\"80\" fill=\"#713f11\" stroke=\"#713f11\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n    <g transform=\"scale(3.2)\">\n      <use href=\"#gear_teeth\" fill=\"#2f1a07\"/>\n    </g>\n    <circle r=\"20\" fill=\"#ffffff\" opacity=\"0.3\"/>\n    <circle id=\"gear_1_fill\" r=\"15\" fill=\"#1e40af\"/>\n    <text id=\"gear_1_text\" y=\"5\" text-anchor=\"middle\" \n          font-family=\"Inter, sans-serif\" font-size=\"16\" font-weight=\"600\" fill=\"#000000\">\n      System integration\n    </text>\n  </g>\n  \n  <!-- Gear 2 (Top-Right) - Medium -->\n  <g id=\"gear_2\" transform=\"translate(470, 270) rotate(-15)\">\n    <circle r=\"60\" fill=\"#f59e0a\" stroke=\"#f59e0a\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n    <g transform=\"scale(2.4)\">\n      <use href=\"#gear_teeth\" fill=\"#623f04\"/>\n    </g>\n    <circle r=\"15\" fill=\"#ffffff\" opacity=\"0.3\"/>\n    <circle id=\"gear_2_fill\" r=\"12\" fill=\"#39e18a\"/>\n    <text id=\"gear_2_text\" y=\"5\" text-anchor=\"middle\" \n          font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"600\" fill=\"#000000\"\n          transform=\"rotate(15)\">\n      System\n    </text>\n  </g>\n  \n  <!-- Gear 3 (Bottom) - Small -->\n  <g id=\"gear_3\" transform=\"translate(380, 380) rotate(22)\">\n    <circle r=\"50\" fill=\"#10713e\" stroke=\"#10713e\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n    <g transform=\"scale(2.0)\">\n      <use href=\"#gear_teeth\" fill=\"#000000\"/>\n    </g>\n    <circle r=\"12\" fill=\"#ffffff\" opacity=\"0.3\"/>\n    <circle id=\"gear_3_fill\" r=\"10\" fill=\"#14532d\"/>\n    <text id=\"gear_3_text\" y=\"4\" text-anchor=\"middle\" \n          font-family=\"Inter, sans-serif\" font-size=\"13\" font-weight=\"600\" fill=\"#000000\"\n          transform=\"rotate(-22)\">\n      Output\n    </text>\n  </g>\n  \n  <!-- Connection indicators -->\n  <circle cx=\"385\" cy=\"320\" r=\"4\" fill=\"#272727\" opacity=\"0.5\"/>\n  <circle cx=\"420\" cy=\"330\" r=\"4\" fill=\"#272727\" opacity=\"0.5\"/>\n  \n  <!-- Title -->\n  <text x=\"400\" y=\"125\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"400\" fill=\"#000000\">\n    Interconnected Components\n  </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1627,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_572b351c-4210-4e30-b8df-a4178b941378",
+        "correlation_id": "req_572b351c-4210-4e30-b8df-a4178b941378",
+        "timestamp": "2025-08-27T15:28:39.077901"
+      },
+      "metadata": null,
+      "request_id": "req_572b351c-4210-4e30-b8df-a4178b941378"
+    }
+  },
+  {
+    "name": "roadmap_quarterly_4",
+    "category": "svg_templates",
+    "request_id": "req_9abf36df-a53b-48df-9a3b-c9007456b29d",
+    "elapsed_time": 1.2995779514312744,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_eb951d1e-b27c-45d6-94ac-496fa9943060",
+      "correlation_id": "req_9abf36df-a53b-48df-9a3b-c9007456b29d",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:40.378557",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "roadmap_quarterly_4",
+        "diagram_id": "d6bcdafe-ffc5-4aa3-9064-f57d63b7c6c5",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Quarterly Roadmap Template (4 Quarters) -->\n  <defs>\n    <!-- Gradients for quarters -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.1\"/>\n    </filter>\n    \n    <!-- Arrow marker -->\n    <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"5\" orient=\"auto\">\n      <path d=\"M0,0 L0,10 L9,5 z\" fill=\"#3f3f3f\"/>\n    </marker>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#a5a5a5\"/>\n  \n  <!-- Timeline Arrow -->\n  <line x1=\"100\" y1=\"450\" x2=\"700\" y2=\"450\" \n        stroke=\"#727272\" stroke-width=\"2\" marker-end=\"url(#arrow)\"/>\n  \n  <!-- 2024 Roadmap -->\n  <rect id=\"q1_fill\" x=\"120\" y=\"200\" width=\"140\" height=\"180\" rx=\"8\" \n        fill=\"#4c1c95\" stroke=\"#4c1c95\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1294,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_9abf36df-a53b-48df-9a3b-c9007456b29d",
+        "correlation_id": "req_9abf36df-a53b-48df-9a3b-c9007456b29d",
+        "timestamp": "2025-08-27T15:28:40.378479"
+      },
+      "metadata": null,
+      "request_id": "req_9abf36df-a53b-48df-9a3b-c9007456b29d"
+    }
+  },
+  {
+    "name": "timeline_horizontal",
+    "category": "svg_templates",
+    "request_id": "req_dfedbeb7-b171-4c77-a4a2-2c75354b5353",
+    "elapsed_time": 1.1955299377441406,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_355198ab-3346-4771-ad24-d3c245dc0aa1",
+      "correlation_id": "req_dfedbeb7-b171-4c77-a4a2-2c75354b5353",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:41.575661",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "timeline_horizontal",
+        "diagram_id": "1dae6671-df58-448d-b946-a3e3d87cf41a",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Horizontal Timeline Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Main timeline line -->\n  <line x1=\"100\" y1=\"300\" x2=\"700\" y2=\"300\" stroke=\"#444444\" stroke-width=\"3\"/>\n  \n  <!-- Arrow at end -->\n  <path d=\"M 700 300 L 690 295 M 700 300 L 690 305\" stroke=\"#444444\" stroke-width=\"3\" fill=\"none\"/>\n  \n  <!-- Milestone 1 -->\n  <circle id=\"milestone_1_fill\" cx=\"150\" cy=\"300\" r=\"20\" fill=\"#030406\" stroke=\"#030406\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_1_date\" x=\"150\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q1 2024\n  </text>\n  <text id=\"milestone_1_text\" x=\"150\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Project Start\n  </text>\n  \n  <!-- Milestone 2 -->\n  <circle id=\"milestone_2_fill\" cx=\"250\" cy=\"300\" r=\"20\" fill=\"#030406\" stroke=\"#030406\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_2_date\" x=\"250\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q2 2024\n  </text>\n  <text id=\"milestone_2_text\" x=\"250\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Phase 1\n  </text>\n  \n  <!-- Milestone 3 -->\n  <circle id=\"milestone_3_fill\" cx=\"350\" cy=\"300\" r=\"20\" fill=\"#030406\" stroke=\"#030406\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_3_date\" x=\"350\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q3 2024\n  </text>\n  <text id=\"milestone_3_text\" x=\"350\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Phase 2\n  </text>\n  \n  <!-- Milestone 4 -->\n  <circle id=\"milestone_4_fill\" cx=\"450\" cy=\"300\" r=\"20\" fill=\"#030406\" stroke=\"#030406\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_4_date\" x=\"450\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q4 2024\n  </text>\n  <text id=\"milestone_4_text\" x=\"450\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Beta Launch\n  </text>\n  \n  <!-- Milestone 5 -->\n  <circle id=\"milestone_5_fill\" cx=\"550\" cy=\"300\" r=\"20\" fill=\"#030406\" stroke=\"#030406\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_5_date\" x=\"550\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q1 2025\n  </text>\n  <text id=\"milestone_5_text\" x=\"550\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Full Launch\n  </text>\n  \n  <!-- Milestone 6 -->\n  <circle id=\"milestone_6_fill\" cx=\"650\" cy=\"300\" r=\"20\" fill=\"#000000\" stroke=\"#000000\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_6_date\" x=\"650\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q2 2025\n  </text>\n  <text id=\"milestone_6_text\" x=\"650\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Scale\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1192,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_dfedbeb7-b171-4c77-a4a2-2c75354b5353",
+        "correlation_id": "req_dfedbeb7-b171-4c77-a4a2-2c75354b5353",
+        "timestamp": "2025-08-27T15:28:41.575639"
+      },
+      "metadata": null,
+      "request_id": "req_dfedbeb7-b171-4c77-a4a2-2c75354b5353"
+    }
+  },
+  {
+    "name": "flowchart",
+    "category": "mermaid",
+    "request_id": "req_22dc4342-4116-43fd-8b77-311028f9386a",
+    "elapsed_time": 9.092928886413574,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_ffeceedf-21cd-43d6-803b-3586e7b9f56f",
+      "correlation_id": "req_22dc4342-4116-43fd-8b77-311028f9386a",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:50.668264",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "flowchart",
+        "diagram_id": "e8e3458c-c314-40c5-9f5c-04c949824201",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"flowchart TD\\n    A[Customer places order]\\n    B{System validates payment}\\n    C[Check inventory]\\n    D{In Stock?}\\n    E[Ship order and send confirmation]\\n    F[Backorder and notify customer]\\n    G[Cancel order]\\n\\n    A --> B\\n    B -- \\\"Approved\\\" --> C\\n    B -- \\\"Failed\\\" --> G\\n    C --> D\\n    D -- \\\"Yes\\\" --> E\\n    D -- \\\"No\\\" --> F\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#3B82F6\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 9088,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 0.9,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "flowchart TD\n    A[Customer places order]\n    B{System validates payment}\n    C[Check inventory]\n    D{In Stock?}\n    E[Ship order and send confirmation]\n    F[Backorder and notify customer]\n    G[Cancel order]\n\n    A --> B\n    B -- \"Approved\" --> C\n    B -- \"Failed\" --> G\n    C --> D\n    D -- \"Yes\" --> E\n    D -- \"No\" --> F"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_22dc4342-4116-43fd-8b77-311028f9386a",
+        "correlation_id": "req_22dc4342-4116-43fd-8b77-311028f9386a",
+        "timestamp": "2025-08-27T15:28:50.668183"
+      },
+      "metadata": null,
+      "request_id": "req_22dc4342-4116-43fd-8b77-311028f9386a"
+    }
+  },
+  {
+    "name": "erDiagram",
+    "category": "mermaid",
+    "request_id": "req_9d83faa0-9fe8-40aa-bc59-d8e7698c4653",
+    "elapsed_time": 6.471107006072998,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_ed0ce5d3-a7d8-468b-93e7-2d4591137268",
+      "correlation_id": "req_9d83faa0-9fe8-40aa-bc59-d8e7698c4653",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:28:57.140421",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "erDiagram",
+        "diagram_id": "c3b453d1-1514-44c6-a672-4a7224527051",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"erDiagram\\n    Customer {\\n        INT id PK\\n        VARCHAR name\\n        VARCHAR email\\n    }\\n    Order {\\n        INT id PK\\n        DATE date\\n        DECIMAL total\\n    }\\n    Product {\\n        INT id PK\\n        VARCHAR name\\n        DECIMAL price\\n    }\\n\\n    Customer ||--o{ Order : \\\"places\\\"\\n    Order }o--o{ Product : \\\"contains\\\"\\n\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#10B981\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 6466,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 0.9,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "erDiagram\n    Customer {\n        INT id PK\n        VARCHAR name\n        VARCHAR email\n    }\n    Order {\n        INT id PK\n        DATE date\n        DECIMAL total\n    }\n    Product {\n        INT id PK\n        VARCHAR name\n        DECIMAL price\n    }\n\n    Customer ||--o{ Order : \"places\"\n    Order }o--o{ Product : \"contains\"\n"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_9d83faa0-9fe8-40aa-bc59-d8e7698c4653",
+        "correlation_id": "req_9d83faa0-9fe8-40aa-bc59-d8e7698c4653",
+        "timestamp": "2025-08-27T15:28:57.140330"
+      },
+      "metadata": null,
+      "request_id": "req_9d83faa0-9fe8-40aa-bc59-d8e7698c4653"
+    }
+  },
+  {
+    "name": "journey",
+    "category": "mermaid",
+    "request_id": "req_f221c916-23a1-4928-9982-1de18ea70db5",
+    "elapsed_time": 9.14556336402893,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_f8931815-cd2a-4edd-88c9-770a8149f2a1",
+      "correlation_id": "req_f221c916-23a1-4928-9982-1de18ea70db5",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:29:06.287121",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "journey",
+        "diagram_id": "01bdfec9-c7aa-4dfb-a565-4534691792bf",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"journey\\n    title Customer Support Experience\\n    section User's Emotional Journey\\n      User reports issue: frustrated\\n      Support acknowledges: neutral\\n      Troubleshooting steps: hopeful\\n      Problem identified: relieved\\n      Solution implemented: satisfied\\n      Follow-up check: delighted\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#F59E0B\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 9107,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 0.9,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "journey\n    title Customer Support Experience\n    section User's Emotional Journey\n      User reports issue: frustrated\n      Support acknowledges: neutral\n      Troubleshooting steps: hopeful\n      Problem identified: relieved\n      Solution implemented: satisfied\n      Follow-up check: delighted"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_f221c916-23a1-4928-9982-1de18ea70db5",
+        "correlation_id": "req_f221c916-23a1-4928-9982-1de18ea70db5",
+        "timestamp": "2025-08-27T15:29:06.287055"
+      },
+      "metadata": null,
+      "request_id": "req_f221c916-23a1-4928-9982-1de18ea70db5"
+    }
+  },
+  {
+    "name": "gantt",
+    "category": "mermaid",
+    "request_id": "req_f45539bf-c4a2-4494-b49c-b4a336120d2d",
+    "elapsed_time": 9.21816897392273,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_2053211d-3434-48d0-b753-7c9876586615",
+      "correlation_id": "req_f45539bf-c4a2-4494-b49c-b4a336120d2d",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:29:15.506535",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "gantt",
+        "diagram_id": "251be6eb-1a16-441c-9410-e759f7cb4301",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"gantt\\ndateFormat YYYY-MM-DD\\ntitle Website Redesign Project\\naxisFormat %m-%d\\n\\nsection Planning\\nResearch phase :research, 2024-07-01, 2w\\n\\nsection Design\\nDesign mockups :design, after research, 3w\\n\\nsection Development\\nFrontend development :frontend, after design, 4w\\nBackend integration :backend, after design, 3w\\n\\nsection Finalization\\nTesting :testing, after frontend, 2w\\nLaunch :launch, after testing, 1w\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#8B5CF6\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 9214,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 0.9,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "gantt\ndateFormat YYYY-MM-DD\ntitle Website Redesign Project\naxisFormat %m-%d\n\nsection Planning\nResearch phase :research, 2024-07-01, 2w\n\nsection Design\nDesign mockups :design, after research, 3w\n\nsection Development\nFrontend development :frontend, after design, 4w\nBackend integration :backend, after design, 3w\n\nsection Finalization\nTesting :testing, after frontend, 2w\nLaunch :launch, after testing, 1w"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_f45539bf-c4a2-4494-b49c-b4a336120d2d",
+        "correlation_id": "req_f45539bf-c4a2-4494-b49c-b4a336120d2d",
+        "timestamp": "2025-08-27T15:29:15.506494"
+      },
+      "metadata": null,
+      "request_id": "req_f45539bf-c4a2-4494-b49c-b4a336120d2d"
+    }
+  },
+  {
+    "name": "quadrantChart",
+    "category": "mermaid",
+    "request_id": "req_f73c8125-a6fc-4485-9e60-9f153b76ba0a",
+    "elapsed_time": 8.28624677658081,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_3c8b03a9-70b2-4780-829b-29c9e9ca946d",
+      "correlation_id": "req_f73c8125-a6fc-4485-9e60-9f153b76ba0a",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:29:23.793201",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "quadrantChart",
+        "diagram_id": "b6b4ebbe-5c98-4a45-9b61-6119e7f7aa62",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"quadrantChart\\n    title \\\"Feature Prioritization\\\"\\n    x-axis \\\"Low Effort\\\" --> \\\"High Effort\\\"\\n    y-axis \\\"Low Value\\\" --> \\\"High Value\\\"\\n    quadrant-1 \\\"Quick Wins\\\"\\n    quadrant-2 \\\"Major Features\\\"\\n    quadrant-3 \\\"Avoid These\\\"\\n    quadrant-4 \\\"Fill-ins\\\"\\n    Feature A: [0.2, 0.8]\\n    Feature B: [0.3, 0.7]\\n    Feature C: [0.7, 0.9]\\n    Feature D: [0.8, 0.8]\\n    Feature E: [0.7, 0.2]\\n    Feature F: [0.8, 0.3]\\n    Feature G: [0.2, 0.3]\\n    Feature H: [0.3, 0.2]\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#EC4899\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 8282,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "quadrantChart\n    title \"Feature Prioritization\"\n    x-axis \"Low Effort\" --> \"High Effort\"\n    y-axis \"Low Value\" --> \"High Value\"\n    quadrant-1 \"Quick Wins\"\n    quadrant-2 \"Major Features\"\n    quadrant-3 \"Avoid These\"\n    quadrant-4 \"Fill-ins\"\n    Feature A: [0.2, 0.8]\n    Feature B: [0.3, 0.7]\n    Feature C: [0.7, 0.9]\n    Feature D: [0.8, 0.8]\n    Feature E: [0.7, 0.2]\n    Feature F: [0.8, 0.3]\n    Feature G: [0.2, 0.3]\n    Feature H: [0.3, 0.2]"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_f73c8125-a6fc-4485-9e60-9f153b76ba0a",
+        "correlation_id": "req_f73c8125-a6fc-4485-9e60-9f153b76ba0a",
+        "timestamp": "2025-08-27T15:29:23.793152"
+      },
+      "metadata": null,
+      "request_id": "req_f73c8125-a6fc-4485-9e60-9f153b76ba0a"
+    }
+  },
+  {
+    "name": "timeline",
+    "category": "mermaid",
+    "request_id": "req_0bcf2d42-32f6-42ab-bb18-32e796655cf2",
+    "elapsed_time": 1.3633639812469482,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_3db18b2f-22c3-43d1-9fe9-c81b5798edcc",
+      "correlation_id": "req_0bcf2d42-32f6-42ab-bb18-32e796655cf2",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:29:25.156516",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "timeline",
+        "diagram_id": "65fe4e07-389b-43e5-8702-33d86f9e62c7",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Horizontal Timeline Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Main timeline line -->\n  <line x1=\"100\" y1=\"300\" x2=\"700\" y2=\"300\" stroke=\"#7f7f7f\" stroke-width=\"3\"/>\n  \n  <!-- Arrow at end -->\n  <path d=\"M 700 300 L 690 295 M 700 300 L 690 305\" stroke=\"#7f7f7f\" stroke-width=\"3\" fill=\"none\"/>\n  \n  <!-- Milestone 1 -->\n  <circle id=\"milestone_1_fill\" cx=\"150\" cy=\"300\" r=\"20\" fill=\"#0c7367\" stroke=\"#0c7367\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_1_date\" x=\"150\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q1 2024\n  </text>\n  <text id=\"milestone_1_text\" x=\"150\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Project Start\n  </text>\n  \n  <!-- Milestone 2 -->\n  <circle id=\"milestone_2_fill\" cx=\"250\" cy=\"300\" r=\"20\" fill=\"#0c7367\" stroke=\"#0c7367\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_2_date\" x=\"250\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q2 2024\n  </text>\n  <text id=\"milestone_2_text\" x=\"250\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Phase 1\n  </text>\n  \n  <!-- Milestone 3 -->\n  <circle id=\"milestone_3_fill\" cx=\"350\" cy=\"300\" r=\"20\" fill=\"#0c7367\" stroke=\"#0c7367\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_3_date\" x=\"350\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q3 2024\n  </text>\n  <text id=\"milestone_3_text\" x=\"350\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Phase 2\n  </text>\n  \n  <!-- Milestone 4 -->\n  <circle id=\"milestone_4_fill\" cx=\"450\" cy=\"300\" r=\"20\" fill=\"#0c7367\" stroke=\"#0c7367\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_4_date\" x=\"450\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q4 2024\n  </text>\n  <text id=\"milestone_4_text\" x=\"450\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Beta Launch\n  </text>\n  \n  <!-- Milestone 5 -->\n  <circle id=\"milestone_5_fill\" cx=\"550\" cy=\"300\" r=\"20\" fill=\"#0c7367\" stroke=\"#0c7367\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_5_date\" x=\"550\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q1 2025\n  </text>\n  <text id=\"milestone_5_text\" x=\"550\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Full Launch\n  </text>\n  \n  <!-- Milestone 6 -->\n  <circle id=\"milestone_6_fill\" cx=\"650\" cy=\"300\" r=\"20\" fill=\"#042e29\" stroke=\"#042e29\" stroke-width=\"2\" filter=\"url(#shadow)\"/>\n  <text id=\"milestone_6_date\" x=\"650\" y=\"260\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"12\" font-weight=\"600\" fill=\"#ffffff\">\n    Q2 2025\n  </text>\n  <text id=\"milestone_6_text\" x=\"650\" y=\"340\" text-anchor=\"middle\" \n        font-family=\"Inter, sans-serif\" font-size=\"14\" font-weight=\"500\" fill=\"#ffffff\">\n    Scale\n  </text>\n  \n  <!-- Title -->\n  </svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 1358,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "svg_template",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": false,
+          "llm_attempted": false,
+          "llm_failure_reason": null,
+          "mermaid_code": null
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_0bcf2d42-32f6-42ab-bb18-32e796655cf2",
+        "correlation_id": "req_0bcf2d42-32f6-42ab-bb18-32e796655cf2",
+        "timestamp": "2025-08-27T15:29:25.156449"
+      },
+      "metadata": null,
+      "request_id": "req_0bcf2d42-32f6-42ab-bb18-32e796655cf2"
+    }
+  },
+  {
+    "name": "kanban",
+    "category": "mermaid",
+    "request_id": "req_b0c14aa6-3a36-4250-a789-fadb967cd35a",
+    "elapsed_time": 9.092143058776855,
+    "status_updates": [
+      {
+        "status": "complete",
+        "message": "Diagram generated successfully"
+      },
+      {
+        "status": "thinking",
+        "message": "Analyzing request..."
+      },
+      {
+        "status": "generating",
+        "message": "Creating your diagram..."
+      }
+    ],
+    "success": true,
+    "response": {
+      "message_id": "msg_00bba5ba-60c0-427d-b5b5-ce5446e71960",
+      "correlation_id": "req_b0c14aa6-3a36-4250-a789-fadb967cd35a",
+      "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+      "timestamp": "2025-08-27T15:29:34.248854",
+      "type": "response",
+      "subtype": "diagram_response",
+      "payload": {
+        "diagram_type": "kanban",
+        "diagram_id": "54525345-ccef-4441-b7ce-0d907ed743ec",
+        "url": "",
+        "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\">\n    <defs>\n        <script type=\"application/mermaid+json\">{\n            \"code\": \"kanban\\n    backlog[Backlog - User stories waiting.]\\n        task_reg[User Registration Feature]@{assigned: \\\"Alice\\\", ticket: \\\"SPRINT-001\\\", priority: \\\"High\\\"}\\n        task_pwd_reset[Password Reset Functionality]@{assigned: \\\"Bob\\\", ticket: \\\"SPRINT-002\\\", priority: \\\"Medium\\\"}\\n        task_search[Implement Search Bar]@{assigned: \\\"Charlie\\\", ticket: \\\"SPRINT-003\\\", priority: \\\"Low\\\"}\\n    in_progress[In Progress - Active development.]\\n        task_profile[Develop User Profile Page]@{assigned: \\\"Alice\\\", ticket: \\\"SPRINT-004\\\", priority: \\\"High\\\"}\\n        task_payment[Integrate Payment Gateway]@{assigned: \\\"David\\\", ticket: \\\"SPRINT-005\\\", priority: \\\"Very High\\\"}\\n    code_review[Code Review - Awaiting review.]\\n        task_login_ref[Login Module Refactor]@{assigned: \\\"Bob\\\", ticket: \\\"SPRINT-006\\\", priority: \\\"Medium\\\"}\\n        task_db_schema[Database Schema Update]@{assigned: \\\"Alice\\\", ticket: \\\"SPRINT-007\\\", priority: \\\"High\\\"}\\n    testing[Testing - QA validation.]\\n        task_auth_flow[User Authentication Flow]@{assigned: \\\"Eve\\\", ticket: \\\"SPRINT-008\\\", priority: \\\"High\\\"}\\n        task_ui_resp[Frontend UI Responsiveness]@{assigned: \\\"Eve\\\", ticket: \\\"SPRINT-009\\\", priority: \\\"Medium\\\"}\\n    done[Done - Completed items.]\\n        task_env_setup[Setup Project Environment]@{assigned: \\\"Charlie\\\", ticket: \\\"SPRINT-010\\\", priority: \\\"Low\\\"}\\n        task_api_endpoints[Create Basic API Endpoints]@{assigned: \\\"David\\\", ticket: \\\"SPRINT-011\\\", priority: \\\"Medium\\\"}\",\n            \"theme\": \"default\",\n            \"themeVariables\": {\"primaryColor\": \"#DC2626\", \"primaryTextColor\": \"#1F2937\", \"primaryBorderColor\": null, \"lineColor\": null, \"background\": \"#FFFFFF\"}\n        }</script>\n    </defs>\n    <rect width=\"800\" height=\"600\" fill=\"#FFFFFF\"/>\n    <text x=\"400\" y=\"300\" text-anchor=\"middle\" fill=\"#1F2937\">\n        [Mermaid Diagram - Client Render Required]\n    </text>\n</svg>",
+        "content_type": "svg",
+        "content_delivery": "inline",
+        "metadata": {
+          "generation_time_ms": 9087,
+          "tokens_used": null,
+          "cache_hit": false,
+          "generation_method": "mermaid",
+          "fallback_used": false,
+          "original_method": null,
+          "dimensions": null,
+          "quality_score": 1.0,
+          "llm_used": true,
+          "llm_attempted": true,
+          "llm_failure_reason": null,
+          "mermaid_code": "kanban\n    backlog[Backlog - User stories waiting.]\n        task_reg[User Registration Feature]@{assigned: \"Alice\", ticket: \"SPRINT-001\", priority: \"High\"}\n        task_pwd_reset[Password Reset Functionality]@{assigned: \"Bob\", ticket: \"SPRINT-002\", priority: \"Medium\"}\n        task_search[Implement Search Bar]@{assigned: \"Charlie\", ticket: \"SPRINT-003\", priority: \"Low\"}\n    in_progress[In Progress - Active development.]\n        task_profile[Develop User Profile Page]@{assigned: \"Alice\", ticket: \"SPRINT-004\", priority: \"High\"}\n        task_payment[Integrate Payment Gateway]@{assigned: \"David\", ticket: \"SPRINT-005\", priority: \"Very High\"}\n    code_review[Code Review - Awaiting review.]\n        task_login_ref[Login Module Refactor]@{assigned: \"Bob\", ticket: \"SPRINT-006\", priority: \"Medium\"}\n        task_db_schema[Database Schema Update]@{assigned: \"Alice\", ticket: \"SPRINT-007\", priority: \"High\"}\n    testing[Testing - QA validation.]\n        task_auth_flow[User Authentication Flow]@{assigned: \"Eve\", ticket: \"SPRINT-008\", priority: \"High\"}\n        task_ui_resp[Frontend UI Responsiveness]@{assigned: \"Eve\", ticket: \"SPRINT-009\", priority: \"Medium\"}\n    done[Done - Completed items.]\n        task_env_setup[Setup Project Environment]@{assigned: \"Charlie\", ticket: \"SPRINT-010\", priority: \"Low\"}\n        task_api_endpoints[Create Basic API Endpoints]@{assigned: \"David\", ticket: \"SPRINT-011\", priority: \"Medium\"}"
+        },
+        "session_id": "2b681e8a-0525-42e2-b861-ed415a0bbee6",
+        "request_id": "req_b0c14aa6-3a36-4250-a789-fadb967cd35a",
+        "correlation_id": "req_b0c14aa6-3a36-4250-a789-fadb967cd35a",
+        "timestamp": "2025-08-27T15:29:34.248782"
+      },
+      "metadata": null,
+      "request_id": "req_b0c14aa6-3a36-4250-a789-fadb967cd35a"
+    }
+  }
+]

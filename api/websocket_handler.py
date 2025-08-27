@@ -179,26 +179,26 @@ class WebSocketHandler:
             )
     
     async def _handle_diagram_request(self, session_id: str, message_data: Dict[str, Any]):
-        """Handle diagram generation request"""
+        """Handle diagram generation request following Generic Protocol"""
         
         self.total_requests += 1
-        # Support both 'request_id' (preferred) and 'correlation_id' (backward compat)
-        request_id = message_data.get("request_id")
-        if not request_id:
-            # For backward compatibility, check correlation_id
-            request_id = message_data.get("correlation_id")
-        if not request_id:
-            # Only generate if client didn't provide one (with warning)
-            request_id = str(uuid.uuid4())
-            logger.warning(f"No request_id provided by client for session {session_id}, generated: {request_id}")
+        # Extract correlation_id (with backward compatibility for request_id)
+        correlation_id = message_data.get("correlation_id")
+        if not correlation_id:
+            # For backward compatibility, check request_id
+            correlation_id = message_data.get("request_id")
+        if not correlation_id:
+            # Generate one if client didn't provide it
+            correlation_id = f"corr_{uuid.uuid4()}"
+            logger.warning(f"No correlation_id provided by client for session {session_id}, generated: {correlation_id}")
         
         # Cancel any existing request for this session
         if session_id in self.active_requests:
             self.active_requests[session_id].cancel()
         
-        # Create task for diagram generation
+        # Create task for diagram generation with preserved correlation_id
         task = asyncio.create_task(
-            self._generate_diagram(session_id, request_id, message_data)
+            self._generate_diagram(session_id, correlation_id, message_data)
         )
         self.active_requests[session_id] = task
         
@@ -209,18 +209,18 @@ class WebSocketHandler:
     async def _generate_diagram(
         self,
         session_id: str,
-        request_id: str,
+        correlation_id: str,
         message_data: Dict[str, Any]
     ):
-        """Generate diagram asynchronously"""
+        """Generate diagram asynchronously with preserved correlation_id"""
         
         try:
-            # Send initial status
+            # Send initial status with preserved correlation_id
             await self._send_status(
                 session_id,
                 "thinking",
                 STATUS_MESSAGES["thinking"],
-                request_id=request_id
+                correlation_id=correlation_id
             )
             
             # Parse request
@@ -232,16 +232,17 @@ class WebSocketHandler:
                 **payload,
                 session_id=session_id,
                 user_id=self.connection_manager.connection_metadata[session_id]["user_id"],
-                request_id=request_id
+                request_id=correlation_id,  # Use correlation_id as request_id for internal tracking
+                correlation_id=correlation_id  # Also pass as correlation_id
             )
             
-            # Send generating status
+            # Send generating status with preserved correlation_id
             await self._send_status(
                 session_id,
                 "generating",
                 STATUS_MESSAGES["generating"],
                 progress=25,
-                request_id=request_id
+                correlation_id=correlation_id
             )
             
             # Generate diagram
@@ -250,29 +251,29 @@ class WebSocketHandler:
             
             result = await self.conductor.generate(diagram_request)
             
-            # Send response
+            # Send response with preserved correlation_id
             await self._send_diagram_response(
                 session_id,
-                request_id,
+                correlation_id,
                 result
             )
             
-            # Send complete status
+            # Send complete status with preserved correlation_id
             await self._send_status(
                 session_id,
                 "complete",
                 STATUS_MESSAGES["complete"],
                 progress=100,
-                request_id=request_id
+                correlation_id=correlation_id
             )
         
         except asyncio.CancelledError:
-            logger.info(f"Request cancelled: {request_id}")
+            logger.info(f"Request cancelled: {correlation_id}")
             await self._send_status(
                 session_id,
                 "idle",
                 "Request cancelled",
-                request_id=request_id
+                correlation_id=correlation_id
             )
         except Exception as e:
             self.total_errors += 1
@@ -281,7 +282,7 @@ class WebSocketHandler:
                 session_id,
                 ERROR_CODES["GENERATION_FAILED"],
                 str(e),
-                request_id=request_id
+                correlation_id=correlation_id
             )
         finally:
             # Remove from active requests
@@ -300,25 +301,31 @@ class WebSocketHandler:
             )
     
     async def _handle_ping(self, session_id: str):
-        """Handle ping message"""
+        """Handle ping message following Generic Protocol"""
         
         message = WebSocketMessage(
             session_id=session_id,
-            type="pong",
-            payload={"timestamp": datetime.utcnow().isoformat()}
+            type="control",
+            subtype="pong",
+            payload={
+                "timestamp": datetime.utcnow().isoformat(),
+                "latency_ms": 0  # Could calculate actual latency if needed
+            }
         )
         await self.connection_manager.send_message(session_id, message)
     
     async def _send_connection_ack(self, session_id: str):
-        """Send connection acknowledgment"""
+        """Send connection acknowledgment following Generic Protocol"""
         
         message = WebSocketMessage(
             session_id=session_id,
-            type="connection_ack",
+            type="control",
+            subtype="connection_ack",
             payload={
                 "status": "connected",
-                "version": "2.0.0",
-                "capabilities": ["svg_template", "mermaid", "python_chart"]
+                "version": "1.0.0",  # Generic Protocol version
+                "capabilities": ["svg_template", "mermaid", "python_chart", "correlation_id"],
+                "protocol": "generic_v1"
             }
         )
         await self.connection_manager.send_message(session_id, message)
@@ -329,23 +336,25 @@ class WebSocketHandler:
         status: str,
         message_text: str,
         progress: Optional[int] = None,
-        request_id: Optional[str] = None
+        correlation_id: Optional[str] = None
     ):
-        """Send status update"""
+        """Send status update with preserved correlation_id"""
         
         status_update = StatusUpdate(
             status=status,
             message=message_text,
             progress=progress,
             session_id=session_id,
-            request_id=request_id
+            request_id=correlation_id  # For backward compatibility
         )
         
         message = WebSocketMessage(
             session_id=session_id,
-            type="status_update",
+            type="status",
+            subtype="progress_update",
             payload=status_update.dict(),
-            request_id=request_id
+            correlation_id=correlation_id,  # Preserve correlation_id
+            request_id=correlation_id  # Also set for backward compatibility
         )
         
         await self.connection_manager.send_message(session_id, message)
@@ -353,10 +362,10 @@ class WebSocketHandler:
     async def _send_diagram_response(
         self,
         session_id: str,
-        request_id: str,
+        correlation_id: str,
         result: Dict[str, Any]
     ):
-        """Send diagram response"""
+        """Send diagram response with preserved correlation_id"""
         
         response = DiagramResponse(
             diagram_type=result["diagram_type"],
@@ -367,14 +376,17 @@ class WebSocketHandler:
             content_delivery=result.get("content_delivery", "inline"),
             metadata=DiagramMetadata(**result.get("metadata", {})),
             session_id=session_id,
-            request_id=request_id
+            request_id=correlation_id,  # For backward compatibility
+            correlation_id=correlation_id  # Primary field
         )
         
         message = WebSocketMessage(
             session_id=session_id,
-            type="diagram_response",
+            type="response",
+            subtype="diagram_response",
             payload=response.dict(),
-            request_id=request_id
+            correlation_id=correlation_id,  # Preserve correlation_id
+            request_id=correlation_id  # Also set for backward compatibility
         )
         
         await self.connection_manager.send_message(session_id, message)
@@ -384,32 +396,35 @@ class WebSocketHandler:
         session_id: str,
         error_code: str,
         error_message: str,
-        request_id: Optional[str] = None
+        correlation_id: Optional[str] = None
     ):
-        """Send error response"""
+        """Send error response with preserved correlation_id"""
         
         error_response = ErrorResponse(
             error_code=error_code,
             error_message=error_message,
             session_id=session_id,
-            request_id=request_id
+            request_id=correlation_id,  # For backward compatibility
+            correlation_id=correlation_id  # Primary field
         )
         
         message = WebSocketMessage(
             session_id=session_id,
-            type="error_response",
+            type="error",
+            subtype="generation_error",
             payload=error_response.dict(),
-            request_id=request_id
+            correlation_id=correlation_id,  # Preserve correlation_id
+            request_id=correlation_id  # Also set for backward compatibility
         )
         
         await self.connection_manager.send_message(session_id, message)
         
-        # Also send error status
+        # Also send error status with preserved correlation_id
         await self._send_status(
             session_id,
             "error",
             STATUS_MESSAGES["error"],
-            request_id=request_id
+            correlation_id=correlation_id
         )
     
     def active_connections_count(self) -> int:

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 5-Step Cycle Template - Circular Path with Overlaid Boxes -->
+  <defs>
+    <!-- Gradients for each step -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Small arrow marker for entry points -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#333333"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#b2b2b2"/>
+  
+  <!-- Main circular path -->
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#7f7f7f" stroke-width="2.5" stroke-dasharray="none"/>
+  
+  <!-- Arrows at center of arcs (36° between boxes), tangential to circle, clockwise -->
+  <!-- Arrow between Step 5 and Step 1 (36° from top) - moved 7px down -->
+  <path d="M 305,182 L 325,172" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 1 and Step 2 (108° from top) -->
+  <path d="M 505,195 L 520,210" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 2 and Step 3 (180° from top - right side) - moved 5px right -->
+  <path d="M 550,315 L 545,335" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 3 and Step 4 (252° from top - bottom) - moved 15px down total, tail reduced to 2/3 -->
+  <path d="M 420,450 L 393,450" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 4 and Step 5 (324° from top - left side) - moved 5px left -->
+  <path d="M 255,335 L 250,315" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Step 1 - Top (overlaid on circle) - Design thinking -->
+  <rect id="step_1_fill" x="340" y="120" width="120" height="50" rx="8" 
+        fill="#13b8a6" stroke="#13b8a6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_1_text" x="400" y="150" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#ffffff">
+    Design thinking
+  </text>
+  
+  <!-- Step 2 - Right-Upper (72° from top) - Measure -->
+  <rect id="step_2_fill" x="480" y="220" width="120" height="50" rx="8" 
+        fill="#5dead4" stroke="#5dead4" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_2_text" x="540" y="250" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000000">
+    Measure
+  </text>
+  
+  <!-- Step 3 - Bottom-Right (144° from top) - Analyze -->
+  <rect id="step_3_fill" x="430" y="365" width="120" height="50" rx="8" 
+        fill="#a512b8" stroke="#a512b8" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_3_text" x="490" y="395" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#ffffff">
+    Analyze
+  </text>
+  
+  <!-- Step 4 - Bottom-Left (216° from top) - Improve -->
+  <rect id="step_4_fill" x="250" y="365" width="120" height="50" rx="8" 
+        fill="#30e8d4" stroke="#30e8d4" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_4_text" x="310" y="395" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#000000">
+    Improve
+  </text>
+  
+  <!-- Step 5 - Left-Upper (288° from top) - Control -->
+  <rect id="step_5_fill" x="200" y="220" width="120" height="50" rx="8" 
+        fill="#13b8a6" stroke="#13b8a6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_5_text" x="260" y="250" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#ffffff">
+    Control
+  </text>
+  
+  <!-- Main Title -->
+  </svg>

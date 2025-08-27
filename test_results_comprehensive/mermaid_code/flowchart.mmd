@@ -1,0 +1,15 @@
+flowchart TD
+    A[Customer places order]
+    B{System validates payment}
+    C[Check inventory]
+    D{In Stock?}
+    E[Ship order and send confirmation]
+    F[Backorder and notify customer]
+    G[Cancel order]
+
+    A --> B
+    B -- "Approved" --> C
+    B -- "Failed" --> G
+    C --> D
+    D -- "Yes" --> E
+    D -- "No" --> F

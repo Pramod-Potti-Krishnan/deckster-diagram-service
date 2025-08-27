@@ -1,0 +1,19 @@
+erDiagram
+    Customer {
+        INT id PK
+        VARCHAR name
+        VARCHAR email
+    }
+    Order {
+        INT id PK
+        DATE date
+        DECIMAL total
+    }
+    Product {
+        INT id PK
+        VARCHAR name
+        DECIMAL price
+    }
+
+    Customer ||--o{ Order : "places"
+    Order }o--o{ Product : "contains"

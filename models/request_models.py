@@ -142,7 +142,11 @@ class DiagramRequest(BaseModel):
     )
     request_id: Optional[str] = Field(
         default=None,
-        description="Unique request ID for tracking"
+        description="DEPRECATED: Use correlation_id instead"
+    )
+    correlation_id: Optional[str] = Field(
+        default=None,
+        description="Correlation ID for matching responses to requests (preserved throughout flow)"
     )
     timestamp: datetime = Field(
         default_factory=datetime.utcnow,
@@ -177,6 +181,20 @@ class DiagramRequest(BaseModel):
         if not v or not v.strip():
             raise ValueError("content cannot be empty")
         return v.strip()
+    
+    @validator('correlation_id', always=True)
+    def ensure_correlation_id(cls, v, values):
+        """Ensure correlation_id exists (backward compatibility with request_id)"""
+        if not v and 'request_id' in values and values['request_id']:
+            return values['request_id']
+        return v
+    
+    @validator('request_id', always=True)
+    def sync_request_id(cls, v, values):
+        """Sync request_id with correlation_id for backward compatibility"""
+        if not v and 'correlation_id' in values and values['correlation_id']:
+            return values['correlation_id']
+        return v
     
     class Config:
         json_encoders = {
