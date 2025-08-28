@@ -1,0 +1,9 @@
+flowchart TD
+    A[User enters credentials]
+    B{System validates?}
+    C[Redirect to dashboard]
+    D[Show error]
+
+    A --> B
+    B -- Valid --> C
+    B -- Invalid --> D

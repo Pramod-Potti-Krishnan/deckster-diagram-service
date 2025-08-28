@@ -1,0 +1,241 @@
+{
+  "svg_templates": [
+    {
+      "type": "pyramid_3_level",
+      "success": true,
+      "time": 1.868196,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "pyramid_4_level",
+      "success": true,
+      "time": 1.382214,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "pyramid_5_level",
+      "success": true,
+      "time": 1.233973,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "cycle_3_step",
+      "success": true,
+      "time": 1.357142,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "cycle_4_step",
+      "success": true,
+      "time": 1.200514,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "cycle_5_step",
+      "success": true,
+      "time": 1.333603,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "venn_2_circle",
+      "success": true,
+      "time": 1.190542,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "venn_3_circle",
+      "success": true,
+      "time": 1.268045,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "honeycomb_3",
+      "success": true,
+      "time": 1.248753,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "honeycomb_5",
+      "success": true,
+      "time": 1.360031,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "honeycomb_7",
+      "success": true,
+      "time": 1.018818,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "matrix_2x2",
+      "success": true,
+      "time": 1.308588,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "matrix_3x3",
+      "success": true,
+      "time": 1.215414,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "swot_matrix",
+      "success": true,
+      "time": 1.634877,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "hub_spoke_4",
+      "success": true,
+      "time": 1.026352,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "hub_spoke_6",
+      "success": true,
+      "time": 1.38119,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "funnel_3_stage",
+      "success": true,
+      "time": 1.281515,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "funnel_4_stage",
+      "success": true,
+      "time": 1.433545,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "funnel_5_stage",
+      "success": true,
+      "time": 1.22791,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "process_flow_3",
+      "success": true,
+      "time": 1.538874,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "process_flow_5",
+      "success": true,
+      "time": 1.758981,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "fishbone_4_bone",
+      "success": true,
+      "time": 1.512311,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "gears_3",
+      "success": true,
+      "time": 0.918311,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "roadmap_quarterly_4",
+      "success": true,
+      "time": 1.559534,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "timeline_horizontal",
+      "success": true,
+      "time": 1.317916,
+      "has_content": true,
+      "has_mermaid": false
+    }
+  ],
+  "mermaid_diagrams": [
+    {
+      "type": "flowchart",
+      "success": true,
+      "time": 4.509775,
+      "has_content": true,
+      "has_mermaid": true
+    },
+    {
+      "type": "erDiagram",
+      "success": true,
+      "time": 4.51991,
+      "has_content": true,
+      "has_mermaid": true
+    },
+    {
+      "type": "journey",
+      "success": true,
+      "time": 3.773001,
+      "has_content": true,
+      "has_mermaid": true
+    },
+    {
+      "type": "gantt",
+      "success": true,
+      "time": 10.55081,
+      "has_content": true,
+      "has_mermaid": true
+    },
+    {
+      "type": "quadrantChart",
+      "success": true,
+      "time": 7.679894,
+      "has_content": true,
+      "has_mermaid": true
+    },
+    {
+      "type": "timeline",
+      "success": true,
+      "time": 1.125839,
+      "has_content": true,
+      "has_mermaid": false
+    },
+    {
+      "type": "kanban",
+      "success": true,
+      "time": 6.070263,
+      "has_content": true,
+      "has_mermaid": true
+    }
+  ],
+  "summary": {
+    "total_tests": 32,
+    "passed": 32,
+    "failed": 0,
+    "success_rate": 100.0,
+    "svg_passed": 25,
+    "svg_total": 25,
+    "mermaid_passed": 7,
+    "mermaid_total": 7,
+    "timestamp": "2025-08-27T14:50:43.363552"
+  }
+}

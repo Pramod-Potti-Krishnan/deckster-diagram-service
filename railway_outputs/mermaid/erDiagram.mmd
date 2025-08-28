@@ -1,0 +1,14 @@
+erDiagram
+    User {
+        int id PK
+        string name
+        string email
+    }
+
+    Order {
+        int id PK
+        int user_id FK
+        float total
+    }
+
+    User ||--o{ Order : has

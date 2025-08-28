@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 4-Step Cycle Template - Circular Path with Overlaid Boxes -->
+  <defs>
+    <!-- Gradients for each step -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Small arrow marker for entry points -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L8,4 z" fill="#646565"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#e4e4e4"/>
+  
+  <!-- Main circular path -->
+  <circle cx="400" cy="300" r="150" fill="none" stroke="#b0b1b2" stroke-width="2.5" stroke-dasharray="none"/>
+  
+  <!-- Arrows at center of arcs, tangential to circle, clockwise direction -->
+  <!-- Arrow between Step 4 and Analyze. Design. Implement. Evaluate. (45° - top-left) - rotated 25° CCW total, moved 5px down -->
+  <path d="M 290,195 L 314,177" fill="none" stroke="#646565" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Analyze. Design. Implement. Evaluate. and Step 2 (45° - top-right) - rotated 10° CW total -->
+  <path d="M 490,180 L 510,195" fill="none" stroke="#646565" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 2 and Step 3 (45° - bottom-right) - rotated 30° CCW total, moved 5px up -->
+  <path d="M 510,405 L 485,423" fill="none" stroke="#646565" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Arrow between Step 3 and Step 4 (45° - bottom-left) - rotated 15° CW total -->
+  <path d="M 310,420 L 290,403" fill="none" stroke="#646565" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Analyze. Design. Implement. Evaluate. - Top (overlaid on circle) -->
+  <rect id="step_1_fill" x="330" y="120" width="140" height="60" rx="8" 
+        fill="#3a81f6" stroke="#3a81f6" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_1_text" x="400" y="155" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Plan
+  </text>
+  
+  <!-- Step 2 - Right (overlaid on circle) -->
+  <rect id="step_2_fill" x="480" y="270" width="140" height="60" rx="8" 
+        fill="#f6af39" stroke="#f6af39" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_2_text" x="550" y="305" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#000000">
+    Execute
+  </text>
+  
+  <!-- Step 3 - Bottom (overlaid on circle) -->
+  <rect id="step_3_fill" x="330" y="420" width="140" height="60" rx="8" 
+        fill="#f63980" stroke="#f63980" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_3_text" x="400" y="455" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Review
+  </text>
+  
+  <!-- Step 4 - Left (overlaid on circle) -->
+  <rect id="step_4_fill" x="180" y="270" width="140" height="60" rx="8" 
+        fill="#84b0f9" stroke="#84b0f9" stroke-width="2" filter="url(#shadow)"/>
+  <text id="step_4_text" x="250" y="305" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Improve
+  </text>
+  
+  <!-- Main Title -->
+  </svg>

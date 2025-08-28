@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <defs>
+        <script type="application/mermaid+json">{
+            "code": "gantt\ndateFormat YYYY-MM-DD\ntitle Project Timeline\nsection Project Phases\nPlanning :id1, 2024-01-01, 60d\nDevelopment :id2, 2024-02-15, 76d\nTesting :id3, 2024-04-15, 47d",
+            "theme": "default",
+            "themeVariables": {"primaryColor": "#3B82F6", "primaryTextColor": "#1F2937", "primaryBorderColor": null, "lineColor": null, "background": "#FFFFFF"}
+        }</script>
+    </defs>
+    <rect width="800" height="600" fill="#FFFFFF"/>
+    <text x="400" y="300" text-anchor="middle" fill="#1F2937">
+        [Mermaid Diagram - Client Render Required]
+    </text>
+</svg>

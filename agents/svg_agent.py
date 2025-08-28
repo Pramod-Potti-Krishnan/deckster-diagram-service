@@ -89,7 +89,7 @@ class SVGAgent(BaseAgent):
         if not template:
             raise ValueError(f"No template found for {request.diagram_type} (mapped to {actual_template})")
         
-        # Extract data points
+        # Extract data points with intelligent parsing
         data_points = self.extract_data_points(request)
         
         # Apply replacements with template type context
@@ -122,6 +122,10 @@ class SVGAgent(BaseAgent):
             svg_content = self._remove_gradients(svg_content, theme)
             svg_content = self._remove_borders(svg_content)
             svg_content = self._remove_titles(svg_content)
+            
+            # Add transparency to Venn diagram circles for better overlap visibility
+            if 'venn' in actual_template.lower():
+                svg_content = self._add_venn_transparency(svg_content)
             
             # Apply element-specific colors BEFORE text colors to ensure correct contrast
             print(f"DEBUG: About to apply final element colors for {actual_template}")
@@ -163,6 +167,106 @@ class SVGAgent(BaseAgent):
             }
         }
     
+    def extract_data_points(self, request: DiagramRequest) -> List[Dict[str, Any]]:
+        """
+        Override base method to provide intelligent content parsing for SVG templates
+        
+        Args:
+            request: Diagram request with content
+            
+        Returns:
+            List of data points properly split for the diagram type
+        """
+        # Use provided data points if available
+        if request.data_points:
+            return [dp.dict() for dp in request.data_points]
+        
+        # Get expected number of elements for this diagram type
+        actual_template = self.TEMPLATE_NAME_MAPPING.get(request.diagram_type, request.diagram_type)
+        placeholders = self._get_template_placeholders(actual_template)
+        expected_count = len(placeholders) if placeholders else 3
+        
+        # Try to parse content intelligently
+        content = request.content.strip()
+        segments = []
+        
+        # First, try common separators
+        if '. ' in content:
+            # Split by periods
+            parts = content.split('. ')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ', ' in content:
+            # Split by commas
+            parts = content.split(', ')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ' and ' in content.lower():
+            # Split by 'and'
+            parts = re.split(r'\s+and\s+', content, flags=re.IGNORECASE)
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ' or ' in content.lower():
+            # Split by 'or'
+            parts = re.split(r'\s+or\s+', content, flags=re.IGNORECASE)
+            segments = [p.strip() for p in parts if p.strip()]
+        elif '\n' in content:
+            # Split by newlines
+            parts = content.split('\n')
+            segments = [p.strip() for p in parts if p.strip()]
+        else:
+            # No obvious separators, treat as single segment
+            segments = [content]
+        
+        # Adjust segment count to match expected
+        if len(segments) < expected_count:
+            # Pad with empty strings or duplicate last segment
+            if segments:
+                # Intelligently expand: if we have fewer segments, try to split them further
+                expanded = []
+                for seg in segments:
+                    if len(expanded) >= expected_count:
+                        break
+                    # Try to split long segments
+                    if len(seg) > 20 and ' ' in seg:
+                        words = seg.split(' ')
+                        mid = len(words) // 2
+                        expanded.append(' '.join(words[:mid]))
+                        expanded.append(' '.join(words[mid:]))
+                    else:
+                        expanded.append(seg)
+                segments = expanded
+                
+                # Still not enough? Pad with variations
+                while len(segments) < expected_count:
+                    segments.append(f"{segments[-1]} ({len(segments)+1})")
+            else:
+                segments = [""] * expected_count
+        elif len(segments) > expected_count:
+            # Too many segments, combine some
+            if expected_count == 1:
+                segments = [' '.join(segments)]
+            else:
+                # Distribute segments evenly
+                combined = []
+                chunk_size = len(segments) / expected_count
+                for i in range(expected_count):
+                    start_idx = int(i * chunk_size)
+                    end_idx = int((i + 1) * chunk_size)
+                    chunk = segments[start_idx:end_idx]
+                    combined.append(' '.join(chunk))
+                segments = combined
+        
+        # Convert to data points format
+        data_points = []
+        for i, segment in enumerate(segments[:expected_count]):
+            data_points.append({
+                "label": segment,
+                "value": None,
+                "description": None
+            })
+        
+        logger.info(f"Parsed content into {len(data_points)} segments for {actual_template}: {[d['label'] for d in data_points]}")
+        
+        return data_points
+
     def _apply_replacements(
         self,
         template: str,
@@ -188,29 +292,45 @@ class SVGAgent(BaseAgent):
         # Get template-specific placeholders
         placeholders = self._get_template_placeholders(template_type)
         
+        # Log for debugging
+        logger.info(f"Template type: {template_type}, Placeholders: {placeholders}, Data points: {[p.get('label', '') for p in data_points]}")
+        
         # Replace each placeholder with corresponding data point
-        for i, point in enumerate(data_points):
-            if i < len(placeholders):
-                placeholder = placeholders[i]
-                label = point.get("label", "")
+        replaced_count = 0
+        for i, placeholder in enumerate(placeholders):
+            if i < len(data_points):
+                label = data_points[i].get("label", "")
+            else:
+                # No more data points, use a descriptive default
+                label = f"{template_type.replace('_', ' ').title()} {i+1}"
+            
+            if placeholder and label:
+                # Count occurrences before replacement
+                occurrences = svg_content.count(placeholder)
                 
-                if placeholder and label:
-                    # Handle split text (e.g., "Central\nHub" in tspan elements)
-                    if "\n" in placeholder:
-                        # Replace both the split version and the continuous version
-                        parts = placeholder.split("\n")
-                        # Try replacing as continuous text first
-                        continuous = "".join(parts)
-                        if continuous in svg_content:
-                            svg_content = svg_content.replace(continuous, label)
-                        # Then try replacing parts separately if they appear on different lines
-                        for part in parts:
-                            if part in svg_content:
-                                # Only replace if it's the exact part (avoid partial replacements)
-                                svg_content = svg_content.replace(f">{part}<", f">{label}<")
-                    else:
-                        # Simple replacement for non-split text
+                # Handle split text (e.g., "Central\nHub" in tspan elements)
+                if "\n" in placeholder:
+                    # Replace both the split version and the continuous version
+                    parts = placeholder.split("\n")
+                    # Try replacing as continuous text first
+                    continuous = "".join(parts)
+                    if continuous in svg_content:
+                        svg_content = svg_content.replace(continuous, label)
+                        replaced_count += 1
+                    # Then try replacing parts separately if they appear on different lines
+                    for part in parts:
+                        if f">{part}<" in svg_content:
+                            # Only replace if it's the exact part (avoid partial replacements)
+                            svg_content = svg_content.replace(f">{part}<", f">{label}<")
+                            replaced_count += 1
+                else:
+                    # Simple replacement for non-split text - replace all occurrences
+                    if placeholder in svg_content:
                         svg_content = svg_content.replace(placeholder, label)
+                        replaced_count += occurrences
+                        logger.debug(f"Replaced '{placeholder}' with '{label}' ({occurrences} occurrences)")
+        
+        logger.info(f"Replaced {replaced_count} placeholders in {template_type}")
         
         return svg_content
     
@@ -286,6 +406,34 @@ class SVGAgent(BaseAgent):
         
         svg_content = re.sub(element_pattern2, update_stroke2, svg_content)
         
+        return svg_content
+    
+    def _add_venn_transparency(self, svg_content: str) -> str:
+        """Add transparency to Venn diagram circles for better overlap visibility"""
+        import re
+        
+        # Pattern to match circle elements with fill attribute
+        circle_pattern = r'(<circle[^>]*)(fill="[^"]*")([^>]*>)'
+        
+        def add_opacity(match):
+            pre = match.group(1)
+            fill = match.group(2)
+            post = match.group(3)
+            
+            # Check if opacity is already set
+            if 'fill-opacity' not in pre and 'fill-opacity' not in post:
+                # Add opacity to make circles semi-transparent
+                return f'{pre}{fill} fill-opacity="0.7"{post}'
+            return match.group(0)
+        
+        # Apply opacity to circles
+        svg_content = re.sub(circle_pattern, add_opacity, svg_content)
+        
+        # Also apply to ellipse elements (in case some Venn diagrams use ellipses)
+        ellipse_pattern = r'(<ellipse[^>]*)(fill="[^"]*")([^>]*>)'
+        svg_content = re.sub(ellipse_pattern, add_opacity, svg_content)
+        
+        logger.info("Added transparency to Venn diagram circles")
         return svg_content
     
     def _remove_titles(self, svg_content: str) -> str:

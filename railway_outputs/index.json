@@ -1,0 +1,214 @@
+[
+  {
+    "type": "pyramid_3_level",
+    "category": "svg",
+    "file": "svg/pyramid_3_level.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "pyramid_4_level",
+    "category": "svg",
+    "file": "svg/pyramid_4_level.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "pyramid_5_level",
+    "category": "svg",
+    "file": "svg/pyramid_5_level.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "cycle_3_step",
+    "category": "svg",
+    "file": "svg/cycle_3_step.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "cycle_4_step",
+    "category": "svg",
+    "file": "svg/cycle_4_step.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "cycle_5_step",
+    "category": "svg",
+    "file": "svg/cycle_5_step.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "venn_2_circle",
+    "category": "svg",
+    "file": "svg/venn_2_circle.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "venn_3_circle",
+    "category": "svg",
+    "file": "svg/venn_3_circle.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "honeycomb_3",
+    "category": "svg",
+    "file": "svg/honeycomb_3.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "honeycomb_5",
+    "category": "svg",
+    "file": "svg/honeycomb_5.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "honeycomb_7",
+    "category": "svg",
+    "file": "svg/honeycomb_7.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "matrix_2x2",
+    "category": "svg",
+    "file": "svg/matrix_2x2.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "matrix_3x3",
+    "category": "svg",
+    "file": "svg/matrix_3x3.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "swot_matrix",
+    "category": "svg",
+    "file": "svg/swot_matrix.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "hub_spoke_4",
+    "category": "svg",
+    "file": "svg/hub_spoke_4.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "hub_spoke_6",
+    "category": "svg",
+    "file": "svg/hub_spoke_6.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "funnel_3_stage",
+    "category": "svg",
+    "file": "svg/funnel_3_stage.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "funnel_4_stage",
+    "category": "svg",
+    "file": "svg/funnel_4_stage.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "funnel_5_stage",
+    "category": "svg",
+    "file": "svg/funnel_5_stage.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "process_flow_3",
+    "category": "svg",
+    "file": "svg/process_flow_3.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "process_flow_5",
+    "category": "svg",
+    "file": "svg/process_flow_5.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "fishbone_4_bone",
+    "category": "svg",
+    "file": "svg/fishbone_4_bone.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "gears_3",
+    "category": "svg",
+    "file": "svg/gears_3.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "roadmap_quarterly_4",
+    "category": "svg",
+    "file": "svg/roadmap_quarterly_4.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "timeline_horizontal",
+    "category": "svg",
+    "file": "svg/timeline_horizontal.svg",
+    "has_mermaid": false
+  },
+  {
+    "type": "flowchart",
+    "category": "mermaid",
+    "files": [
+      "svg/flowchart_mermaid.svg",
+      "mermaid/flowchart.mmd"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "erDiagram",
+    "category": "mermaid",
+    "files": [
+      "svg/erDiagram_mermaid.svg",
+      "mermaid/erDiagram.mmd"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "journey",
+    "category": "mermaid",
+    "files": [
+      "svg/journey_mermaid.svg",
+      "mermaid/journey.mmd"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "gantt",
+    "category": "mermaid",
+    "files": [
+      "svg/gantt_mermaid.svg",
+      "mermaid/gantt.mmd"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "quadrantChart",
+    "category": "mermaid",
+    "files": [
+      "svg/quadrantChart_mermaid.svg",
+      "mermaid/quadrantChart.mmd"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "timeline",
+    "category": "mermaid",
+    "files": [
+      "svg/timeline_mermaid.svg"
+    ],
+    "has_mermaid": true
+  },
+  {
+    "type": "kanban",
+    "category": "mermaid",
+    "files": [
+      "svg/kanban_mermaid.svg",
+      "mermaid/kanban.mmd"
+    ],
+    "has_mermaid": true
+  }
+]

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extract Feedback</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        pre {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extract Feedback from LocalStorage</h1>
+    <button onclick="extractAndDisplay()">Extract Feedback</button>
+    <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button onclick="downloadJSON()">Download JSON</button>
+    
+    <h2>Your Feedback:</h2>
+    <pre id="output">Click "Extract Feedback" to see your saved feedback...</pre>
+    
+    <script>
+        let feedbackData = null;
+        
+        function extractAndDisplay() {
+            const saved = localStorage.getItem('diagramFeedback');
+            if (saved) {
+                feedbackData = JSON.parse(saved);
+                document.getElementById('output').textContent = JSON.stringify(feedbackData, null, 2);
+                console.log('Feedback data:', feedbackData);
+                
+                // Also log summary
+                const count = Object.keys(feedbackData).length;
+                console.log(`Found feedback for ${count} diagrams`);
+                
+                // Log each feedback
+                Object.entries(feedbackData).forEach(([key, value]) => {
+                    console.log(`\n${key}:\n${value.feedback}`);
+                });
+            } else {
+                document.getElementById('output').textContent = 'No feedback found in localStorage';
+            }
+        }
+        
+        function copyToClipboard() {
+            if (feedbackData) {
+                navigator.clipboard.writeText(JSON.stringify(feedbackData, null, 2));
+                alert('Feedback copied to clipboard!');
+            }
+        }
+        
+        function downloadJSON() {
+            if (feedbackData) {
+                const dataStr = JSON.stringify(feedbackData, null, 2);
+                const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                const url = URL.createObjectURL(dataBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `feedback_export_${Date.now()}.json`;
+                a.click();
+            }
+        }
+        
+        // Auto-extract on load
+        window.onload = extractAndDisplay;
+    </script>
+</body>
+</html>

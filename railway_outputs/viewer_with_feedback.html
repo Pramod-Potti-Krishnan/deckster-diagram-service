@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Production Diagrams - Feedback Collection</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #48bb78;
+        }
+        
+        .stat-label {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .navigation {
+            background: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover:not(:disabled) {
+            background: #2563EB;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .nav-btn.success {
+            background: #48bb78;
+        }
+        
+        .nav-btn.success:hover {
+            background: #38a169;
+        }
+        
+        .nav-btn.warning {
+            background: #f6ad55;
+        }
+        
+        .nav-btn.warning:hover {
+            background: #ed8936;
+        }
+        
+        .page-info {
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+        
+        .page-number {
+            font-weight: bold;
+            color: #3B82F6;
+        }
+        
+        .main-container {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .diagram-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .diagram-card.active {
+            display: block;
+        }
+        
+        .diagram-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .diagram-title {
+            font-size: 1.8em;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .diagram-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .badge-svg {
+            background: #9f7aea;
+            color: white;
+        }
+        
+        .badge-mermaid {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .diagram-content {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .svg-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .mermaid-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .feedback-section {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feedback-title {
+            font-size: 1.2em;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .feedback-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e0;
+        }
+        
+        .status-indicator.saved {
+            background: #48bb78;
+        }
+        
+        .status-indicator.unsaved {
+            background: #f6ad55;
+        }
+        
+        .feedback-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+        
+        .feedback-textarea:focus {
+            outline: none;
+            border-color: #3B82F6;
+        }
+        
+        .feedback-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: space-between;
+        }
+        
+        .feedback-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .btn-save {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background: #38a169;
+        }
+        
+        .btn-clear {
+            background: #f56565;
+            color: white;
+        }
+        
+        .btn-clear:hover {
+            background: #e53e3e;
+        }
+        
+        .btn-export {
+            background: #9f7aea;
+            color: white;
+        }
+        
+        .btn-export:hover {
+            background: #805ad5;
+        }
+        
+        .char-count {
+            color: #718096;
+            font-size: 0.9em;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .toast.success {
+            background: #48bb78;
+        }
+        
+        .toast.error {
+            background: #f56565;
+        }
+        
+        .toast.info {
+            background: #4299e1;
+        }
+        
+        .progress-tracker {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78 0%, #38a169 100%);
+            transition: width 0.3s;
+        }
+        
+        .progress-text {
+            color: #718096;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Railway Production Diagrams - Feedback Collection</h1>
+        <p style="color: #718096;">Review diagrams and provide feedback for API improvements</p>
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value" id="totalCount">32</div>
+                <div class="stat-label">Total Diagrams</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="feedbackCount">0</div>
+                <div class="stat-label">Feedback Provided</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="savedCount">0</div>
+                <div class="stat-label">Saved Locally</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="progressPercent">0%</div>
+                <div class="stat-label">Completion</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="changePage(1)">Next →</button>
+        </div>
+        
+        <div class="page-info">
+            Diagram <span class="page-number" id="currentPage">1</span> of <span class="page-number" id="totalPages">32</span>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn warning" onclick="downloadFeedback()">📥 Download All Feedback</button>
+            <button class="nav-btn success" onclick="exportForAPI()">📤 Export for API</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="progress-tracker">
+            <div class="progress-text">Review Progress: <span id="progressDetail">0 of 32 diagrams reviewed</span></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div id="mainContainer">
+            <!-- Diagram cards will be inserted here -->
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: false,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#1F2937',
+                primaryBorderColor: '#60A5FA',
+                lineColor: '#60A5FA',
+                background: '#FFFFFF'
+            }
+        });
+
+        let currentIndex = 0;
+        let diagramsData = [];
+        let feedbackData = {};
+
+        // Load saved feedback from localStorage
+        function loadSavedFeedback() {
+            const saved = localStorage.getItem('diagramFeedback');
+            if (saved) {
+                feedbackData = JSON.parse(saved);
+                updateStats();
+            }
+        }
+
+        // Save feedback to localStorage
+        function saveFeedback(index) {
+            const textarea = document.getElementById(`feedback-${index}`);
+            const indicator = document.getElementById(`indicator-${index}`);
+            
+            if (textarea) {
+                const feedback = textarea.value.trim();
+                const diagramType = diagramsData[index].type;
+                
+                if (feedback) {
+                    feedbackData[diagramType] = {
+                        index: index,
+                        type: diagramType,
+                        category: diagramsData[index].category,
+                        feedback: feedback,
+                        timestamp: new Date().toISOString(),
+                        characterCount: feedback.length
+                    };
+                } else {
+                    delete feedbackData[diagramType];
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('diagramFeedback', JSON.stringify(feedbackData));
+                
+                // Update indicator
+                if (indicator) {
+                    indicator.className = feedback ? 'status-indicator saved' : 'status-indicator';
+                }
+                
+                updateStats();
+                showToast('Feedback saved locally!', 'success');
+            }
+        }
+
+        // Clear feedback for current diagram
+        function clearFeedback(index) {
+            const textarea = document.getElementById(`feedback-${index}`);
+            const indicator = document.getElementById(`indicator-${index}`);
+            
+            if (textarea) {
+                textarea.value = '';
+                const diagramType = diagramsData[index].type;
+                delete feedbackData[diagramType];
+                
+                localStorage.setItem('diagramFeedback', JSON.stringify(feedbackData));
+                
+                if (indicator) {
+                    indicator.className = 'status-indicator';
+                }
+                
+                updateCharCount(index);
+                updateStats();
+                showToast('Feedback cleared!', 'info');
+            }
+        }
+
+        // Update character count
+        function updateCharCount(index) {
+            const textarea = document.getElementById(`feedback-${index}`);
+            const charCount = document.getElementById(`charCount-${index}`);
+            
+            if (textarea && charCount) {
+                const count = textarea.value.length;
+                charCount.textContent = `${count} characters`;
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const feedbackCount = Object.keys(feedbackData).length;
+            const totalCount = diagramsData.length;
+            const percentage = Math.round((feedbackCount / totalCount) * 100);
+            
+            document.getElementById('feedbackCount').textContent = feedbackCount;
+            document.getElementById('savedCount').textContent = feedbackCount;
+            document.getElementById('progressPercent').textContent = `${percentage}%`;
+            document.getElementById('progressDetail').textContent = `${feedbackCount} of ${totalCount} diagrams reviewed`;
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+        }
+
+        // Show toast notification
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+
+        // Download all feedback as JSON
+        function downloadFeedback() {
+            const dataStr = JSON.stringify(feedbackData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `diagram_feedback_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast(`Downloaded feedback for ${Object.keys(feedbackData).length} diagrams!`, 'success');
+        }
+
+        // Export formatted for API improvements
+        function exportForAPI() {
+            const apiFormat = {
+                metadata: {
+                    exportDate: new Date().toISOString(),
+                    totalDiagrams: diagramsData.length,
+                    feedbackCount: Object.keys(feedbackData).length,
+                    reviewPercentage: Math.round((Object.keys(feedbackData).length / diagramsData.length) * 100)
+                },
+                feedback: Object.values(feedbackData).map(item => ({
+                    diagramType: item.type,
+                    category: item.category,
+                    feedback: item.feedback,
+                    timestamp: item.timestamp,
+                    suggestions: extractSuggestions(item.feedback)
+                }))
+            };
+            
+            const dataStr = JSON.stringify(apiFormat, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `api_improvements_${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showToast('Exported feedback for API improvements!', 'success');
+        }
+
+        // Extract suggestions from feedback text (simple keyword extraction)
+        function extractSuggestions(feedback) {
+            const suggestions = [];
+            const keywords = ['should', 'could', 'need', 'want', 'improve', 'add', 'remove', 'change', 'fix'];
+            
+            keywords.forEach(keyword => {
+                if (feedback.toLowerCase().includes(keyword)) {
+                    const sentences = feedback.split(/[.!?]+/);
+                    sentences.forEach(sentence => {
+                        if (sentence.toLowerCase().includes(keyword)) {
+                            suggestions.push(sentence.trim());
+                        }
+                    });
+                }
+            });
+            
+            return suggestions.slice(0, 3); // Return top 3 suggestions
+        }
+
+        // Load index data
+        async function loadDiagrams() {
+            try {
+                const response = await fetch('index.json');
+                diagramsData = await response.json();
+                
+                document.getElementById('totalCount').textContent = diagramsData.length;
+                document.getElementById('totalPages').textContent = diagramsData.length;
+                
+                // Load saved feedback
+                loadSavedFeedback();
+                
+                // Create diagram cards with feedback sections
+                createDiagramCards();
+                
+                // Show first diagram
+                displayDiagram(0);
+                
+            } catch (error) {
+                console.error('Error loading diagram index:', error);
+                document.getElementById('mainContainer').innerHTML = 
+                    '<div class="diagram-card active"><div class="error-message">Failed to load diagram index. Make sure you are viewing this from the railway_outputs directory.</div></div>';
+            }
+        }
+
+        function createDiagramCards() {
+            const container = document.getElementById('mainContainer');
+            container.innerHTML = '';
+            
+            diagramsData.forEach((diagram, index) => {
+                const card = document.createElement('div');
+                card.className = 'diagram-card';
+                card.id = `diagram-${index}`;
+                
+                const badgeClass = diagram.category === 'svg' ? 'badge-svg' : 'badge-mermaid';
+                const badgeText = diagram.category === 'svg' ? 'SVG Template' : 'Mermaid';
+                
+                // Check if feedback exists
+                const existingFeedback = feedbackData[diagram.type];
+                
+                let contentHtml = '';
+                
+                if (diagram.error) {
+                    contentHtml = `<div class="error-message">Error: ${diagram.error}</div>`;
+                } else if (diagram.category === 'svg' && diagram.file) {
+                    contentHtml = `<iframe class="svg-frame" src="${diagram.file}"></iframe>`;
+                } else if (diagram.category === 'mermaid' && diagram.files) {
+                    const svgFile = diagram.files.find(f => f.includes('.svg'));
+                    const mmdFile = diagram.files.find(f => f.includes('.mmd'));
+                    
+                    if (svgFile) {
+                        contentHtml = `<iframe class="svg-frame" src="${svgFile}"></iframe>`;
+                    } else if (mmdFile) {
+                        contentHtml = `<div class="mermaid-container" id="mermaid-${index}">
+                            <div class="loading">Loading Mermaid diagram...</div>
+                        </div>`;
+                        setTimeout(() => loadMermaidFile(mmdFile, index), 100);
+                    }
+                } else {
+                    contentHtml = '<div class="error-message">No content available</div>';
+                }
+                
+                card.innerHTML = `
+                    <div class="diagram-header">
+                        <div class="diagram-title">
+                            <span class="diagram-number">#${index + 1}</span>
+                            <span>${diagram.type.replace(/_/g, ' ').toUpperCase()}</span>
+                        </div>
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                    <div class="diagram-content">
+                        ${contentHtml}
+                    </div>
+                    <div class="feedback-section">
+                        <div class="feedback-header">
+                            <div class="feedback-title">💭 Your Feedback</div>
+                            <div class="feedback-status">
+                                <span id="indicator-${index}" class="status-indicator ${existingFeedback ? 'saved' : ''}"></span>
+                                <span>${existingFeedback ? 'Saved' : 'Not saved'}</span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="feedback-${index}" 
+                            class="feedback-textarea" 
+                            placeholder="Provide your feedback for this ${diagram.type.replace(/_/g, ' ')} diagram. What works well? What could be improved? Any specific suggestions?"
+                            oninput="updateCharCount(${index})"
+                        >${existingFeedback ? existingFeedback.feedback : ''}</textarea>
+                        <div class="char-count" id="charCount-${index}">${existingFeedback ? existingFeedback.characterCount : 0} characters</div>
+                        <div class="feedback-actions">
+                            <div>
+                                <button class="feedback-btn btn-save" onclick="saveFeedback(${index})">💾 Save Feedback</button>
+                                <button class="feedback-btn btn-clear" onclick="clearFeedback(${index})">🗑️ Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        async function loadMermaidFile(filepath, index) {
+            try {
+                const response = await fetch(filepath);
+                const mermaidCode = await response.text();
+                
+                const container = document.getElementById(`mermaid-${index}`);
+                if (container) {
+                    container.innerHTML = mermaidCode;
+                    mermaid.run({ nodes: [container] });
+                }
+            } catch (error) {
+                console.error('Error loading Mermaid file:', error);
+                const container = document.getElementById(`mermaid-${index}`);
+                if (container) {
+                    container.innerHTML = '<div class="error-message">Failed to load Mermaid diagram</div>';
+                }
+            }
+        }
+
+        function displayDiagram(index) {
+            currentIndex = index;
+            
+            // Hide all cards
+            document.querySelectorAll('.diagram-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Show selected card
+            const card = document.getElementById(`diagram-${index}`);
+            if (card) {
+                card.classList.add('active');
+            }
+            
+            // Update navigation
+            document.getElementById('currentPage').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === diagramsData.length - 1;
+        }
+
+        function changePage(direction) {
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < diagramsData.length) {
+                displayDiagram(newIndex);
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'TEXTAREA') return; // Don't trigger when typing in textarea
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    changePage(-1);
+                    break;
+                case 'ArrowRight':
+                    changePage(1);
+                    break;
+                case 's':
+                case 'S':
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        saveFeedback(currentIndex);
+                    }
+                    break;
+            }
+        });
+
+        // Auto-save on page unload
+        window.addEventListener('beforeunload', () => {
+            // Save any unsaved feedback
+            document.querySelectorAll('.feedback-textarea').forEach((textarea, index) => {
+                if (textarea.value.trim()) {
+                    saveFeedback(index);
+                }
+            });
+        });
+
+        // Load diagrams on page load
+        loadDiagrams();
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- 3-Circle Venn Diagram Template -->
+  <defs>
+    <!-- Semi-transparent fills for overlapping circles -->
+    
+    
+    
+    
+    
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#ffffff"/>
+  
+  <!-- Three overlapping circles forming Venn diagram -->
+  <!-- Circle 1 (Top-Left) - Blue -->
+  <circle id="circle_1_fill" cx="340" cy="280" r="120" 
+          fill="#3a81f6" stroke="#3a81f6" stroke-width="2"/>
+  
+  <!-- Circle 2 (Top-Right) - Red -->
+  <circle id="circle_2_fill" cx="460" cy="280" r="120" 
+          fill="#f6af39" stroke="#f6af39" stroke-width="2"/>
+  
+  <!-- Circle 3 (Bottom) - Green - moved 40px down -->
+  <circle id="circle_3_fill" cx="400" cy="400" r="120" 
+          fill="#f63980" stroke="#f63980" stroke-width="2"/>
+  
+  <!-- Text labels for each circle -->
+  <text id="circle_1_text" x="290" y="230" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Technology. Business. Design.
+  </text>
+  
+  <text id="circle_2_text" x="510" y="230" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#000000">
+    Set B
+  </text>
+  
+  <text id="circle_3_text" x="400" y="480" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#ffffff">
+    Set C
+  </text>
+  
+  <!-- Center intersection label -->
+  <text id="intersection_text" x="400" y="320" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#000000">
+    A∩B∩C
+  </text>
+  
+  <!-- Title -->
+  <text x="400" y="125" text-anchor="middle" 
+        font-family="Inter, sans-serif" font-size="14" font-weight="400" fill="#000000">
+    3-Set Relationship
+  </text>
+</svg>

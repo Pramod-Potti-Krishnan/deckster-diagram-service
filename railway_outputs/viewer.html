@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Production Diagrams - Verified Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .stats-bar {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #48bb78;
+        }
+        
+        .stat-label {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .navigation {
+            background: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #3B82F6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover:not(:disabled) {
+            background: #2563EB;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .page-info {
+            font-size: 1.1em;
+            color: #4a5568;
+        }
+        
+        .page-number {
+            font-weight: bold;
+            color: #3B82F6;
+        }
+        
+        .main-container {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .diagram-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .diagram-card.active {
+            display: block;
+        }
+        
+        .diagram-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .diagram-title {
+            font-size: 1.8em;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .diagram-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .badge-svg {
+            background: #9f7aea;
+            color: white;
+        }
+        
+        .badge-mermaid {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .diagram-content {
+            min-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        
+        .svg-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .mermaid-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .error-message {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #718096;
+            font-size: 1.2em;
+        }
+        
+        .shortcuts {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+        }
+        
+        .shortcuts h3 {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+        
+        .shortcuts kbd {
+            background: #f7fafc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Railway Production Diagrams - Verified Results</h1>
+        <p style="color: #718096;">All diagrams fetched from production WebSocket service</p>
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value" id="totalCount">32</div>
+                <div class="stat-label">Total Diagrams</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">25</div>
+                <div class="stat-label">SVG Templates</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">7</div>
+                <div class="stat-label">Mermaid Diagrams</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" onclick="changePage(-1)">← Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="changePage(1)">Next →</button>
+        </div>
+        
+        <div class="page-info">
+            Diagram <span class="page-number" id="currentPage">1</span> of <span class="page-number" id="totalPages">32</span>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showAll()">Show All</button>
+            <button class="nav-btn" onclick="showOne()">Show One</button>
+        </div>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+        <!-- Diagram cards will be inserted here -->
+    </div>
+
+    <div class="shortcuts">
+        <h3>⌨️ Shortcuts</h3>
+        <div><kbd>←</kbd> Previous</div>
+        <div><kbd>→</kbd> Next</div>
+        <div><kbd>A</kbd> Show All</div>
+        <div><kbd>O</kbd> Show One</div>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: false,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3B82F6',
+                primaryTextColor: '#1F2937',
+                primaryBorderColor: '#60A5FA',
+                lineColor: '#60A5FA',
+                background: '#FFFFFF'
+            }
+        });
+
+        let currentIndex = 0;
+        let showingAll = false;
+        let diagramsData = [];
+
+        // Load index data
+        async function loadDiagrams() {
+            try {
+                const response = await fetch('index.json');
+                diagramsData = await response.json();
+                
+                document.getElementById('totalCount').textContent = diagramsData.length;
+                document.getElementById('totalPages').textContent = diagramsData.length;
+                
+                // Create diagram cards
+                createDiagramCards();
+                
+                // Show first diagram
+                showOne();
+                displayDiagram(0);
+                
+            } catch (error) {
+                console.error('Error loading diagram index:', error);
+                document.getElementById('mainContainer').innerHTML = 
+                    '<div class="diagram-card active"><div class="error-message">Failed to load diagram index. Make sure you are viewing this from the railway_outputs directory.</div></div>';
+            }
+        }
+
+        function createDiagramCards() {
+            const container = document.getElementById('mainContainer');
+            container.innerHTML = '';
+            
+            diagramsData.forEach((diagram, index) => {
+                const card = document.createElement('div');
+                card.className = 'diagram-card';
+                card.id = `diagram-${index}`;
+                
+                const badgeClass = diagram.category === 'svg' ? 'badge-svg' : 'badge-mermaid';
+                const badgeText = diagram.category === 'svg' ? 'SVG Template' : 'Mermaid';
+                
+                let contentHtml = '';
+                
+                if (diagram.error) {
+                    contentHtml = `<div class="error-message">Error: ${diagram.error}</div>`;
+                } else if (diagram.category === 'svg' && diagram.file) {
+                    // SVG file - load in iframe
+                    contentHtml = `<iframe class="svg-frame" src="${diagram.file}"></iframe>`;
+                } else if (diagram.category === 'mermaid' && diagram.files) {
+                    // Mermaid - check for SVG or mmd file
+                    const svgFile = diagram.files.find(f => f.includes('.svg'));
+                    const mmdFile = diagram.files.find(f => f.includes('.mmd'));
+                    
+                    if (svgFile) {
+                        contentHtml = `<iframe class="svg-frame" src="${svgFile}"></iframe>`;
+                    } else if (mmdFile) {
+                        // Load and render mermaid code
+                        contentHtml = `<div class="mermaid-container" id="mermaid-${index}">
+                            <div class="loading">Loading Mermaid diagram...</div>
+                        </div>`;
+                        // Load mermaid file after DOM is ready
+                        setTimeout(() => loadMermaidFile(mmdFile, index), 100);
+                    }
+                } else {
+                    contentHtml = '<div class="error-message">No content available</div>';
+                }
+                
+                card.innerHTML = `
+                    <div class="diagram-header">
+                        <div class="diagram-title">
+                            <span class="diagram-number">#${index + 1}</span>
+                            <span>${diagram.type.replace(/_/g, ' ').toUpperCase()}</span>
+                        </div>
+                        <span class="badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                    <div class="diagram-content">
+                        ${contentHtml}
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        async function loadMermaidFile(filepath, index) {
+            try {
+                const response = await fetch(filepath);
+                const mermaidCode = await response.text();
+                
+                const container = document.getElementById(`mermaid-${index}`);
+                if (container) {
+                    container.innerHTML = mermaidCode;
+                    mermaid.run({ nodes: [container] });
+                }
+            } catch (error) {
+                console.error('Error loading Mermaid file:', error);
+                const container = document.getElementById(`mermaid-${index}`);
+                if (container) {
+                    container.innerHTML = '<div class="error-message">Failed to load Mermaid diagram</div>';
+                }
+            }
+        }
+
+        function displayDiagram(index) {
+            if (showingAll) return;
+            
+            currentIndex = index;
+            
+            // Hide all cards
+            document.querySelectorAll('.diagram-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Show selected card
+            const card = document.getElementById(`diagram-${index}`);
+            if (card) {
+                card.classList.add('active');
+            }
+            
+            // Update navigation
+            document.getElementById('currentPage').textContent = index + 1;
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === diagramsData.length - 1;
+        }
+
+        function changePage(direction) {
+            if (showingAll) return;
+            
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < diagramsData.length) {
+                displayDiagram(newIndex);
+            }
+        }
+
+        function showAll() {
+            showingAll = true;
+            document.querySelectorAll('.diagram-card').forEach(card => {
+                card.classList.add('active');
+            });
+            document.getElementById('prevBtn').disabled = true;
+            document.getElementById('nextBtn').disabled = true;
+        }
+
+        function showOne() {
+            showingAll = false;
+            displayDiagram(currentIndex);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    changePage(-1);
+                    break;
+                case 'ArrowRight':
+                    changePage(1);
+                    break;
+                case 'a':
+                case 'A':
+                    showAll();
+                    break;
+                case 'o':
+                case 'O':
+                    showOne();
+                    break;
+            }
+        });
+
+        // Load diagrams on page load
+        loadDiagrams();
+    </script>
+</body>
+</html>

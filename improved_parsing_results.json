@@ -1,0 +1,232 @@
+[
+  {
+    "diagram_type": "pyramid_3_level",
+    "success": true,
+    "text_elements": [
+      "Foundation Level",
+      "Core Level",
+      "Strategic goals at top. Tactical initiatives in middle. Operational tasks at bottom."
+    ],
+    "expected_parts": 3,
+    "actual_parts": 3,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 3-Level Pyramid Template - 25% Larger (Proportionally Scaled) with Light Colors -->\n  \n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Pyramid geometry - 25% proportionally larger:\n    Original: 800x600, pyramid base 400px, height 305px\n    New: 1000x750, pyramid base 500px, height 381px (all \u00d7 1.25)\n    \n    - Apex: (500, 188) - was (400, 150)\n    - Base: f"
+  },
+  {
+    "diagram_type": "pyramid_4_level",
+    "success": true,
+    "text_elements": [
+      "Foundation",
+      "Development",
+      "Strategy",
+      "Vision. Strategy. Tactics. Operations.",
+      "4-Level Structure"
+    ],
+    "expected_parts": 4,
+    "actual_parts": 5,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 4-Level Pyramid Template - Consistent Angles with Gaps -->\n  <defs>\n    <!-- Gradients for each level -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"1000\" height=\"750\" fil"
+  },
+  {
+    "diagram_type": "pyramid_5_level",
+    "success": true,
+    "text_elements": [
+      "Foundation",
+      "Implementation",
+      "Planning",
+      "Strategy",
+      "CEO level. VP level. Director level. Manager level. Individual contributors.",
+      "5-Level Structure"
+    ],
+    "expected_parts": 5,
+    "actual_parts": 6,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 750\" width=\"1000\" height=\"750\">\n  <!-- 5-Level Pyramid Template - Consistent Angles with Gaps -->\n  <defs>\n    <!-- Gradients for each level -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"1000\" height"
+  },
+  {
+    "diagram_type": "cycle_3_step",
+    "success": true,
+    "text_elements": [
+      "Plan phase. Execute phase. Review phase.",
+      "Step 2",
+      "Step 3"
+    ],
+    "expected_parts": 3,
+    "actual_parts": 3,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <marker id=\"arrow\" marke"
+  },
+  {
+    "diagram_type": "cycle_4_step",
+    "success": true,
+    "text_elements": [
+      "Plan",
+      "Execute",
+      "Review",
+      "Improve"
+    ],
+    "expected_parts": 4,
+    "actual_parts": 4,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 4-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <marker id=\"ar"
+  },
+  {
+    "diagram_type": "cycle_5_step",
+    "success": true,
+    "text_elements": [
+      "Define. Measure. Analyze. Improve. Control.",
+      "Measure",
+      "Analyze",
+      "Improve",
+      "Control"
+    ],
+    "expected_parts": 5,
+    "actual_parts": 5,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Step Cycle Template - Circular Path with Overlaid Boxes -->\n  <defs>\n    <!-- Gradients for each step -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n    \n    <!-- Small arrow marker for entry points -->\n    <mar"
+  },
+  {
+    "diagram_type": "venn_2_circle",
+    "success": true,
+    "text_elements": [
+      "Product features. Customer needs.",
+      "A \u2229 B",
+      "Set B"
+    ],
+    "expected_parts": 2,
+    "actual_parts": 3,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 2-Circle Venn Diagram Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Left Circle -->\n  <circle id=\"left_circle_fill\" cx=\"320\" cy=\"300\" r=\"150\" \n          fill=\"#0a59da\" fill-opa"
+  },
+  {
+    "diagram_type": "venn_3_circle",
+    "success": true,
+    "text_elements": [
+      "Technology. Business. Design.",
+      "Set B",
+      "Set C",
+      "A\u2229B\u2229C",
+      "3-Set Relationship"
+    ],
+    "expected_parts": 3,
+    "actual_parts": 5,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Circle Venn Diagram Template -->\n  <defs>\n    <!-- Semi-transparent fills for overlapping circles -->\n    \n    \n    \n    \n    \n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Three overlapping circles forming Venn diagram -->\n  <!-- Circle 1 (Top-Left) - Blue -->\n  <circle id=\"circle_1_fill\" cx=\"340\" cy=\"280\" r=\"120\" \n          fill=\"#3a81f6\" stroke=\"#3a"
+  },
+  {
+    "diagram_type": "honeycomb_3",
+    "success": true,
+    "text_elements": [
+      "Core service. Support system. Infrastructure.",
+      "Cell 2",
+      "Cell 3"
+    ],
+    "expected_parts": 3,
+    "actual_parts": 3,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Cell Honeycomb Template in C-Shape -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Honeycomb geometry in C-shape:\n    - Radius R = 57.5 (matching honeycomb_7)\n    - Gap = 4px betwe"
+  },
+  {
+    "diagram_type": "honeycomb_5",
+    "success": true,
+    "text_elements": [
+      "Sales. Marketing. Product. Engineering. Operations.",
+      "Cell 2",
+      "Cell 3",
+      "Cell 4",
+      "Cell 5"
+    ],
+    "expected_parts": 5,
+    "actual_parts": 5,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 5-Cell Honeycomb Template with Edge-Sharing Layout -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- \n    Honeycomb geometry with edge-sharing:\n    - Radius R = 57.5 (matching honeycomb_7)\n"
+  },
+  {
+    "diagram_type": "matrix_2x2",
+    "success": true,
+    "text_elements": [
+      "High impact high effort. High impact low effort. Low impact high effort. Low impact low effort.",
+      "Low / High",
+      "Low / Low",
+      "High / Low"
+    ],
+    "expected_parts": 4,
+    "actual_parts": 4,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 2x2 Matrix Template -->\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Grid Lines -->\n  <line x1=\"150\" y1=\"300\" x2=\"650\" y2=\"300\" stroke=\"#f9cc83\" stroke-width=\"2\"/>\n  <line x1=\"400\" y1=\"150\" x2=\"400\" y2=\"450\" stroke=\"#f9cc83\" stroke-width=\"2\"/>\n  \n  <!-- Axis Arrows -->\n  <path d=\"M 150 300 L 650 300 L 640 295 M 650 300 L 640 305\" \n        stroke=\"#7d7e7f\" stroke-"
+  },
+  {
+    "diagram_type": "hub_spoke_4",
+    "success": true,
+    "text_elements": [
+      "Central platform. Mobile app. Web app. API.ized Network Architecture",
+      "Node 1",
+      "Line 2",
+      "Node 2",
+      "Line 2",
+      "Node 3",
+      "Line 2",
+      "Node 4",
+      "Line 2",
+      "Central platform. Mobile app. Web app. API.",
+      "Hub"
+    ],
+    "expected_parts": 4,
+    "actual_parts": 11,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Enhanced Hub & Spoke Template with 4 Nodes -->\n  <defs>\n    <!-- Gradients for richer visual appearance -->\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    <!-- Enhanced shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2\"/>\n      <feOffset dx=\"0\" dy=\"3\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#00"
+  },
+  {
+    "diagram_type": "funnel_3_stage",
+    "success": true,
+    "text_elements": [
+      "Awareness",
+      "Consideration",
+      "Conversion",
+      "3-Stage Conversion Process"
+    ],
+    "expected_parts": 3,
+    "actual_parts": 4,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Stage Funnel Template -->\n  <defs>\n    <!-- Gradients for each stage -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"3\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Awareness (Top - Wid"
+  },
+  {
+    "diagram_type": "process_flow_3",
+    "success": true,
+    "text_elements": [
+      "Input data. Process information. Output results.",
+      "Step 1",
+      "Process",
+      "Step 2",
+      "Output",
+      "Step 3",
+      "3-Step Sequential Process"
+    ],
+    "expected_parts": 3,
+    "actual_parts": 7,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- 3-Step Process Flow Template -->\n  <defs>\n    <!-- Gradients for boxes -->\n    \n    \n    \n    \n    \n    \n    <!-- Shadow filter -->\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feGaussianBlur in=\"SourceAlpha\" stdDeviation=\"2\"/>\n      <feOffset dx=\"0\" dy=\"2\" result=\"offsetblur\"/>\n      <feFlood flood-color=\"#000000\" flood-opacity=\"0.15\"/>\n      <feComposite in2=\"offsetblu"
+  },
+  {
+    "diagram_type": "timeline_horizontal",
+    "success": true,
+    "text_elements": [
+      "Q1 2024",
+      "Project Start",
+      "Q2 2024",
+      "Phase 1",
+      "Q3 2024",
+      "Phase 2",
+      "Q4 2024",
+      "Beta Launch",
+      "Q1 2025",
+      "Full Launch",
+      "Q2 2025",
+      "Scale"
+    ],
+    "expected_parts": 4,
+    "actual_parts": 12,
+    "properly_distributed": true,
+    "svg_snippet": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 600\" width=\"800\" height=\"600\">\n  <!-- Horizontal Timeline Template -->\n  <defs>\n    <filter id=\"shadow\" x=\"-50%\" y=\"-50%\" width=\"200%\" height=\"200%\">\n      <feDropShadow dx=\"0\" dy=\"2\" stdDeviation=\"2\" flood-opacity=\"0.15\"/>\n    </filter>\n  </defs>\n  \n  <!-- Background -->\n  <rect width=\"800\" height=\"600\" fill=\"#ffffff\"/>\n  \n  <!-- Main timeline line -->\n  <line x1=\"100\" y1=\"300\" x2=\"700\" y2=\"300\" stroke=\"#b0b1b2\" stroke-width=\"3\"/>\n  \n  <!"
+  }
+]

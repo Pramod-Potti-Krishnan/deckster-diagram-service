@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <defs>
+        <script type="application/mermaid+json">{
+            "code": "quadrantChart\n    title Priority Matrix\n    x-axis \"Not Urgent\" --> \"Urgent\"\n    y-axis \"Not Important\" --> \"Important\"\n    quadrant-1 Urgent & Important\n    quadrant-2 Not Urgent & Important\n    quadrant-3 Not Urgent & Not Important\n    quadrant-4 Urgent & Not Important\n    Task A: [0.8, 0.9]\n    Task B: [0.2, 0.7]",
+            "theme": "default",
+            "themeVariables": {"primaryColor": "#3B82F6", "primaryTextColor": "#1F2937", "primaryBorderColor": null, "lineColor": null, "background": "#FFFFFF"}
+        }</script>
+    </defs>
+    <rect width="800" height="600" fill="#FFFFFF"/>
+    <text x="400" y="300" text-anchor="middle" fill="#1F2937">
+        [Mermaid Diagram - Client Render Required]
+    </text>
+</svg>
