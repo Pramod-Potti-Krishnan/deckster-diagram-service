@@ -15,33 +15,34 @@ import re
 
 WS_URL = "wss://deckster-diagram-service-production.up.railway.app/ws"
 
-# Test configurations
+# Test configurations - Updated with better examples
 SVG_TEMPLATES = [
-    ("pyramid_3_level", "Strategic goals at top. Tactical initiatives in middle. Operational tasks at bottom."),
-    ("pyramid_4_level", "Vision. Strategy. Tactics. Operations."),
-    ("pyramid_5_level", "CEO level. VP level. Director level. Manager level. Individual contributors."),
-    ("cycle_3_step", "Plan phase. Execute phase. Review phase."),
-    ("cycle_4_step", "Analyze. Design. Implement. Evaluate."),
-    ("cycle_5_step", "Define. Measure. Analyze. Improve. Control."),
-    ("venn_2_circle", "Product features. Customer needs."),
-    ("venn_3_circle", "Technology. Business. Design."),
-    ("honeycomb_3", "Core service. Support system. Infrastructure."),
-    ("honeycomb_5", "Sales. Marketing. Product. Engineering. Operations."),
-    ("honeycomb_7", "CEO. CTO. CFO. CMO. COO. CPO. CHRO."),
-    ("matrix_2x2", "High impact high effort. High impact low effort. Low impact high effort. Low impact low effort."),
-    ("matrix_3x3", "Top priority. High priority. Medium priority. Low priority. Minimal priority. No priority. Future consideration. Maybe later. Not now."),
-    ("swot_matrix", "Strengths: Strong brand, Good team. Weaknesses: Limited resources. Opportunities: New markets. Threats: Competition."),
-    ("hub_spoke_4", "Central platform. Mobile app. Web app. API. Database."),
-    ("hub_spoke_6", "Core system. Frontend. Backend. Database. Cache. Queue."),
-    ("funnel_3_stage", "Awareness: 1000 visitors. Consideration: 200 leads. Conversion: 50 customers."),
-    ("funnel_4_stage", "Visitors: 10000. Leads: 1000. Qualified: 200. Customers: 50."),
-    ("funnel_5_stage", "Awareness. Interest. Consideration. Intent. Purchase."),
-    ("process_flow_3", "Input data. Process information. Output results."),
-    ("process_flow_5", "Receive request. Validate data. Process logic. Store results. Send response."),
-    ("fishbone_4_bone", "Problem: Low sales. People factors. Process issues. Technology gaps. Market conditions."),
-    ("gears_3", "Engineering team. Product team. Design team."),
-    ("roadmap_quarterly_4", "Q1: Foundation. Q2: Features. Q3: Scale. Q4: Optimize."),
-    ("timeline_horizontal", "2024 Q1: Planning. 2024 Q2: Development. 2024 Q3: Testing. 2024 Q4: Launch."),
+    ("pyramid_3_level", "Strategic goals. Tactical initiatives. Operational tasks"),
+    ("pyramid_4_level", "Vision. Strategy. Tactics. Operations"),
+    ("pyramid_5_level", "CEO. VP level. Directors. Managers. Individual contributors"),
+    ("cycle_3_step", "Plan. Execute. Review"),
+    ("cycle_4_step", "Analyze. Design. Implement. Evaluate"),
+    ("cycle_5_step", "Define. Measure. Analyze. Improve. Control"),
+    ("venn_2_circle", "Product features. Customer needs"),
+    ("venn_3_circle", "Technology. Business. Design"),
+    ("honeycomb_3", "Core service. Support system. Infrastructure"),
+    ("honeycomb_5", "Sales. Marketing. Product. Engineering. Operations"),
+    ("honeycomb_7", "CEO. CTO. CFO. CMO. COO. CPO. CHRO"),
+    ("matrix_2x2", "Urgent & Important. Not Urgent & Important. Urgent & Not Important. Not Urgent & Not Important"),
+    ("matrix_3x3", "High priority. Medium priority. Low priority. Critical. Important. Nice to have. Urgent. Soon. Later"),
+    ("swot_matrix", "Strong brand, Good team, Market leader. Limited budget, Small team. New markets, Partnerships. Competition, Economic downturn"),
+    ("hub_spoke_4", "Central platform. Mobile app. Web app. API"),
+    ("hub_spoke_6", "Core system. Frontend. Backend. Database. Cache. Queue"),
+    ("funnel_3_stage", "Awareness. Consideration. Conversion"),
+    ("funnel_4_stage", "Visitors. Leads. Qualified. Customers"),
+    ("funnel_5_stage", "Awareness. Interest. Consideration. Intent. Purchase"),
+    ("process_flow_3", "Input. Process. Output"),
+    ("process_flow_5", "Receive. Validate. Process. Store. Respond"),
+    # Excluded poor quality templates
+    # ("fishbone_4_bone", ...),
+    # ("gears_3", ...),
+    # ("roadmap_quarterly_4", ...),
+    # ("timeline_horizontal", ...),
 ]
 
 MERMAID_DIAGRAMS = [
@@ -73,7 +74,8 @@ async def fetch_diagram(websocket, session_id, diagram_type, content, test_type)
             "output_format": "svg" if test_type == "svg" else "mermaid",
             "theme": {
                 "primaryColor": "#3B82F6",
-                "backgroundColor": "#FFFFFF"
+                "backgroundColor": "#FFFFFF",
+                "useSmartTheming": True
             }
         }
     }

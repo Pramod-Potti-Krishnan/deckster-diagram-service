@@ -71,8 +71,24 @@ class SVGAgent(BaseAgent):
     
     async def supports(self, diagram_type: str) -> bool:
         """Check if diagram type is supported"""
+        # Exclude poor quality templates
+        excluded_templates = [
+            'fishbone', 'fishbone_4_bone',
+            'gears', 'gears_3',
+            'roadmap', 'roadmap_quarterly_4',
+            'timeline_horizontal'
+        ]
+        
+        if diagram_type in excluded_templates:
+            return False
+        
         # Check with mapping first
         actual_template = self.TEMPLATE_NAME_MAPPING.get(diagram_type, diagram_type)
+        
+        # Also check if mapped template is excluded
+        if actual_template in excluded_templates:
+            return False
+            
         return actual_template in self.template_cache
     
     async def generate(self, request: DiagramRequest) -> Dict[str, Any]:
@@ -190,69 +206,34 @@ class SVGAgent(BaseAgent):
         content = request.content.strip()
         segments = []
         
-        # First, try common separators
-        if '. ' in content:
-            # Split by periods
-            parts = content.split('. ')
-            segments = [p.strip() for p in parts if p.strip()]
-        elif ', ' in content:
-            # Split by commas
-            parts = content.split(', ')
-            segments = [p.strip() for p in parts if p.strip()]
-        elif ' and ' in content.lower():
-            # Split by 'and'
-            parts = re.split(r'\s+and\s+', content, flags=re.IGNORECASE)
-            segments = [p.strip() for p in parts if p.strip()]
-        elif ' or ' in content.lower():
-            # Split by 'or'
-            parts = re.split(r'\s+or\s+', content, flags=re.IGNORECASE)
-            segments = [p.strip() for p in parts if p.strip()]
-        elif '\n' in content:
-            # Split by newlines
-            parts = content.split('\n')
-            segments = [p.strip() for p in parts if p.strip()]
-        else:
-            # No obvious separators, treat as single segment
-            segments = [content]
+        # Clean and parse content
+        segments = self._parse_content_segments(content)
+        
+        # Process segments to remove positional hints and clean punctuation
+        cleaned_segments = []
+        for seg in segments:
+            cleaned = self._clean_segment(seg, actual_template)
+            if cleaned:
+                cleaned_segments.append(cleaned)
+        segments = cleaned_segments
         
         # Adjust segment count to match expected
         if len(segments) < expected_count:
-            # Pad with empty strings or duplicate last segment
-            if segments:
-                # Intelligently expand: if we have fewer segments, try to split them further
-                expanded = []
-                for seg in segments:
-                    if len(expanded) >= expected_count:
-                        break
-                    # Try to split long segments
-                    if len(seg) > 20 and ' ' in seg:
-                        words = seg.split(' ')
-                        mid = len(words) // 2
-                        expanded.append(' '.join(words[:mid]))
-                        expanded.append(' '.join(words[mid:]))
-                    else:
-                        expanded.append(seg)
-                segments = expanded
-                
-                # Still not enough? Pad with variations
-                while len(segments) < expected_count:
-                    segments.append(f"{segments[-1]} ({len(segments)+1})")
-            else:
-                segments = [""] * expected_count
+            # For specific diagram types with known patterns
+            if 'venn' in actual_template.lower() and len(segments) == 2:
+                # For Venn diagrams, add intersection label
+                segments.append("Overlap")
+            elif 'matrix' in actual_template.lower() and len(segments) < 4:
+                # For matrix, we might have axis labels instead of cell content
+                # Keep as is for now
+                pass
+            
+            # Pad with empty strings if still not enough
+            while len(segments) < expected_count:
+                segments.append("")
         elif len(segments) > expected_count:
-            # Too many segments, combine some
-            if expected_count == 1:
-                segments = [' '.join(segments)]
-            else:
-                # Distribute segments evenly
-                combined = []
-                chunk_size = len(segments) / expected_count
-                for i in range(expected_count):
-                    start_idx = int(i * chunk_size)
-                    end_idx = int((i + 1) * chunk_size)
-                    chunk = segments[start_idx:end_idx]
-                    combined.append(' '.join(chunk))
-                segments = combined
+            # Too many segments, take first N
+            segments = segments[:expected_count]
         
         # Convert to data points format
         data_points = []
@@ -266,6 +247,124 @@ class SVGAgent(BaseAgent):
         logger.info(f"Parsed content into {len(data_points)} segments for {actual_template}: {[d['label'] for d in data_points]}")
         
         return data_points
+    
+    def _parse_content_segments(self, content: str) -> List[str]:
+        """Parse content into segments based on common separators"""
+        segments = []
+        
+        # Check for different separators in priority order
+        if '. ' in content:
+            # Split by periods with space (to avoid splitting decimals)
+            parts = content.split('. ')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif '\n' in content:
+            # Split by newlines
+            parts = content.split('\n')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ', ' in content:
+            # Split by commas
+            parts = content.split(', ')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif '; ' in content:
+            # Split by semicolons
+            parts = content.split('; ')
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ' and ' in content.lower():
+            # Split by 'and'
+            parts = re.split(r'\s+and\s+', content, flags=re.IGNORECASE)
+            segments = [p.strip() for p in parts if p.strip()]
+        elif ':' in content and not content.startswith('Problem:'):
+            # Split by colons (but not for fishbone problem statements)
+            parts = content.split(':')
+            # Check if it's key:value pairs or just colons as separators
+            if len(parts) > 2:
+                segments = [p.strip() for p in parts if p.strip()]
+        else:
+            # No obvious separators, treat as single segment
+            segments = [content]
+        
+        return segments
+    
+    def _clean_segment(self, segment: str, template_type: str) -> str:
+        """Clean a segment by removing positional hints and unnecessary punctuation"""
+        if not segment:
+            return ""
+        
+        # Remove positional hints
+        positional_patterns = [
+            r'\s+(at|in|on)\s+(top|bottom|middle|center|left|right|level)$',
+            r'^(top|bottom|middle|center|left|right)\s+level[:\s]+',
+            r'\s+level$',
+        ]
+        
+        cleaned = segment
+        for pattern in positional_patterns:
+            cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE)
+        
+        # Remove trailing punctuation (but keep it for abbreviations)
+        if cleaned and not cleaned[-1].isalpha() and cleaned[-1] in '.!?,;:':
+            # Check if it's an abbreviation (e.g., "Inc.", "Ltd.", "U.S.A.")
+            if not (len(cleaned) > 2 and cleaned[-2].isupper()):
+                cleaned = cleaned.rstrip('.!?,;:')
+        
+        # Special handling for specific patterns
+        if ':' in cleaned:
+            # For patterns like "Awareness: 1000 visitors", extract the key part
+            parts = cleaned.split(':', 1)
+            if len(parts) == 2:
+                key, value = parts
+                # For funnel stages, we might want just the key
+                if 'funnel' in template_type.lower() or 'process' in template_type.lower():
+                    cleaned = key.strip()
+                # For SWOT or other detailed diagrams, keep the full text
+                elif 'swot' in template_type.lower() or 'matrix' in template_type.lower():
+                    cleaned = cleaned  # Keep as is
+                else:
+                    cleaned = key.strip()
+        
+        return cleaned.strip()
+    
+    def _wrap_text_for_svg(self, text: str, max_width: int = 15) -> List[str]:
+        """
+        Wrap text into multiple lines for SVG display
+        
+        Args:
+            text: Text to wrap
+            max_width: Maximum characters per line
+            
+        Returns:
+            List of wrapped lines
+        """
+        if not text:
+            return []
+        
+        words = text.split()
+        lines = []
+        current_line = []
+        current_length = 0
+        
+        for word in words:
+            word_length = len(word)
+            # Check if adding this word would exceed max width
+            if current_length + word_length + len(current_line) > max_width:
+                # Start new line if we have content
+                if current_line:
+                    lines.append(' '.join(current_line))
+                    current_line = [word]
+                    current_length = word_length
+                else:
+                    # Single word is too long, add it anyway
+                    lines.append(word)
+                    current_length = 0
+            else:
+                current_line.append(word)
+                current_length += word_length
+        
+        # Add remaining words
+        if current_line:
+            lines.append(' '.join(current_line))
+        
+        return lines if lines else [text]
 
     def _apply_replacements(
         self,
@@ -301,38 +400,72 @@ class SVGAgent(BaseAgent):
             if i < len(data_points):
                 label = data_points[i].get("label", "")
             else:
-                # No more data points, use a descriptive default
-                label = f"{template_type.replace('_', ' ').title()} {i+1}"
+                # No more data points, use empty string
+                label = ""
             
             if placeholder and label:
                 # Count occurrences before replacement
                 occurrences = svg_content.count(placeholder)
                 
-                # Handle split text (e.g., "Central\nHub" in tspan elements)
+                # Check if text needs wrapping
+                max_width = self._get_max_text_width(template_type, i)
+                wrapped_lines = self._wrap_text_for_svg(label, max_width)
+                
+                # Handle different placeholder patterns
                 if "\n" in placeholder:
-                    # Replace both the split version and the continuous version
+                    # For multi-line placeholders, replace with wrapped text
                     parts = placeholder.split("\n")
-                    # Try replacing as continuous text first
-                    continuous = "".join(parts)
-                    if continuous in svg_content:
-                        svg_content = svg_content.replace(continuous, label)
-                        replaced_count += 1
-                    # Then try replacing parts separately if they appear on different lines
-                    for part in parts:
-                        if f">{part}<" in svg_content:
-                            # Only replace if it's the exact part (avoid partial replacements)
-                            svg_content = svg_content.replace(f">{part}<", f">{label}<")
+                    if len(parts) == 2 and "Line 2" in parts[1]:
+                        # This is a Hub & Spoke with Line 2 placeholder
+                        if len(wrapped_lines) > 1:
+                            # Replace both lines
+                            svg_content = svg_content.replace(parts[0], wrapped_lines[0])
+                            svg_content = svg_content.replace(parts[1], wrapped_lines[1] if len(wrapped_lines) > 1 else "")
+                        else:
+                            # Only one line needed, remove Line 2
+                            svg_content = svg_content.replace(parts[0], label)
+                            svg_content = svg_content.replace(f">{parts[1]}<", "><")  # Remove Line 2 text
+                    else:
+                        # Regular multi-part replacement
+                        continuous = "".join(parts)
+                        if continuous in svg_content:
+                            svg_content = svg_content.replace(continuous, label)
                             replaced_count += 1
                 else:
-                    # Simple replacement for non-split text - replace all occurrences
-                    if placeholder in svg_content:
+                    # Check if we need to handle text wrapping in SVG
+                    if len(wrapped_lines) > 1 and "<text" in svg_content:
+                        # Try to find and replace with tspan elements for wrapped text
+                        # This is complex and depends on SVG structure
+                        svg_content = svg_content.replace(placeholder, wrapped_lines[0])
+                    else:
+                        # Simple replacement
                         svg_content = svg_content.replace(placeholder, label)
-                        replaced_count += occurrences
-                        logger.debug(f"Replaced '{placeholder}' with '{label}' ({occurrences} occurrences)")
+                    replaced_count += occurrences
         
         logger.info(f"Replaced {replaced_count} placeholders in {template_type}")
         
         return svg_content
+    
+    def _get_max_text_width(self, template_type: str, position: int) -> int:
+        """Get maximum text width for a specific position in a template"""
+        # Define max widths for different diagram types
+        width_map = {
+            'pyramid': 20,
+            'funnel': 18,
+            'venn': 12,
+            'honeycomb': 15,
+            'hub_spoke': 15,
+            'cycle': 15,
+            'matrix': 20,
+            'process_flow': 15
+        }
+        
+        # Get base width for template type
+        for key in width_map:
+            if key in template_type.lower():
+                return width_map[key]
+        
+        return 20  # Default width
     
     def _remove_gradients(self, svg_content: str, theme) -> str:
         """Replace gradient fills with solid colors from theme"""
@@ -728,8 +861,8 @@ class SVGAgent(BaseAgent):
             ],
             
             # Hub & Spoke
-            "hub_spoke_4": ["Central", "Node 1", "Node 2", "Node 3", "Node 4"],
-            "hub_spoke_6": ["Central", "Node 1", "Node 2", "Node 3", "Node 4", "Node 5", "Node 6"],
+            "hub_spoke_4": ["Central Hub", "Node 1", "Node 2", "Node 3", "Node 4"],
+            "hub_spoke_6": ["Central Hub", "Node 1", "Node 2", "Node 3", "Node 4", "Node 5"],
             
             # Process Flows
             "process_flow_3": ["Input", "Process", "Output"],
@@ -741,10 +874,9 @@ class SVGAgent(BaseAgent):
             # Roadmap
             "roadmap_quarterly_4": ["Q1", "Q2", "Q3", "Q4"],
             
-            # Venn (with intersections)
-            "venn_2_circle": ["Set A", "Set B", "A ∩ B"],
-            "venn_3_circle": ["Set A", "Set B", "Set C", 
-                              "A ∩ B", "A ∩ C", "B ∩ C", "A∩B∩C"],
+            # Venn (simplified)
+            "venn_2_circle": ["Set A", "Set B", "Overlap"],
+            "venn_3_circle": ["Set A", "Set B", "Set C"],
             
             # Honeycombs - using the actual text from templates
             "honeycomb_3": ["Core", "Cell 2", "Cell 3"],

@@ -236,6 +236,10 @@ class MermaidAgent(BaseAgent):
     ) -> str:
         """Build comprehensive prompt for PydanticAI agent"""
         
+        # Special handling for kanban - convert to flowchart columns
+        if diagram_type == "kanban":
+            return self._build_kanban_prompt(content, theme)
+        
         # Get examples - prefer complete over basic
         examples = playbook_context.get("examples", {})
         complete_example = examples.get("complete", "")
@@ -298,6 +302,50 @@ Theme colors to consider:
 Generate ONLY the Mermaid code, starting with {diagram_start}:"""
         
         return prompt
+    
+    def _build_kanban_prompt(self, content: str, theme: Dict[str, Any]) -> str:
+        """Build special prompt for kanban boards using flowchart syntax"""
+        logger.info("🎯 Using special kanban prompt for flowchart conversion")
+        
+        return f"""Generate a Kanban board using Mermaid flowchart syntax.
+
+USER CONTENT:
+{content}
+
+CRITICAL: Kanban boards must use flowchart LR syntax with subgraphs for columns.
+
+EXACT FORMAT TO FOLLOW:
+```mermaid
+flowchart LR
+    subgraph todo["To Do"]
+        task1["Task description 1"]
+        task2["Task description 2"]
+    end
+    
+    subgraph inprogress["In Progress"]
+        task3["Task description 3"]
+        task4["Task description 4"]
+    end
+    
+    subgraph done["Done"]
+        task5["Task description 5"]
+        task6["Task description 6"]
+    end
+    
+    todo ~~~ inprogress
+    inprogress ~~~ done
+```
+
+RULES:
+1. MUST start with: flowchart LR
+2. Create subgraphs for each column (todo, inprogress, testing, done, etc.)
+3. Tasks are nodes inside subgraphs with format: taskN["Task description"]
+4. Use invisible links (~~~) to position columns horizontally
+5. Extract task names and states from the content
+6. Common columns: todo, inprogress, testing, review, done
+7. Each task needs a unique ID (task1, task2, etc.)
+
+Generate ONLY the Mermaid code, starting with flowchart LR:"""
     
     def _build_svg_response(
         self,
